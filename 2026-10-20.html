@@ -3,226 +3,292 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="color-scheme" content="dark light">
-<title>Brief du Matin · mardi 20 octobre 2026</title>
+<meta name="color-scheme" content="light">
+<title>Le Brief du Matin · Mardi 20 octobre 2026</title>
+<meta name="description" content="Qatar et Pakistan proposent un compromis pour relancer les discussions entre les États-Unis et l&#x27;Iran, ce qui fait reculer le pétrole.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;800;900&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&family=UnifrakturMaguntia&display=swap" rel="stylesheet">
 <style>
-:root{
-  --bg:#0e1116; --surface:#161b22; --surface-2:#1c222b; --border:#2a313c;
-  --text:#e8ecf1; --muted:#9aa4b2; --accent:#e0b062; --link:#8fbcff;
-  --up:#3fcf8e; --up-bg:rgba(63,207,142,.12); --down:#ff6b6b; --down-bg:rgba(255,107,107,.12);
-  --badge-co:#c9a7ff; --badge-co-bg:rgba(201,167,255,.12);
-  --badge-nc:#ffb347; --badge-nc-bg:rgba(255,179,71,.12);
-}
-@media (prefers-color-scheme: light){
-  :root{
-    --bg:#f6f4ef; --surface:#ffffff; --surface-2:#faf8f4; --border:#e3ded4;
-    --text:#1b1f24; --muted:#5d6672; --accent:#9a6a12; --link:#1f5fbf;
-    --up:#0f8a55; --up-bg:rgba(15,138,85,.10); --down:#c62f2f; --down-bg:rgba(198,47,47,.09);
-    --badge-co:#6b3fc0; --badge-co-bg:rgba(107,63,192,.09);
-    --badge-nc:#a35a00; --badge-nc-bg:rgba(163,90,0,.10);
-  }
-}
+:root{--paper:#f7f3ea;--paper2:#efe9dc;--ink:#151311;--ink2:#3b3631;--muted:#6f675c;--rule:#1b1815;--hair:#cfc6b4;--accent:#8e1b1b}
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--bg);color:var(--text);
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji";
-  font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
-.wrap{max-width:780px;margin:0 auto;padding:40px 22px 28px}
-header.masthead{padding-bottom:22px;margin-bottom:26px;border-bottom:1px solid var(--border)}
-.kicker{font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);font-weight:600;margin:0 0 6px}
-h1{font-size:2.3rem;line-height:1.15;margin:0;font-weight:750;letter-spacing:-.02em}
-.date{margin:8px 0 0;color:var(--muted);font-size:1rem}
-.date .sep{opacity:.5;margin:0 .45em}
-.essentiel{background:linear-gradient(135deg,var(--surface-2),var(--surface));border:1px solid var(--border);
-  border-left:4px solid var(--accent);border-radius:14px;padding:18px 22px 16px;margin:0 0 34px}
-.essentiel h2{margin:0 0 8px;font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
-.essentiel ul{margin:0;padding-left:1.15em}
-.essentiel li{margin:6px 0;font-weight:500}
-.essentiel li::marker{color:var(--accent)}
-section.theme{margin:0 0 38px}
-section.theme > h2{font-size:1.4rem;margin:0 0 14px;display:flex;align-items:center;gap:.5em;letter-spacing:-.01em}
-section.theme > h2 .emoji{font-size:1.25em;line-height:1}
-.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin:0 0 16px}
-.tile{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:10px 12px}
-.tile .label{font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:600}
-.tile .value{font-size:1.15rem;font-weight:700;font-variant-numeric:tabular-nums;margin-top:2px;white-space:nowrap}
-.tile .chg{display:inline-block;margin-top:4px;font-size:.8rem;font-weight:650;padding:1px 7px;border-radius:999px;font-variant-numeric:tabular-nums}
-.chg.up{color:var(--up);background:var(--up-bg)}
-.chg.down{color:var(--down);background:var(--down-bg)}
-.tiles-note{font-size:.78rem;color:var(--muted);margin:-8px 0 16px}
-.tiles-note a{color:var(--muted)}
-.card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:16px 18px;margin:0 0 12px}
-.card h3{margin:0 0 6px;font-size:1.05rem;line-height:1.35;font-weight:700}
-.card p{margin:0;color:var(--text)}
-.card .meta{margin-top:10px;display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;font-size:.82rem}
-.source{color:var(--muted)}
-.source a{color:var(--link);text-decoration:none;border-bottom:1px solid transparent}
-.source a:hover{border-bottom-color:var(--link)}
-.badge{display:inline-block;font-size:.7rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:2px 8px;border-radius:999px;white-space:nowrap}
-.badge.company{color:var(--badge-co);background:var(--badge-co-bg)}
-.badge.unconfirmed{color:var(--badge-nc);background:var(--badge-nc-bg)}
-footer{margin-top:10px;padding-top:16px;border-top:1px solid var(--border);color:var(--muted);font-size:.8rem;line-height:1.5}
-footer p{margin:4px 0}
-@media (max-width:520px){
-  body{font-size:16px}
-  .wrap{padding:26px 16px 22px}
-  h1{font-size:1.85rem}
-  .tiles{grid-template-columns:repeat(2,1fr)}
-  .card{padding:14px 15px}
-  .essentiel{padding:16px 16px 14px}
+body{margin:0;background:#e6e0d3;color:var(--ink);font-family:"Source Serif 4","Libre Baskerville",Georgia,"Times New Roman",serif;font-size:17px;line-height:1.55;font-optical-sizing:auto;-webkit-font-smoothing:antialiased}
+.page{max-width:1240px;margin:0 auto;background:var(--paper);padding:22px 40px 30px;box-shadow:0 0 0 1px #d8d0bf,0 10px 40px rgba(60,45,20,.12);
+ background-image:radial-gradient(rgba(120,95,50,.045) 1px,transparent 1px);background-size:3px 3px}
+a{color:var(--accent);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:2px}
+a:hover{text-decoration-thickness:2px}
+/* manchette */
+.topline{display:flex;justify-content:space-between;gap:12px;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink2);border-bottom:1px solid var(--rule);padding-bottom:6px}
+.masthead{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:20px;padding:14px 0 10px}
+.ear{border:1px solid var(--rule);padding:8px 10px;font-size:.74rem;line-height:1.35;max-width:210px;text-align:center}
+.ear b{display:block;font-family:"Playfair Display",Georgia,serif;font-size:.95rem;letter-spacing:.02em;margin-bottom:2px}
+.ear.r{justify-self:end}
+.nameplate{margin:0;font-family:"UnifrakturMaguntia","Playfair Display",Georgia,serif;font-weight:400;font-size:clamp(2.5rem,7.4vw,5.6rem);line-height:1;letter-spacing:.01em;text-align:center;white-space:nowrap}
+.dateline{display:flex;justify-content:space-between;align-items:center;gap:14px;border-top:3px double var(--rule);border-bottom:3px double var(--rule);padding:6px 2px;font-size:.84rem;font-variant:small-caps;letter-spacing:.06em}
+.dateline .d{font-weight:600}
+nav.sommaire{display:flex;flex-wrap:wrap;justify-content:center;gap:4px 0;margin:8px 0 0;font-size:.78rem;letter-spacing:.16em;text-transform:uppercase}
+nav.sommaire a{color:var(--ink);text-decoration:none;padding:0 14px;border-left:1px solid var(--hair)}
+nav.sommaire a:first-child{border-left:0}
+nav.sommaire a:hover{color:var(--accent)}
+/* une */
+.une{display:grid;grid-template-columns:minmax(0,2.15fr) minmax(0,1fr);gap:0;margin-top:18px;border-bottom:2px solid var(--rule);padding-bottom:20px}
+.une-main{padding-right:28px;border-right:1px solid var(--hair)}
+.une-side{padding-left:26px}
+.surtitre{font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);font-weight:700;margin:0 0 6px}
+.lead-head{font-family:"Playfair Display",Georgia,serif;font-weight:800;font-size:clamp(1.9rem,3.6vw,3.05rem);line-height:1.08;letter-spacing:-.012em;margin:0 0 12px}
+.lead-ref{font-size:.95rem;font-style:italic;color:var(--ink2);margin:0 0 4px}
+.lead-ref a{font-style:normal;font-weight:600}
+.une-sub{display:grid;grid-template-columns:1fr 1fr;gap:0;margin-top:18px;border-top:1px solid var(--rule)}
+.une-sub > div{padding:12px 18px 0 0}
+.une-sub > div + div{padding-left:18px;border-left:1px solid var(--hair)}
+.une-sub h3{font-family:"Playfair Display",Georgia,serif;font-size:1.32rem;line-height:1.2;margin:0 0 6px;font-weight:700}
+.une-sub .lead-ref{font-size:.85rem}
+.essentiel-label{font-variant:small-caps;letter-spacing:.08em;color:var(--muted);font-size:.85rem}
+/* cours */
+.cours{border:2px solid var(--rule);background:var(--paper2);padding:10px 12px 8px}
+.cours h2{font-family:"Playfair Display",Georgia,serif;font-size:1.1rem;text-align:center;margin:0 0 6px;padding-bottom:6px;border-bottom:3px double var(--rule);text-transform:uppercase;letter-spacing:.08em}
+.cours h4{margin:8px 0 2px;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--accent)}
+.cours table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums lining-nums;font-size:.88rem}
+.cours td{padding:4px 2px;border-bottom:1px dotted #a99f8c;vertical-align:baseline}
+.cours td.v{text-align:right;font-weight:600;white-space:nowrap}
+.cours td.c{text-align:right;white-space:nowrap;width:1%;padding-left:10px;font-size:.82rem}
+.c.up{color:var(--ink)} .c.down{color:var(--accent)}
+.cours .note{font-size:.72rem;line-height:1.4;color:var(--muted);margin:5px 0 4px;font-style:italic}
+.cours .note a{color:var(--ink2)}
+.cours .raw{font-size:.85rem}
+/* rubriques */
+.rubrique{margin-top:30px;padding-bottom:6px}
+.rubrique > header{display:flex;align-items:baseline;gap:12px;border-top:4px solid var(--rule);padding-top:6px;margin-bottom:14px;border-bottom:1px solid var(--rule);padding-bottom:6px}
+.rubrique > header h2{margin:0;font-family:"Playfair Display",Georgia,serif;font-weight:900;font-size:1.55rem;text-transform:uppercase;letter-spacing:.06em}
+.rubrique > header .em{filter:grayscale(1);opacity:.75;font-size:1.05rem}
+.rubrique > header .count{margin-left:auto;font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.rub-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1.6fr);gap:0}
+.rub-lead{padding-right:24px;border-right:1px solid var(--hair)}
+.rub-rest{padding-left:24px;column-count:2;column-gap:24px;column-rule:1px solid var(--hair)}
+.rub-rest .story{break-inside:avoid;-webkit-column-break-inside:avoid;padding-bottom:12px;margin-bottom:12px;border-bottom:1px solid var(--hair)}
+.rub-rest .story:last-child{border-bottom:0}
+.rub-rest .story p{text-align:left;hyphens:manual}
+.story h3{font-family:"Playfair Display",Georgia,serif;font-weight:700;font-size:1.2rem;line-height:1.2;margin:0 0 6px}
+.lead-story h3{font-size:1.75rem;line-height:1.12;font-weight:800;margin-bottom:10px}
+.story p{margin:0 0 8px;text-align:justify;hyphens:auto;-webkit-hyphens:auto}
+.lead-story p{font-size:1.03rem}
+p.dropcap::first-letter{float:left;font-family:"Playfair Display",Georgia,serif;font-weight:800;font-size:3.6em;line-height:.82;padding:5px 6px 0 0;color:var(--ink)}
+.story p.source{font-size:.8rem;text-align:left;color:var(--muted);margin-top:6px;font-style:italic;hyphens:none}
+.story p.source a{font-style:normal;font-weight:600;word-break:break-word}
+.badges{margin:0 0 5px;display:flex;flex-wrap:wrap;gap:6px}
+.badge{display:inline-block;font-size:.66rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:1px 6px;border:1px solid var(--ink2);color:var(--ink2);line-height:1.5}
+.badge.unconfirmed{border-color:var(--accent);color:var(--accent);background:rgba(142,27,27,.05)}
+.badge.unconfirmed::before{content:"⚠ ";letter-spacing:0}
+.extra{font-size:.9rem}
+.chart{margin:14px 0 0;padding:10px 0 0;border-top:1px solid var(--rule)}
+.chart svg{width:100%;height:auto;display:block;font-family:"Source Serif 4",Georgia,serif}
+.chart .lab{font-size:11.5px;fill:var(--ink2);font-variant:small-caps;letter-spacing:.04em}
+.chart .val{font-size:11.5px;font-weight:700;font-variant-numeric:tabular-nums}
+.chart .val.up{fill:var(--ink)} .chart .val.down{fill:var(--accent)}
+.chart rect.up{fill:var(--ink)} .chart rect.down{fill:var(--accent)}
+.chart .axis{stroke:var(--muted);stroke-width:1;stroke-dasharray:2 2}
+.chart figcaption{font-size:.72rem;color:var(--muted);font-style:italic;margin-top:4px;border-top:1px solid var(--hair);padding-top:3px}
+.extras-top{margin-top:20px;border-top:1px solid var(--rule);padding-top:10px}
+footer.colophon{margin-top:22px;border-top:3px double var(--rule);padding-top:10px;font-size:.8rem;color:var(--ink2);line-height:1.5;column-count:2;column-gap:30px;column-rule:1px solid var(--hair)}
+footer.colophon p{margin:0 0 6px}
+footer.colophon .orig{font-style:italic}
+.fin{text-align:center;margin-top:14px;font-family:"Playfair Display",Georgia,serif;letter-spacing:.5em;color:var(--muted)}
+@media (max-width:980px){
+ .page{padding:18px 22px 24px}
+ .une{grid-template-columns:1fr}
+ .une-main{padding-right:0;border-right:0}
+ .une-side{padding-left:0;margin-top:20px}
+ .rub-grid{grid-template-columns:1fr}
+ .rub-lead{padding-right:0;border-right:0;border-bottom:1px solid var(--hair);padding-bottom:14px;margin-bottom:14px}
+ .rub-rest{padding-left:0}
+ .masthead{grid-template-columns:1fr}
+ .ear{display:none}
 }
-.tiles.six{grid-template-columns:repeat(3,1fr)}
-@media (max-width:520px){.tiles.six{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:640px){
+ body{font-size:16.5px;background:var(--paper)}
+ .page{padding:12px 15px 20px;box-shadow:none}
+ .topline{font-size:.62rem;letter-spacing:.1em}
+ .topline .hide-m{display:none}
+ .masthead{padding:10px 0 6px}
+ .nameplate{font-size:clamp(1.9rem,10.6vw,3.2rem);white-space:normal}
+ .dateline{flex-direction:column;gap:0;text-align:center;font-size:.8rem}
+ nav.sommaire a{padding:0 9px;font-size:.72rem}
+ .une-sub{grid-template-columns:1fr}
+ .une-sub > div + div{padding-left:0;border-left:0;border-top:1px solid var(--hair);margin-top:12px}
+ .une-sub > div{padding-right:0}
+ .rub-rest{column-count:1}
+ .rubrique > header h2{font-size:1.3rem}
+ .lead-story h3{font-size:1.5rem}
+ .story p{text-align:left}
+ footer.colophon{column-count:1}
+}
+@media print{body{background:#fff}.page{box-shadow:none;background:#fff}}
 </style>
 </head>
 <body>
-<main class="wrap">
+<div class="page">
+<div class="topline"><span>Édition du matin</span><span class="hide-m">Crypto · IA · Macro · Géopolitique</span><span>N° 293</span></div>
 <header class="masthead">
-  <p class="kicker">Crypto · IA · Macro · Géopolitique</p>
-  <h1>Brief du Matin</h1>
-  <p class="date">Mardi 20 octobre 2026<span class="sep">·</span>Les dernières 24 heures</p>
+  <div class="ear"><b>Édition du matin</b>Les dernières 24 heures</div>
+  <h1 class="nameplate">Le Brief du Matin</h1>
+  <div class="ear r"><b>Au sommaire</b>Crypto · IA · Macro · Géopolitique</div>
 </header>
+<div class="dateline"><span class="d">Mardi 20 octobre 2026</span><span>Les dernières 24 heures</span><span>Quotidien numérique · Paris</span></div>
 
-<aside class="essentiel" aria-label="L'essentiel">
-  <h2>L'essentiel</h2>
-  <ul>
-    <li>Qatar et Pakistan proposent un compromis pour relancer les discussions entre les États-Unis et l'Iran, ce qui fait reculer le pétrole.</li>
-    <li>Trump se dit prêt à un sommet avec Poutine et Xi et estime qu'« un autre » que Zelensky devrait négocier pour l'Ukraine.</li>
-    <li>SpaceX publie un trimestre où l'IA pèse plus de la moitié de ses revenus.</li>
-  </ul>
-</aside>
-
-<section class="theme" id="crypto">
-  <h2><span class="emoji">₿</span> Crypto</h2>
-  <div class="tiles">
-    <div class="tile"><div class="label">BTC</div><div class="value">82 822 $</div><span class="chg up">+1,1 %</span></div>
-    <div class="tile"><div class="label">ETH</div><div class="value">2 456 $</div><span class="chg up">+2,3 %</span></div>
-  </div>
-  <p class="tiles-note">Relevés en séance vers 23h30–23h55 (heure de Paris), sur 24 h. Source : <a href="https://finance.yahoo.com/quote/BTC-USD/history/">Yahoo Finance ↗</a></p>
-
-  <article class="card">
-    <h3>Le bitcoin remonte au-dessus de 82 000 $</h3>
-    <p>Le BTC s'échangeait vers 82 822 $ (+1,1 %) à 23h30, après un pic à 83 335 $ en séance. L'ETH était à environ 2 456 $ (+2,3 %) vers 23h55. La hausse a lieu le même jour que la reprise de l'appétit pour le risque sur les marchés.</p>
-    <div class="meta"><span class="source">Source : <a href="https://finance.yahoo.com/quote/BTC-USD/history/">Yahoo Finance ↗</a> · <a href="https://news.bitcoin.com/market-updates/bitcoin-price-hits-83k-shorts-suffer-45m-wipeouts/">Bitcoin.com ↗</a></span></div>
-  </article>
-
-  <article class="card">
-    <h3>La Suisse autorise son premier ETF bitcoin « spot » ouvert aux particuliers</h3>
-    <p>La FINMA a approuvé un fonds de droit suisse qui détient directement des bitcoins, avec une dérogation aux règles de diversification. Elle prévient que l'investissement « reste très risqué ». Selon son émetteur, BIT Asset Management, le fonds BBIT doit être coté sur SIX en novembre.</p>
-    <div class="meta"><span class="source">Source : <a href="https://www.finma.ch/news/2026/10/20261020-mm-finma-bitcoin-etf/">FINMA ↗</a> · <a href="https://www.swissinfo.ch/eng/finance-banking/finma-green-light-for-switzerlands-first-bitcoin-etf/92244786">Swissinfo ↗</a></span></div>
-  </article>
-
-  <article class="card">
-    <h3>Les ETF bitcoin américains ont eu leur meilleure journée depuis un mois</h3>
-    <p>Lundi, ils ont collecté 526,6 M$ nets, entièrement grâce à l'IBIT de BlackRock (+665,2 M$). Les ETF ether ont perdu 103,3 M$, leur quatrième séance de sorties d'affilée.</p>
-    <div class="meta"><span class="source">Source : <a href="https://www.coindesk.com/business/2026/10/20/bitcoin-etfs-just-saw-their-biggest-day-in-a-month-thanks-entirely-to-blackrock">CoinDesk ↗</a></span></div>
-  </article>
-
-  <article class="card">
-    <h3>Strategy continue d'acheter</h3>
-    <p>D'après son dépôt auprès de la SEC, l'entreprise a acquis 267 BTC pour environ 22,1 M$ et détient maintenant 848 517 BTC. Elle a aussi porté son programme de rachat de titres de crédit à 3 Md$.</p>
-    <div class="meta"><span class="badge company">Chiffres de l'entreprise</span><span class="source">Source : <a href="https://www.theblock.co/news/business/2026-10-19-we-found-room-for-more-orange-michael-saylors-strategy-buys-more-bitcoin-418895">The Block ↗</a></span></div>
-  </article>
-</section>
-
-<section class="theme" id="ia">
-  <h2><span class="emoji">🤖</span> IA</h2>
-
-  <article class="card">
-    <h3>SpaceX : l'IA représente désormais plus de la moitié des revenus</h3>
-    <p>Au troisième trimestre, le chiffre d'affaires atteint 14,6 Md$ (+161 % sur un an), dont environ 7,5 Md$ pour la division « Super Intelligence ». Le groupe annonce 35 à 40 Md$ d'investissements au quatrième trimestre.</p>
-    <div class="meta"><span class="badge company">Chiffres de l'entreprise</span><span class="source">Source : <a href="https://techcrunch.com/2026/10/20/spacexs-ai-business-is-beating-expectations/">TechCrunch ↗</a></span></div>
-  </article>
-
-  <article class="card">
-    <h3>Anthropic discute d'un second contrat d'environ 45 Md$ avec Nscale</h3>
-    <p>Il porterait sur un deuxième data center de 460 MW en Virginie-Occidentale, selon Bloomberg puis une source de CNBC ; Anthropic n'a pas commenté. Ces discussions ont lieu alors que les « neoclouds » comme CoreWeave et Nebius chutent en Bourse à cause de leur endettement.</p>
-    <div class="meta"><span class="badge unconfirmed">Non confirmé</span><span class="source">Source : <a href="https://www.cnbc.com/2026/10/20/anthropic-nscale-data-center-deal.html">CNBC ↗</a></span></div>
-  </article>
-
-  <article class="card">
-    <h3>OpenAI met en avant ses progrès sur le COBOL</h3>
-    <p>Selon OpenAI, GPT-6.1 Sol réussit 86,6 % à 97,9 % de ses tests de migration COBOL, contre 5,4 % pour le modèle précédent, sur ses propres benchmarks. L'enjeu est la modernisation des systèmes bancaires anciens.</p>
-    <div class="meta"><span class="badge company">Chiffres de l'entreprise</span><span class="source">Source : <a href="https://www.engadget.com/2291457/openai-says-its-models-can-translate-cobol/">Engadget ↗</a></span></div>
-  </article>
-
-  <article class="card">
-    <h3>Tenstorrent lève 1,5 Md$</h3>
-    <p>La start-up de puces d'inférence est désormais valorisée 6,2 Md$, plus du double de sa valorisation précédente. Les investisseurs continuent donc de financer des alternatives à Nvidia.</p>
-    <div class="meta"><span class="source">Source : <a href="https://techcrunch.com/2026/10/19/tenstorrent-hits-6-2b-valuation-to-scale-open-weight-ai-chips/">TechCrunch ↗</a></span></div>
-  </article>
-</section>
-
-<section class="theme" id="macro">
-  <h2><span class="emoji">📈</span> Macro</h2>
-  <div class="tiles six">
-    <div class="tile"><div class="label">Dow Jones</div><div class="value">+1,0 %</div><span class="chg up">▲ hausse</span></div>
-    <div class="tile"><div class="label">S&amp;P 500</div><div class="value">+0,3 %</div><span class="chg up">▲ hausse</span></div>
-    <div class="tile"><div class="label">Nasdaq</div><div class="value">−0,02 %</div><span class="chg down">▼ baisse</span></div>
-    <div class="tile"><div class="label">Brent</div><div class="value">108,79 $</div><span class="chg down">−0,7 %</span></div>
-    <div class="tile"><div class="label">WTI (nov.)</div><div class="value">101,79 $</div><span class="chg down">−1,8 %</span></div>
-    <div class="tile"><div class="label">10 ans US</div><div class="value">5,115 %</div><span class="chg down">≈ −2 pb</span></div>
-  </div>
-  <p class="tiles-note">Clôtures du 20 octobre. Sources : <a href="https://finance.yahoo.com/markets/stocks/articles/markets-news-oct-20-2026-103252254.html">Yahoo Finance ↗</a> · <a href="https://www.cnbc.com/2026/10/20/oil-price-wti-brent-crude.html">CNBC ↗</a></p>
-
-  <article class="card">
-    <h3>Wall Street termine en ordre dispersé</h3>
-    <p>Le Dow Jones gagne 1 %, le S&amp;P 500 0,3 % et le Nasdaq finit quasi stable (−0,02 %). De bons résultats d'entreprises (3M, Equifax, Hasbro) compensent les inquiétudes sur le financement de l'IA.</p>
-    <div class="meta"><span class="source">Source : <a href="https://finance.yahoo.com/markets/stocks/articles/markets-news-oct-20-2026-103252254.html">Yahoo Finance/Investopedia ↗</a></span></div>
-  </article>
-
-  <article class="card">
-    <h3>Le pétrole recule après un plus haut de cinq mois</h3>
-    <p>Le Brent a clôturé à 108,79 $ (−0,7 %) après avoir touché 111,99 $ en séance. Le WTI de novembre, arrivé à échéance, finit à 101,79 $ (−1,8 %). Les espoirs de diplomatie avec l'Iran ont pesé sur les cours.</p>
-    <div class="meta"><span class="source">Source : <a href="https://www.cnbc.com/2026/10/20/oil-price-wti-brent-crude.html">CNBC ↗</a></span></div>
-  </article>
-
-  <article class="card">
-    <h3>Les taux se détendent légèrement</h3>
-    <p>Le rendement à 10 ans américain baisse à environ 5,115 %, après des mises en chantier de logements plus faibles que prévu (1,22 million contre 1,3 million attendu). Selon le CME FedWatch, les marchés voient 82 % de chances que la Fed laisse ses taux inchangés la semaine prochaine.</p>
-    <div class="meta"><span class="source">Source : <a href="https://www.cnbc.com/2026/10/20/us-treasury-yields-investors-economy.html">CNBC ↗</a></span></div>
-  </article>
-
-  <article class="card">
-    <h3>Netflix déçoit sur ses prévisions</h3>
-    <p>Le titre perd environ 5 % après la clôture. Le bénéfice par action du troisième trimestre (0,87 $) dépasse les attentes, mais la prévision de chiffre d'affaires du quatrième trimestre (13,44 Md$) est sous le consensus.</p>
-    <div class="meta"><span class="source">Source : <a href="https://www.cnbc.com/2026/10/20/netflix-nflx-earnings-q3-2026.html">CNBC ↗</a></span></div>
-  </article>
-</section>
-
-<section class="theme" id="geopolitique">
-  <h2><span class="emoji">🌍</span> Géopolitique</h2>
-
-  <article class="card">
-    <h3>Iran : une médiation Qatar-Pakistan, un accueil prudent</h3>
-    <p>Selon Al-Araby Al-Jadeed, qui cite des sources anonymes, l'Iran toucherait les intérêts de 6 Md$ d'avoirs gelés au Qatar en échange d'inspections discrètes de l'AIEA. À Téhéran, le responsable de la sécurité Mohsen Rezaï a répondu qu'il n'y aurait aucune négociation sans gestes de confiance préalables de Washington.</p>
-    <div class="meta"><span class="badge unconfirmed">Non confirmé</span><span class="source">Source : <a href="https://www.iranintl.com/en/202610201298">Iran International ↗</a></span></div>
-  </article>
-
-  <article class="card">
-    <h3>Trump veut voir quelqu'un d'autre que Zelensky négocier pour l'Ukraine</h3>
-    <p>Il se dit prêt à rencontrer Poutine et Xi en marge du sommet de l'APEC à Shenzhen (18-19 novembre) et affirme que « la Russie n'a pas fait grand-chose » en Ukraine. Kiev rejette l'idée d'un sommet sans elle, et le Kremlin dit qu'aucune proposition concrète n'a été discutée.</p>
-    <div class="meta"><span class="source">Source : <a href="https://www.euronews.com/2026/10/20/trump-says-hes-ready-to-meet-putin-and-xi-in-china">Euronews ↗</a></span></div>
-  </article>
-
-  <article class="card">
-    <h3>Une frappe de drone russe tue six civils dans un parc près de Kharkiv</h3>
-    <p>À Nova Vodolaha, dimanche 19 octobre, deux enfants font partie des morts et sept enfants figurent parmi les 15 blessés.</p>
-    <div class="meta"><span class="source">Source : <a href="https://www.pravda.com.ua/eng/news/2026/10/19/8058772/">Ukrainska Pravda ↗</a></span></div>
-  </article>
-
-  <article class="card">
-    <h3>Le Golfe reste sous tension</h3>
-    <p>Les Houthis affirment avoir attaqué des sites énergétiques et des aéroports saoudiens, dont Aramco à Yanbu et l'aéroport de Riyad ; Riyad n'a pas confirmé. Selon Kpler, au moins 18 navires ont été attaqués en deux semaines, ce qui maintient une prime de risque sur le pétrole.</p>
-    <div class="meta"><span class="badge unconfirmed">Non confirmé</span><span class="source">Source : <a href="https://live.euronext.com/en/financial-news/brent-slips-iran-president-discusses-mediation-pakistan-army-chief">Reuters via Euronext ↗</a></span></div>
-  </article>
-</section>
-
-<footer>
-  <p>Généré le mercredi 21 octobre 2026 à 00h05 (heure de Paris). Faits repérés via X puis recoupés sur le web ; liens vérifiés.</p>
-  <p>Les prix crypto sont des relevés en séance, pas des clôtures. Les badges signalent les chiffres publiés par les entreprises elles-mêmes et les informations non confirmées officiellement.</p>
-</footer>
-
-</main>
+<nav class="sommaire" aria-label="Rubriques"><a href="#crypto">Crypto</a><a href="#ia">IA</a><a href="#macro">Macro</a><a href="#geopolitique">Géopolitique</a></nav>
+<section class="une" aria-label="À la une">
+<div class="une-main">
+<p class="surtitre">À la une · <span class="essentiel-label">L'essentiel</span></p>
+<h2 class="lead-head">Qatar et Pakistan proposent un compromis pour relancer les discussions entre les États-Unis et l'Iran, ce qui fait reculer le pétrole.</h2>
+<p class="lead-ref">Lire en rubrique Géopolitique : <a href="#geopolitique-1">Iran : une médiation Qatar-Pakistan, un accueil prudent →</a></p>
+<div class="une-sub">
+<div><h3>Trump se dit prêt à un sommet avec Poutine et Xi et estime qu'« un autre » que Zelensky devrait négocier pour l'Ukraine.</h3><p class="lead-ref">Lire en rubrique Géopolitique : <a href="#geopolitique-2">Trump veut voir quelqu'un d'autre que Zelensky négocier pour l'Ukraine →</a></p></div>
+<div><h3>SpaceX publie un trimestre où l'IA pèse plus de la moitié de ses revenus.</h3><p class="lead-ref">Lire en rubrique IA : <a href="#ia-1">SpaceX : l'IA représente désormais plus de la moitié des revenus →</a></p></div>
+</div>
+</div>
+<aside class="une-side">
+<div class="cours"><h2>Tableau des cours</h2>
+<h4>Crypto</h4><table>
+<tr><td>BTC</td><td class="v">82 822 $</td><td class="c up">+1,1 %</td></tr>
+<tr><td>ETH</td><td class="v">2 456 $</td><td class="c up">+2,3 %</td></tr>
+</table>
+<p class="note">Relevés en séance vers 23h30–23h55 (heure de Paris), sur 24 h. Source : <a href="https://finance.yahoo.com/quote/BTC-USD/history/" target="_blank" rel="noopener">Yahoo Finance ↗</a></p>
+<h4>Macro</h4><table>
+<tr><td>Dow Jones</td><td class="v">+1,0 %</td><td class="c up">▲ hausse</td></tr>
+<tr><td>S&amp;P 500</td><td class="v">+0,3 %</td><td class="c up">▲ hausse</td></tr>
+<tr><td>Nasdaq</td><td class="v">−0,02 %</td><td class="c down">▼ baisse</td></tr>
+<tr><td>Brent</td><td class="v">108,79 $</td><td class="c down">−0,7 %</td></tr>
+<tr><td>WTI (nov.)</td><td class="v">101,79 $</td><td class="c down">−1,8 %</td></tr>
+<tr><td>10 ans US</td><td class="v">5,115 %</td><td class="c down">≈ −2 pb</td></tr>
+</table>
+<p class="note">Clôtures du 20 octobre. Sources : <a href="https://finance.yahoo.com/markets/stocks/articles/markets-news-oct-20-2026-103252254.html" target="_blank" rel="noopener">Yahoo Finance ↗</a> · <a href="https://www.cnbc.com/2026/10/20/oil-price-wti-brent-crude.html" target="_blank" rel="noopener">CNBC ↗</a></p>
+</div>
+</aside></section>
+<section class="rubrique" id="crypto">
+<header><h2>Crypto</h2><span class=em>₿</span><span class="count">4 articles</span></header>
+<div class="rub-grid">
+<div class="rub-lead">
+<article class="story lead-story" id="crypto-1">
+<h3>Le bitcoin remonte au-dessus de 82 000 $</h3>
+<p class="dropcap">Le BTC s'échangeait vers 82 822 $ (+1,1 %) à 23h30, après un pic à 83 335 $ en séance. L'ETH était à environ 2 456 $ (+2,3 %) vers 23h55. La hausse a lieu le même jour que la reprise de l'appétit pour le risque sur les marchés.</p>
+<p class="source">Source : <a href="https://finance.yahoo.com/quote/BTC-USD/history/" target="_blank" rel="noopener">Yahoo Finance ↗</a> · <a href="https://news.bitcoin.com/market-updates/bitcoin-price-hits-83k-shorts-suffer-45m-wipeouts/" target="_blank" rel="noopener">Bitcoin.com ↗</a></p>
+</article>
+<figure class="chart"><svg viewBox="0 0 320 56" role="img" aria-label="Variations en % (Crypto), chiffres repris du tableau des cours" xmlns="http://www.w3.org/2000/svg"><line x1="180.0" y1="0" x2="180.0" y2="56" class="axis"/><text x="0" y="19" class="lab">BTC</text><rect x="180.0" y="9" width="40.2" height="12" class="up"/><text x="320" y="19" text-anchor="end" class="val up">+1,1 %</text><text x="0" y="43" class="lab">ETH</text><rect x="180.0" y="33" width="84.0" height="12" class="up"/><text x="320" y="43" text-anchor="end" class="val up">+2,3 %</text></svg><figcaption>Variations en % (Crypto), chiffres repris du tableau des cours</figcaption></figure>
+</div>
+<div class="rub-rest">
+<article class="story" id="crypto-2">
+<h3>La Suisse autorise son premier ETF bitcoin « spot » ouvert aux particuliers</h3>
+<p>La FINMA a approuvé un fonds de droit suisse qui détient directement des bitcoins, avec une dérogation aux règles de diversification. Elle prévient que l'investissement « reste très risqué ». Selon son émetteur, BIT Asset Management, le fonds BBIT doit être coté sur SIX en novembre.</p>
+<p class="source">Source : <a href="https://www.finma.ch/news/2026/10/20261020-mm-finma-bitcoin-etf/" target="_blank" rel="noopener">FINMA ↗</a> · <a href="https://www.swissinfo.ch/eng/finance-banking/finma-green-light-for-switzerlands-first-bitcoin-etf/92244786" target="_blank" rel="noopener">Swissinfo ↗</a></p>
+</article>
+<article class="story" id="crypto-3">
+<h3>Les ETF bitcoin américains ont eu leur meilleure journée depuis un mois</h3>
+<p>Lundi, ils ont collecté 526,6 M$ nets, entièrement grâce à l'IBIT de BlackRock (+665,2 M$). Les ETF ether ont perdu 103,3 M$, leur quatrième séance de sorties d'affilée.</p>
+<p class="source">Source : <a href="https://www.coindesk.com/business/2026/10/20/bitcoin-etfs-just-saw-their-biggest-day-in-a-month-thanks-entirely-to-blackrock" target="_blank" rel="noopener">CoinDesk ↗</a></p>
+</article>
+<article class="story" id="crypto-4">
+<div class="badges"><span class="badge company">Chiffres de l'entreprise</span></div>
+<h3>Strategy continue d'acheter</h3>
+<p>D'après son dépôt auprès de la SEC, l'entreprise a acquis 267 BTC pour environ 22,1 M$ et détient maintenant 848 517 BTC. Elle a aussi porté son programme de rachat de titres de crédit à 3 Md$.</p>
+<p class="source">Source : <a href="https://www.theblock.co/news/business/2026-10-19-we-found-room-for-more-orange-michael-saylors-strategy-buys-more-bitcoin-418895" target="_blank" rel="noopener">The Block ↗</a></p>
+</article>
+</div>
+</div></section>
+<section class="rubrique" id="ia">
+<header><h2>IA</h2><span class=em>🤖</span><span class="count">4 articles</span></header>
+<div class="rub-grid">
+<div class="rub-lead">
+<article class="story lead-story" id="ia-1">
+<div class="badges"><span class="badge company">Chiffres de l'entreprise</span></div>
+<h3>SpaceX : l'IA représente désormais plus de la moitié des revenus</h3>
+<p class="dropcap">Au troisième trimestre, le chiffre d'affaires atteint 14,6 Md$ (+161 % sur un an), dont environ 7,5 Md$ pour la division « Super Intelligence ». Le groupe annonce 35 à 40 Md$ d'investissements au quatrième trimestre.</p>
+<p class="source">Source : <a href="https://techcrunch.com/2026/10/20/spacexs-ai-business-is-beating-expectations/" target="_blank" rel="noopener">TechCrunch ↗</a></p>
+</article>
+</div>
+<div class="rub-rest">
+<article class="story" id="ia-2">
+<div class="badges"><span class="badge unconfirmed">Non confirmé</span></div>
+<h3>Anthropic discute d'un second contrat d'environ 45 Md$ avec Nscale</h3>
+<p>Il porterait sur un deuxième data center de 460 MW en Virginie-Occidentale, selon Bloomberg puis une source de CNBC ; Anthropic n'a pas commenté. Ces discussions ont lieu alors que les « neoclouds » comme CoreWeave et Nebius chutent en Bourse à cause de leur endettement.</p>
+<p class="source">Source : <a href="https://www.cnbc.com/2026/10/20/anthropic-nscale-data-center-deal.html" target="_blank" rel="noopener">CNBC ↗</a></p>
+</article>
+<article class="story" id="ia-3">
+<div class="badges"><span class="badge company">Chiffres de l'entreprise</span></div>
+<h3>OpenAI met en avant ses progrès sur le COBOL</h3>
+<p>Selon OpenAI, GPT-6.1 Sol réussit 86,6 % à 97,9 % de ses tests de migration COBOL, contre 5,4 % pour le modèle précédent, sur ses propres benchmarks. L'enjeu est la modernisation des systèmes bancaires anciens.</p>
+<p class="source">Source : <a href="https://www.engadget.com/2291457/openai-says-its-models-can-translate-cobol/" target="_blank" rel="noopener">Engadget ↗</a></p>
+</article>
+<article class="story" id="ia-4">
+<h3>Tenstorrent lève 1,5 Md$</h3>
+<p>La start-up de puces d'inférence est désormais valorisée 6,2 Md$, plus du double de sa valorisation précédente. Les investisseurs continuent donc de financer des alternatives à Nvidia.</p>
+<p class="source">Source : <a href="https://techcrunch.com/2026/10/19/tenstorrent-hits-6-2b-valuation-to-scale-open-weight-ai-chips/" target="_blank" rel="noopener">TechCrunch ↗</a></p>
+</article>
+</div>
+</div></section>
+<section class="rubrique" id="macro">
+<header><h2>Macro</h2><span class=em>📈</span><span class="count">4 articles</span></header>
+<div class="rub-grid">
+<div class="rub-lead">
+<article class="story lead-story" id="macro-1">
+<h3>Wall Street termine en ordre dispersé</h3>
+<p class="dropcap">Le Dow Jones gagne 1 %, le S&amp;P 500 0,3 % et le Nasdaq finit quasi stable (−0,02 %). De bons résultats d'entreprises (3M, Equifax, Hasbro) compensent les inquiétudes sur le financement de l'IA.</p>
+<p class="source">Source : <a href="https://finance.yahoo.com/markets/stocks/articles/markets-news-oct-20-2026-103252254.html" target="_blank" rel="noopener">Yahoo Finance/Investopedia ↗</a></p>
+</article>
+<figure class="chart"><svg viewBox="0 0 320 128" role="img" aria-label="Variations en % (Macro), chiffres repris du tableau des cours" xmlns="http://www.w3.org/2000/svg"><line x1="180.0" y1="0" x2="180.0" y2="128" class="axis"/><text x="0" y="19" class="lab">Dow Jones</text><rect x="180.0" y="9" width="46.7" height="12" class="up"/><text x="320" y="19" text-anchor="end" class="val up">+1,0 %</text><text x="0" y="43" class="lab">S&amp;P 500</text><rect x="180.0" y="33" width="14.0" height="12" class="up"/><text x="320" y="43" text-anchor="end" class="val up">+0,3 %</text><text x="0" y="67" class="lab">Nasdaq</text><rect x="178.5" y="57" width="1.5" height="12" class="down"/><text x="320" y="67" text-anchor="end" class="val down">−0,02 %</text><text x="0" y="91" class="lab">Brent</text><rect x="147.3" y="81" width="32.7" height="12" class="down"/><text x="320" y="91" text-anchor="end" class="val down">−0,7 %</text><text x="0" y="115" class="lab">WTI (nov.)</text><rect x="96.0" y="105" width="84.0" height="12" class="down"/><text x="320" y="115" text-anchor="end" class="val down">−1,8 %</text></svg><figcaption>Variations en % (Macro), chiffres repris du tableau des cours</figcaption></figure>
+</div>
+<div class="rub-rest">
+<article class="story" id="macro-2">
+<h3>Le pétrole recule après un plus haut de cinq mois</h3>
+<p>Le Brent a clôturé à 108,79 $ (−0,7 %) après avoir touché 111,99 $ en séance. Le WTI de novembre, arrivé à échéance, finit à 101,79 $ (−1,8 %). Les espoirs de diplomatie avec l'Iran ont pesé sur les cours.</p>
+<p class="source">Source : <a href="https://www.cnbc.com/2026/10/20/oil-price-wti-brent-crude.html" target="_blank" rel="noopener">CNBC ↗</a></p>
+</article>
+<article class="story" id="macro-3">
+<h3>Les taux se détendent légèrement</h3>
+<p>Le rendement à 10 ans américain baisse à environ 5,115 %, après des mises en chantier de logements plus faibles que prévu (1,22 million contre 1,3 million attendu). Selon le CME FedWatch, les marchés voient 82 % de chances que la Fed laisse ses taux inchangés la semaine prochaine.</p>
+<p class="source">Source : <a href="https://www.cnbc.com/2026/10/20/us-treasury-yields-investors-economy.html" target="_blank" rel="noopener">CNBC ↗</a></p>
+</article>
+<article class="story" id="macro-4">
+<h3>Netflix déçoit sur ses prévisions</h3>
+<p>Le titre perd environ 5 % après la clôture. Le bénéfice par action du troisième trimestre (0,87 $) dépasse les attentes, mais la prévision de chiffre d'affaires du quatrième trimestre (13,44 Md$) est sous le consensus.</p>
+<p class="source">Source : <a href="https://www.cnbc.com/2026/10/20/netflix-nflx-earnings-q3-2026.html" target="_blank" rel="noopener">CNBC ↗</a></p>
+</article>
+</div>
+</div></section>
+<section class="rubrique" id="geopolitique">
+<header><h2>Géopolitique</h2><span class=em>🌍</span><span class="count">4 articles</span></header>
+<div class="rub-grid">
+<div class="rub-lead">
+<article class="story lead-story" id="geopolitique-1">
+<div class="badges"><span class="badge unconfirmed">Non confirmé</span></div>
+<h3>Iran : une médiation Qatar-Pakistan, un accueil prudent</h3>
+<p class="dropcap">Selon Al-Araby Al-Jadeed, qui cite des sources anonymes, l'Iran toucherait les intérêts de 6 Md$ d'avoirs gelés au Qatar en échange d'inspections discrètes de l'AIEA. À Téhéran, le responsable de la sécurité Mohsen Rezaï a répondu qu'il n'y aurait aucune négociation sans gestes de confiance préalables de Washington.</p>
+<p class="source">Source : <a href="https://www.iranintl.com/en/202610201298" target="_blank" rel="noopener">Iran International ↗</a></p>
+</article>
+</div>
+<div class="rub-rest">
+<article class="story" id="geopolitique-2">
+<h3>Trump veut voir quelqu'un d'autre que Zelensky négocier pour l'Ukraine</h3>
+<p>Il se dit prêt à rencontrer Poutine et Xi en marge du sommet de l'APEC à Shenzhen (18-19 novembre) et affirme que « la Russie n'a pas fait grand-chose » en Ukraine. Kiev rejette l'idée d'un sommet sans elle, et le Kremlin dit qu'aucune proposition concrète n'a été discutée.</p>
+<p class="source">Source : <a href="https://www.euronews.com/2026/10/20/trump-says-hes-ready-to-meet-putin-and-xi-in-china" target="_blank" rel="noopener">Euronews ↗</a></p>
+</article>
+<article class="story" id="geopolitique-3">
+<h3>Une frappe de drone russe tue six civils dans un parc près de Kharkiv</h3>
+<p>À Nova Vodolaha, dimanche 19 octobre, deux enfants font partie des morts et sept enfants figurent parmi les 15 blessés.</p>
+<p class="source">Source : <a href="https://www.pravda.com.ua/eng/news/2026/10/19/8058772/" target="_blank" rel="noopener">Ukrainska Pravda ↗</a></p>
+</article>
+<article class="story" id="geopolitique-4">
+<div class="badges"><span class="badge unconfirmed">Non confirmé</span></div>
+<h3>Le Golfe reste sous tension</h3>
+<p>Les Houthis affirment avoir attaqué des sites énergétiques et des aéroports saoudiens, dont Aramco à Yanbu et l'aéroport de Riyad ; Riyad n'a pas confirmé. Selon Kpler, au moins 18 navires ont été attaqués en deux semaines, ce qui maintient une prime de risque sur le pétrole.</p>
+<p class="source">Source : <a href="https://live.euronext.com/en/financial-news/brent-slips-iran-president-discusses-mediation-pakistan-army-chief" target="_blank" rel="noopener">Reuters via Euronext ↗</a></p>
+</article>
+</div>
+</div></section>
+<footer class="colophon">
+<p>Généré le mercredi 21 octobre 2026 à 00h05 (heure de Paris). Faits repérés via X puis recoupés sur le web ; liens vérifiés.</p>
+<p>Les prix crypto sont des relevés en séance, pas des clôtures. Les badges signalent les chiffres publiés par les entreprises elles-mêmes et les informations non confirmées officiellement.</p>
+<p class="orig">Version d'origine du brief : <a href="2026-10-20-original.html">2026-10-20-original.html</a></p>
+</footer><div class="fin">❦</div></div>
 </body>
 </html>
