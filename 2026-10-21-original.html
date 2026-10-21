@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<title>Brief du Matin · Mercredi 21 octobre 2026</title>
+<style>.
+  Typographie : mettre une espace insécable (&nbsp;) avant : ; % ? ! » et après «.
+-->
+<style>
+:root{
+  --bg:#0e1116; --surface:#161b22; --surface-2:#1c222b; --border:#2a313c;
+  --text:#e8ecf1; --muted:#9aa4b2; --accent:#e0b062; --link:#8fbcff;
+  --up:#3fcf8e; --up-bg:rgba(63,207,142,.12); --down:#ff6b6b; --down-bg:rgba(255,107,107,.12);
+  --badge-co:#c9a7ff; --badge-co-bg:rgba(201,167,255,.12);
+  --badge-nc:#ffb347; --badge-nc-bg:rgba(255,179,71,.12);
+}
+@media (prefers-color-scheme: light){
+  :root{
+    --bg:#f6f4ef; --surface:#ffffff; --surface-2:#faf8f4; --border:#e3ded4;
+    --text:#1b1f24; --muted:#5d6672; --accent:#9a6a12; --link:#1f5fbf;
+    --up:#0f8a55; --up-bg:rgba(15,138,85,.10); --down:#c62f2f; --down-bg:rgba(198,47,47,.09);
+    --badge-co:#6b3fc0; --badge-co-bg:rgba(107,63,192,.09);
+    --badge-nc:#a35a00; --badge-nc-bg:rgba(163,90,0,.10);
+  }
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji";
+  font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:780px;margin:0 auto;padding:40px 22px 28px}
+header.masthead{padding-bottom:22px;margin-bottom:26px;border-bottom:1px solid var(--border)}
+.kicker{font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);font-weight:600;margin:0 0 6px}
+h1{font-size:2.3rem;line-height:1.15;margin:0;font-weight:750;letter-spacing:-.02em}
+.date{margin:8px 0 0;color:var(--muted);font-size:1rem}
+.date .sep{opacity:.5;margin:0 .45em}
+.essentiel{background:linear-gradient(135deg,var(--surface-2),var(--surface));border:1px solid var(--border);
+  border-left:4px solid var(--accent);border-radius:14px;padding:18px 22px 16px;margin:0 0 34px}
+.essentiel h2{margin:0 0 8px;font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+.essentiel ul{margin:0;padding-left:1.15em}
+.essentiel li{margin:6px 0;font-weight:500}
+.essentiel li::marker{color:var(--accent)}
+section.theme{margin:0 0 38px}
+section.theme > h2{font-size:1.4rem;margin:0 0 14px;display:flex;align-items:center;gap:.5em;letter-spacing:-.01em}
+section.theme > h2 .emoji{font-size:1.25em;line-height:1}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin:0 0 16px}
+.tile{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:10px 12px}
+.tile .label{font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:600}
+.tile .value{font-size:1.15rem;font-weight:700;font-variant-numeric:tabular-nums;margin-top:2px;white-space:nowrap}
+.tile .chg{display:inline-block;margin-top:4px;font-size:.8rem;font-weight:650;padding:1px 7px;border-radius:999px;font-variant-numeric:tabular-nums}
+.chg.up{color:var(--up);background:var(--up-bg)}
+.chg.down{color:var(--down);background:var(--down-bg)}
+.tiles-note{font-size:.78rem;color:var(--muted);margin:-8px 0 16px}
+.tiles-note a{color:var(--muted)}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:16px 18px;margin:0 0 12px}
+.card h3{margin:0 0 6px;font-size:1.05rem;line-height:1.35;font-weight:700}
+.card p{margin:0;color:var(--text)}
+.card .meta{margin-top:10px;display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;font-size:.82rem}
+.source{color:var(--muted)}
+.source a{color:var(--link);text-decoration:none;border-bottom:1px solid transparent}
+.source a:hover{border-bottom-color:var(--link)}
+.badge{display:inline-block;font-size:.7rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:2px 8px;border-radius:999px;white-space:nowrap}
+.badge.company{color:var(--badge-co);background:var(--badge-co-bg)}
+.badge.unconfirmed{color:var(--badge-nc);background:var(--badge-nc-bg)}
+footer{margin-top:10px;padding-top:16px;border-top:1px solid var(--border);color:var(--muted);font-size:.8rem;line-height:1.5}
+footer p{margin:4px 0}
+@media (max-width:520px){
+  body{font-size:16px}
+  .wrap{padding:26px 16px 22px}
+  h1{font-size:1.85rem}
+  .tiles{grid-template-columns:repeat(2,1fr)}
+  .card{padding:14px 15px}
+  .essentiel{padding:16px 16px 14px}
+}
+.tiles.six{grid-template-columns:repeat(3,1fr)}
+@media (max-width:520px){.tiles.six{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+<main class="wrap">
+<header class="masthead">
+  <p class="kicker">Crypto · IA · Macro · Géopolitique</p>
+  <h1>Brief du Matin</h1>
+  <p class="date">Mercredi 21 octobre 2026<span class="sep">·</span>Les dernières 24 heures</p>
+</header>
+<aside class="essentiel" aria-label="L'essentiel">
+  <h2>L'essentiel</h2>
+  <ul>
+    <li>Pétrole sous tension : le Brent a touché 111,99&nbsp;$, plus haut depuis cinq mois, avant de finir à 108,79&nbsp;$, tandis que l'Iran fait traîner les négociations avec Washington.</li>
+    <li>La Suisse autorise le premier ETF bitcoin «&nbsp;spot&nbsp;» ouvert aux particuliers, attendu sur la SIX en novembre.</li>
+    <li>L'immobilier américain gèle : les promesses de vente tombent au plus bas depuis 2001, avec un taux à 10 ans au-dessus de 5,1&nbsp;%.</li>
+  </ul>
+</aside>
+<section class="theme" id="crypto">
+  <h2><span class="emoji">₿</span> Crypto</h2>
+  <div class="tiles">
+    <div class="tile"><div class="label">BTC</div><div class="value">≈ 82&nbsp;700&nbsp;$</div><span class="chg up">+1,3&nbsp;%</span></div>
+    <div class="tile"><div class="label">ETH</div><div class="value">≈ 2&nbsp;450&nbsp;$</div><span class="chg up">+2&nbsp;%</span></div>
+  </div>
+  <p class="tiles-note">Cours de mercredi matin (heure asiatique), variation sur 24&nbsp;h. Source : <a href="https://www.coindesk.com/markets/2026/10/21/bitcoin-hovers-around-usd83-000-as-ai-earnings-revive-tech-zec-jumps-11">CoinDesk ↗</a></p>
+  <article class="card">
+    <h3>La Suisse valide son premier ETF bitcoin pour les particuliers</h3>
+    <p>La FINMA a approuvé le 20 octobre le premier fonds coté qui détient directement du bitcoin et reste ouvert au grand public (BBIT, de BIT Asset Management). Il doit être coté sur la SIX en novembre ; le régulateur rappelle que le risque de perte reste très élevé.</p>
+    <div class="meta"><span class="source">Source : <a href="https://www.finma.ch/en/news/2026/10/20261020-mm-finma-bitcoin-etf/">FINMA ↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Les Sparkassen ouvrent la crypto dans leur appli</h3>
+    <p>Depuis le 19 octobre, les clients des premières caisses d'épargne allemandes peuvent acheter BTC, ETH, XRP, SOL et Polygon dans l'appli bancaire, pour 0,99&nbsp;€ par ordre, via DekaBank et la Börse Stuttgart. Le déploiement se fait caisse par caisse : un accès grand public potentiellement massif en Allemagne.</p>
+    <div class="meta"><span class="source">Source : <a href="https://www.golem.de/news/kryptowaehrungen-erste-sparkassen-starten-bitcoin-handel-2610-214236.html">Golem ↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>CME lance des futures Bitcoin Cash et Uniswap</h3>
+    <p>Le CME a coté le 19 octobre des contrats à terme sur BCH et UNI, en taille standard et micro ; FalconX et GSR ont réalisé les premières transactions. Uniswap devient le premier jeton DeFi listé sur le marché à terme réglementé du CME.</p>
+    <div class="meta"><span class="source">Source : <a href="https://investor.cmegroup.com/news-releases/news-release-details/cme-group-announces-first-trade-bitcoin-cash-and-uniswap-futures">CME Group ↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Le bitcoin tient les 82&nbsp;000&nbsp;$, Zcash bondit</h3>
+    <p>Le BTC oscille autour de 83&nbsp;000&nbsp;$ ce mercredi matin, porté par le regain du secteur IA après les résultats de SpaceX. Zcash gagne 11&nbsp;% après la fixation de la date d'activation de sa mise à jour NU7, qui divise par trois le temps entre deux blocs.</p>
+    <div class="meta"><span class="source">Source : <a href="https://www.coindesk.com/markets/2026/10/21/bitcoin-hovers-around-usd83-000-as-ai-earnings-revive-tech-zec-jumps-11">CoinDesk ↗</a></span></div>
+  </article>
+</section>
+
+<section class="theme" id="ia">
+  <h2><span class="emoji">🤖</span> IA</h2>
+  <article class="card">
+    <h3>SpaceX : 7,6&nbsp;Md$ de revenus liés à l'IA</h3>
+    <p>SpaceX annonce pour le 3e trimestre un chiffre d'affaires de 14,6&nbsp;Md$ (+161&nbsp;% sur un an), dont 7,6&nbsp;Md$ dans l'IA, et un premier bénéfice comme société cotée (4,4&nbsp;Md$). Ces résultats ont ravivé l'appétit pour les valeurs IA en Asie ce matin.</p>
+    <div class="meta"><span class="badge company">Chiffres de l'entreprise</span><span class="source">Source : <a href="https://apnews.com/article/spacex-musk-turns-profit-losses-67064446bf0afdf529db55bdec82af69">AP News ↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Microsoft lâche le grand data center IA de Nscale près de Londres</h3>
+    <p>Microsoft a résilié son engagement sur le site de Loughton (23&nbsp;040 GPU Nvidia GB300, 50&nbsp;MW), le réseau électrique ne pouvant pas l'alimenter avant les années 2030. Un revers pour les ambitions IA britanniques, qui montre que l'électricité devient le vrai goulot d'étranglement.</p>
+    <div class="meta"><span class="source">Source : <a href="https://www.theguardian.com/uk-news/2026/oct/18/microsoft-drops-huge-ai-datacentre-project-in-essex-over-power-supply-concerns">The Guardian ↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Altman décrit trois scénarios pour encadrer l'IA avancée</h3>
+    <p>Selon The Information, Sam Altman a présenté à ses équipes trois options : une agence internationale type AIEA (sa préférée), une fusion des labos façon CERN, ou un labo dominant qui neutralise ses rivaux, qu'il juge «&nbsp;terrible&nbsp;». À lire en parallèle de la nouvelle task force de la Maison-Blanche sur la superintelligence.</p>
+    <div class="meta"><span class="badge unconfirmed">Non confirmé</span><span class="source">Source : <a href="https://the-decoder.com/sam-altman-reportedly-pitched-three-endgames-for-ai-safety-one-involving-a-single-firm-melting-everyone-elses-gpus/">The Decoder (d'après The Information) ↗</a></span></div>
+  </article>
+</section>
+
+<section class="theme" id="macro">
+  <h2><span class="emoji">📈</span> Macro</h2>
+  <div class="tiles six">
+    <div class="tile"><div class="label">Dow Jones</div><div class="value">52&nbsp;495,88</div><span class="chg up">+1,02&nbsp;%</span></div>
+    <div class="tile"><div class="label">S&amp;P 500</div><div class="value">7&nbsp;712,57</div><span class="chg up">+0,28&nbsp;%</span></div>
+    <div class="tile"><div class="label">Nasdaq</div><div class="value">26&nbsp;424,82</div><span class="chg down">−0,02&nbsp;%</span></div>
+    <div class="tile"><div class="label">Brent</div><div class="value">108,79&nbsp;$</div><span class="chg down">−0,69&nbsp;%</span></div>
+    <div class="tile"><div class="label">WTI</div><div class="value">101,79&nbsp;$</div><span class="chg down">−1,8&nbsp;%</span></div>
+    <div class="tile"><div class="label">10 ans US</div><div class="value">5,12&nbsp;%</div><span class="chg down">−1,5&nbsp;pb</span></div>
+  </div>
+  <p class="tiles-note">Clôtures du mardi 20 octobre ; WTI = contrat de novembre, expiré mardi. Sources : <a href="https://www.investing.com/news/economy-news/asian-shares-tumble-oil-rises-as-markets-await-ai-sector-results-4958677">Reuters ↗</a>, <a href="https://www.cnbc.com/2026/10/20/oil-price-wti-brent-crude.html">CNBC ↗</a></p>
+  <article class="card">
+    <h3>Wall Street mitigée, le Dow au plus haut d'un mois</h3>
+    <p>Le Dow a gagné 1,02&nbsp;% grâce aux résultats (3M +5,8&nbsp;%), le Nasdaq a fini stable sur fond d'inquiétudes autour de la dette du boom IA. La probabilité d'une hausse des taux de la Fed le 28 octobre recule à 17,2&nbsp;% (CME FedWatch), contre 57,6&nbsp;% il y a un mois.</p>
+    <div class="meta"><span class="source">Source : <a href="https://www.investing.com/news/economy-news/asian-shares-tumble-oil-rises-as-markets-await-ai-sector-results-4958677">Reuters ↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Le pétrole frôle 112&nbsp;$ puis recule</h3>
+    <p>Le Brent a touché 111,99&nbsp;$, plus haut depuis cinq mois, avant de clôturer à 108,79&nbsp;$ sur l'espoir d'une médiation pakistanaise entre Washington et Téhéran. Au moins 18 navires ont été attaqués en deux semaines selon Kpler, ce qui maintient une forte prime de risque.</p>
+    <div class="meta"><span class="source">Source : <a href="https://www.cnbc.com/2026/10/20/oil-price-wti-brent-crude.html">CNBC ↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Promesses de vente immobilières au plus bas historique aux États-Unis</h3>
+    <p>L'indice NAR chute de 7,3&nbsp;% en septembre à 66,0, son plus bas depuis la création de la série en 2001, et recule dans les quatre régions. La hausse rapide des taux de crédit immobilier paralyse les acheteurs.</p>
+    <div class="meta"><span class="source">Source : <a href="https://www.nar.realtor/newsroom/pending-home-sales-decreased-7-3-percent-in-september">NAR ↗</a></span></div>
+  </article>
+</section>
+
+<section class="theme" id="geopolitique">
+  <h2><span class="emoji">🌍</span> Géopolitique</h2>
+  <article class="card">
+    <h3>L'Iran jouerait la montre jusqu'aux midterms</h3>
+    <p>Trois hauts responsables iraniens affirment à Reuters que Téhéran fait durer les négociations pour affaiblir Trump avant les élections du 3 novembre. Dans le même temps, les Gardiens de la révolution disent avoir incendié deux pétroliers dans le détroit d'Ormuz.</p>
+    <div class="meta"><span class="badge unconfirmed">Non confirmé</span><span class="source">Source : <a href="https://www.ynetnews.com/article/5ug0sjkeo">Ynet (d'après Reuters) ↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Washington ne garantira plus la sécurité du Golfe indéfiniment</h3>
+    <p>À Doha, l'envoyé américain Tom Barrack a annoncé la fin progressive du pacte «&nbsp;pétrole contre sécurité&nbsp;» : les pays du Golfe doivent assumer en premier leur défense face à l'Iran. Un tournant pour l'architecture sécuritaire de la région.</p>
+    <div class="meta"><span class="source">Source : <a href="https://www.aljazeera.com/news/2026/10/20/us-leaving-oil-for-security-approach-not-middle-east-envoy-tom-barrack">Al Jazeera ↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Kallas accuse les États-Unis de pousser l'Ukraine à capituler</h3>
+    <p>Devant le Parlement européen, la cheffe de la diplomatie de l'UE a dit que les négociateurs américains poussent Kyiv depuis environ un an et demi à accepter les conditions de Poutine. Elle demande que l'Europe s'invite à la table des négociations.</p>
+    <div class="meta"><span class="source">Source : <a href="https://www.euronews.com/2026/10/20/kaja-kallas-accuses-the-us-of-pushing-ukraine-to-surrender-on-putins-terms">Euronews ↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Missiles Patriot : Rubio admet un retard</h3>
+    <p>Marco Rubio reconnaît qu'un lot d'intercepteurs Patriot financé par des alliés de l'OTAN pourrait être retardé, mais nie toute décision politique. Zelensky a aussi évoqué avec lui le renseignement d'alerte et l'accès à Starlink, alors que l'Ukraine manque d'intercepteurs.</p>
+    <div class="meta"><span class="source">Source : <a href="https://kyivindependent.com/rubio-says-delays-in-us-air-defense-shipments-to-ukraine-not-deliberate/">Kyiv Independent ↗</a></span></div>
+  </article>
+</section>
+
+<footer>
+  <p>Généré le mercredi 21 octobre 2026 à 07h15 (heure de Paris). Faits repérés via X puis recoupés sur le web ; liens vérifiés.</p>
+  <p>Les badges signalent les chiffres publiés par les entreprises elles-mêmes et les informations non confirmées officiellement.</p>
+</footer>
+</main>
+</body>
+</html>
