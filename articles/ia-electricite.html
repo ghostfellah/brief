@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<meta name="robots" content="noindex">
+<title>AI isn&#x27;t short on chips. It&#x27;s short on plugs. · Ghøst</title>
+<style>.
+  Typographie : mettre une espace insécable (&nbsp;) avant : ; % ? ! » et après «.
+-->
+<style>
+:root{
+  --bg:#0e1116; --surface:#161b22; --surface-2:#1c222b; --border:#2a313c;
+  --text:#e8ecf1; --muted:#9aa4b2; --accent:#e0b062; --link:#8fbcff;
+  --up:#3fcf8e; --up-bg:rgba(63,207,142,.12); --down:#ff6b6b; --down-bg:rgba(255,107,107,.12);
+  --badge-co:#c9a7ff; --badge-co-bg:rgba(201,167,255,.12);
+  --badge-nc:#ffb347; --badge-nc-bg:rgba(255,179,71,.12);
+}
+@media (prefers-color-scheme: light){
+  :root{
+    --bg:#f6f4ef; --surface:#ffffff; --surface-2:#faf8f4; --border:#e3ded4;
+    --text:#1b1f24; --muted:#5d6672; --accent:#9a6a12; --link:#1f5fbf;
+    --up:#0f8a55; --up-bg:rgba(15,138,85,.10); --down:#c62f2f; --down-bg:rgba(198,47,47,.09);
+    --badge-co:#6b3fc0; --badge-co-bg:rgba(107,63,192,.09);
+    --badge-nc:#a35a00; --badge-nc-bg:rgba(163,90,0,.10);
+  }
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji";
+  font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:780px;margin:0 auto;padding:40px 22px 28px}
+header.masthead{padding-bottom:22px;margin-bottom:26px;border-bottom:1px solid var(--border)}
+.kicker{font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);font-weight:600;margin:0 0 6px}
+h1{font-size:2.3rem;line-height:1.15;margin:0;font-weight:750;letter-spacing:-.02em}
+.date{margin:8px 0 0;color:var(--muted);font-size:1rem}
+.date .sep{opacity:.5;margin:0 .45em}
+.essentiel{background:linear-gradient(135deg,var(--surface-2),var(--surface));border:1px solid var(--border);
+  border-left:4px solid var(--accent);border-radius:14px;padding:18px 22px 16px;margin:0 0 34px}
+.essentiel h2{margin:0 0 8px;font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+.essentiel ul{margin:0;padding-left:1.15em}
+.essentiel li{margin:6px 0;font-weight:500}
+.essentiel li::marker{color:var(--accent)}
+section.theme{margin:0 0 38px}
+section.theme > h2{font-size:1.4rem;margin:0 0 14px;display:flex;align-items:center;gap:.5em;letter-spacing:-.01em}
+section.theme > h2 .emoji{font-size:1.25em;line-height:1}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin:0 0 16px}
+.tile{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:10px 12px}
+.tile .label{font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:600}
+.tile .value{font-size:1.15rem;font-weight:700;font-variant-numeric:tabular-nums;margin-top:2px;white-space:nowrap}
+.tile .chg{display:inline-block;margin-top:4px;font-size:.8rem;font-weight:650;padding:1px 7px;border-radius:999px;font-variant-numeric:tabular-nums}
+.chg.up{color:var(--up);background:var(--up-bg)}
+.chg.down{color:var(--down);background:var(--down-bg)}
+.tiles-note{font-size:.78rem;color:var(--muted);margin:-8px 0 16px}
+.tiles-note a{color:var(--muted)}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:16px 18px;margin:0 0 12px}
+.card h3{margin:0 0 6px;font-size:1.05rem;line-height:1.35;font-weight:700}
+.card p{margin:0;color:var(--text)}
+.card .meta{margin-top:10px;display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;font-size:.82rem}
+.source{color:var(--muted)}
+.source a{color:var(--link);text-decoration:none;border-bottom:1px solid transparent}
+.source a:hover{border-bottom-color:var(--link)}
+.badge{display:inline-block;font-size:.7rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:2px 8px;border-radius:999px;white-space:nowrap}
+.badge.company{color:var(--badge-co);background:var(--badge-co-bg)}
+.badge.unconfirmed{color:var(--badge-nc);background:var(--badge-nc-bg)}
+footer{margin-top:10px;padding-top:16px;border-top:1px solid var(--border);color:var(--muted);font-size:.8rem;line-height:1.5}
+footer p{margin:4px 0}
+@media (max-width:520px){
+  body{font-size:16px}
+  .wrap{padding:26px 16px 22px}
+  h1{font-size:1.85rem}
+  .tiles{grid-template-columns:repeat(2,1fr)}
+  .card{padding:14px 15px}
+  .essentiel{padding:16px 16px 14px}
+}
+.tiles.six{grid-template-columns:repeat(3,1fr)}
+@media (max-width:520px){.tiles.six{grid-template-columns:repeat(2,1fr)}}
+
+article.post h2{font-size:1.4rem;margin:38px 0 12px;letter-spacing:-.01em}
+article.post h2.sources-h{font-size:1.1rem}
+article.post p{margin:0 0 14px}
+article.post ul{margin:0 0 14px;padding-left:1.2em}
+article.post li{margin:5px 0}
+article.post li::marker{color:var(--accent)}
+article.post a{color:var(--link);text-decoration:none;word-break:break-word}
+article.post a:hover{text-decoration:underline}
+article.post blockquote{margin:0 0 16px;padding:12px 18px;border-left:4px solid var(--accent);background:var(--surface);border-radius:0 12px 12px 0;font-style:italic}
+article.post blockquote p{margin:0}
+.lede p{font-size:1.12rem;font-weight:500;margin:0 0 10px}
+figure.visual-slot{margin:22px 0 26px;border:2px dashed var(--accent);border-radius:14px;background:var(--surface-2);padding:18px 20px;min-height:180px;display:flex;flex-direction:column;justify-content:center}
+figure.visual-slot .slot-id{font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:700;margin:0 0 6px}
+figure.visual-slot figcaption{color:var(--muted);font-size:.9rem;line-height:1.5}
+.sources{font-size:.85rem;color:var(--muted)}
+.sources h3{font-size:.85rem;text-transform:uppercase;letter-spacing:.1em;color:var(--text);margin:16px 0 6px}
+.sources ul{padding-left:1.1em}
+.factcheck{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:16px 20px;margin:30px 0;font-size:.9rem}
+.factcheck h2{margin-top:0!important}
+.factcheck h3{font-size:1rem;margin:14px 0 6px}
+</style>
+</head>
+<body>
+<main class="wrap">
+<header class="masthead">
+  <p class="kicker">AI · Energy · Macro · Draft</p>
+  <h1>AI isn&#x27;t short on chips. It&#x27;s short on plugs.</h1>
+  <p class="date">@ghostfellah<span class="sep">·</span>Draft, October 21, 2026<span class="sep">·</span>X Article</p>
+</header>
+<article class="post">
+<div class="lede">
+<p>Microsoft just walked away from a site built for 23,040 Nvidia GB300s.</p>
+<p>Not because of chips. Not because of demand.</p>
+<p>Because the local grid can't power it until the 2030s.</p>
+<p>That's the real AI bottleneck. Here it is, in plain words.</p>
+</div>
+<h2>1. Microsoft just left 23,040 GPUs on the table</h2>
+<p>Loughton, Essex. In September 2025, Nscale and Microsoft announced the UK's flagship AI site: 23,040 Nvidia GB300 GPUs, 50 MW of AI compute, opening in 2027. Those are the companies' own numbers. The government called it the "largest UK sovereign AI datacentre."</p>
+<p>Then reality showed up.</p>
+<p>In March 2026, The Guardian found the site was still a working scaffolding yard.</p>
+<p>In September, UK Power Networks reportedly told Nscale the grid couldn't supply enough power until the early-to-mid 2030s.</p>
+<p>On October 18, the news broke: Microsoft, the anchor tenant, had terminated its agreement. "This decision relates to a single site," a Microsoft spokesperson told Reuters. Nscale says it's still committed and is looking at alternative power sources.</p>
+<p>The chips exist. The customer existed. The electrons don't.</p>
+<p>Microsoft has said this out loud before. Satya Nadella, November 2025: "You may actually have a bunch of chips sitting in inventory that I can't plug in… It's not a supply issue of chips; it's actually the fact that I don't have warm shells to plug into."</p>
+<figure class="visual-slot" id="visual-1" data-visual="1"><p class="slot-id">Emplacement visuel 1 · à remplacer</p><figcaption>Timeline "Loughton, the AI site that never got a plug": Sep 2025 announcement → Mar 2026 scaffolding yard → 24 Sep 2026 grid delay to the 2030s → 18 Oct 2026 Microsoft exits → "203X" power date (dotted)</figcaption><!-- VISUAL 1: insérer ici <img src="..." alt="..."> --></figure>
+<h2>2. The demand side: a Japan-sized load by 2030</h2>
+<p>Is the demand real? Yes.</p>
+<p>The IEA says data centres used 485 TWh of electricity in 2025. Its base case for 2030: about 950 TWh. Roughly double in five years.</p>
+<p>For scale: in 2025 the IEA said its 2030 projection was slightly more than Japan's entire electricity consumption today. A whole G7 economy's worth of power, for servers.</p>
+<p>AI-focused data centres are the fast lane. Their consumption jumped 50% in 2025 alone, and the IEA sees it tripling by 2030.</p>
+<p>Globally, that's only about 3% of electricity. The problem is where it lands.</p>
+<p>In the US, data centres used 4.4% of all electricity in 2023 (Lawrence Berkeley National Lab). LBNL's latest update sees 9.5% to 15.3% by 2030. EPRI says 9% to 17%.</p>
+<p>Then there's Virginia. Data centres already use more than 25% of the state's power. EPRI's scenarios put it at 39% to 57% by 2030.</p>
+<p>One state. Potentially more than half its electricity going to servers.</p>
+<figure class="visual-slot" id="visual-2" data-visual="2"><p class="slot-id">Emplacement visuel 2 · à remplacer</p><figcaption>Bar chart, global data-centre electricity (IEA): 2024 = 415 TWh, 2025 = 485 TWh, 2030 = 950 TWh, with a "≈ Japan today" marker. Inset: US share 4.4% (2023) → 9.5–15.3% (LBNL) / 9–17% (EPRI) by 2030. Virginia badge: &gt;25% today → 39–57% by 2030</figcaption><!-- VISUAL 2: insérer ici <img src="..." alt="..."> --></figure>
+<h2>3. The real bottleneck: the queue</h2>
+<p>A GPU ships in months. A grid connection runs on a different clock.</p>
+<p>Berkeley Lab's Queued Up 2026: about 2,061 GW of generation and storage were waiting to connect to the US grid at the end of 2025.</p>
+<p>The median project built in 2025 took 61 months from its interconnection request to switching on. In 2015 it took 36 months. In 2008, 22.</p>
+<p>Most never make it. Only 13% of the capacity that asked to connect between 2000 and 2020 was running by the end of 2025.</p>
+<p>The UK is worse in its own way. Ofgem says about 315 data centre projects are queuing to connect, for 73 GW of demand. Peak demand for the entire country is 45 GW.</p>
+<p>The queue is bigger than the country.</p>
+<p>My favourite example is Three Mile Island. Constellation is restarting Unit 1, now called Crane: 835 MW, with a 20-year deal to sell all of its output to Microsoft. In March 2026, Constellation said PJM's first answer was that the plant couldn't connect until 2031. It needed 765-kV and 500-kV transmission upgrades that weren't due until December 2030. A FERC waiver on June 1 put a 2027 restart back in play.</p>
+<p>Read that again. A nuclear plant, for Microsoft, still had to wait in line.</p>
+<figure class="visual-slot" id="visual-3" data-visual="3"><p class="slot-id">Emplacement visuel 3 · à remplacer</p><figcaption>Line chart "Months from grid request to power-on" (LBNL): 2008 = 22, 2015 = 36, 2024 = 55, 2025 = 61. Next to it, UK bars: data centres in the queue 73 GW vs UK peak demand 45 GW (Ofgem)</figcaption><!-- VISUAL 3: insérer ici <img src="..." alt="..."> --></figure>
+<h2>4. Someone pays: the PJM bill</h2>
+<p>PJM runs the largest US grid: 13 states plus DC. It auctions "capacity": paying power plants to be there years ahead.</p>
+<p>Here is the clearing price, in $ per MW-day:</p>
+<ul>
+<li>2024/25: $28.92</li>
+<li>2025/26: $269.92</li>
+<li>2026/27: $329.17 (cap)</li>
+<li>2027/28: $333.44 (cap)</li>
+<li>2028/29: $325.00 (cap)</li>
+</ul>
+<p>Without the cap, PJM says the July 2026 auction would have cleared near $555. Cost: $16.4B, versus $29.7B uncapped.</p>
+<p>And even at the cap, PJM still came up about 6.8 GW short of its reliability target.</p>
+<p>Why? PJM estimates that roughly 30 GW of the 32 GW of extra peak demand it expects from 2024 to 2030 comes from data centres.</p>
+<p>Households feel it too. Virginia's regulator approved a Dominion increase of $11.24 a month on a typical residential bill in 2026, plus $2.36 in 2027. It also created a new rate class for customers of 25 MW and up, data centres included, starting in 2027, so they carry more of the grid buildout.</p>
+<p>The rulebook is still being written. On October 9, FERC rejected most of PJM's large-load plan, including mandatory curtailment and "bring your own capacity."</p>
+<p>To be fair, the IEA says data centres don't automatically raise prices. On a grid with spare capacity, they can even lower them. PJM isn't that grid.</p>
+<p>If you watch the Fed, watch this line too.</p>
+<figure class="visual-slot" id="visual-4" data-visual="4"><p class="slot-id">Emplacement visuel 4 · à remplacer</p><figcaption>Bar chart, PJM capacity price by delivery year ($/MW-day, RTO): 28.92 / 269.92 / 329.17 / 333.44 / 325.00, plus a ghost bar "~555 without cap" for 2028/29. Caption: from $28.92 to $325 in four delivery years (PJM)</figcaption><!-- VISUAL 4: insérer ici <img src="..." alt="..."> --></figure>
+<h2>5. Big Tech's workaround: bring your own power plant (or go to orbit)</h2>
+<p>Can't get the grid? Build your own power.</p>
+<p><strong>Gas.</strong> GE Vernova says its gas turbine backlog and slot reservations reached 116 GW at the end of Q2 2026. It's already taking reservations for 2031 deliveries, and its CEO says about 20% of customers are data centres. Want a turbine? Get in line. Again.</p>
+<p>The IEA thinks 15 to 27 GW of onsite gas could power data centres by 2030. But reliable onsite power needs 30% to 70% more generation than the load. And with turbines sold out, the IEA says onsite isn't necessarily faster.</p>
+<p><strong>Nuclear.</strong> Crane/TMI is aiming for 2027. On October 19, Amazon, X-energy and AEP announced a proposed 960 MW plant made of 12 Xe-100 small modular reactors, on a former coal site in Indiana. It's a development agreement. No final investment decision, no license, no operating date. X-energy hasn't broken ground on its first plant yet.</p>
+<p><strong>Orbit.</strong> Yes, really. SpaceX says each of its Starmind "AI1" satellites carries up to 250 kW peak and 175 kW average of compute, and that its factory will start producing them as soon as late 2027. Musk has said the first launch is targeted for late 2027 (Bloomberg). Google's Project Suncatcher already has a prototype TPU satellite in orbit, built with Planet, with two more planned for 2027.</p>
+<p>Napkin math on SpaceX's own numbers: 1 GW ÷ 175 kW ≈ 5,700 satellites. Loughton's 50 MW ≈ 286 of them.</p>
+<p>Every workaround comes with its own queue.</p>
+<figure class="visual-slot" id="visual-5" data-visual="5"><p class="slot-id">Emplacement visuel 5 · à remplacer</p><figcaption>"Time-to-power" schematic, one lane per option: US grid connection ~5 years (61-month median, LBNL) · new gas turbine, reservations already into 2031 (GE Vernova) · nuclear restart, TMI announced 2024 → 2027 target (Constellation) · SMR in Indiana, no date announced (X-energy/AEP) · orbit, first launch targeted late 2027 (SpaceX, company claim). Napkin-math card: 1 GW = ~5,700 AI1 satellites; Loughton = ~286</figcaption><!-- VISUAL 5: insérer ici <img src="..." alt="..."> --></figure>
+<h2>6. Bitcoin miners saw it first</h2>
+<p>$BTC miners spent a decade getting good at one boring thing: finding cheap power and getting it connected.</p>
+<p>Turns out that's the scarcest asset in AI.</p>
+<ul>
+<li><strong>IREN</strong> announced a $9.7B, 5-year contract with Microsoft in November 2025: 200 MW of IT load in Childress, Texas, running GB300s.</li>
+<li><strong>Hut 8</strong> announced a $7B, 15-year lease with Fluidstack for 245 MW at River Bend, to support Anthropic.</li>
+<li><strong>Core Scientific</strong> says in its filings that about 590 MW of IT capacity across five sites is contracted to CoreWeave, after its own shareholders voted down CoreWeave's takeover. In July 2026 it announced an AMD deal: more than 500 MW from 2027, up to 2.5 GW.</li>
+</ul>
+<p>Those are company announcements. And a contract is not revenue.</p>
+<p>October 14 made that point. A hot US inflation print, plus a Gartner forecast that more than 80% of neoclouds won't stay independent by 2030. Gartner also warned that over $3.5T of AI infrastructure spending could be exposed to impairment by the end of 2030.</p>
+<p>In one day: the WGMI miners ETF fell 10.7%. IREN -12.2%. Cipher -12.3%. Hut 8 -10.5%. CoreWeave -15.5%.</p>
+<p>$BTC itself? About -2%.</p>
+<p>Energized megawatts are the moat. Debt is the risk. And rates decide which one wins.</p>
+<figure class="visual-slot" id="visual-6" data-visual="6"><p class="slot-id">Emplacement visuel 6 · à remplacer</p><figcaption>Table "From hashrate to hosting": IREN / Microsoft / 200 MW / $9.7B / 5 yrs · Hut 8 / Fluidstack-Anthropic / 245 MW / $7B / 15 yrs · Core Scientific / CoreWeave / ~590 MW · Core Scientific / AMD / 500+ MW → up to 2.5 GW (company announcements). Plus horizontal bars "Oct 14, 2026": BTC -2%, WGMI -10.7%, Hut 8 -10.5%, IREN -12.2%, Cipher -12.3%, CoreWeave -15.5%</figcaption><!-- VISUAL 6: insérer ici <img src="..." alt="..."> --></figure>
+<h2>7. Musk is half right</h2>
+<p>On October 20, Elon Musk:</p>
+<blockquote><p>"Lack of electricity" is an oversimplification. Everything is hard about bringing massive compute online at extremely high speed. If there was twice as much time, this would be relatively easy, but there is not.</p></blockquote>
+<p>He's right. On September 1 he listed what it takes: "massive power plants, transformers, liquid cooling loops &amp; chillers, as well as incredibly complex networking."</p>
+<p>The IEA backs him up. AI server power density rose 11x between 2020 and 2025, with another 4x expected by 2027. By then, a single rack the size of a fridge could have the peak power demand of 65 households. A shortage of high-bandwidth memory is expected to last at least through the end of 2027. Gas turbine orders jumped 70% in 2025.</p>
+<p>But read his last sentence again: "If there was twice as much time, this would be relatively easy."</p>
+<p>That's the whole thesis. Everything on the list is a time problem. And the slowest item isn't the chip. It's the wire: a 61-month median.</p>
+<figure class="visual-slot" id="visual-7" data-visual="7"><p class="slot-id">Emplacement visuel 7 · à remplacer</p><figcaption>Annotated screenshot of Musk's Oct 20 post (x.com/elonmusk/status/2112603906723487744) with three arrows: "power plants → turbine slots into 2031" · "grid → 61-month median" · "transformers / cooling / HBM → shortage through 2027". Alt version: a chain where the red, slowest link is "grid connection"</figcaption><!-- VISUAL 7: insérer ici <img src="..." alt="..."> --></figure>
+<h2>Follow the megawatts, not the GPUs.</h2>
+<p>In plain words: chips are a supply-chain problem. Power is a time problem.</p>
+<p>You can't 3D-print a substation.</p>
+<p>The next AI winners won't just have the most GPUs. They'll have megawatts already plugged in.</p>
+<p>What I'm watching:</p>
+<ul>
+<li>PJM and FERC rewriting the large-load rules</li>
+<li>Ofgem's UK queue reform</li>
+<li>GE Vernova's next turbine backlog</li>
+<li>Crane/TMI, aimed at 2027</li>
+<li>First Starmind launches, if SpaceX hits late 2027</li>
+</ul>
+<p>Which bottleneck breaks first: the grid, the turbines, or the debt?</p>
+<p>Reply below. Not financial advice.</p>
+<section class="sources"><h2 class="sources-h">Sources</h2>
+<h3>Loughton / UK</h3>
+<ul>
+<li>The Guardian, Oct 18, 2026: <a href="https://www.theguardian.com/uk-news/2026/oct/18/microsoft-drops-huge-ai-datacentre-project-in-essex-over-power-supply-concerns">https://www.theguardian.com/uk-news/2026/oct/18/microsoft-drops-huge-ai-datacentre-project-in-essex-over-power-supply-concerns</a></li>
+<li>The Guardian, Sep 24, 2026: <a href="https://www.theguardian.com/technology/2026/sep/24/construction-largest-supercomputer-delayed">https://www.theguardian.com/technology/2026/sep/24/construction-largest-supercomputer-delayed</a></li>
+<li>Reuters (via Investing.com), Oct 19, 2026: <a href="https://www.investing.com/news/stock-market-news/microsoft-pulls-out-of-uk-nscale-data-centre-deal-over-power-delay-4960690">https://www.investing.com/news/stock-market-news/microsoft-pulls-out-of-uk-nscale-data-centre-deal-over-power-delay-4960690</a></li>
+<li>BBC, Oct 18, 2026: <a href="https://www.bbc.co.uk/news/articles/c9m26kl5y7epo">https://www.bbc.co.uk/news/articles/c9m26kl5y7epo</a></li>
+<li>The Guardian (Ofgem queue), Jul 29, 2026: <a href="https://www.theguardian.com/uk-news/2026/jul/29/datacentre-projects-fees-grid-access-connection-queue-ofgem">https://www.theguardian.com/uk-news/2026/jul/29/datacentre-projects-fees-grid-access-connection-queue-ofgem</a></li>
+<li>Ofgem, data centre connection reform consultation: <a href="https://www.ofgem.gov.uk/sites/default/files/2026-07/Proposed-data-centre-connection-reforms-curate-consultation-document.pdf">https://www.ofgem.gov.uk/sites/default/files/2026-07/Proposed-data-centre-connection-reforms-curate-consultation-document.pdf</a></li>
+<li>DCD, Nadella on BG2 Pod, Nov 3, 2025: <a href="https://www.datacenterdynamics.com/en/news/microsoft-has-ai-gpus-sitting-in-inventory-because-it-lacks-the-power-necessary-to-install-them/">https://www.datacenterdynamics.com/en/news/microsoft-has-ai-gpus-sitting-in-inventory-because-it-lacks-the-power-necessary-to-install-them/</a></li>
+</ul>
+<h3>Demand</h3>
+<ul>
+<li>IEA, Key Questions on Energy and AI (2026): <a href="https://www.iea.org/reports/key-questions-on-energy-and-ai/executive-summary">https://www.iea.org/reports/key-questions-on-energy-and-ai/executive-summary</a></li>
+<li>IEA, Energy and AI press release (2025): <a href="https://www.iea.org/news/ai-is-set-to-drive-surging-electricity-demand-from-data-centres-while-offering-the-potential-to-transform-how-the-energy-sector-works">https://www.iea.org/news/ai-is-set-to-drive-surging-electricity-demand-from-data-centres-while-offering-the-potential-to-transform-how-the-energy-sector-works</a></li>
+<li>DOE / LBNL 2024 report: <a href="https://www.energy.gov/articles/doe-releases-new-report-evaluating-increase-electricity-demand-data-centers">https://www.energy.gov/articles/doe-releases-new-report-evaluating-increase-electricity-demand-data-centers</a></li>
+<li>LBNL, 2025 Update: <a href="https://energyanalysis.lbl.gov/publications/united-states-data-center-energy-2025">https://energyanalysis.lbl.gov/publications/united-states-data-center-energy-2025</a></li>
+<li>EPRI, Powering Intelligence 2026: <a href="https://powering-intelligence.epri.com/load-growth.html">https://powering-intelligence.epri.com/load-growth.html</a></li>
+</ul>
+<h3>Grid, queues, prices</h3>
+<ul>
+<li>LBNL, Queued Up 2026: <a href="https://emp.lbl.gov/queues/">https://emp.lbl.gov/queues/</a></li>
+<li>Reuters, TMI "can't connect until 2031", Mar 26, 2026: <a href="https://www.reuters.com/business/energy/ceraweek-constellation-exec-says-grid-operator-told-company-three-mile-island-2026-03-26/">https://www.reuters.com/business/energy/ceraweek-constellation-exec-says-grid-operator-told-company-three-mile-island-2026-03-26/</a></li>
+<li>Utility Dive, TMI FERC waiver, Jun 3, 2026: <a href="https://www.utilitydive.com/news/constellation-three-mile-island-crane-nuclear-ferc-waiver/821836/">https://www.utilitydive.com/news/constellation-three-mile-island-crane-nuclear-ferc-waiver/821836/</a></li>
+<li>PJM, 2028/2029 BRA report: <a href="https://www.pjm.com/-/media/DotCom/markets-ops/rpm/rpm-auction-info/2028-2029/2028-2029-bra-results-report.pdf">https://www.pjm.com/-/media/DotCom/markets-ops/rpm/rpm-auction-info/2028-2029/2028-2029-bra-results-report.pdf</a></li>
+<li>PJM, 2026/2027 BRA report: <a href="https://www.pjm.com/-/media/DotCom/markets-ops/rpm/rpm-auction-info/2026-2027/2026-2027-bra-report.pdf">https://www.pjm.com/-/media/DotCom/markets-ops/rpm/rpm-auction-info/2026-2027/2026-2027-bra-report.pdf</a></li>
+<li>Utility Dive, PJM auction, Jul 15, 2026: <a href="https://www.utilitydive.com/news/pjm-capacity-auction-price-cap-reserve-shortfall/825282/">https://www.utilitydive.com/news/pjm-capacity-auction-price-cap-reserve-shortfall/825282/</a></li>
+<li>Reuters, PJM auction, Jul 14, 2026: <a href="https://www.reuters.com/legal/litigation/us-pjm-power-grid-auction-prices-expected-stabilize-near-record-highs-2026-07-14/">https://www.reuters.com/legal/litigation/us-pjm-power-grid-auction-prices-expected-stabilize-near-record-highs-2026-07-14/</a></li>
+<li>PJM, load forecast: <a href="https://learn.pjm.com/three-priorities/planning-for-the-future/load-forecasting.aspx">https://learn.pjm.com/three-priorities/planning-for-the-future/load-forecasting.aspx</a></li>
+<li>Utility Dive, FERC on PJM large loads: <a href="https://www.utilitydive.com/news/ferc-pjm-large-load-interconnection-iras-byonc/832716/">https://www.utilitydive.com/news/ferc-pjm-large-load-interconnection-iras-byonc/832716/</a></li>
+<li>The Hill, FERC on PJM: <a href="https://thehill.com/policy/energy-environment/6146697-ferc-pjm-data-centers-electricity/">https://thehill.com/policy/energy-environment/6146697-ferc-pjm-data-centers-electricity/</a></li>
+<li>Virginia SCC, Dominion biennial review, Nov 25, 2025: <a href="https://www.scc.virginia.gov/about-the-scc/newsreleases/release/scc-issues-order-on-dev-biennial-review-2025/scc-rules-in-dev-biennial-review-case.html">https://www.scc.virginia.gov/about-the-scc/newsreleases/release/scc-issues-order-on-dev-biennial-review-2025/scc-rules-in-dev-biennial-review-case.html</a></li>
+<li>Inside Climate News, Dominion rates: <a href="https://insideclimatenews.org/news/07012026/virginia-regulators-approve-new-dominion-rates/">https://insideclimatenews.org/news/07012026/virginia-regulators-approve-new-dominion-rates/</a></li>
+</ul>
+<h3>Workarounds</h3>
+<ul>
+<li>Utility Dive, GE Vernova Q2 2026, Jul 23, 2026: <a href="https://www.utilitydive.com/news/ge-vernova-gas-turbine-backlog-climbs-to-116-gw/826039/">https://www.utilitydive.com/news/ge-vernova-gas-turbine-backlog-climbs-to-116-gw/826039/</a></li>
+<li>GE Vernova, Q2 2026 call transcript: <a href="https://www.gevernova.com/sites/default/files/gev_webcast_transcript_07222026.pdf">https://www.gevernova.com/sites/default/files/gev_webcast_transcript_07222026.pdf</a></li>
+<li>TechCrunch, Amazon / X-energy / AEP, Oct 19, 2026: <a href="https://techcrunch.com/2026/10/19/amazon-to-fund-12-small-nuclear-reactors-at-former-indiana-coal-plant/">https://techcrunch.com/2026/10/19/amazon-to-fund-12-small-nuclear-reactors-at-former-indiana-coal-plant/</a></li>
+<li>X-energy press release: <a href="https://investors.x-energy.com/news-releases/news-release-details/x-energy-amazon-american-electric-power-partner-bring-smr">https://investors.x-energy.com/news-releases/news-release-details/x-energy-amazon-american-electric-power-partner-bring-smr</a></li>
+<li>SpaceX, Starmind: <a href="https://www.spacex.com/spacexai/starmind">https://www.spacex.com/spacexai/starmind</a></li>
+<li>Bloomberg, Aug 24, 2026: <a href="https://www.bloomberg.com/news/articles/2026-08-24/spacex-s-musk-sees-orbital-data-center-launch-near-end-of-2027">https://www.bloomberg.com/news/articles/2026-08-24/spacex-s-musk-sees-orbital-data-center-launch-near-end-of-2027</a></li>
+<li>Google, Project Suncatcher prototype: <a href="https://blog.google/innovation-and-ai/models-and-research/google-research/project-suncatcher-prototype/">https://blog.google/innovation-and-ai/models-and-research/google-research/project-suncatcher-prototype/</a></li>
+<li>NPR, Project Suncatcher, Oct 1, 2026: <a href="https://www.npr.org/2026/10/01/nx-s1-5983697/project-suncatcher-google-ai-data-center-space">https://www.npr.org/2026/10/01/nx-s1-5983697/project-suncatcher-google-ai-data-center-space</a></li>
+</ul>
+<h3>Bitcoin miners / neoclouds</h3>
+<ul>
+<li>IREN, Nov 3, 2025: <a href="https://iren.com/resources/blog/iren-signs97-billion-agreement-with-microsoft-to-deploy-ai-cloud-infrastructure">https://iren.com/resources/blog/iren-signs97-billion-agreement-with-microsoft-to-deploy-ai-cloud-infrastructure</a></li>
+<li>DCD, Hut 8 / Fluidstack / Anthropic, Dec 17, 2025: <a href="https://www.datacenterdynamics.com/en/news/hut-8-signs-245mw-capacity-deal-with-fluidstack-as-part-of-multi-gigawatt-partnership-with-anthropic/">https://www.datacenterdynamics.com/en/news/hut-8-signs-245mw-capacity-deal-with-fluidstack-as-part-of-multi-gigawatt-partnership-with-anthropic/</a></li>
+<li>Core Scientific, SEC filing (CoreWeave projects): <a href="https://www.sec.gov/Archives/edgar/data/1839341/000119312526165121/d149019dex992.htm">https://www.sec.gov/Archives/edgar/data/1839341/000119312526165121/d149019dex992.htm</a></li>
+<li>Core Scientific / AMD, Jul 28, 2026: <a href="https://investors.corescientific.com/news-events/press-releases/detail/138/core-scientific-and-amd-announce-infrastructure-partnership">https://investors.corescientific.com/news-events/press-releases/detail/138/core-scientific-and-amd-announce-infrastructure-partnership</a></li>
+<li>The Next Web, Core Scientific / AMD: <a href="https://thenextweb.com/news/core-scientific-amd-ai-data-centre-deal">https://thenextweb.com/news/core-scientific-amd-ai-data-centre-deal</a></li>
+<li>Gartner, Oct 14, 2026: <a href="https://www.gartner.com/en/newsroom/press-releases/2026-10-14-gartner-says-over-us-dollars-three-and-a-half-trillion-of-artificial-intelligence-infrastructure-spending-could-be-exposed-to-impairment-by-the-end-of-2030">https://www.gartner.com/en/newsroom/press-releases/2026-10-14-gartner-says-over-us-dollars-three-and-a-half-trillion-of-artificial-intelligence-infrastructure-spending-could-be-exposed-to-impairment-by-the-end-of-2030</a></li>
+<li>Crypto Briefing, Oct 14, 2026: <a href="https://cryptobriefing.com/bitcoin-mining-stocks-ai-debt-gartner-neoclouds-2026-10/">https://cryptobriefing.com/bitcoin-mining-stocks-ai-debt-gartner-neoclouds-2026-10/</a></li>
+<li>etf.net, Oct 14, 2026: <a href="https://etf.net/news/ai-computing-funds-led-the-losses-as-coreweave-sank-2026-10-14">https://etf.net/news/ai-computing-funds-led-the-losses-as-coreweave-sank-2026-10-14</a></li>
+</ul>
+<h3>X posts</h3>
+<ul>
+<li>Elon Musk, Oct 20, 2026: <a href="https://x.com/elonmusk/status/2112603906723487744">https://x.com/elonmusk/status/2112603906723487744</a></li>
+<li>Elon Musk, Sep 1, 2026: <a href="https://x.com/elonmusk/status/2094807459143537081">https://x.com/elonmusk/status/2094807459143537081</a></li>
+</ul>
+</section>
+<section class="factcheck" lang="fr"><h2>Encadré fact-check (passe séparée sur le texte final, 21/10/2026)</h2>
+<h3>✅ Vérifié</h3>
+<ul>
+<li><strong>Loughton</strong> : 23 040 GB300, 50 MW, annonce de septembre 2025, ouverture prévue en 2027 (Reuters, Guardian ; chiffres des entreprises, présentés comme tels). Cour d'échafaudages en mars 2026 (Guardian, deux articles). UKPN annonce une alimentation au début ou au milieu des années 2030 (Guardian, « reportedly »). Retrait de Microsoft le 18/10 (Guardian, BBC, Reuters). Citation de Microsoft « single site » (Reuters). Nscale « alternative power sources » (Guardian, Reuters, BBC).</li>
+<li><strong>Citation de Nadella</strong> (DCD, Tom's Hardware ; BG2 Pod, novembre 2025).</li>
+<li><strong>IEA</strong> (source primaire) : 485 TWh en 2025, environ 950 TWh en 2030, environ 3 %, IA +50 % en 2025 et ×3 d'ici 2030, Japon (rapport 2025, 945 TWh), densité ×11 et ×4, 65 foyers, HBM jusqu'à fin 2027, commandes de turbines +70 % en 2025, gaz sur site 15-27 GW, surdimensionnement de 30-70 %, prix non automatiquement en hausse.</li>
+<li><strong>États-Unis</strong> : 4,4 % en 2023 (DOE et Reuters), 9,5-15,3 % en 2030 (LBNL et OSTI), 9-17 % et Virginie au-delà de 25 %, puis 39-57 % (EPRI, source primaire).</li>
+<li><strong>LBNL Queued Up</strong> (source primaire) : 2 061 GW, 61/36/22 mois, 13 %. La valeur de 55 mois en 2024 (visuel 3) vient de l'édition 2025.</li>
+<li><strong>Ofgem</strong> : environ 315 projets, 73 GW, contre 45 GW de pointe (Guardian à deux reprises, document Ofgem).</li>
+<li><strong>TMI/Crane</strong> : 835 MW, 20 ans avec Microsoft, 2031 annoncé par PJM, lignes de 765/500 kV prévues en décembre 2030, dérogation FERC du 01/06, relance en 2027 (Reuters et Utility Dive).</li>
+<li><strong>PJM</strong> : prix de 28,92 / 269,92 / 329,17 / 333,44 / 325 (rapports PJM). Environ 555 $ sans plafond, 16,4 contre 29,7 Md$, déficit d'environ 6,8 GW (PJM, Utility Dive, Reuters). 13 États et DC (Utility Dive). Environ 30 des 32 GW viennent des data centers (PJM, source primaire). FERC le 09/10 (Utility Dive, The Hill).</li>
+<li><strong>Virginie</strong> : +11,24 $/mois en 2026, +2,36 $ en 2027, classe pour les clients de 25 MW et plus à partir de 2027 (SCC, Inside Climate News).</li>
+<li><strong>GE Vernova</strong> : 116 GW, réservations pour 2031, environ 20 % de data centers (Utility Dive et transcription ; chiffres de l'entreprise, présentés comme tels).</li>
+<li><strong>Amazon / X-energy / AEP</strong> : 960 MW, 12 Xe-100, accord de développement, aucune FID ni date, Seadrift pas encore commencé (TechCrunch, X-energy, Amazon).</li>
+<li><strong>Suncatcher</strong> : prototype en orbite avec Planet, deux satellites prévus en 2027 (Google, NPR, Planet).</li>
+<li><strong>IREN</strong> : 9,7 Md$, 5 ans, 200 MW, Childress, GB300, 03/11/2025 (IREN, 8-K SEC ; annonce de l'entreprise). <strong>Hut 8</strong> : 7 Md$, 15 ans, 245 MW, River Bend, pour Anthropic (DCD, Blockspace ; annonce de l'entreprise). <strong>Core Scientific</strong> : environ 590 MW, 5 sites pour CoreWeave (dépôt SEC) ; rachat rejeté par les actionnaires (The Next Web) ; AMD plus de 500 MW à partir de 2027, jusqu'à 2,5 GW (communiqué et The Next Web).</li>
+<li><strong>14/10/2026</strong> : WGMI -10,7 %, IREN -12,2 %, Cipher -12,3 %, Hut 8 -10,5 %, CoreWeave -15,5 %, BTC environ -2 % (Crypto Briefing et etf.net, données Alpaca). Inflation « chaude » (Crypto Briefing, PRISM MarketView). Gartner : plus de 80 % des neoclouds et 3 500 Md$ exposés (Gartner, TechTarget).</li>
+<li><strong>Posts de Musk</strong> du 20/10/2026 (17:56 UTC, soit 19:56 heure de Paris) et du 01/09/2026 : texte exact lu via l'API X.</li>
+<li><strong>Calculs maison</strong> : 1 GW ÷ 175 kW ≈ 5 714 satellites ; 50 MW ÷ 175 kW ≈ 286 ; 325 / 28,92 ≈ 11,2.</li>
+</ul>
+<h3>⚠️ À confirmer / présenté comme annonce d'entreprise</h3>
+<ul>
+<li><strong>Chiffres des entreprises</strong>, signalés dans le texte : Loughton (23 040 GPU, 50 MW), GE Vernova (116 GW, 20 %), Starmind (250/175 kW, production « as soon as late 2027 », lancement fin 2027), contrats IREN, Hut 8 et Core Scientific. Ce sont des engagements, pas des revenus.</li>
+<li><strong>Starmind</strong> : aucun satellite lancé. Le calcul « 5 700 satellites par GW » repose sur les chiffres de SpaceX, et le texte le présente ainsi.</li>
+<li><strong>Délai de Loughton</strong> : « 2030s » (Reuters, BBC) contre « early to mid-2030s » (Guardian, « reportedly »). Le texte garde la formule « reportedly » du Guardian.</li>
+<li><strong>Comparaison avec le Japon</strong> : elle porte sur la projection de 945 TWh du rapport IEA 2025, pas exactement sur les 950 TWh de 2026. La formulation du texte en tient compte.</li>
+<li><strong>Retirés du texte car non confirmés</strong> : « jusqu'à 13 ans de retard » au Royaume-Uni (une seule source), CPI à 3,7 % et BTC sous 82 000 $ (une seule source crypto), date des résultats T3 de GE Vernova (28/10, agrégateurs seulement), turbines de xAI à Southaven (chiffres non recoupés), montants en dollars de Core Scientific et de Cipher, tweet « Google/Anthropic louent du calcul à SpaceX ».</li>
+<li><strong>Avant publication</strong> : vérifier que les liens Reuters et Bloomberg ne sont pas derrière un paywall pour les lecteurs. Le texte dit « on October 20 » pour Musk, donc pas de « yesterday » à corriger selon le jour de publication.</li>
+</ul>
+</section>
+</article>
+<footer>
+  <p>Brouillon généré le mercredi 21 octobre 2026 (heure de Paris). Non publié sur X. Les emplacements en pointillés sont réservés aux visuels.</p>
+</footer>
+</main>
+</body>
+</html>
