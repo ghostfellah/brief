@@ -3,19 +3,22 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="color-scheme" content="light">
+<meta name="color-scheme" content="light dark">
+<script>(function(){var d=document.documentElement,t;try{var q=new URLSearchParams(location.search).get('theme');t=(q==='dark'||q==='light')?q:localStorage.getItem('brief-theme');}catch(e){}if(t!=='dark'&&t!=='light')t=window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';d.setAttribute('data-theme',t);})();</script>
 <title>Le Brief du Matin · Mercredi 21 octobre 2026</title>
 <meta name="description" content="Pétrole sous tension : le Brent a touché 111,99 $, plus haut depuis cinq mois, avant de finir à 108,79 $, tandis que l&#x27;Iran fait traîner les négociations avec Washington.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;800;900&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&family=UnifrakturMaguntia&display=swap" rel="stylesheet">
 <style>
-:root{--paper:#f7f3ea;--paper2:#efe9dc;--ink:#151311;--ink2:#3b3631;--muted:#6f675c;--rule:#1b1815;--hair:#cfc6b4;--accent:#8e1b1b}
+:root{--paper:#f7f3ea;--paper2:#efe9dc;--ink:#151311;--ink2:#3b3631;--muted:#6f675c;--rule:#1b1815;--hair:#cfc6b4;--accent:#8e1b1b;--accent-bg:rgba(142,27,27,.05);--desk:#e6e0d3;--edge:#d8d0bf;--shadow:rgba(60,45,20,.12);--grain:rgba(120,95,50,.045);--dots:#a99f8c;color-scheme:light}
+html[data-theme="dark"]{--paper:#1b1916;--paper2:#24211d;--ink:#eee6d6;--ink2:#cfc5b3;--muted:#a69c8b;--rule:#d8cdb9;--hair:#4a443b;--accent:#f08a7a;--accent-bg:rgba(240,138,122,.08);--desk:#0f0e0c;--edge:#2c2823;--shadow:rgba(0,0,0,.5);--grain:rgba(255,240,210,.025);--dots:#5a5348;color-scheme:dark}
+@media (prefers-color-scheme:dark){html:not([data-theme]){--paper:#1b1916;--paper2:#24211d;--ink:#eee6d6;--ink2:#cfc5b3;--muted:#a69c8b;--rule:#d8cdb9;--hair:#4a443b;--accent:#f08a7a;--accent-bg:rgba(240,138,122,.08);--desk:#0f0e0c;--edge:#2c2823;--shadow:rgba(0,0,0,.5);--grain:rgba(255,240,210,.025);--dots:#5a5348;color-scheme:dark}}
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
-body{margin:0;background:#e6e0d3;color:var(--ink);font-family:"Source Serif 4","Libre Baskerville",Georgia,"Times New Roman",serif;font-size:17px;line-height:1.55;font-optical-sizing:auto;-webkit-font-smoothing:antialiased}
-.page{max-width:1240px;margin:0 auto;background:var(--paper);padding:22px 40px 30px;box-shadow:0 0 0 1px #d8d0bf,0 10px 40px rgba(60,45,20,.12);
- background-image:radial-gradient(rgba(120,95,50,.045) 1px,transparent 1px);background-size:3px 3px}
+body{margin:0;background:var(--desk);color:var(--ink);font-family:"Source Serif 4","Libre Baskerville",Georgia,"Times New Roman",serif;font-size:17px;line-height:1.55;font-optical-sizing:auto;-webkit-font-smoothing:antialiased}
+.page{max-width:1240px;margin:0 auto;background:var(--paper);padding:22px 40px 30px;box-shadow:0 0 0 1px var(--edge),0 10px 40px var(--shadow);
+ background-image:radial-gradient(var(--grain) 1px,transparent 1px);background-size:3px 3px}
 a{color:var(--accent);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:2px}
 a:hover{text-decoration-thickness:2px}
 /* manchette */
@@ -50,7 +53,7 @@ nav.sommaire a:hover{color:var(--accent)}
 .cours h2{font-family:"Playfair Display",Georgia,serif;font-size:1.1rem;text-align:center;margin:0 0 6px;padding-bottom:6px;border-bottom:3px double var(--rule);text-transform:uppercase;letter-spacing:.08em}
 .cours h4{margin:8px 0 2px;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--accent)}
 .cours table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums lining-nums;font-size:.88rem}
-.cours td{padding:4px 2px;border-bottom:1px dotted #a99f8c;vertical-align:baseline}
+.cours td{padding:4px 2px;border-bottom:1px dotted var(--dots);vertical-align:baseline}
 .cours td.v{text-align:right;font-weight:600;white-space:nowrap}
 .cours td.c{text-align:right;white-space:nowrap;width:1%;padding-left:10px;font-size:.82rem}
 .c.up{color:var(--ink)} .c.down{color:var(--accent)}
@@ -78,7 +81,7 @@ p.dropcap::first-letter{float:left;font-family:"Playfair Display",Georgia,serif;
 .story p.source a{font-style:normal;font-weight:600;word-break:break-word}
 .badges{margin:0 0 5px;display:flex;flex-wrap:wrap;gap:6px}
 .badge{display:inline-block;font-size:.66rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:1px 6px;border:1px solid var(--ink2);color:var(--ink2);line-height:1.5}
-.badge.unconfirmed{border-color:var(--accent);color:var(--accent);background:rgba(142,27,27,.05)}
+.badge.unconfirmed{border-color:var(--accent);color:var(--accent);background:var(--accent-bg)}
 .badge.unconfirmed::before{content:"⚠ ";letter-spacing:0}
 .extra{font-size:.9rem}
 .chart{margin:14px 0 0;padding:10px 0 0;border-top:1px solid var(--rule)}
@@ -123,14 +126,22 @@ footer.colophon .orig{font-style:italic}
  .story p{text-align:left}
  footer.colophon{column-count:1}
 }
-@media print{body{background:#fff}.page{box-shadow:none;background:#fff}}
+.theme-toggle{font:inherit;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink2);background:transparent;border:1px solid var(--hair);border-radius:2px;padding:1px 8px;cursor:pointer;line-height:1.6;margin-left:12px}
+.theme-toggle:hover{color:var(--accent);border-color:var(--accent)}
+.theme-toggle:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+html:not([data-theme]) .theme-toggle{display:none}
+.t-dark,html[data-theme="dark"] .t-light{display:none}
+html[data-theme="dark"] .t-dark{display:inline}
+.topline .right{display:flex;align-items:center}
+html[data-theme="dark"] p.dropcap::first-letter{color:var(--accent)}
+@media print{html{--paper:#fff;--desk:#fff;--ink:#000}body{background:#fff}.page{box-shadow:none;background:#fff}.theme-toggle{display:none}}
 </style>
 </head>
 <body>
 <div class="page">
-<div class="topline"><span>Édition du matin</span><span class="hide-m">Crypto · IA · Macro · Géopolitique</span><span>N° 294</span></div>
+<div class="topline"><span><span class="t-light">Édition du matin</span><span class="t-dark">Édition du soir</span></span><span class="hide-m">Crypto · IA · Macro · Géopolitique</span><span class="right">N° 294<button type="button" class="theme-toggle" id="theme-toggle" aria-label="Changer de thème (clair / sombre)"><span class="t-light">☾ Édition du soir</span><span class="t-dark">☀ Édition du matin</span></button></span></div>
 <header class="masthead">
-  <div class="ear"><b>Édition du matin</b>Les dernières 24 heures</div>
+  <div class="ear"><b><span class="t-light">Édition du matin</span><span class="t-dark">Édition du soir</span></b>Les dernières 24 heures</div>
   <h1 class="nameplate">Le Brief du Matin</h1>
   <div class="ear r"><b>Au sommaire</b>Crypto · IA · Macro · Géopolitique</div>
 </header>
@@ -277,5 +288,6 @@ footer.colophon .orig{font-style:italic}
 <p>Les badges signalent les chiffres publiés par les entreprises elles-mêmes et les informations non confirmées officiellement.</p>
 <p class="orig">Version d'origine du brief : <a href="2026-10-21-original.html">2026-10-21-original.html</a></p>
 </footer><div class="fin">❦</div></div>
+<script>(function(){var d=document.documentElement,b=document.getElementById('theme-toggle');if(!b)return;function sync(){var k=d.getAttribute('data-theme')==='dark';b.setAttribute('aria-pressed',k?'true':'false');b.title=k?'Passer à l\'édition du matin (thème clair)':'Passer à l\'édition du soir (thème sombre)';}sync();b.addEventListener('click',function(){var t=d.getAttribute('data-theme')==='dark'?'light':'dark';d.setAttribute('data-theme',t);try{localStorage.setItem('brief-theme',t);var u=new URL(location.href);if(u.searchParams.has('theme')){u.searchParams.delete('theme');history.replaceState(null,'',u);}}catch(e){}sync();});if(window.matchMedia){var m=matchMedia('(prefers-color-scheme: dark)'),f=function(e){var s=null,q=null;try{s=localStorage.getItem('brief-theme');q=new URLSearchParams(location.search).get('theme');}catch(_){}if(!s&&!q){d.setAttribute('data-theme',e.matches?'dark':'light');sync();}};m.addEventListener?m.addEventListener('change',f):m.addListener&&m.addListener(f);}})();</script>
 </body>
 </html>
