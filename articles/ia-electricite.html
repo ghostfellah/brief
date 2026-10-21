@@ -98,6 +98,9 @@ figure.visual-slot figcaption{color:var(--muted);font-size:.9rem;line-height:1.5
 .factcheck{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:16px 20px;margin:30px 0;font-size:.9rem}
 .factcheck h2{margin-top:0!important}
 .factcheck h3{font-size:1rem;margin:14px 0 6px}
+figure.visual{margin:22px 0 26px}
+figure.visual img{display:block;width:100%;height:auto;border-radius:14px;border:1px solid var(--border)}
+figure.visual.hero{margin:0 0 30px}
 </style>
 </head>
 <body>
@@ -107,6 +110,7 @@ figure.visual-slot figcaption{color:var(--muted);font-size:.9rem;line-height:1.5
   <h1>AI isn&#x27;t short on chips. It&#x27;s short on plugs.</h1>
   <p class="date">@ghostfellah<span class="sep">·</span>Draft, October 21, 2026<span class="sep">·</span>X Article</p>
 </header>
+<figure class="visual hero" id="visual-0"><img src="ia-electricite/visual-0.png" width="1600" height="640" decoding="async" fetchpriority="high" alt="Header illustration: a row of generic AI server blades next to an unplugged power cord and wall socket, with the headline AI isn't short on chips. It's short on plugs. and the line GPUs ship in months. A grid connection takes years."></figure>
 <article class="post">
 <div class="lede">
 <p>Microsoft just walked away from a site built for 23,040 Nvidia GB300s.</p>
@@ -122,7 +126,7 @@ figure.visual-slot figcaption{color:var(--muted);font-size:.9rem;line-height:1.5
 <p>On October 18, the news broke: Microsoft, the anchor tenant, had terminated its agreement. "This decision relates to a single site," a Microsoft spokesperson told Reuters. Nscale says it's still committed and is looking at alternative power sources.</p>
 <p>The chips exist. The customer existed. The electrons don't.</p>
 <p>Microsoft has said this out loud before. Satya Nadella, November 2025: "You may actually have a bunch of chips sitting in inventory that I can't plug in… It's not a supply issue of chips; it's actually the fact that I don't have warm shells to plug into."</p>
-<figure class="visual-slot" id="visual-1" data-visual="1"><p class="slot-id">Emplacement visuel 1 · à remplacer</p><figcaption>Timeline "Loughton, the AI site that never got a plug": Sep 2025 announcement → Mar 2026 scaffolding yard → 24 Sep 2026 grid delay to the 2030s → 18 Oct 2026 Microsoft exits → "203X" power date (dotted)</figcaption><!-- VISUAL 1: insérer ici <img src="..." alt="..."> --></figure>
+<figure class="visual" id="visual-1"><img src="ia-electricite/visual-1.png" width="1600" height="900" loading="lazy" decoding="async" alt="Timeline of Nscale's Loughton, Essex AI data centre: announced September 2025 with 23,040 Nvidia GB300 GPUs and 50 MW (company figures) for 2027; still a scaffolding yard in March 2026; grid power pushed to the 2030s in September 2026; Microsoft pulls out on 18 October 2026; estimated grid connection 203X."></figure>
 <h2>2. The demand side: a Japan-sized load by 2030</h2>
 <p>Is the demand real? Yes.</p>
 <p>The IEA says data centres used 485 TWh of electricity in 2025. Its base case for 2030: about 950 TWh. Roughly double in five years.</p>
@@ -132,7 +136,7 @@ figure.visual-slot figcaption{color:var(--muted);font-size:.9rem;line-height:1.5
 <p>In the US, data centres used 4.4% of all electricity in 2023 (Lawrence Berkeley National Lab). LBNL's latest update sees 9.5% to 15.3% by 2030. EPRI says 9% to 17%.</p>
 <p>Then there's Virginia. Data centres already use more than 25% of the state's power. EPRI's scenarios put it at 39% to 57% by 2030.</p>
 <p>One state. Potentially more than half its electricity going to servers.</p>
-<figure class="visual-slot" id="visual-2" data-visual="2"><p class="slot-id">Emplacement visuel 2 · à remplacer</p><figcaption>Bar chart, global data-centre electricity (IEA): 2024 = 415 TWh, 2025 = 485 TWh, 2030 = 950 TWh, with a "≈ Japan today" marker. Inset: US share 4.4% (2023) → 9.5–15.3% (LBNL) / 9–17% (EPRI) by 2030. Virginia badge: &gt;25% today → 39–57% by 2030</figcaption><!-- VISUAL 2: insérer ici <img src="..." alt="..."> --></figure>
+<figure class="visual" id="visual-2"><img src="ia-electricite/visual-2.png" width="1600" height="900" loading="lazy" decoding="async" alt="Bar chart of global data centre electricity use per the IEA: 415 TWh in 2024, 485 TWh in 2025, about 950 TWh projected for 2030, roughly Japan's total electricity use today. Inset: US data centre share of electricity 4.4% in 2023, 6.7-12% by 2028, 9.5-15.3% (LBNL) or 9-17% (EPRI) by 2030; Virginia above 25% today, 39-57% by 2030."></figure>
 <h2>3. The real bottleneck: the queue</h2>
 <p>A GPU ships in months. A grid connection runs on a different clock.</p>
 <p>Berkeley Lab's Queued Up 2026: about 2,061 GW of generation and storage were waiting to connect to the US grid at the end of 2025.</p>
@@ -142,7 +146,7 @@ figure.visual-slot figcaption{color:var(--muted);font-size:.9rem;line-height:1.5
 <p>The queue is bigger than the country.</p>
 <p>My favourite example is Three Mile Island. Constellation is restarting Unit 1, now called Crane: 835 MW, with a 20-year deal to sell all of its output to Microsoft. In March 2026, Constellation said PJM's first answer was that the plant couldn't connect until 2031. It needed 765-kV and 500-kV transmission upgrades that weren't due until December 2030. A FERC waiver on June 1 put a 2027 restart back in play.</p>
 <p>Read that again. A nuclear plant, for Microsoft, still had to wait in line.</p>
-<figure class="visual-slot" id="visual-3" data-visual="3"><p class="slot-id">Emplacement visuel 3 · à remplacer</p><figcaption>Line chart "Months from grid request to power-on" (LBNL): 2008 = 22, 2015 = 36, 2024 = 55, 2025 = 61. Next to it, UK bars: data centres in the queue 73 GW vs UK peak demand 45 GW (Ofgem)</figcaption><!-- VISUAL 3: insérer ici <img src="..." alt="..."> --></figure>
+<figure class="visual" id="visual-3"><img src="ia-electricite/visual-3.png" width="1600" height="900" loading="lazy" decoding="async" alt="Line chart of the median months from US grid interconnection request to power-on: 22 in 2008, 36 in 2015, 55 in 2024, 61 in 2025 (Berkeley Lab). Bar chart: 73 GW of UK data centres in the grid queue versus 45 GW of UK peak demand (Ofgem)."></figure>
 <h2>4. Someone pays: the PJM bill</h2>
 <p>PJM runs the largest US grid: 13 states plus DC. It auctions "capacity": paying power plants to be there years ahead.</p>
 <p>Here is the clearing price, in $ per MW-day:</p>
@@ -160,7 +164,7 @@ figure.visual-slot figcaption{color:var(--muted);font-size:.9rem;line-height:1.5
 <p>The rulebook is still being written. On October 9, FERC rejected most of PJM's large-load plan, including mandatory curtailment and "bring your own capacity."</p>
 <p>To be fair, the IEA says data centres don't automatically raise prices. On a grid with spare capacity, they can even lower them. PJM isn't that grid.</p>
 <p>If you watch the Fed, watch this line too.</p>
-<figure class="visual-slot" id="visual-4" data-visual="4"><p class="slot-id">Emplacement visuel 4 · à remplacer</p><figcaption>Bar chart, PJM capacity price by delivery year ($/MW-day, RTO): 28.92 / 269.92 / 329.17 / 333.44 / 325.00, plus a ghost bar "~555 without cap" for 2028/29. Caption: from $28.92 to $325 in four delivery years (PJM)</figcaption><!-- VISUAL 4: insérer ici <img src="..." alt="..."> --></figure>
+<figure class="visual" id="visual-4"><img src="ia-electricite/visual-4.png" width="1600" height="900" loading="lazy" decoding="async" alt="Bar chart of PJM capacity auction clearing prices in dollars per MW-day: $28.92 for 2024/25, $269.92 for 2025/26, then at the cap $329.17, $333.44 and $325.00 for 2028/29, which would have been about $555 without the cap. Callouts: about 11x, $16.4B cost versus about $29.7B uncapped, 6.8 GW short of the reliability target."></figure>
 <h2>5. Big Tech's workaround: bring your own power plant (or go to orbit)</h2>
 <p>Can't get the grid? Build your own power.</p>
 <p><strong>Gas.</strong> GE Vernova says its gas turbine backlog and slot reservations reached 116 GW at the end of Q2 2026. It's already taking reservations for 2031 deliveries, and its CEO says about 20% of customers are data centres. Want a turbine? Get in line. Again.</p>
@@ -169,7 +173,7 @@ figure.visual-slot figcaption{color:var(--muted);font-size:.9rem;line-height:1.5
 <p><strong>Orbit.</strong> Yes, really. SpaceX says each of its Starmind "AI1" satellites carries up to 250 kW peak and 175 kW average of compute, and that its factory will start producing them as soon as late 2027. Musk has said the first launch is targeted for late 2027 (Bloomberg). Google's Project Suncatcher already has a prototype TPU satellite in orbit, built with Planet, with two more planned for 2027.</p>
 <p>Napkin math on SpaceX's own numbers: 1 GW ÷ 175 kW ≈ 5,700 satellites. Loughton's 50 MW ≈ 286 of them.</p>
 <p>Every workaround comes with its own queue.</p>
-<figure class="visual-slot" id="visual-5" data-visual="5"><p class="slot-id">Emplacement visuel 5 · à remplacer</p><figcaption>"Time-to-power" schematic, one lane per option: US grid connection ~5 years (61-month median, LBNL) · new gas turbine, reservations already into 2031 (GE Vernova) · nuclear restart, TMI announced 2024 → 2027 target (Constellation) · SMR in Indiana, no date announced (X-energy/AEP) · orbit, first launch targeted late 2027 (SpaceX, company claim). Napkin-math card: 1 GW = ~5,700 AI1 satellites; Loughton = ~286</figcaption><!-- VISUAL 5: insérer ici <img src="..." alt="..."> --></figure>
+<figure class="visual" id="visual-5"><img src="ia-electricite/visual-5.png" width="1600" height="900" loading="lazy" decoding="async" alt="Table comparing time to power for each option: US grid connection about 5 years (61-month median); new gas turbines 4-5 years out with 2031 slots being booked; Three Mile Island nuclear restart announced 2024 and targeted for H2 2027; Indiana SMRs with no date announced; SpaceX Starmind orbit with first launch targeted late 2027 (company claim). Napkin math: 1 GW is about 5,700 satellites at 175 kW each; Loughton's 50 MW is about 286."></figure>
 <h2>6. Bitcoin miners saw it first</h2>
 <p>$BTC miners spent a decade getting good at one boring thing: finding cheap power and getting it connected.</p>
 <p>Turns out that's the scarcest asset in AI.</p>
@@ -183,7 +187,7 @@ figure.visual-slot figcaption{color:var(--muted);font-size:.9rem;line-height:1.5
 <p>In one day: the WGMI miners ETF fell 10.7%. IREN -12.2%. Cipher -12.3%. Hut 8 -10.5%. CoreWeave -15.5%.</p>
 <p>$BTC itself? About -2%.</p>
 <p>Energized megawatts are the moat. Debt is the risk. And rates decide which one wins.</p>
-<figure class="visual-slot" id="visual-6" data-visual="6"><p class="slot-id">Emplacement visuel 6 · à remplacer</p><figcaption>Table "From hashrate to hosting": IREN / Microsoft / 200 MW / $9.7B / 5 yrs · Hut 8 / Fluidstack-Anthropic / 245 MW / $7B / 15 yrs · Core Scientific / CoreWeave / ~590 MW · Core Scientific / AMD / 500+ MW → up to 2.5 GW (company announcements). Plus horizontal bars "Oct 14, 2026": BTC -2%, WGMI -10.7%, Hut 8 -10.5%, IREN -12.2%, Cipher -12.3%, CoreWeave -15.5%</figcaption><!-- VISUAL 6: insérer ici <img src="..." alt="..."> --></figure>
+<figure class="visual-slot" id="visual-6" data-visual="6"><p class="slot-id">Emplacement visuel 6 · en attente de correction (Studio)</p><figcaption>Table "From hashrate to hosting": IREN / Microsoft / 200 MW / $9.7B / 5 yrs · Hut 8 / Fluidstack-Anthropic / 245 MW / $7B / 15 yrs · Core Scientific / CoreWeave / ~590 MW · Core Scientific / AMD / 500+ MW → up to 2.5 GW (company announcements). Plus horizontal bars "Oct 14, 2026": BTC -2%, WGMI -10.7%, Hut 8 -10.5%, IREN -12.2%, Cipher -12.3%, CoreWeave -15.5%</figcaption><!-- VISUAL 6: insérer ici <img src="..." alt="..."> --></figure>
 <h2>7. Musk is half right</h2>
 <p>On October 20, Elon Musk:</p>
 <blockquote><p>"Lack of electricity" is an oversimplification. Everything is hard about bringing massive compute online at extremely high speed. If there was twice as much time, this would be relatively easy, but there is not.</p></blockquote>
@@ -191,7 +195,7 @@ figure.visual-slot figcaption{color:var(--muted);font-size:.9rem;line-height:1.5
 <p>The IEA backs him up. AI server power density rose 11x between 2020 and 2025, with another 4x expected by 2027. By then, a single rack the size of a fridge could have the peak power demand of 65 households. A shortage of high-bandwidth memory is expected to last at least through the end of 2027. Gas turbine orders jumped 70% in 2025.</p>
 <p>But read his last sentence again: "If there was twice as much time, this would be relatively easy."</p>
 <p>That's the whole thesis. Everything on the list is a time problem. And the slowest item isn't the chip. It's the wire: a 61-month median.</p>
-<figure class="visual-slot" id="visual-7" data-visual="7"><p class="slot-id">Emplacement visuel 7 · à remplacer</p><figcaption>Annotated screenshot of Musk's Oct 20 post (x.com/elonmusk/status/2112603906723487744) with three arrows: "power plants → turbine slots into 2031" · "grid → 61-month median" · "transformers / cooling / HBM → shortage through 2027". Alt version: a chain where the red, slowest link is "grid connection"</figcaption><!-- VISUAL 7: insérer ici <img src="..." alt="..."> --></figure>
+<figure class="visual" id="visual-7"><img src="ia-electricite/visual-7.png" width="1600" height="900" loading="lazy" decoding="async" alt="Elon Musk's 20 October 2026 post saying lack of electricity is an oversimplification and that twice as much time would make it relatively easy, linked to three bottlenecks: gas turbine slots booked 4-5 years out, a 61-month median grid connection, and an HBM memory shortage expected through at least end-2027."></figure>
 <h2>Follow the megawatts, not the GPUs.</h2>
 <p>In plain words: chips are a supply-chain problem. Power is a time problem.</p>
 <p>You can't 3D-print a substation.</p>
