@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<title>Brief du Matin · Jeudi 22 octobre 2026</title>
+<!--
+  GABARIT « Brief du Matin » : un seul fichier, CSS inline, aucune dépendance, pas de JS.
+  Thème sombre par défaut, clair automatique via prefers-color-scheme.
+  Utilisation : copier ce fichier vers brief-AAAA-MM-JJ.html, remplacer chaque {{EMPLACEMENT}},
+  dupliquer les <article class="card"> (3 à 4 par section). Ne pas modifier le bloc <style>.
+  Typographie : mettre une espace insécable (&nbsp;) avant : ; % ? ! » et après «.
+-->
+<style>
+:root{
+  --bg:#0e1116; --surface:#161b22; --surface-2:#1c222b; --border:#2a313c;
+  --text:#e8ecf1; --muted:#9aa4b2; --accent:#e0b062; --link:#8fbcff;
+  --up:#3fcf8e; --up-bg:rgba(63,207,142,.12); --down:#ff6b6b; --down-bg:rgba(255,107,107,.12);
+  --badge-co:#c9a7ff; --badge-co-bg:rgba(201,167,255,.12);
+  --badge-nc:#ffb347; --badge-nc-bg:rgba(255,179,71,.12);
+}
+@media (prefers-color-scheme: light){
+  :root{
+    --bg:#f6f4ef; --surface:#ffffff; --surface-2:#faf8f4; --border:#e3ded4;
+    --text:#1b1f24; --muted:#5d6672; --accent:#9a6a12; --link:#1f5fbf;
+    --up:#0f8a55; --up-bg:rgba(15,138,85,.10); --down:#c62f2f; --down-bg:rgba(198,47,47,.09);
+    --badge-co:#6b3fc0; --badge-co-bg:rgba(107,63,192,.09);
+    --badge-nc:#a35a00; --badge-nc-bg:rgba(163,90,0,.10);
+  }
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji";
+  font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:780px;margin:0 auto;padding:40px 22px 28px}
+header.masthead{padding-bottom:22px;margin-bottom:26px;border-bottom:1px solid var(--border)}
+.kicker{font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);font-weight:600;margin:0 0 6px}
+h1{font-size:2.3rem;line-height:1.15;margin:0;font-weight:750;letter-spacing:-.02em}
+.date{margin:8px 0 0;color:var(--muted);font-size:1rem}
+.date .sep{opacity:.5;margin:0 .45em}
+.essentiel{background:linear-gradient(135deg,var(--surface-2),var(--surface));border:1px solid var(--border);
+  border-left:4px solid var(--accent);border-radius:14px;padding:18px 22px 16px;margin:0 0 34px}
+.essentiel h2{margin:0 0 8px;font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+.essentiel ul{margin:0;padding-left:1.15em}
+.essentiel li{margin:6px 0;font-weight:500}
+.essentiel li::marker{color:var(--accent)}
+section.theme{margin:0 0 38px}
+section.theme > h2{font-size:1.4rem;margin:0 0 14px;display:flex;align-items:center;gap:.5em;letter-spacing:-.01em}
+section.theme > h2 .emoji{font-size:1.25em;line-height:1}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin:0 0 16px}
+.tile{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:10px 12px}
+.tile .label{font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:600}
+.tile .value{font-size:1.15rem;font-weight:700;font-variant-numeric:tabular-nums;margin-top:2px;white-space:nowrap}
+.tile .chg{display:inline-block;margin-top:4px;font-size:.8rem;font-weight:650;padding:1px 7px;border-radius:999px;font-variant-numeric:tabular-nums}
+.chg.up{color:var(--up);background:var(--up-bg)}
+.chg.down{color:var(--down);background:var(--down-bg)}
+.tiles-note{font-size:.78rem;color:var(--muted);margin:-8px 0 16px}
+.tiles-note a{color:var(--muted)}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:16px 18px;margin:0 0 12px}
+.card h3{margin:0 0 6px;font-size:1.05rem;line-height:1.35;font-weight:700}
+.card p{margin:0;color:var(--text)}
+.card .meta{margin-top:10px;display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;font-size:.82rem}
+.source{color:var(--muted)}
+.source a{color:var(--link);text-decoration:none;border-bottom:1px solid transparent}
+.source a:hover{border-bottom-color:var(--link)}
+.badge{display:inline-block;font-size:.7rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:2px 8px;border-radius:999px;white-space:nowrap}
+.badge.company{color:var(--badge-co);background:var(--badge-co-bg)}
+.badge.unconfirmed{color:var(--badge-nc);background:var(--badge-nc-bg)}
+footer{margin-top:10px;padding-top:16px;border-top:1px solid var(--border);color:var(--muted);font-size:.8rem;line-height:1.5}
+footer p{margin:4px 0}
+@media (max-width:520px){
+  body{font-size:16px}
+  .wrap{padding:26px 16px 22px}
+  h1{font-size:1.85rem}
+  .tiles{grid-template-columns:repeat(2,1fr)}
+  .card{padding:14px 15px}
+  .essentiel{padding:16px 16px 14px}
+}
+.tiles.six{grid-template-columns:repeat(3,1fr)}
+@media (max-width:520px){.tiles.six{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+<main class="wrap">
+<header class="masthead">
+  <p class="kicker">Crypto · IA · Macro · Géopolitique</p>
+  <h1>Brief du Matin</h1>
+  <p class="date">Jeudi 22 octobre 2026<span class="sep">·</span>Les dernières 24 heures</p>
+</header>
+<aside class="essentiel" aria-label="L'essentiel">
+  <h2>L'essentiel</h2>
+  <ul>
+    <li>Le Golfe se tend encore : Washington évacue son personnel non essentiel d'Arabie saoudite après des frappes houthies meurtrières, l'Iran menace des «&nbsp;cibles politiques&nbsp;» américaines et le Brent repasse 110&nbsp;$.</li>
+    <li>Le doute sur l'IA revient : Meta a dépensé 34,9&nbsp;Md$ d'investissements en un trimestre (flux de trésorerie libre négatif), Tesla réduit les siens ; futures Nasdaq −1,1&nbsp;%, Kospi −2,1&nbsp;%.</li>
+    <li>Zelensky se dit prêt à geler la guerre sur la ligne de front actuelle, le jour où Moscou libère l'Américain Stephen Hubbard pendant la visite de Witkoff à Poutine.</li>
+  </ul>
+</aside>
+
+<section class="theme" id="crypto">
+  <h2><span class="emoji">₿</span> Crypto</h2>
+  <div class="tiles">
+    <div class="tile"><div class="label">BTC</div><div class="value">≈ 82&nbsp;800&nbsp;$</div><span class="chg up">stable</span></div>
+    <div class="tile"><div class="label">ETH</div><div class="value">≈ 2&nbsp;440&nbsp;$</div><span class="chg down">−0,2&nbsp;%</span></div>
+  </div>
+  <p class="tiles-note">Cours de jeudi matin (heure asiatique). Sources : <a href="https://www.coindesk.com/markets/2026/10/22/bitcoin-gives-back-its-run-at-usd85-000-as-tesla-and-meta-fail-to-calm-ai-nerves">CoinDesk ↗</a>, <a href="https://www.coindesk.com/price/ethereum">CoinDesk (ETH) ↗</a></p>
+  <article class="card">
+    <h3>Le bitcoin rate les 85&nbsp;000&nbsp;$ et retombe sur son support</h3>
+    <p>Le BTC a franchi le plafond des 84&nbsp;000&nbsp;$ mercredi soir et touché près de 84&nbsp;800&nbsp;$, puis a perdu plus de 2&nbsp;000&nbsp;$ en six heures pour revenir vers 82&nbsp;800&nbsp;$. Il repose sur le support de 82&nbsp;500&nbsp;$, que certains analystes jugent décisif, dans le sillage du recul des valeurs tech.</p>
+    <div class="meta"><span class="source">Source : <a href="https://www.coindesk.com/markets/2026/10/22/bitcoin-gives-back-its-run-at-usd85-000-as-tesla-and-meta-fail-to-calm-ai-nerves">CoinDesk ↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Les ETF bitcoin aspirent plus d'1&nbsp;Md$ en trois jours</h3>
+    <p>Les ETF bitcoin «&nbsp;spot&nbsp;» américains ont attiré environ 528&nbsp;M$ mercredi, dont 235&nbsp;M$ pour IBIT de BlackRock. Le rythme reste toutefois loin des plus de 200&nbsp;M$ par jour qui ont accompagné les grands rallyes depuis 2024.</p>
+    <div class="meta"><span class="source">Source : <a href="https://www.coindesk.com/markets/2026/10/22/bitcoin-etfs-attract-usd1-08-billion-in-3-days-but-it-may-not-be-enough-for-a-steep-rally">CoinDesk ↗</a>, <a href="https://alphafinance.io/etf/bitcoin/">Alpha Finance ↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Les actions préférentielles, nouveau canal d'achat de bitcoin</h3>
+    <p>Selon Fidelity Digital Assets, les actions préférentielles perpétuelles émises par des sociétés «&nbsp;trésorerie bitcoin&nbsp;» ont financé l'achat de 135&nbsp;979 BTC au 5 octobre, soit plus de 0,5&nbsp;% de l'offre maximale. Un canal qui puise dans le marché obligataire, mais qui dépend de la santé financière des émetteurs.</p>
+    <div class="meta"><span class="source">Source : <a href="https://www.fidelitydigitalassets.com/research-and-insights/perpetual-preferred-stock-newest-demand-catalyst-bitcoin">Fidelity Digital Assets ↗</a></span></div>
+  </article>
+</section>
+
+<section class="theme" id="ia">
+  <h2><span class="emoji">🤖</span> IA</h2>
+  <article class="card">
+    <h3>Meta : 34,9&nbsp;Md$ d'investissements en un trimestre</h3>
+    <p>Meta affiche un chiffre d'affaires de 64,6&nbsp;Md$ (+26&nbsp;%), mais ses dépenses d'investissement (serveurs, data centers) atteignent 34,9&nbsp;Md$ et son flux de trésorerie libre passe à −2,1&nbsp;Md$. La fourchette 2026 est resserrée à 135-145&nbsp;Md$ ; le bénéfice est aussi plombé par une charge juridique de 9,9&nbsp;Md$.</p>
+    <div class="meta"><span class="badge company">Chiffres de l'entreprise</span><span class="source">Source : <a href="https://investor.atmeta.com/investor-news/press-release-details/2026/Meta-Reports-Third-Quarter-2026-Results/default.aspx">Meta ↗</a>, <a href="https://fortune.com/2026/10/21/meta-q3-earnings-mark-zuckerberg-capex-muse/">Fortune ↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Tesla serre les dépenses avant une possible fusion avec SpaceX</h3>
+    <p>Tesla publie un chiffre d'affaires stable à 28,05&nbsp;Md$ et un BPA ajusté de 0,48&nbsp;$, mais abaisse sa prévision d'investissements ; l'action a reculé d'environ 3&nbsp;% après la clôture. Les marchés lisent ce coup de frein comme un nouveau signal de prudence sur la course à l'IA.</p>
+    <div class="meta"><span class="badge company">Chiffres de l'entreprise</span><span class="source">Source : <a href="https://www.investing.com/news/stock-market-news/musks-tesla-revenue-beats-estimates-as-deliveries-rebound-energy-storage-grows-4963934">Reuters ↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Les modèles d'OpenAI arrivent sur Google Cloud</h3>
+    <p>OpenAI et Google Cloud ont annoncé mercredi que GPT-6 Astra, GPT-6.1 Sol et GPT-6 Luna seront proposés dans le catalogue de modèles de Google, d'abord en préversion privée. OpenAI est désormais présent sur les trois grands clouds américains, tout en gardant Microsoft comme partenaire principal.</p>
+    <div class="meta"><span class="source">Source : <a href="https://openai.com/index/openai-models-google-cloud/">OpenAI ↗</a>, <a href="https://www.cnbc.com/2026/10/21/openai-bring-its-ai-models-to-googles-cloud-expands-beyond-microsoft.html">CNBC ↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Nvidia livre des «&nbsp;usines à IA&nbsp;» en conteneur</h3>
+    <p>À la GTC de Berlin, Nvidia a présenté DSX POD, des data centers Vera Rubin préassemblés en usine (calcul, réseau, électricité, refroidissement liquide). Nvidia promet une mise en service en 14 jours au lieu de six mois, avec des livraisons par ses partenaires début 2027.</p>
+    <div class="meta"><span class="badge company">Chiffres de l'entreprise</span><span class="source">Source : <a href="https://nvidianews.nvidia.com/news/nvidia-introduces-dsx-pod-ai-factories-to-accelerate-europes-infrastructure-deployment">Nvidia ↗</a></span></div>
+  </article>
+</section>
+
+<section class="theme" id="macro">
+  <h2><span class="emoji">📈</span> Macro</h2>
+  <div class="tiles six">
+    <div class="tile"><div class="label">Dow Jones</div><div class="value">52&nbsp;856,09</div><span class="chg up">+0,69&nbsp;%</span></div>
+    <div class="tile"><div class="label">S&amp;P 500</div><div class="value">7&nbsp;757,17</div><span class="chg up">+0,58&nbsp;%</span></div>
+    <div class="tile"><div class="label">Nasdaq</div><div class="value">26&nbsp;702,86</div><span class="chg up">+1,05&nbsp;%</span></div>
+    <div class="tile"><div class="label">Brent</div><div class="value">108,82&nbsp;$</div><span class="chg up">+0,03&nbsp;%</span></div>
+    <div class="tile"><div class="label">WTI</div><div class="value">97,15&nbsp;$</div><span class="chg down">−0,68&nbsp;%</span></div>
+    <div class="tile"><div class="label">10 ans US</div><div class="value">5,12&nbsp;%</div><span class="chg up">stable</span></div>
+  </div>
+  <p class="tiles-note">Clôtures du mercredi 21 octobre ; WTI = contrat de décembre. Sources : <a href="https://apnews.com/article/stocks-markets-rates-oil-earnings-ai-4fa93685cd49e51e7ff0d840fdd38b0d">AP ↗</a>, <a href="https://www.cnbc.com/2026/10/21/bonds-us-treasurys-yields.html">CNBC ↗</a></p>
+  <article class="card">
+    <h3>Wall Street monte, l'Asie et les futures reculent</h3>
+    <p>Le S&amp;P 500 a signé mercredi une troisième séance de hausse, porté par SpaceX. Mais ce matin, les futures Nasdaq 100 perdent 1,1&nbsp;%, le Kospi chute de 2,1&nbsp;% (SK Hynix −4&nbsp;%) et le CSI 300 chinois frôle le marché baissier, après des résultats tech qui n'ont pas rassuré sur la rentabilité de l'IA.</p>
+    <div class="meta"><span class="source">Source : <a href="https://ng.investing.com/news/stock-market-news/asia-stocks-slide-as-ai-jitters-hit-korean-chipmakers-2750044">Investing.com ↗</a>, <a href="https://www.coindesk.com/markets/2026/10/22/bitcoin-gives-back-its-run-at-usd85-000-as-tesla-and-meta-fail-to-calm-ai-nerves">CoinDesk ↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Le Brent repasse au-dessus de 110&nbsp;$</h3>
+    <p>Le baril de Brent gagne environ 1,5&nbsp;% ce matin, au-dessus de 110&nbsp;$, après des attaques meurtrières en Arabie saoudite, dont une frappe sur l'aéroport de Dammam. En octobre, le Brent oscille entre 97 et 112&nbsp;$ au gré des nouvelles sur l'Iran.</p>
+    <div class="meta"><span class="source">Source : <a href="https://www.thenationalnews.com/news/gulf/2026/10/22/us-pulls-diplomats-from-saudi-arabia-but-denies-wider-gulf-withdrawal/">The National ↗</a>, <a href="https://ng.investing.com/news/stock-market-news/asia-stocks-slide-as-ai-jitters-hit-korean-chipmakers-2750044">Investing.com ↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Dette française : Moody's tranche vendredi</h3>
+    <p>Après le passage de l'OAT à 10 ans au-dessus de 5&nbsp;% mercredi, une première depuis 2002, Moody's réexamine vendredi la note de la France (Aa3, perspective négative). La plupart des économistes s'attendent à une dégradation.</p>
+    <div class="meta"><span class="source">Source : <a href="https://www.boursorama.com/bourse/actualites/dette-francaise-l-agence-moody-s-devrait-degrader-la-note-de-la-france-vendredi-estime-la-plupart-des-economistes-2f9bf4142e1dd174c99a6f728c1c7129">Boursorama ↗</a>, <a href="https://www.cnbc.com/2026/10/21/france-protests-bonds-debt.html">CNBC ↗</a></span></div>
+  </article>
+</section>
+
+<section class="theme" id="geopolitique">
+  <h2><span class="emoji">🌍</span> Géopolitique</h2>
+  <article class="card">
+    <h3>Washington évacue son personnel non essentiel d'Arabie saoudite</h3>
+    <p>Le département d'État a ordonné le départ des employés non essentiels et de leurs familles après des attaques houthies, dont une frappe sur l'aéroport de Dammam (un mort, huit blessés). Quatre responsables américains évoquent aussi le départ de familles d'autres pays du Golfe, ce que le département d'État dément.</p>
+    <div class="meta"><span class="source">Source : <a href="https://apnews.com/article/us-saudi-arabia-yemen-houthis-fa9a4806bff404a23a16a8c209afbd2b">AP ↗</a>, <a href="https://www.investing.com/news/commodities-news/exclusiveus-preparing-to-issue-ordered-departure-of-some-personnel-from-gulf-embassies--us-officials-4963834">Reuters ↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>L'Iran menace des «&nbsp;cibles politiques&nbsp;» américaines</h3>
+    <p>Un haut responsable iranien de la sécurité, cité par l'agence Fars, affirme que Téhéran considérerait les cibles politiques américaines et les infrastructures des pays participants comme légitimes en cas de nouvelle guerre avec assassinats ou victimes civiles. Il dit que Téhéran se considère déjà en guerre à cause du blocus naval américain.</p>
+    <div class="meta"><span class="source">Source : <a href="https://www.aa.com.tr/en/middle-east/iran-threatens-to-target-us-political-assets-infrastructure-if-new-war-erupts/4096533">Anadolu ↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Zelensky prêt à geler le front</h3>
+    <p>Sur Fox News, le président ukrainien s'est dit prêt à accepter un gel de la guerre sur la ligne de front actuelle comme première étape, en échange de garanties de sécurité américaines et européennes. Il soutient aussi des pourparlers à trois avec Washington et Moscou.</p>
+    <div class="meta"><span class="source">Source : <a href="https://www.euronews.com/2026/10/21/zelenskyy-backs-freezing-front-line-as-first-step-towards-ukraine-ceasefire">Euronews ↗</a>, <a href="https://www.foxnews.com/world/ukraines-zelenskyy-open-freezing-front-lines-ceasefire-russia">Fox News ↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>La Russie libère l'Américain Stephen Hubbard</h3>
+    <p>Détenu depuis plus de quatre ans, l'enseignant retraité de 74 ans a été remis à l'émissaire Steve Witkoff à Saint-Pétersbourg, pendant la visite de ce dernier à Poutine. Trump assure que la libération s'est faite sans échange de prisonniers.</p>
+    <div class="meta"><span class="source">Source : <a href="https://apnews.com/article/russia-american-released-stephen-hubbard-ukraine-witkoff-2c7e34d6606be242ed4a7473e57110c7">AP ↗</a>, <a href="https://www.bbc.com/news/articles/c6m24l9v3745o">BBC ↗</a></span></div>
+  </article>
+</section>
+
+<section class="theme" id="verification">
+  <h2><span class="emoji">✅</span> Vérification</h2>
+  <article class="card">
+    <h3>✅ Vérifié</h3>
+    <p>Clôtures de Wall Street, du pétrole et du 10 ans (AP, CNBC, CoinDesk) ; résultats de Meta (communiqué officiel, Fortune, Business Insider) et de Tesla (dépôt SEC, AP, Reuters) ; flux des ETF bitcoin (CoinDesk/SoSoValue, TechFlow, Alpha Finance) ; rapport de Fidelity (source primaire) ; OpenAI sur Google Cloud (OpenAI, Google, CNBC) ; évacuation d'Arabie saoudite (AP, Reuters, Al Jazeera) ; Zelensky (Fox News, Euronews, The Hill) ; libération de Hubbard (AP, BBC, NPR).</p>
+  </article>
+  <article class="card">
+    <h3>⚠️ À confirmer</h3>
+    <p>Le départ de familles de diplomates aux Émirats, en Jordanie, au Qatar et à Bahreïn est démenti par le département d'État. La menace iranienne vient d'un responsable anonyme cité par Fars. Les délais du DSX POD et les chiffres de Meta et Tesla sont ceux des entreprises. Les cours de jeudi matin bougent encore.</p>
+  </article>
+</section>
+
+<footer>
+  <p>Généré le jeudi 22 octobre 2026 à 07h20 (heure de Paris). Faits repérés via X puis recoupés sur le web ; liens vérifiés.</p>
+  <p>Les badges signalent les chiffres publiés par les entreprises elles-mêmes et les informations non confirmées officiellement.</p>
+</footer>
+</main>
+</body>
+</html>
