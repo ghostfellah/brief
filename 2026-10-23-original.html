@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<title>Brief du Matin · Vendredi 23 octobre 2026</title>
+<!--
+  GABARIT « Brief du Matin » : un seul fichier, CSS inline, aucune dépendance, pas de JS.
+  Thème sombre par défaut, clair automatique via prefers-color-scheme.
+  Utilisation : copier ce fichier vers brief-AAAA-MM-JJ.html, remplacer chaque {{EMPLACEMENT}},
+  dupliquer les <article class="card"> (3 à 4 par section). Ne pas modifier le bloc <style>.
+  Typographie : mettre une espace insécable (&nbsp;) avant : ; % ? ! » et après «.
+-->
+<style>
+:root{
+  --bg:#0e1116; --surface:#161b22; --surface-2:#1c222b; --border:#2a313c;
+  --text:#e8ecf1; --muted:#9aa4b2; --accent:#e0b062; --link:#8fbcff;
+  --up:#3fcf8e; --up-bg:rgba(63,207,142,.12); --down:#ff6b6b; --down-bg:rgba(255,107,107,.12);
+  --badge-co:#c9a7ff; --badge-co-bg:rgba(201,167,255,.12);
+  --badge-nc:#ffb347; --badge-nc-bg:rgba(255,179,71,.12);
+}
+@media (prefers-color-scheme: light){
+  :root{
+    --bg:#f6f4ef; --surface:#ffffff; --surface-2:#faf8f4; --border:#e3ded4;
+    --text:#1b1f24; --muted:#5d6672; --accent:#9a6a12; --link:#1f5fbf;
+    --up:#0f8a55; --up-bg:rgba(15,138,85,.10); --down:#c62f2f; --down-bg:rgba(198,47,47,.09);
+    --badge-co:#6b3fc0; --badge-co-bg:rgba(107,63,192,.09);
+    --badge-nc:#a35a00; --badge-nc-bg:rgba(163,90,0,.10);
+  }
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji";
+  font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:780px;margin:0 auto;padding:40px 22px 28px}
+header.masthead{padding-bottom:22px;margin-bottom:26px;border-bottom:1px solid var(--border)}
+.kicker{font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);font-weight:600;margin:0 0 6px}
+h1{font-size:2.3rem;line-height:1.15;margin:0;font-weight:750;letter-spacing:-.02em}
+.date{margin:8px 0 0;color:var(--muted);font-size:1rem}
+.date .sep{opacity:.5;margin:0 .45em}
+.essentiel{background:linear-gradient(135deg,var(--surface-2),var(--surface));border:1px solid var(--border);
+  border-left:4px solid var(--accent);border-radius:14px;padding:18px 22px 16px;margin:0 0 34px}
+.essentiel h2{margin:0 0 8px;font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+.essentiel ul{margin:0;padding-left:1.15em}
+.essentiel li{margin:6px 0;font-weight:500}
+.essentiel li::marker{color:var(--accent)}
+section.theme{margin:0 0 38px}
+section.theme > h2{font-size:1.4rem;margin:0 0 14px;display:flex;align-items:center;gap:.5em;letter-spacing:-.01em}
+section.theme > h2 .emoji{font-size:1.25em;line-height:1}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin:0 0 16px}
+.tile{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:10px 12px}
+.tile .label{font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:600}
+.tile .value{font-size:1.15rem;font-weight:700;font-variant-numeric:tabular-nums;margin-top:2px;white-space:nowrap}
+.tile .chg{display:inline-block;margin-top:4px;font-size:.8rem;font-weight:650;padding:1px 7px;border-radius:999px;font-variant-numeric:tabular-nums}
+.chg.up{color:var(--up);background:var(--up-bg)}
+.chg.down{color:var(--down);background:var(--down-bg)}
+.tiles-note{font-size:.78rem;color:var(--muted);margin:-8px 0 16px}
+.tiles-note a{color:var(--muted)}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:16px 18px;margin:0 0 12px}
+.card h3{margin:0 0 6px;font-size:1.05rem;line-height:1.35;font-weight:700}
+.card p{margin:0;color:var(--text)}
+.card .meta{margin-top:10px;display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;font-size:.82rem}
+.source{color:var(--muted)}
+.source a{color:var(--link);text-decoration:none;border-bottom:1px solid transparent}
+.source a:hover{border-bottom-color:var(--link)}
+.badge{display:inline-block;font-size:.7rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:2px 8px;border-radius:999px;white-space:nowrap}
+.badge.company{color:var(--badge-co);background:var(--badge-co-bg)}
+.badge.unconfirmed{color:var(--badge-nc);background:var(--badge-nc-bg)}
+footer{margin-top:10px;padding-top:16px;border-top:1px solid var(--border);color:var(--muted);font-size:.8rem;line-height:1.5}
+footer p{margin:4px 0}
+@media (max-width:520px){
+  body{font-size:16px}
+  .wrap{padding:26px 16px 22px}
+  h1{font-size:1.85rem}
+  .tiles{grid-template-columns:repeat(2,1fr)}
+  .card{padding:14px 15px}
+  .essentiel{padding:16px 16px 14px}
+}
+.tiles.six{grid-template-columns:repeat(3,1fr)}
+@media (max-width:520px){.tiles.six{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+<main class="wrap">
+<header class="masthead">
+  <p class="kicker">Crypto · IA · Macro · Géopolitique</p>
+  <h1>Brief du Matin</h1>
+  <p class="date">Vendredi 23 octobre 2026<span class="sep">·</span>Les dernières 24 heures</p>
+</header>
+<aside class="essentiel" aria-label="L'essentiel">
+  <h2>L'essentiel</h2>
+  <ul>
+    <li>Krach de la tech IA : Nasdaq −2,6&nbsp;%, semi-conducteurs −6,7&nbsp;%, Meta −7&nbsp;% ; les investisseurs se ruent sur les Treasuries et le 10 ans US repasse sous 5&nbsp;% (plus forte baisse en un jour depuis mars 2023).</li>
+    <li>Iran : selon le New York Times, Washington et Israël préparent des frappes «&nbsp;courtes mais intensives&nbsp;» après les midterms du 3 novembre ; Téhéran menace datacenters, câbles et sites pétroliers du Golfe, et le Brent bondit de 4&nbsp;% à 113&nbsp;$.</li>
+    <li>OpenAI boucle une levée allant jusqu'à 30&nbsp;Md$ sur une valorisation de 1&nbsp;250&nbsp;Md$ (avant argent frais), menée par des fonds émiratis et Coatue, en pont vers une IPO visée en 2027.</li>
+  </ul>
+</aside>
+
+<section class="theme" id="crypto">
+  <h2><span class="emoji">₿</span> Crypto</h2>
+  <div class="tiles">
+    <div class="tile"><div class="label">BTC</div><div class="value">≈ 82&nbsp;000&nbsp;$</div><span class="chg down">−1,5&nbsp;% (24&nbsp;h)</span></div>
+    <div class="tile"><div class="label">ETH</div><div class="value">≈ 2&nbsp;390&nbsp;$</div><span class="chg down">en baisse</span></div>
+  </div>
+  <p class="tiles-note">Cours de vendredi matin (heure asiatique). Sources : <a href="https://www.coindesk.com/markets/2026/10/23/bitcoin-gold-trim-early-losses-as-yen-gives-up-gains-oil-stays-near-usd100">CoinDesk ↗</a>, <a href="https://www.coindesk.com/price/bitcoin">CoinDesk (BTC) ↗</a></p>
+  <article class="card">
+    <h3>Le bitcoin passe sous 81&nbsp;000&nbsp;$ avec la tech</h3>
+    <p>Emporté par la chute des valeurs IA, le BTC est tombé sous 81&nbsp;000&nbsp;$ jeudi soir avant de remonter vers 82&nbsp;000&nbsp;$ en Asie, où il teste sa moyenne mobile à 50 jours. Environ 435&nbsp;M$ de positions à terme ont été liquidées en 24&nbsp;h, dont 385&nbsp;M$ de paris haussiers ; ETH, SOL et XRP ont suivi le même chemin.</p>
+    <div class="meta"><span class="source">Source : <a href="https://www.coindesk.com/markets/2026/10/23/bitcoin-gold-trim-early-losses-as-yen-gives-up-gains-oil-stays-near-usd100">CoinDesk ↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Les ETF bitcoin repartent en sorties nettes</h3>
+    <p>Après trois jours d'entrées (plus d'1&nbsp;Md$), les ETF bitcoin «&nbsp;spot&nbsp;» américains ont perdu environ 636&nbsp;M$ jeudi, surtout chez IBIT de BlackRock (−254&nbsp;M$) et FBTC de Fidelity (−218&nbsp;M$). La demande institutionnelle reste fragile, ce qui limite les chances d'un rebond franc.</p>
+    <div class="meta"><span class="source">Source : <a href="https://cryptobriefing.com/spot-bitcoin-etfs-635-million-outflows-october-22/">Crypto Briefing ↗</a>, <a href="https://en.bloomingbit.io/feed/news/122785">Bloomingbit (SoSoValue) ↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>La Chine réclame 61&nbsp;896 BTC saisis à Londres</h3>
+    <p>Le parquet de Tianjin demande la confiscation des bitcoins saisis au Royaume-Uni chez Zhimin Qian, condamnée au Royaume-Uni pour blanchiment après une vaste fraude en Chine. La justice britannique a jugé que le droit chinois régit les demandes des victimes, mais n'a pas tranché la propriété des coins : un dossier à plus de 5&nbsp;Md$ dont l'issue pèsera sur l'offre.</p>
+    <div class="meta"><span class="source">Source : <a href="https://www.coindesk.com/markets/2026/10/22/china-seeks-to-seize-61-800-btc-tied-to-usd5-7-billion-fraud-scheme">CoinDesk ↗</a>, <a href="https://www.yicaiglobal.com/news/tianjin-court-to-hear-usd5-billion-crypto-asset-confiscation-case-linked-to-qian-zhimin">Yicai ↗</a></span></div>
+  </article>
+</section>
+
+<section class="theme" id="ia">
+  <h2><span class="emoji">🤖</span> IA</h2>
+  <article class="card">
+    <h3>OpenAI vise 1&nbsp;250&nbsp;Md$ de valorisation</h3>
+    <p>OpenAI finalise une levée allant jusqu'à 30&nbsp;Md$ sur une valorisation de 1&nbsp;250&nbsp;Md$ avant argent frais, contre 1&nbsp;400&nbsp;Md$ évoqués il y a quelques semaines. Des fonds émiratis et Coatue mènent le tour, présenté comme un pont avant une IPO en 2027 ; les signatures sont attendues d'ici fin de semaine prochaine.</p>
+    <div class="meta"><span class="badge unconfirmed">Non confirmé</span><span class="source">Source : <a href="https://www.cnbc.com/2026/10/22/openai-funding-round-uae-investors.html">CNBC ↗</a>, <a href="https://www.bloomberg.com/news/articles/2026-10-22/openai-shifts-value-to-1-25-trillion-as-funding-talks-finalize">Bloomberg ↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Les valeurs IA dévissent après Meta</h3>
+    <p>Meta a perdu 7&nbsp;% après avoir annoncé de nouveaux milliards d'engagements de dépenses ; l'indice des semi-conducteurs a chuté de 6,7&nbsp;%, Nvidia de 4,4&nbsp;% et SpaceX de plus de 9&nbsp;%. Le marché doute de la rentabilité de la course aux data centers, alors que la majorité des autres actions américaines a monté.</p>
+    <div class="meta"><span class="source">Source : <a href="https://www.investing.com/news/economy-news/steep-bill-for-ai-buildout-punishes-meta-other-tech-favorites-4967187">Reuters ↗</a>, <a href="https://apnews.com/article/stocks-markets-rates-earnings-oil-33767691a4a0730b96d6f0c5100ea9b2">AP ↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Robotique : les Microducks de Hugging Face volent la vedette à la GTC</h3>
+    <p>À Berlin, Jensen Huang a fait marcher sur scène quatre Microducks, des robots bipèdes open source de 25&nbsp;cm conçus par Pollen Robotics (Hugging Face), entraînés en simulation puis déployés en direct. Vendus 399&nbsp;$ en précommande, leur premier lot est épuisé : la robotique grand public open source made in Europe trouve son public.</p>
+    <div class="meta"><span class="badge company">Chiffres de l'entreprise</span><span class="source">Source : <a href="https://www.ndtvprofit.com/technology/microducks-steal-the-show-at-nvidias-gtc-berlin-keynote-demonstrate-ai-powered-robot-training-12220206">NDTV Profit ↗</a>, <a href="https://microduck.homes/buy">Microduck ↗</a></span></div>
+  </article>
+</section>
+
+<section class="theme" id="macro">
+  <h2><span class="emoji">📈</span> Macro</h2>
+  <div class="tiles six">
+    <div class="tile"><div class="label">Dow Jones</div><div class="value">52&nbsp;867,98</div><span class="chg up">+0,02&nbsp;%</span></div>
+    <div class="tile"><div class="label">S&amp;P 500</div><div class="value">7&nbsp;663,43</div><span class="chg down">−1,21&nbsp;%</span></div>
+    <div class="tile"><div class="label">Nasdaq</div><div class="value">26&nbsp;008,86</div><span class="chg down">−2,60&nbsp;%</span></div>
+    <div class="tile"><div class="label">Brent</div><div class="value">113,17&nbsp;$</div><span class="chg up">+4&nbsp;%</span></div>
+    <div class="tile"><div class="label">WTI</div><div class="value">99,47&nbsp;$</div><span class="chg up">+2,39&nbsp;%</span></div>
+    <div class="tile"><div class="label">10 ans US</div><div class="value">4,97&nbsp;%</div><span class="chg down">−17&nbsp;pb</span></div>
+  </div>
+  <p class="tiles-note">Clôtures du jeudi 22 octobre. Sources : <a href="https://apnews.com/article/stocks-markets-rates-earnings-oil-33767691a4a0730b96d6f0c5100ea9b2">AP ↗</a>, <a href="https://www.cnbc.com/2026/10/22/treasurys-bonds-ai-yields.html">CNBC ↗</a></p>
+  <article class="card">
+    <h3>Ruée sur les Treasuries : le 10 ans repasse sous 5&nbsp;%</h3>
+    <p>Le rendement à 10 ans a perdu environ 0,2 point, sa plus forte baisse en une séance depuis la crise de SVB en mars 2023, et retombe sous 5&nbsp;% pour la première fois depuis septembre. Le 2 ans recule à 4,66&nbsp;% : le marché se couvre contre un choc de croissance à quelques jours du FOMC des 27-28 octobre.</p>
+    <div class="meta"><span class="source">Source : <a href="https://www.cnbc.com/2026/10/22/treasurys-bonds-ai-yields.html">CNBC ↗</a>, <a href="https://www.morningstar.com/news/dow-jones/2026102210244/10-year-treasury-yield-falls-to-4952-data-talk">Dow Jones ↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Le pétrole au plus haut depuis mai</h3>
+    <p>Le Brent a pris 4&nbsp;% à 113&nbsp;$ après les informations sur de nouvelles frappes contre l'Iran et les attaques de navires dans le Golfe. Un baril durablement au-dessus de 110&nbsp;$ entretient le risque d'inflation, ce qui complique la tâche des banques centrales.</p>
+    <div class="meta"><span class="source">Source : <a href="https://apnews.com/article/stocks-markets-rates-earnings-oil-33767691a4a0730b96d6f0c5100ea9b2">AP ↗</a>, <a href="https://www.cnbc.com/2026/10/22/treasurys-bonds-ai-yields.html">CNBC ↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>France : verdict de Moody's ce soir</h3>
+    <p>Moody's se prononce ce vendredi sur la note de la France (Aa3, perspective négative), en plein débat budgétaire. La plupart des économistes anticipent une dégradation d'un cran, à A1 ; un maintien est jugé peu probable.</p>
+    <div class="meta"><span class="source">Source : <a href="https://www.france24.com/fr/info-en-continu/20261022-notation-de-la-france-un-maintien-de-la-note-par-moody-s-jug%C3%A9-peu-probable">France 24 ↗</a>, <a href="https://www.aft.gouv.fr/fr/calendrier-notations-france">Agence France Trésor ↗</a></span></div>
+  </article>
+</section>
+
+<section class="theme" id="geopolitique">
+  <h2><span class="emoji">🌍</span> Géopolitique</h2>
+  <article class="card">
+    <h3>Washington et Israël préparent de nouvelles frappes sur l'Iran</h3>
+    <p>Selon le New York Times, les deux armées ont planifié une opération «&nbsp;courte mais intensive&nbsp;» après les midterms du 3 novembre, visant l'énergie, le nucléaire et les missiles iraniens. Rien n'est approuvé, mais Trump affirme qu'il ne négocie pas et que «&nbsp;quelque chose&nbsp;» arrivera «&nbsp;assez vite&nbsp;».</p>
+    <div class="meta"><span class="badge unconfirmed">Non confirmé</span><span class="source">Source : <a href="https://www.nytimes.com/2026/10/21/us/politics/us-israel-renewed-iran-strikes.html">New York Times ↗</a>, <a href="https://www.haaretz.com/israel-news/israel-security/2026-10-22/ty-article/u-s-and-israel-have-drawn-up-plans-for-iran-strikes-after-midterms-nyt-reports/000001a1-6122-da49-abe9-6ffa052f0000">Haaretz ↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Téhéran menace datacenters, câbles et pétrole du Golfe</h3>
+    <p>Mohsen Rezaei, secrétaire du Conseil suprême de sécurité nationale, prévient qu'en cas de nouvelle attaque l'Iran frapperait installations pétrolières, câbles sous-marins, datacenters et sites d'IA dans jusqu'à sept pays du Golfe. Les Gardiens de la révolution menacent aussi les bases américaines si l'US Navy continue d'escorter des navires dans le détroit d'Ormuz.</p>
+    <div class="meta"><span class="source">Source : <a href="https://www.theguardian.com/world/2026/oct/22/iran-threatens-seven-gulf-countries-us-israel-renew-attacks">The Guardian ↗</a>, <a href="https://www.arabnews.com/middle-east/irans-guards-threaten-us-bases-in-retaliation-for-hormuz-escorts-3007657">AFP (Arab News) ↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Ukraine : Moscou accepte de reprendre les pourparlers… puis frappe Kyiv</h3>
+    <p>Après sa rencontre avec l'émissaire Steve Witkoff à Saint-Pétersbourg, Poutine a accepté le principe de pourparlers à trois vers le 10 novembre, centrés sur la sécurité plutôt que sur un cessez-le-feu. Quelques heures plus tard, la Russie a visé Kyiv avec missiles et drones.</p>
+    <div class="meta"><span class="source">Source : <a href="https://apnews.com/article/russia-ukraine-witkoff-putin-trump-zelenskyy-talks-3f00c0c6fd10bab948c2c3f8502e0a91">AP ↗</a>, <a href="https://www.aljazeera.com/news/2026/10/22/russian-strikes-hit-kyiv-after-witkoff-meets-putin">Al Jazeera ↗</a></span></div>
+  </article>
+</section>
+
+<section class="theme" id="verification">
+  <h2><span class="emoji">✅</span> Vérification</h2>
+  <article class="card">
+    <h3>✅ Vérifié</h3>
+    <p>Clôtures de Wall Street, du pétrole et des taux (AP, CNBC, WSJ, Dow Jones/Tradeweb) ; recul des semi-conducteurs, de Meta, Nvidia et SpaceX (Reuters, WSJ) ; cours et liquidations crypto (CoinDesk, données de cours concordantes) ; sorties des ETF bitcoin (Farside et SoSoValue concordants) ; dossier des 61&nbsp;896 BTC (CoinDesk, Yicai, Caixin) ; levée d'OpenAI (CNBC, Bloomberg, TechCrunch) ; Microducks (NDTV Profit, site du fabricant) ; plans de frappes sur l'Iran (NYT, Haaretz, JFeed) et menaces iraniennes (Guardian, AFP, Reuters) ; Moody's (France 24, AFT) ; Ukraine (AP, Reuters, Al Jazeera).</p>
+  </article>
+  <article class="card">
+    <h3>⚠️ À confirmer</h3>
+    <p>La levée d'OpenAI repose sur des sources anonymes et ses termes peuvent changer. Les plans de frappes viennent de responsables anonymes cités par le NYT ; rien n'est approuvé. Les sept navires touchés sont une revendication iranienne non vérifiée. CoinDesk cite 381&nbsp;M$ de sorties d'ETF jeudi, contre environ 636&nbsp;M$ chez Farside et SoSoValue. Le cours de l'ETH vient d'agrégateurs de données et bouge encore.</p>
+  </article>
+</section>
+
+<footer>
+  <p>Généré le vendredi 23 octobre 2026 à 07h30 (heure de Paris). Faits repérés via X puis recoupés sur le web ; liens vérifiés.</p>
+  <p>Les badges signalent les chiffres publiés par les entreprises elles-mêmes et les informations non confirmées officiellement.</p>
+</footer>
+</main>
+</body>
+</html>
