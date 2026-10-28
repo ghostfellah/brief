@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<title>Brief du Matin · Mercredi 28 octobre 2026</title>
+<!--
+  GABARIT « Brief du Matin » : un seul fichier, CSS inline, aucune dépendance, pas de JS.
+  Thème sombre par défaut, clair automatique via prefers-color-scheme.
+  Utilisation : copier ce fichier vers brief-AAAA-MM-JJ.html, remplacer chaque {{EMPLACEMENT}},
+  dupliquer les <article class="card"> (3 à 4 par section). Ne pas modifier le bloc <style>.
+  Typographie : mettre une espace insécable (&nbsp;) avant : ; % ? ! » et après «.
+-->
+<style>
+:root{
+  --bg:#0e1116; --surface:#161b22; --surface-2:#1c222b; --border:#2a313c;
+  --text:#e8ecf1; --muted:#9aa4b2; --accent:#e0b062; --link:#8fbcff;
+  --up:#3fcf8e; --up-bg:rgba(63,207,142,.12); --down:#ff6b6b; --down-bg:rgba(255,107,107,.12);
+  --badge-co:#c9a7ff; --badge-co-bg:rgba(201,167,255,.12);
+  --badge-nc:#ffb347; --badge-nc-bg:rgba(255,179,71,.12);
+}
+@media (prefers-color-scheme: light){
+  :root{
+    --bg:#f6f4ef; --surface:#ffffff; --surface-2:#faf8f4; --border:#e3ded4;
+    --text:#1b1f24; --muted:#5d6672; --accent:#9a6a12; --link:#1f5fbf;
+    --up:#0f8a55; --up-bg:rgba(15,138,85,.10); --down:#c62f2f; --down-bg:rgba(198,47,47,.09);
+    --badge-co:#6b3fc0; --badge-co-bg:rgba(107,63,192,.09);
+    --badge-nc:#a35a00; --badge-nc-bg:rgba(163,90,0,.10);
+  }
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji";
+  font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:780px;margin:0 auto;padding:40px 22px 28px}
+header.masthead{padding-bottom:22px;margin-bottom:26px;border-bottom:1px solid var(--border)}
+.kicker{font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);font-weight:600;margin:0 0 6px}
+h1{font-size:2.3rem;line-height:1.15;margin:0;font-weight:750;letter-spacing:-.02em}
+.date{margin:8px 0 0;color:var(--muted);font-size:1rem}
+.date .sep{opacity:.5;margin:0 .45em}
+.essentiel{background:linear-gradient(135deg,var(--surface-2),var(--surface));border:1px solid var(--border);
+  border-left:4px solid var(--accent);border-radius:14px;padding:18px 22px 16px;margin:0 0 34px}
+.essentiel h2{margin:0 0 8px;font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+.essentiel ul{margin:0;padding-left:1.15em}
+.essentiel li{margin:6px 0;font-weight:500}
+.essentiel li::marker{color:var(--accent)}
+section.theme{margin:0 0 38px}
+section.theme > h2{font-size:1.4rem;margin:0 0 14px;display:flex;align-items:center;gap:.5em;letter-spacing:-.01em}
+section.theme > h2 .emoji{font-size:1.25em;line-height:1}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin:0 0 16px}
+.tile{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:10px 12px}
+.tile .label{font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:600}
+.tile .value{font-size:1.15rem;font-weight:700;font-variant-numeric:tabular-nums;margin-top:2px;white-space:nowrap}
+.tile .chg{display:inline-block;margin-top:4px;font-size:.8rem;font-weight:650;padding:1px 7px;border-radius:999px;font-variant-numeric:tabular-nums}
+.chg.up{color:var(--up);background:var(--up-bg)}
+.chg.down{color:var(--down);background:var(--down-bg)}
+.tiles-note{font-size:.78rem;color:var(--muted);margin:-8px 0 16px}
+.tiles-note a{color:var(--muted)}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:16px 18px;margin:0 0 12px}
+.card h3{margin:0 0 6px;font-size:1.05rem;line-height:1.35;font-weight:700}
+.card p{margin:0;color:var(--text)}
+.card .meta{margin-top:10px;display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;font-size:.82rem}
+.source{color:var(--muted)}
+.source a{color:var(--link);text-decoration:none;border-bottom:1px solid transparent}
+.source a:hover{border-bottom-color:var(--link)}
+.badge{display:inline-block;font-size:.7rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:2px 8px;border-radius:999px;white-space:nowrap}
+.badge.company{color:var(--badge-co);background:var(--badge-co-bg)}
+.badge.unconfirmed{color:var(--badge-nc);background:var(--badge-nc-bg)}
+footer{margin-top:10px;padding-top:16px;border-top:1px solid var(--border);color:var(--muted);font-size:.8rem;line-height:1.5}
+footer p{margin:4px 0}
+@media (max-width:520px){
+  body{font-size:16px}
+  .wrap{padding:26px 16px 22px}
+  h1{font-size:1.85rem}
+  .tiles{grid-template-columns:repeat(2,1fr)}
+  .card{padding:14px 15px}
+  .essentiel{padding:16px 16px 14px}
+}
+.tiles.six{grid-template-columns:repeat(3,1fr)}
+@media (max-width:520px){.tiles.six{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+<main class="wrap">
+<header class="masthead">
+  <p class="kicker">Crypto · IA · Macro · Géopolitique</p>
+  <h1>Brief du Matin</h1>
+  <p class="date">Mercredi 28 octobre 2026<span class="sep">·</span>Les dernières 24 heures</p>
+</header>
+<aside class="essentiel" aria-label="L'essentiel">
+  <h2>L'essentiel</h2>
+  <ul>
+    <li>La Fed rend sa décision ce soir à 19h (heure de Paris) : statu quo attendu à 3,75-4,00&nbsp;% après la hausse de septembre ; tout se jouera sur le ton de Kevin Warsh à propos d'une hausse en décembre.</li>
+    <li>Israël : pas de majorité claire au lendemain des législatives, avec une participation record depuis 25 ans (77,7&nbsp;%) ; Netanyahu reste Premier ministre par intérim pendant les tractations.</li>
+    <li>La ruée vers le capital IA s'accélère : Anthropic a déposé son dossier d'introduction en Bourse (ticker ANT) et Meta lève jusqu'à 97,5&nbsp;Md$ en actions pour financer ses data centers.</li>
+  </ul>
+</aside>
+
+<section class="theme" id="crypto">
+  <h2><span class="emoji">₿</span> Crypto</h2>
+  <div class="tiles">
+    <div class="tile"><div class="label">BTC</div><div class="value">≈ 81&nbsp;000&nbsp;$</div><span class="chg up">≈ +2&nbsp;% (24&nbsp;h)</span></div>
+    <div class="tile"><div class="label">ETH</div><div class="value">≈ 2&nbsp;350&nbsp;$</div><span class="chg up">+2&nbsp;% (24&nbsp;h)</span></div>
+  </div>
+  <p class="tiles-note">Cours de mercredi matin (heure asiatique). Sources : <a href="https://www.coindesk.com/markets/2026/10/28/bitcoin-nears-usd81-000-ahead-of-fed-decision-as-zec-jumps-8">CoinDesk ↗</a>, <a href="https://app.primeriq.com/market/2026-10-27/us_close">PrimerIQ ↗</a></p>
+  <article class="card">
+    <h3>Le bitcoin remonte vers 81&nbsp;000&nbsp;$ avant la Fed</h3>
+    <p>Après un passage près de 79&nbsp;000&nbsp;$ ce week-end, le BTC a regagné près de 2&nbsp;% ; les grandes altcoins font mieux, avec ZEC (+8&nbsp;%), XRP et DOGE (+3&nbsp;%) et SOL vers 102&nbsp;$. Le marché attend surtout un signal sur une hausse des taux en décembre, défavorable aux actifs risqués.</p>
+    <div class="meta"><span class="source">Source : <a href="https://www.coindesk.com/markets/2026/10/28/bitcoin-nears-usd81-000-ahead-of-fed-decision-as-zec-jumps-8">CoinDesk ↗</a>, <a href="https://app.primeriq.com/market/2026-10-27/us_close">PrimerIQ ↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Galaxy : «&nbsp;le marché baissier s'est terminé en juin&nbsp;»</h3>
+    <p>Pour Alex Thorn, responsable de la recherche de Galaxy, le BTC est entré dans la phase d'accumulation qui a précédé chaque hausse passée, le creux datant de juin sous 58&nbsp;000&nbsp;$. Un avis appuyé sur le retour au-dessus de la moyenne des 50 dernières semaines, alors que le bitcoin peine à tenir les 80&nbsp;000&nbsp;$.</p>
+    <div class="meta"><span class="source">Source : <a href="https://www.coindesk.com/markets/2026/10/28/bitcoin-nears-usd81-000-ahead-of-fed-decision-as-zec-jumps-8">CoinDesk ↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Strive achète 6&nbsp;182 BTC pour atteindre 43&nbsp;000 BTC</h3>
+    <p>Entre le 17 et le 23 octobre, Strive a acheté 6&nbsp;182 bitcoins à un prix moyen d'environ 82&nbsp;732&nbsp;$, d'après sa déclaration à la SEC. C'est son plus gros achat : les sociétés «&nbsp;trésorerie bitcoin&nbsp;» continuent d'acheter malgré un prix sous leur coût d'entrée.</p>
+    <div class="meta"><span class="badge company">Chiffres de l'entreprise</span><span class="source">Source : <a href="https://www.sec.gov/Archives/edgar/data/1920406/000162828026067141/asst-20261026.htm">SEC (8-K) ↗</a>, <a href="https://cryptobriefing.com/strive-buys-6182-bitcoin-43000-btc/">Crypto Briefing ↗</a></span></div>
+  </article>
+</section>
+
+<section class="theme" id="ia">
+  <h2><span class="emoji">🤖</span> IA</h2>
+  <article class="card">
+    <h3>Anthropic dépose son dossier d'entrée en Bourse</h3>
+    <p>Le créateur de Claude a déposé lundi son S-1 auprès de la SEC pour une cotation au Nasdaq sous le symbole ANT, sans prix ni nombre d'actions pour l'instant. Le dossier montre 16,3&nbsp;Md$ de chiffre d'affaires au premier semestre ; la presse évoque une valorisation de 1&nbsp;500 à 2&nbsp;000&nbsp;Md$, ce qui en ferait l'une des plus grosses IPO de l'histoire.</p>
+    <div class="meta"><span class="badge company">Chiffres de l'entreprise</span><span class="source">Source : <a href="https://www.anthropic.com/news/s1-sec">Anthropic ↗</a>, <a href="https://www.npr.org/2026/10/26/nx-s1-6014772/anthropic-ai-ipo-could-break-records">NPR ↗</a>, <a href="https://techcrunch.com/2026/10/26/anthropic-officially-files-for-its-public-debut/">TechCrunch ↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Meta lève jusqu'à 97,5&nbsp;Md$ en actions pour l'IA</h3>
+    <p>Meta a placé 25&nbsp;Md$ d'actions à 625&nbsp;$ (demande cinq fois supérieure selon Bloomberg) et 12,5&nbsp;Md$ d'actions préférentielles, et prévoit 60&nbsp;Md$ de ventes au fil de l'eau à partir de 2027. Nvidia, AMD et Broadcom ont manifesté un intérêt allant jusqu'à 5&nbsp;Md$ : des fournisseurs qui financent leur client, ce qui ravive les craintes d'un circuit fermé de l'argent de l'IA.</p>
+    <div class="meta"><span class="source">Source : <a href="https://investor.atmeta.com/investor-news/press-release-details/2026/Meta-Announces-Pricing-of-Offering-of-Depositary-Shares-Representing-Series-A-Mandatory-Convertible-Preferred-Stock-and-Offering-of-Class-A-Common-Stock-in-Connection-with-Forward-Sale-Agreements/default.aspx">Meta ↗</a>, <a href="https://www.investing.com/news/economy-news/meta-eyes-record-975-billion-equity-raise-to-fund-ai-expansion-4975360">Reuters ↗</a>, <a href="https://www.bloomberg.com/news/articles/2026-10-27/meta-s-25-billion-stock-sale-ended-five-times-oversubscribed">Bloomberg ↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>OpenAI lance GPT-6.1 Terra, taillé pour piloter l'ordinateur</h3>
+    <p>Le nouveau modèle remplit des formulaires, lit des plans techniques et enchaîne les applications, avec des prix d'API 50&nbsp;% plus bas que GPT-5.6 Terra. OpenAI le dit plus de trois fois plus rapide que ses modèles haut de gamme : l'automatisation du travail de bureau devient bon marché.</p>
+    <div class="meta"><span class="badge company">Chiffres de l'entreprise</span><span class="source">Source : <a href="https://openai.com/index/introducing-gpt-6-1-terra">OpenAI ↗</a>, <a href="https://www.theverge.com/ai-artificial-intelligence/1018854/gpt-6-1-terra-is-very-good-at-computer-use-openai-says">The Verge ↗</a></span></div>
+  </article>
+</section>
+
+<section class="theme" id="macro">
+  <h2><span class="emoji">📈</span> Macro</h2>
+  <div class="tiles six">
+    <div class="tile"><div class="label">Dow Jones</div><div class="value">52&nbsp;377,57</div><span class="chg up">+0,03&nbsp;%</span></div>
+    <div class="tile"><div class="label">S&amp;P 500</div><div class="value">7&nbsp;722,60</div><span class="chg up">+0,60&nbsp;%</span></div>
+    <div class="tile"><div class="label">Nasdaq</div><div class="value">26&nbsp;477,81</div><span class="chg up">+1,18&nbsp;%</span></div>
+    <div class="tile"><div class="label">Brent</div><div class="value">113,88&nbsp;$</div><span class="chg down">−1,67&nbsp;%</span></div>
+    <div class="tile"><div class="label">WTI</div><div class="value">99,90&nbsp;$</div><span class="chg down">−1,83&nbsp;%</span></div>
+    <div class="tile"><div class="label">10 ans US</div><div class="value">4,99&nbsp;%</div><span class="chg up">stable</span></div>
+  </div>
+  <p class="tiles-note">Clôtures du mardi 27 octobre. Sources : <a href="https://www.cnbc.com/2026/10/26/stock-market-today-live-updates.html">CNBC ↗</a>, <a href="https://apnews.com/article/stocks-markets-ai-earnings-oil-e11a2240fc3283c4507d44b9833f30a2">AP ↗</a></p>
+  <article class="card">
+    <h3>Fed : statu quo attendu, regard braqué sur décembre</h3>
+    <p>Après sa hausse d'un quart de point en septembre, la Fed devrait laisser ses taux à 3,75-4,00&nbsp;% ce soir (environ 90&nbsp;% de probabilité selon les marchés). Avec un pétrole au-dessus de 100&nbsp;$ qui nourrit l'inflation, la question est de savoir si Kevin Warsh ouvre la porte à une nouvelle hausse en décembre.</p>
+    <div class="meta"><span class="source">Source : <a href="https://www.cnbc.com/2026/10/27/federal-reserve-rates-kevin-warsh.html">CNBC ↗</a>, <a href="https://apnews.com/article/inflation-warsh-interest-rates-federal-reserve-c06793b0c50641444701d5d098ccc2c8">AP ↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Les puces remettent Wall Street près de son record</h3>
+    <p>Le S&amp;P 500 n'est plus qu'à 1,2&nbsp;% de son plus haut historique, porté par les semi-conducteurs (+3,6&nbsp;% pour l'indice SOX) et le dépôt d'IPO d'Anthropic, qui a aussi fait monter les puces au Japon et en Corée. La Chine fait l'inverse : ses valeurs IA continuent de chuter.</p>
+    <div class="meta"><span class="source">Source : <a href="https://apnews.com/article/stocks-markets-ai-earnings-oil-e11a2240fc3283c4507d44b9833f30a2">AP ↗</a>, <a href="https://app.primeriq.com/market/2026-10-27/us_close">PrimerIQ ↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Le pétrole recule, mais reste au-dessus de 110&nbsp;$</h3>
+    <p>Deuxième séance de baisse grâce aux pourparlers de Téhéran. UBS voit pourtant le Brent rester autour de 110&nbsp;$ jusqu'à la fin de l'année : les stocks mondiaux ont fondu d'environ 500 millions de barils depuis février et les réserves stratégiques sont presque épuisées.</p>
+    <div class="meta"><span class="source">Source : <a href="https://www.cnbc.com/2026/10/27/oil-today-iran-us-crude-wti-brent-trump.html">CNBC ↗</a>, <a href="https://app.primeriq.com/market/2026-10-27/us_close">PrimerIQ ↗</a></span></div>
+  </article>
+</section>
+
+<section class="theme" id="geo">
+  <h2><span class="emoji">🌍</span> Géopolitique</h2>
+  <article class="card">
+    <h3>Israël : ni Netanyahu ni Eisenkot n'a de majorité</h3>
+    <p>Les sondages de sortie des urnes donnaient les deux blocs à égalité, loin des 61 sièges requis ; au dépouillement partiel (près de la moitié des voix), le bloc Netanyahu mène, mais les votes des réservistes et déplacés peuvent encore peser une quinzaine de sièges. Des semaines de tractations s'annoncent, Netanyahu restant aux commandes par intérim.</p>
+    <div class="meta"><span class="badge unconfirmed">Non confirmé</span><span class="source">Source : <a href="https://apnews.com/article/israel-elections-netanyahu-eisenkot-gaza-iran-28102026-52c6f5a0a720a4ffc08633229e796415">AP ↗</a>, <a href="https://www.theguardian.com/world/live/2026/oct/28/israel-election-results-live-updates-exit-polls-netanyahu-likud-eisenkot-latest-news">The Guardian ↗</a>, <a href="https://www.ynet.co.il/news/elections2026">Ynet ↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Iran : Khamenei pose ses conditions pour sortir de l'impasse</h3>
+    <p>Le Guide suprême Mojtaba Khamenei exige notamment le contrôle du détroit d'Ormuz et le respect des «&nbsp;droits&nbsp;» de l'Iran pour mettre fin à la situation de «&nbsp;ni guerre ni paix&nbsp;» avec les États-Unis, après des échanges à Téhéran avec l'Arabie saoudite, la Turquie et le Pakistan. Donald Trump hésite encore entre un accord et de nouvelles frappes.</p>
+    <div class="meta"><span class="source">Source : <a href="https://www.cnbc.com/2026/10/27/oil-today-iran-us-crude-wti-brent-trump.html">CNBC ↗</a>, <a href="https://www.cnbc.com/2026/10/26/stock-market-today-live-updates.html">CNBC (marchés) ↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>AIEA : 440&nbsp;kg d'uranium hautement enrichi introuvables</h3>
+    <p>Devant le Conseil de sécurité de l'ONU, Rafael Grossi a indiqué que l'agence ne voit pas de signe de reconstruction des sites iraniens, mais ne peut pas vérifier où se trouvent ces 440&nbsp;kg. Ses inspecteurs n'ont plus accès aux sites depuis juin 2025, sauf à Bouchehr.</p>
+    <div class="meta"><span class="source">Source : <a href="https://www.iaea.org/newscenter/statements/director-general-statement-to-the-united-nations-security-council">AIEA ↗</a>, <a href="https://www.arabnews.com/middle-east/no-sign-iran-is-rebuilding-nuclear-sites-but-440-kg-of-uranium-unaccounted-for-un-watchdog-says-3008579">Arab News ↗</a>, <a href="https://aa.com.tr/en/americas/un-nuclear-watchdog-chief-urges-iran-to-grant-iaea-access-to-verify-nuclear-material/4102705">Anadolu ↗</a></span></div>
+  </article>
+</section>
+
+<section class="theme" id="verification">
+  <h2><span class="emoji">✅</span> Vérification</h2>
+  <article class="card">
+    <h3>✅ Vérifié</h3>
+    <p>Clôtures de Wall Street et du pétrole (CNBC, AP, PrimerIQ) ; attentes pour la Fed et fourchette de taux (CNBC, AP, Yahoo Finance) ; cours crypto et citation de Galaxy (CoinDesk, PrimerIQ) ; achat de Strive (déclaration SEC, Crypto Briefing, BitcoinTreasuries) ; dépôt du S-1 d'Anthropic (communiqué, dossier SEC, NPR, TechCrunch) ; levée de Meta (communiqués Meta, Reuters, Bloomberg) ; GPT-6.1 Terra (OpenAI, The Verge, AWS) ; législatives israéliennes (AP, Guardian, Kan, Ynet) ; conditions iraniennes (CNBC) ; déclaration de Grossi (AIEA, Arab News, Anadolu).</p>
+  </article>
+  <article class="card">
+    <h3>⚠️ À confirmer</h3>
+    <p>Les résultats israéliens sont partiels et évoluent d'heure en heure. La valorisation d'Anthropic (1&nbsp;500 à 2&nbsp;000&nbsp;Md$) vient de la presse, pas du dossier. Les performances de GPT-6.1 Terra sont des mesures d'OpenAI. Le Brent varie selon les sources (113,88&nbsp;$ à la clôture des contrats à terme selon CNBC, 109,77&nbsp;$ selon PrimerIQ). Les cours crypto bougent encore.</p>
+  </article>
+</section>
+
+<footer>
+  <p>Généré le mercredi 28 octobre 2026 vers 07h30 (heure de Paris). Faits repérés via X puis recoupés sur le web ; liens vérifiés.</p>
+  <p>Les badges signalent les chiffres publiés par les entreprises elles-mêmes et les informations non confirmées officiellement.</p>
+</footer>
+</main>
+</body>
+</html>
