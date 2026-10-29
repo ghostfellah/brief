@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<title>Brief du Matin · Jeudi 29 octobre 2026</title>
+<!--
+  GABARIT « Brief du Matin » : un seul fichier, CSS inline, aucune dépendance, pas de JS.
+  Thème sombre par défaut, clair automatique via prefers-color-scheme.
+  Utilisation : copier ce fichier vers brief-AAAA-MM-JJ.html, remplacer chaque {{EMPLACEMENT}},
+  dupliquer les <article class="card"> (3 à 4 par section). Ne pas modifier le bloc <style>.
+  Typographie : mettre une espace insécable (&nbsp;) avant : ; % ? ! » et après «.
+-->
+<style>
+:root{
+  --bg:#0e1116; --surface:#161b22; --surface-2:#1c222b; --border:#2a313c;
+  --text:#e8ecf1; --muted:#9aa4b2; --accent:#e0b062; --link:#8fbcff;
+  --up:#3fcf8e; --up-bg:rgba(63,207,142,.12); --down:#ff6b6b; --down-bg:rgba(255,107,107,.12);
+  --badge-co:#c9a7ff; --badge-co-bg:rgba(201,167,255,.12);
+  --badge-nc:#ffb347; --badge-nc-bg:rgba(255,179,71,.12);
+}
+@media (prefers-color-scheme: light){
+  :root{
+    --bg:#f6f4ef; --surface:#ffffff; --surface-2:#faf8f4; --border:#e3ded4;
+    --text:#1b1f24; --muted:#5d6672; --accent:#9a6a12; --link:#1f5fbf;
+    --up:#0f8a55; --up-bg:rgba(15,138,85,.10); --down:#c62f2f; --down-bg:rgba(198,47,47,.09);
+    --badge-co:#6b3fc0; --badge-co-bg:rgba(107,63,192,.09);
+    --badge-nc:#a35a00; --badge-nc-bg:rgba(163,90,0,.10);
+  }
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji";
+  font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:780px;margin:0 auto;padding:40px 22px 28px}
+header.masthead{padding-bottom:22px;margin-bottom:26px;border-bottom:1px solid var(--border)}
+.kicker{font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);font-weight:600;margin:0 0 6px}
+h1{font-size:2.3rem;line-height:1.15;margin:0;font-weight:750;letter-spacing:-.02em}
+.date{margin:8px 0 0;color:var(--muted);font-size:1rem}
+.date .sep{opacity:.5;margin:0 .45em}
+.essentiel{background:linear-gradient(135deg,var(--surface-2),var(--surface));border:1px solid var(--border);
+  border-left:4px solid var(--accent);border-radius:14px;padding:18px 22px 16px;margin:0 0 34px}
+.essentiel h2{margin:0 0 8px;font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+.essentiel ul{margin:0;padding-left:1.15em}
+.essentiel li{margin:6px 0;font-weight:500}
+.essentiel li::marker{color:var(--accent)}
+section.theme{margin:0 0 38px}
+section.theme > h2{font-size:1.4rem;margin:0 0 14px;display:flex;align-items:center;gap:.5em;letter-spacing:-.01em}
+section.theme > h2 .emoji{font-size:1.25em;line-height:1}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin:0 0 16px}
+.tile{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:10px 12px}
+.tile .label{font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:600}
+.tile .value{font-size:1.15rem;font-weight:700;font-variant-numeric:tabular-nums;margin-top:2px;white-space:nowrap}
+.tile .chg{display:inline-block;margin-top:4px;font-size:.8rem;font-weight:650;padding:1px 7px;border-radius:999px;font-variant-numeric:tabular-nums}
+.chg.up{color:var(--up);background:var(--up-bg)}
+.chg.down{color:var(--down);background:var(--down-bg)}
+.tiles-note{font-size:.78rem;color:var(--muted);margin:-8px 0 16px}
+.tiles-note a{color:var(--muted)}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:16px 18px;margin:0 0 12px}
+.card h3{margin:0 0 6px;font-size:1.05rem;line-height:1.35;font-weight:700}
+.card p{margin:0;color:var(--text)}
+.card .meta{margin-top:10px;display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;font-size:.82rem}
+.source{color:var(--muted)}
+.source a{color:var(--link);text-decoration:none;border-bottom:1px solid transparent}
+.source a:hover{border-bottom-color:var(--link)}
+.badge{display:inline-block;font-size:.7rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:2px 8px;border-radius:999px;white-space:nowrap}
+.badge.company{color:var(--badge-co);background:var(--badge-co-bg)}
+.badge.unconfirmed{color:var(--badge-nc);background:var(--badge-nc-bg)}
+footer{margin-top:10px;padding-top:16px;border-top:1px solid var(--border);color:var(--muted);font-size:.8rem;line-height:1.5}
+footer p{margin:4px 0}
+@media (max-width:520px){
+  body{font-size:16px}
+  .wrap{padding:26px 16px 22px}
+  h1{font-size:1.85rem}
+  .tiles{grid-template-columns:repeat(2,1fr)}
+  .card{padding:14px 15px}
+  .essentiel{padding:16px 16px 14px}
+}
+.tiles.six{grid-template-columns:repeat(3,1fr)}
+@media (max-width:520px){.tiles.six{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+<main class="wrap">
+<header class="masthead">
+  <p class="kicker">Crypto · IA · Macro · Géopolitique</p>
+  <h1>Brief du Matin</h1>
+  <p class="date">Jeudi 29 octobre 2026<span class="sep">·</span>Les dernières 24 heures</p>
+</header>
+<aside class="essentiel" aria-label="L'essentiel">
+  <h2>L'essentiel</h2>
+  <ul>
+    <li>La Fed garde ses taux à 3,75-4,00&nbsp;%, mais deux votants (Lisa Cook et Beth Hammack) voulaient déjà remonter : la porte d'une hausse en décembre reste ouverte. La BCE décide aujourd'hui.</li>
+    <li>Washington prévient ses alliés du Golfe d'une possible campagne de frappes courte et intense contre l'Iran après les midterms du 3 novembre, tout en relançant la diplomatie via une lettre de JD Vance.</li>
+    <li>Alphabet chute de 9&nbsp;% après la clôture malgré un cloud qui double : ses investissements IA dépassent désormais ce que l'activité rapporte en cash. Le bitcoin repasse sous 80&nbsp;000&nbsp;$.</li>
+  </ul>
+</aside>
+
+<section class="theme" id="crypto">
+  <h2><span class="emoji">₿</span> Crypto</h2>
+  <div class="tiles">
+    <div class="tile"><div class="label">BTC</div><div class="value">≈ 79&nbsp;800&nbsp;$</div><span class="chg down">−1,6&nbsp;% (24&nbsp;h)</span></div>
+    <div class="tile"><div class="label">ETH</div><div class="value">≈ 2&nbsp;300&nbsp;$</div><span class="chg down">≈ −2&nbsp;% (24&nbsp;h)</span></div>
+    <div class="tile"><div class="label">SOL</div><div class="value">≈ 99&nbsp;$</div><span class="chg down">−2,4&nbsp;% (24&nbsp;h)</span></div>
+  </div>
+  <p class="tiles-note">Cours de jeudi matin (séance asiatique). Sources : <a href="https://www.coindesk.com/markets/2026/10/29/bitcoin-dips-below-usd80-000-as-samsung-led-risk-aversion-in-tech-and-a-hawkish-fed-weigh-on-crypto">CoinDesk ↗</a>, <a href="https://coinstats.app/derivatives/liquidations/">CoinStats ↗</a></p>
+  <article class="card">
+    <h3>Le bitcoin retombe sous 80&nbsp;000&nbsp;$, 356&nbsp;M$ liquidés</h3>
+    <p>Le BTC est passé d'environ 81&nbsp;700&nbsp;$ à 79&nbsp;800&nbsp;$ en séance asiatique, entraîné par la baisse de la tech (Samsung, Alphabet) et une Fed qui garde un biais de hausse. Les liquidations atteignent 356&nbsp;M$ en 24&nbsp;h, dont 205&nbsp;M$ de positions acheteuses : le levier reste élevé et la crypto continue de suivre le Nasdaq.</p>
+    <div class="meta"><span class="source">Source : <a href="https://www.coindesk.com/markets/2026/10/29/bitcoin-dips-below-usd80-000-as-samsung-led-risk-aversion-in-tech-and-a-hawkish-fed-weigh-on-crypto">CoinDesk ↗</a>, <a href="https://coinstats.app/derivatives/liquidations/">CoinStats ↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Brésil : Itaú, première banque à formaliser son activité crypto</h3>
+    <p>La plus grande banque privée du pays a notifié le 27 octobre à la banque centrale ses services d'achat-vente et de conservation de crypto-actifs, dans le cadre de la nouvelle résolution 520 (échéance au 30 octobre). Les banques traditionnelles entrent dans le jeu sous un cadre réglementé, sur l'un des plus gros marchés crypto émergents.</p>
+    <div class="meta"><span class="source">Source : <a href="https://www.coindesk.com/policy/2026/10/28/brazil-s-largest-lender-becomes-first-bank-to-formalize-crypto-brokerage-under-new-rules">CoinDesk ↗</a>, <a href="https://valor.globo.com/financas/criptomoedas/noticia/2026/10/27/ita-formaliza-atuao-como-prestador-de-servios-de-criptoativos-junto-ao-bc.ghtml">Valor Econômico ↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Thaïlande : la Cour suprême reconnaît le bitcoin comme un bien</h3>
+    <p>Dans une affaire de braquage à Koh Samui (2,48 BTC extorqués en 2022), la Cour suprême juge que le bitcoin est un bien au sens du droit pénal : il peut être possédé, transféré et volé. Les peines de 10 ans sont confirmées ; le bitcoin n'a pas pour autant cours légal.</p>
+    <div class="meta"><span class="source">Source : <a href="https://deka.in.th/deka/2569-4929">Arrêt n°&nbsp;4929/2569 ↗</a>, <a href="https://cryptobriefing.com/thailand-supreme-court-bitcoin-legal-property/">Crypto Briefing ↗</a></span></div>
+  </article>
+</section>
+
+<section class="theme" id="ia">
+  <h2><span class="emoji">🤖</span> IA</h2>
+  <article class="card">
+    <h3>Alphabet : le cloud double, le cash flow plonge</h3>
+    <p>Google Cloud a bondi de 103&nbsp;% à 30,7&nbsp;Md$ et l'app Gemini atteint un milliard d'utilisateurs, mais 51,4&nbsp;Md$ d'investissements sur le trimestre donnent un flux de trésorerie disponible négatif de 9,1&nbsp;Md$. Le titre perd 9&nbsp;% après la clôture : le marché commence à exiger du cash, pas seulement de la croissance.</p>
+    <div class="meta"><span class="badge company">Chiffres de l'entreprise</span><span class="source">Source : <a href="https://www.sec.gov/Archives/edgar/data/1652044/000165204426000080/googexhibit991q32026.htm">Alphabet (SEC) ↗</a>, <a href="https://www.cnbc.com/2026/10/28/alphabet-googl-earnings-q3-2026.html">CNBC ↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Microsoft rassure : Azure +48&nbsp;%, dépenses contenues</h3>
+    <p>Azure a progressé de 48&nbsp;% à 33,2&nbsp;Md$, au-dessus des 44&nbsp;% attendus, pour un chiffre d'affaires total de 92,3&nbsp;Md$ (+19&nbsp;%). Avec des investissements sous ses propres prévisions, l'action gagne environ 3&nbsp;% après la clôture : même pari IA, verdict opposé à celui d'Alphabet.</p>
+    <div class="meta"><span class="badge company">Chiffres de l'entreprise</span><span class="source">Source : <a href="https://www.bloomberg.com/news/articles/2026-10-28/microsoft-reports-quarterly-cloud-sales-that-beat-estimates">Bloomberg ↗</a>, <a href="https://www.cnbc.com/2026/10/28/stocks-making-the-biggest-moves-after-hours-googl-msft-cmg-now.html">CNBC ↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Samsung : bénéfice record, action en baisse</h3>
+    <p>La division puces de Samsung a dégagé 106,5&nbsp;billions de wons de bénéfice d'exploitation grâce à la mémoire HBM4 pour l'IA, un record mais légèrement sous les attentes. L'action a perdu environ 5&nbsp;%, entraînant le Kospi (−2&nbsp;%) : à ces niveaux, un record ne suffit plus.</p>
+    <div class="meta"><span class="badge company">Chiffres de l'entreprise</span><span class="source">Source : <a href="https://news.samsung.com/global/samsung-electronics-announces-third-quarter-2026-results">Samsung ↗</a>, <a href="https://www.cnbc.com/2026/10/29/samsung-electronics-third-quarter-earnings.html">CNBC ↗</a></span></div>
+  </article>
+</section>
+
+<section class="theme" id="macro">
+  <h2><span class="emoji">📈</span> Macro</h2>
+  <div class="tiles six">
+    <div class="tile"><div class="label">Dow Jones</div><div class="value">52&nbsp;475,10</div><span class="chg up">+0,19&nbsp;%</span></div>
+    <div class="tile"><div class="label">S&amp;P 500</div><div class="value">7&nbsp;743,98</div><span class="chg up">+0,28&nbsp;%</span></div>
+    <div class="tile"><div class="label">Nasdaq</div><div class="value">26&nbsp;549,85</div><span class="chg up">+0,27&nbsp;%</span></div>
+    <div class="tile"><div class="label">Brent</div><div class="value">≈ 115,7&nbsp;$</div><span class="chg up">+1,6&nbsp;%</span></div>
+    <div class="tile"><div class="label">WTI</div><div class="value">≈ 102,7&nbsp;$</div><span class="chg up">+2,8&nbsp;%</span></div>
+    <div class="tile"><div class="label">10 ans US</div><div class="value">≈ 5,02&nbsp;%</div><span class="chg up">+3&nbsp;pb</span></div>
+  </div>
+  <p class="tiles-note">Indices : clôtures du mercredi 28 octobre ; pétrole et taux : niveaux en fin de séance. Sources : <a href="https://www.cnbc.com/2026/10/27/stock-market-today-live-updates.html">CNBC ↗</a>, <a href="https://www.investors.com/market-trend/the-big-picture/stock-market-fed-interest-rate-warsh-alphabet-microsoft-earnings/">IBD ↗</a></p>
+  <article class="card">
+    <h3>Fed : statu quo à 10 contre 2, la hausse reste sur la table</h3>
+    <p>La Fed laisse ses taux à 3,75-4,00&nbsp;% mais juge l'inflation «&nbsp;élevée&nbsp;» et l'économie «&nbsp;forte&nbsp;» (contre «&nbsp;solide&nbsp;» en septembre). Lisa Cook, que Donald Trump veut révoquer, et Beth Hammack ont voté pour une hausse. Kevin Warsh annonce aussi qu'une des huit réunions de 2027 sera consacrée à la stratégie, sans décision de taux.</p>
+    <div class="meta"><span class="source">Source : <a href="https://www.federalreserve.gov/newsevents/pressreleases/monetary20261028a.htm">Fed ↗</a>, <a href="https://www.cnbc.com/2026/10/28/fed-interest-rate-decision-october-2026.html">CNBC ↗</a>, <a href="https://www.axios.com/2026/10/28/fed-warsh-interest-rates-cook">Axios ↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Le Canada relève ses taux à cause du pétrole</h3>
+    <p>La Banque du Canada a monté son taux directeur d'un quart de point, à 2,50&nbsp;%, sa première hausse depuis juillet 2023, pour empêcher l'énergie chère de contaminer le reste des prix. Signe que le choc pétrolier pousse plusieurs banques centrales à resserrer.</p>
+    <div class="meta"><span class="source">Source : <a href="https://www.bankofcanada.ca/2026/10/interest-rate-announcement-and-monetary-policy-report-october-28-2026/">Banque du Canada ↗</a>, <a href="https://investinglive.com/central-banks/the-full-statement-from-the-bank-of-canada-rate-decision-for-october-2026-hikes-by-25-basis-points/">investingLive ↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>BCE aujourd'hui : statu quo attendu, regard sur décembre</h3>
+    <p>Les marchés attendent un maintien du taux de dépôt à 2,50&nbsp;%. La question est de savoir si Christine Lagarde ouvre la porte à une hausse en décembre, alors que l'inflation énergétique monte et que les taux français sous tension pèsent sur le coût du crédit.</p>
+    <div class="meta"><span class="source">Source : <a href="https://think.ing.com/articles/october-ecb-cheat-sheet-french-malaise-shouldnt-prompt-a-dovish-turn/">ING ↗</a>, <a href="https://live.euronext.com/en/financial-news/ecb-hold-rates-investors-focus-french-bonds-lagardes-future">Euronext (Reuters) ↗</a></span></div>
+  </article>
+</section>
+
+<section class="theme" id="geo">
+  <h2><span class="emoji">🌍</span> Géopolitique</h2>
+  <article class="card">
+    <h3>Iran : les États-Unis préparent le Golfe à de nouvelles frappes</h3>
+    <p>Selon AP et le Wall Street Journal, Washington a prévenu plusieurs pays de la région d'une possible campagne courte et intense contre l'Iran après les élections du 3 novembre, et d'éventuelles représailles iraniennes sur leurs infrastructures énergétiques. Donald Trump n'a pas encore tranché ; le pétrole au-dessus de 110&nbsp;$ intègre déjà ce risque.</p>
+    <div class="meta"><span class="badge unconfirmed">Non confirmé</span><span class="source">Source : <a href="https://apnews.com/article/trump-iran-strikes-midterm-elections-c7df622f1e87de6035173be8fb8c4add">AP ↗</a>, <a href="https://www.wsj.com/world/middle-east/u-s-warns-gulf-of-possible-short-intense-renewal-of-iran-war-after-midterms-cd1a55e1">WSJ ↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>JD Vance écrit à Téhéran pour relancer les négociations</h3>
+    <p>Le vice-président a écrit à Mohsen Rezaei, secrétaire du Conseil suprême de sécurité nationale iranien, pour proposer des pourparlers directs, à condition que le nucléaire soit sur la table. L'Iran exige d'abord la levée du blocus naval et le dégel de ses avoirs : carotte et bâton en même temps, à cinq jours des midterms.</p>
+    <div class="meta"><span class="source">Source : <a href="https://www.axios.com/2026/10/28/vance-iran-nuclear-talks-letter">Axios ↗</a>, <a href="https://dnyuz.com/2026/10/29/vance-proposes-restarting-peace-talks-in-outreach-to-iranian-official/">NYT (via DNYUZ) ↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Israël : le bloc Netanyahu perd sa majorité</h3>
+    <p>Avec environ 90&nbsp;% des bulletins dépouillés, le bloc Netanyahu obtiendrait 53 sièges, celui d'Eisenkot 48 et les partis arabes 19, loin des 61 nécessaires. Il reste plusieurs centaines de milliers de votes spéciaux à compter ; les résultats officiels sont attendus le 4 novembre.</p>
+    <div class="meta"><span class="badge unconfirmed">Non confirmé</span><span class="source">Source : <a href="https://www.timesofisrael.com/with-85-of-votes-counted-netanyahu-bloc-has-53-seats-eisenkots-48-arab-parties-surge-to-19/">Times of Israel ↗</a>, <a href="https://www.theguardian.com/world/live/2026/oct/29/israel-election-results-live-updates-poll-netanyahu-eisenkot-bloc-coalition-latest-news">The Guardian ↗</a></span></div>
+  </article>
+</section>
+
+<section class="theme" id="verification">
+  <h2><span class="emoji">✅</span> Vérification</h2>
+  <article class="card">
+    <h3>✅ Vérifié</h3>
+    <p>Décision de la Fed, vote 10-2 et calendrier 2027 (communiqué et conférence de la Fed, CNBC, Axios, Reuters) ; clôtures de Wall Street (CNBC, IBD) ; résultats d'Alphabet (communiqué SEC, CNBC) et de Microsoft (Bloomberg, CNBC) ; résultats de Samsung (Samsung, CNBC) ; cours et liquidations crypto (CoinDesk, CoinStats, KuCoin) ; Itaú (CoinDesk, Valor) ; arrêt thaïlandais (texte de l'arrêt, Crypto Briefing) ; hausse de la Banque du Canada (communiqué officiel) ; avertissements américains sur l'Iran (AP, WSJ, Washington Post) ; lettre de Vance (Axios, NYT).</p>
+  </article>
+  <article class="card">
+    <h3>⚠️ À confirmer</h3>
+    <p>Les avertissements sur l'Iran reposent sur des sources anonymes. Les sièges israéliens sont des projections partielles. Le pétrole et le 10 ans US viennent d'une seule source (CNBC, niveaux en séance). Les décisions de la BCE ne sont pas encore connues. Les cours crypto bougent encore.</p>
+  </article>
+</section>
+
+<footer>
+  <p>Généré le jeudi 29 octobre 2026 vers 07h15 (heure de Paris). Faits repérés via X puis recoupés sur le web ; liens vérifiés.</p>
+  <p>Les badges signalent les chiffres publiés par les entreprises elles-mêmes et les informations non confirmées officiellement.</p>
+</footer>
+</main>
+</body>
+</html>
