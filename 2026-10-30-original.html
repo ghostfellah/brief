@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<title>Brief du Matin · Vendredi 30 octobre 2026</title>
+<!--
+  GABARIT « Brief du Matin » : un seul fichier, CSS inline, aucune dépendance, pas de JS.
+  Thème sombre par défaut, clair automatique via prefers-color-scheme.
+  Utilisation : copier ce fichier vers brief-AAAA-MM-JJ.html, remplacer chaque {{EMPLACEMENT}},
+  dupliquer les <article class="card"> (3 à 4 par section). Ne pas modifier le bloc <style>.
+  Typographie : mettre une espace insécable (&nbsp;) avant : ; % ? ! » et après «.
+-->
+<style>
+:root{
+  --bg:#0e1116; --surface:#161b22; --surface-2:#1c222b; --border:#2a313c;
+  --text:#e8ecf1; --muted:#9aa4b2; --accent:#e0b062; --link:#8fbcff;
+  --up:#3fcf8e; --up-bg:rgba(63,207,142,.12); --down:#ff6b6b; --down-bg:rgba(255,107,107,.12);
+  --badge-co:#c9a7ff; --badge-co-bg:rgba(201,167,255,.12);
+  --badge-nc:#ffb347; --badge-nc-bg:rgba(255,179,71,.12);
+}
+@media (prefers-color-scheme: light){
+  :root{
+    --bg:#f6f4ef; --surface:#ffffff; --surface-2:#faf8f4; --border:#e3ded4;
+    --text:#1b1f24; --muted:#5d6672; --accent:#9a6a12; --link:#1f5fbf;
+    --up:#0f8a55; --up-bg:rgba(15,138,85,.10); --down:#c62f2f; --down-bg:rgba(198,47,47,.09);
+    --badge-co:#6b3fc0; --badge-co-bg:rgba(107,63,192,.09);
+    --badge-nc:#a35a00; --badge-nc-bg:rgba(163,90,0,.10);
+  }
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji";
+  font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:780px;margin:0 auto;padding:40px 22px 28px}
+header.masthead{padding-bottom:22px;margin-bottom:26px;border-bottom:1px solid var(--border)}
+.kicker{font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);font-weight:600;margin:0 0 6px}
+h1{font-size:2.3rem;line-height:1.15;margin:0;font-weight:750;letter-spacing:-.02em}
+.date{margin:8px 0 0;color:var(--muted);font-size:1rem}
+.date .sep{opacity:.5;margin:0 .45em}
+.essentiel{background:linear-gradient(135deg,var(--surface-2),var(--surface));border:1px solid var(--border);
+  border-left:4px solid var(--accent);border-radius:14px;padding:18px 22px 16px;margin:0 0 34px}
+.essentiel h2{margin:0 0 8px;font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+.essentiel ul{margin:0;padding-left:1.15em}
+.essentiel li{margin:6px 0;font-weight:500}
+.essentiel li::marker{color:var(--accent)}
+section.theme{margin:0 0 38px}
+section.theme > h2{font-size:1.4rem;margin:0 0 14px;display:flex;align-items:center;gap:.5em;letter-spacing:-.01em}
+section.theme > h2 .emoji{font-size:1.25em;line-height:1}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin:0 0 16px}
+.tile{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:10px 12px}
+.tile .label{font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:600}
+.tile .value{font-size:1.15rem;font-weight:700;font-variant-numeric:tabular-nums;margin-top:2px;white-space:nowrap}
+.tile .chg{display:inline-block;margin-top:4px;font-size:.8rem;font-weight:650;padding:1px 7px;border-radius:999px;font-variant-numeric:tabular-nums}
+.chg.up{color:var(--up);background:var(--up-bg)}
+.chg.down{color:var(--down);background:var(--down-bg)}
+.tiles-note{font-size:.78rem;color:var(--muted);margin:-8px 0 16px}
+.tiles-note a{color:var(--muted)}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:16px 18px;margin:0 0 12px}
+.card h3{margin:0 0 6px;font-size:1.05rem;line-height:1.35;font-weight:700}
+.card p{margin:0;color:var(--text)}
+.card .meta{margin-top:10px;display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;font-size:.82rem}
+.source{color:var(--muted)}
+.source a{color:var(--link);text-decoration:none;border-bottom:1px solid transparent}
+.source a:hover{border-bottom-color:var(--link)}
+.badge{display:inline-block;font-size:.7rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:2px 8px;border-radius:999px;white-space:nowrap}
+.badge.company{color:var(--badge-co);background:var(--badge-co-bg)}
+.badge.unconfirmed{color:var(--badge-nc);background:var(--badge-nc-bg)}
+footer{margin-top:10px;padding-top:16px;border-top:1px solid var(--border);color:var(--muted);font-size:.8rem;line-height:1.5}
+footer p{margin:4px 0}
+@media (max-width:520px){
+  body{font-size:16px}
+  .wrap{padding:26px 16px 22px}
+  h1{font-size:1.85rem}
+  .tiles{grid-template-columns:repeat(2,1fr)}
+  .card{padding:14px 15px}
+  .essentiel{padding:16px 16px 14px}
+}
+.tiles.six{grid-template-columns:repeat(3,1fr)}
+@media (max-width:520px){.tiles.six{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+<main class="wrap">
+<header class="masthead">
+  <p class="kicker">Crypto · IA · Macro · Géopolitique</p>
+  <h1>Brief du Matin</h1>
+  <p class="date">Vendredi 30 octobre 2026<span class="sep">·</span>Les dernières 24 heures</p>
+</header>
+<aside class="essentiel" aria-label="L'essentiel">
+  <h2>L'essentiel</h2>
+  <ul>
+    <li>Binance, premier exchange mondial, chiffre à 6,3&nbsp;Md$ l'impact d'un piratage (le plus gros de l'histoire de la crypto) et suspend les retraits&nbsp;; le bitcoin tombe sous 78&nbsp;000&nbsp;$ et 1,5&nbsp;Md$ de positions sont liquidées.</li>
+    <li>La facture de l'IA fait chuter la tech&nbsp;: Alphabet signe sa pire séance depuis son entrée en Bourse (−12,6&nbsp;%), Amazon (−6 à 7&nbsp;%) et Intel (−23&nbsp;%) plongent après la clôture.</li>
+    <li>La BCE garde son taux à 2,50&nbsp;% mais a débattu d'une hausse&nbsp;; Christine Lagarde quittera la présidence le 7 février 2027. Aux États-Unis, le PIB accélère à 3,4&nbsp;% en rythme annualisé.</li>
+  </ul>
+</aside>
+
+<section class="theme" id="crypto">
+  <h2><span class="emoji">₿</span> Crypto</h2>
+  <div class="tiles">
+    <div class="tile"><div class="label">BTC</div><div class="value">≈ 78&nbsp;000&nbsp;$</div><span class="chg down">−4&nbsp;% (24&nbsp;h)</span></div>
+    <div class="tile"><div class="label">ETH</div><div class="value">≈ 2&nbsp;250&nbsp;$</div><span class="chg down">−4,8&nbsp;% (24&nbsp;h)</span></div>
+    <div class="tile"><div class="label">BNB</div><div class="value">≈ 694&nbsp;$</div><span class="chg down">−7,7&nbsp;% (24&nbsp;h)</span></div>
+  </div>
+  <p class="tiles-note">Cours de vendredi matin (séance asiatique). Sources&nbsp;: <a href="https://www.cnbc.com/2026/10/30/bitcoin-ether-price-binance-security-scare-rattles-crypto-markets.html">CNBC ↗</a>, <a href="https://www.investing.com/news/forex-news/bitcoin-cryptocurrency-prices-fall-after-binance-reports-security-issue-4985655">Reuters (CoinGecko) ↗</a></p>
+  <article class="card">
+    <h3>Binance piraté&nbsp;: 6,3&nbsp;Md$ touchés, le plus gros vol de l'histoire crypto</h3>
+    <p>Selon Binance, un ordinateur d'ingénieur compromis a permis à un attaquant de lancer des retraits non autorisés&nbsp;; environ 3&nbsp;Md$ ont été gelés avec l'aide de Circle, Tether et Ripple, et l'exchange promet de couvrir toutes les pertes via son fonds SAFU. Deux sociétés d'analyse attribuent l'attaque au groupe nord-coréen TraderTraitor. Le record précédent (Bybit, 1,5&nbsp;Md$ en 2025) est pulvérisé&nbsp;: la confiance dans les plateformes centralisées redevient le sujet.</p>
+    <div class="meta"><span class="badge company">Chiffres de l'entreprise</span><span class="source">Source&nbsp;: <a href="https://www.binance.com/en/support/announcement/detail/c5a8729a97ac486d963784d96c5642d7">Binance ↗</a>, <a href="https://www.cnbc.com/2026/10/29/circle-tether-freeze-funds-impacted-by-potential-binance-security-issue.html">CNBC ↗</a>, <a href="https://www.bbc.com/news/articles/cwg7xp8kx4v5o">BBC ↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Le bitcoin au plus bas depuis six semaines, 1,5&nbsp;Md$ liquidés</h3>
+    <p>Le BTC a touché 77&nbsp;646&nbsp;$ et l'ETH 2&nbsp;239&nbsp;$, au plus bas depuis deux mois&nbsp;; le BNB, jeton de Binance, perd près de 8&nbsp;%. Environ 1,5&nbsp;Md$ de positions ont été liquidées en 24&nbsp;h, dont 1,3&nbsp;Md$ de paris à la hausse&nbsp;: le levier se purge brutalement, sur fond de recul de la tech la veille.</p>
+    <div class="meta"><span class="source">Source&nbsp;: <a href="https://www.cnbc.com/2026/10/30/bitcoin-ether-price-binance-security-scare-rattles-crypto-markets.html">CNBC ↗</a>, <a href="https://www.fxstreet.com/cryptocurrencies/news/crypto-liquidations-surpass-150-billion-as-binance-freezes-3-billion-after-hack-202610300353">FXStreet (CoinGlass) ↗</a></span></div>
+  </article>
+</section>
+
+<section class="theme" id="ia">
+  <h2><span class="emoji">🤖</span> IA</h2>
+  <article class="card">
+    <h3>Alphabet&nbsp;: pire séance de son histoire en Bourse</h3>
+    <p>L'action a perdu 12,6&nbsp;% jeudi, sa plus forte baisse depuis son introduction, après un chiffre d'affaires sous les attentes et un flux de trésorerie disponible négatif de 9,1&nbsp;Md$ lié aux dépenses IA. Le Nasdaq recule de 1,4&nbsp;%&nbsp;: le marché trie désormais entre ceux qui financent l'IA avec leur cash et ceux qui le brûlent.</p>
+    <div class="meta"><span class="source">Source&nbsp;: <a href="https://apnews.com/article/stocks-markets-ai-oil-fed-1b5c71d31b4ce1e46b0db47b33141f6b">AP ↗</a>, <a href="https://live.euronext.com/en/financial-news/equities-and-bond-yields-dip-ai-jitters-and-economic-data-focus">Reuters ↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Amazon&nbsp;: AWS accélère, le cash s'évapore</h3>
+    <p>AWS grimpe de 39&nbsp;% à 46&nbsp;Md$, sa plus forte croissance en près de cinq ans, mais 77,3&nbsp;Md$ d'investissements sur le trimestre portent le flux de trésorerie disponible sur 12 mois à −42,4&nbsp;Md$. Andy Jassy annonce des dépenses «&nbsp;nettement plus élevées&nbsp;» en 2027&nbsp;; l'action perd 6 à 7&nbsp;% après la clôture.</p>
+    <div class="meta"><span class="badge company">Chiffres de l'entreprise</span><span class="source">Source&nbsp;: <a href="https://ir.aboutamazon.com/news-release/news-release-details/2026/Amazon-com-Announces-Third-Quarter-Results/">Amazon ↗</a>, <a href="https://www.cnbc.com/2026/10/29/amazon-amzn-q3-earnings-report-2026.html">CNBC ↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Intel s'effondre de 23&nbsp;% après la clôture</h3>
+    <p>Le fondeur prévoit 15 à 16&nbsp;Md$ de revenus au quatrième trimestre, sous les 17,1&nbsp;Md$ attendus, une chute d'environ 25&nbsp;% de ses ventes de puces PC (pénurie de mémoire) et un cash flow négatif cette année. Nvidia, AMD et Micron reculent dans son sillage.</p>
+    <div class="meta"><span class="badge company">Chiffres de l'entreprise</span><span class="source">Source&nbsp;: <a href="https://live.euronext.com/en/financial-news/intel-shares-drop-21-israel-factory-blast-pc-weakness">Reuters ↗</a>, <a href="https://www.intc.com/news-events/press-releases/detail/1786/intel-reports-third-quarter-2026-financial-results">Intel ↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Sam Altman veut des robots qui construisent des data centers</h3>
+    <p>Dans le podcast Cheeky Pint de John Collison, le patron d'OpenAI juge les «&nbsp;data centers auto-réplicants&nbsp;» à portée de main&nbsp;: des robots pilotés par l'IA feraient tourner les usines de puces, construiraient turbines, panneaux solaires et data centers. Il estime aussi que «&nbsp;la main invisible échoue&nbsp;» face à la pénurie de mémoire. Une vision, pas encore un produit.</p>
+    <div class="meta"><span class="source">Source&nbsp;: <a href="https://cheekypint.substack.com/p/why-sam-altman-is-against-a-single">Cheeky Pint ↗</a>, <a href="https://thenextweb.com/news/sam-altman-openai-robots-self-replicating-data-centres-cheeky-pint">The Next Web ↗</a></span></div>
+  </article>
+</section>
+
+<section class="theme" id="macro">
+  <h2><span class="emoji">📈</span> Macro</h2>
+  <div class="tiles six">
+    <div class="tile"><div class="label">Dow Jones</div><div class="value">52&nbsp;342,56</div><span class="chg down">−0,25&nbsp;%</span></div>
+    <div class="tile"><div class="label">S&amp;P 500</div><div class="value">7&nbsp;720,39</div><span class="chg down">−0,30&nbsp;%</span></div>
+    <div class="tile"><div class="label">Nasdaq</div><div class="value">26&nbsp;184,72</div><span class="chg down">−1,37&nbsp;%</span></div>
+    <div class="tile"><div class="label">10 ans US</div><div class="value">≈ 4,94&nbsp;%</div><span class="chg down">−10,6&nbsp;pb</span></div>
+    <div class="tile"><div class="label">BCE (dépôt)</div><div class="value">2,50&nbsp;%</div><span class="chg">inchangé</span></div>
+    <div class="tile"><div class="label">BoJ</div><div class="value">1,25&nbsp;%</div><span class="chg">inchangé</span></div>
+  </div>
+  <p class="tiles-note">Indices&nbsp;: clôtures du jeudi 29 octobre&nbsp;; taux 10 ans en fin de séance. Sources&nbsp;: <a href="https://www.cnbc.com/2026/10/28/stock-market-today-live-updates.html">CNBC ↗</a>, <a href="https://live.euronext.com/en/financial-news/equities-and-bond-yields-dip-ai-jitters-and-economic-data-focus">Reuters ↗</a></p>
+  <article class="card">
+    <h3>BCE&nbsp;: statu quo, une hausse débattue, Lagarde sur le départ</h3>
+    <p>Le taux de dépôt reste à 2,50&nbsp;% alors que l'inflation de la zone euro atteint 3,8&nbsp;%, au plus haut depuis 2023. Christine Lagarde reconnaît que le Conseil a débattu d'une hausse et les marchés jugent une hausse possible en décembre. Elle a aussi confirmé qu'elle quittera la présidence le 7 février 2027, ce qui ouvre la course à sa succession.</p>
+    <div class="meta"><span class="source">Source&nbsp;: <a href="https://www.ecb.europa.eu/press/press_conference/monetary-policy-statement/2026/html/ecb.is261029~5c5ffe99e5.en.html">BCE (décision) ↗</a>, <a href="https://www.ecb.europa.eu/press/pr/date/2026/html/ecb.pr261029~abbb6dc64b.en.html">BCE (départ) ↗</a>, <a href="https://www.cnbc.com/2026/10/29/european-central-bank-interest-rates.html">CNBC ↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>États-Unis&nbsp;: croissance à 3,4&nbsp;%, inflation à 3,6&nbsp;%</h3>
+    <p>Le PIB du troisième trimestre progresse de 3,4&nbsp;% en rythme annualisé (après 2,2&nbsp;%), porté par la consommation et l'investissement lié à l'IA. Mais l'inflation PCE de septembre monte à 3,6&nbsp;% sur un an (3,1&nbsp;% hors énergie et alimentation)&nbsp;: de quoi garder la hausse de décembre sur la table à la Fed.</p>
+    <div class="meta"><span class="source">Source&nbsp;: <a href="https://www.bea.gov/news/2026/gdp-advance-estimate-3rd-quarter-2026">BEA (PIB) ↗</a>, <a href="https://www.bea.gov/news/2026/personal-income-and-outlays-september-2026">BEA (PCE) ↗</a>, <a href="https://apnews.com/article/economy-gdp-ca48d86b723cc52fe14d142ee033316a">AP ↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Japon&nbsp;: la BoJ déclare l'objectif d'inflation atteint</h3>
+    <p>La Banque du Japon maintient son taux à 1,25&nbsp;% (8 voix contre 1, Hajime Takata voulait 1,5&nbsp;%), mais juge pour la première fois l'inflation sous-jacente en ligne avec l'objectif de 2&nbsp;% et ouvre la porte à de nouvelles hausses. Un yen plus cher et des taux japonais en hausse pèsent sur le carry trade mondial.</p>
+    <div class="meta"><span class="source">Source&nbsp;: <a href="https://www.cnbc.com/2026/10/30/boj-inflation-target-rates.html">CNBC ↗</a>, <a href="https://asia.nikkei.com/economy/bank-of-japan/boj-says-2-inflation-target-achieved-holds-rates-steady">Nikkei Asia ↗</a></span></div>
+  </article>
+</section>
+
+<section class="theme" id="geo">
+  <h2><span class="emoji">🌍</span> Géopolitique</h2>
+  <article class="card">
+    <h3>Israël demande le feu vert pour frapper l'énergie iranienne</h3>
+    <p>Selon la radio publique Kan, Israël a demandé à Donald Trump l'autorisation de viser des installations énergétiques iraniennes jusqu'ici épargnées, si les combats reprennent. Washington et Jérusalem prépareraient une campagne courte après les midterms du 3 novembre&nbsp;; aucune réponse américaine n'a été rapportée. Une frappe sur l'énergie toucherait directement le prix du pétrole.</p>
+    <div class="meta"><span class="badge unconfirmed">Non confirmé</span><span class="source">Source&nbsp;: <a href="https://www.kan.org.il/content/kan-news/defense/live-1113966/liveid-1114033/">Kan ↗</a>, <a href="https://www.timesofisrael.com/us-israel-said-to-draft-plans-for-resumed-strikes-on-iran-after-midterm-elections/">Times of Israel ↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Téhéran rejette la médiation du Qatar</h3>
+    <p>Doha a présenté un plan de sept jours de mesures de confiance, éventuellement garanti par des pays tiers. Un haut responsable iranien n'y voit que des «&nbsp;idées inacceptables&nbsp;», sans souplesse sur le nucléaire. La voie diplomatique, relancée la veille par la lettre de JD Vance, reste bloquée.</p>
+    <div class="meta"><span class="source">Source&nbsp;: <a href="https://www.straitstimes.com/world/middle-east/qatari-mediators-present-iran-with-new-deal-to-end-the-war-official-says">Reuters (Straits Times) ↗</a>, <a href="https://www.middleeasteye.net/news/iran-rejects-unacceptable-proposal-qatar-end-war-us">Middle East Eye ↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Iran&nbsp;: 2&nbsp;Md$ de matériel militaire passés malgré le blocus</h3>
+    <p>Une enquête de Reuters montre qu'un réseau de plus de 5&nbsp;000 agences liées au ministère iranien de la Défense a importé au moins 2&nbsp;Md$ de matériel, d'explosifs et de camions depuis janvier 2025, notamment de Chine, de Russie et des Émirats. Le blocus américain est beaucoup plus poreux qu'affiché.</p>
+    <div class="meta"><span class="source">Source&nbsp;: <a href="https://english.alarabiya.net/News/middle-east/2026/10/29/iran-s-hidden-web-of-military-agencies-is-slipping-hardware-past-the-us-blockade">Reuters (Al Arabiya) ↗</a>, <a href="https://www.iranintl.com/en/202610290508">Iran International ↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Ukraine&nbsp;: Moscou conditionne les pourparlers d'Abou Dhabi</h3>
+    <p>Des discussions sous médiation américaine sont attendues à Abou Dhabi après le 4 novembre, sans les Européens. Le Kremlin dit que leur calendrier dépendra de la situation sur le front et au Moyen-Orient&nbsp;; Kyiv vise du 6 au 10 novembre.</p>
+    <div class="meta"><span class="source">Source&nbsp;: <a href="https://kyivindependent.com/russia-says-battlefield-situation-will-determine-when-ukraine-peace-talks-begin/">Kyiv Independent ↗</a>, <a href="https://www.arabnews.com/world/next-round-of-ukraine-talks-depends-on-middle-east-other-factors-kremlin-aide-says-3008779">Arab News ↗</a></span></div>
+  </article>
+</section>
+
+<section class="theme" id="verification">
+  <h2><span class="emoji">✅</span> Vérification</h2>
+  <article class="card">
+    <h3>✅ Vérifié</h3>
+    <p>Piratage de Binance (communiqué Binance, CNBC, BBC)&nbsp;; cours et liquidations crypto (CNBC, Reuters/CoinGecko, CoinGlass via FXStreet et BeInCrypto)&nbsp;; clôtures de Wall Street et 10 ans US (CNBC, Reuters, AP)&nbsp;; chute d'Alphabet (AP, Reuters)&nbsp;; résultats d'Amazon (communiqué, CNBC, Reuters, Axios)&nbsp;; Intel (Reuters, communiqué Intel)&nbsp;; propos d'Altman (transcription Cheeky Pint, The Next Web)&nbsp;; BCE et départ de Lagarde (BCE, Banque d'Espagne, Banque nationale de Belgique, CNBC, Reuters)&nbsp;; PIB et PCE américains (BEA, AP)&nbsp;; BoJ (CNBC, Nikkei, Reuters)&nbsp;; médiation du Qatar (Reuters, Middle East Eye)&nbsp;; enquête sur l'Iran (Reuters, Iran International)&nbsp;; Ukraine (Kyiv Independent, Arab News).</p>
+  </article>
+  <article class="card">
+    <h3>⚠️ À confirmer</h3>
+    <p>Le montant de 6,3&nbsp;Md$ et l'attribution à la Corée du Nord viennent de Binance et de sociétés d'analyse, sans confirmation officielle des autorités. La demande israélienne repose sur une source anonyme (Kan). Les chiffres d'Amazon et d'Intel sont ceux des entreprises. Le pétrole est omis&nbsp;: les niveaux du Brent divergent selon les sources (114,9&nbsp;$ en clôture pour Reuters, 110,8&nbsp;$ selon AP). Les cours crypto bougent encore.</p>
+  </article>
+</section>
+
+<footer>
+  <p>Généré le vendredi 30 octobre 2026 vers 07h30 (heure de Paris). Faits repérés via X puis recoupés sur le web&nbsp;; liens vérifiés.</p>
+  <p>Les badges signalent les chiffres publiés par les entreprises elles-mêmes et les informations non confirmées officiellement.</p>
+</footer>
+</main>
+</body>
+</html>
