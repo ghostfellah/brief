@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<title>Brief du Matin · Samedi 31 octobre 2026</title>
+<!--
+  GABARIT « Brief du Matin » : un seul fichier, CSS inline, aucune dépendance, pas de JS.
+  Thème sombre par défaut, clair automatique via prefers-color-scheme.
+  Utilisation : copier ce fichier vers brief-AAAA-MM-JJ.html, remplacer chaque {{EMPLACEMENT}},
+  dupliquer les <article class="card"> (3 à 4 par section). Ne pas modifier le bloc <style>.
+  Typographie : mettre une espace insécable (&nbsp;) avant : ; % ? ! » et après «.
+-->
+<style>
+:root{
+  --bg:#0e1116; --surface:#161b22; --surface-2:#1c222b; --border:#2a313c;
+  --text:#e8ecf1; --muted:#9aa4b2; --accent:#e0b062; --link:#8fbcff;
+  --up:#3fcf8e; --up-bg:rgba(63,207,142,.12); --down:#ff6b6b; --down-bg:rgba(255,107,107,.12);
+  --badge-co:#c9a7ff; --badge-co-bg:rgba(201,167,255,.12);
+  --badge-nc:#ffb347; --badge-nc-bg:rgba(255,179,71,.12);
+}
+@media (prefers-color-scheme: light){
+  :root{
+    --bg:#f6f4ef; --surface:#ffffff; --surface-2:#faf8f4; --border:#e3ded4;
+    --text:#1b1f24; --muted:#5d6672; --accent:#9a6a12; --link:#1f5fbf;
+    --up:#0f8a55; --up-bg:rgba(15,138,85,.10); --down:#c62f2f; --down-bg:rgba(198,47,47,.09);
+    --badge-co:#6b3fc0; --badge-co-bg:rgba(107,63,192,.09);
+    --badge-nc:#a35a00; --badge-nc-bg:rgba(163,90,0,.10);
+  }
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji";
+  font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:780px;margin:0 auto;padding:40px 22px 28px}
+header.masthead{padding-bottom:22px;margin-bottom:26px;border-bottom:1px solid var(--border)}
+.kicker{font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);font-weight:600;margin:0 0 6px}
+h1{font-size:2.3rem;line-height:1.15;margin:0;font-weight:750;letter-spacing:-.02em}
+.date{margin:8px 0 0;color:var(--muted);font-size:1rem}
+.date .sep{opacity:.5;margin:0 .45em}
+.essentiel{background:linear-gradient(135deg,var(--surface-2),var(--surface));border:1px solid var(--border);
+  border-left:4px solid var(--accent);border-radius:14px;padding:18px 22px 16px;margin:0 0 34px}
+.essentiel h2{margin:0 0 8px;font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+.essentiel ul{margin:0;padding-left:1.15em}
+.essentiel li{margin:6px 0;font-weight:500}
+.essentiel li::marker{color:var(--accent)}
+section.theme{margin:0 0 38px}
+section.theme > h2{font-size:1.4rem;margin:0 0 14px;display:flex;align-items:center;gap:.5em;letter-spacing:-.01em}
+section.theme > h2 .emoji{font-size:1.25em;line-height:1}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin:0 0 16px}
+.tile{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:10px 12px}
+.tile .label{font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:600}
+.tile .value{font-size:1.15rem;font-weight:700;font-variant-numeric:tabular-nums;margin-top:2px;white-space:nowrap}
+.tile .chg{display:inline-block;margin-top:4px;font-size:.8rem;font-weight:650;padding:1px 7px;border-radius:999px;font-variant-numeric:tabular-nums}
+.chg.up{color:var(--up);background:var(--up-bg)}
+.chg.down{color:var(--down);background:var(--down-bg)}
+.tiles-note{font-size:.78rem;color:var(--muted);margin:-8px 0 16px}
+.tiles-note a{color:var(--muted)}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:16px 18px;margin:0 0 12px}
+.card h3{margin:0 0 6px;font-size:1.05rem;line-height:1.35;font-weight:700}
+.card p{margin:0;color:var(--text)}
+.card .meta{margin-top:10px;display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;font-size:.82rem}
+.source{color:var(--muted)}
+.source a{color:var(--link);text-decoration:none;border-bottom:1px solid transparent}
+.source a:hover{border-bottom-color:var(--link)}
+.badge{display:inline-block;font-size:.7rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:2px 8px;border-radius:999px;white-space:nowrap}
+.badge.company{color:var(--badge-co);background:var(--badge-co-bg)}
+.badge.unconfirmed{color:var(--badge-nc);background:var(--badge-nc-bg)}
+footer{margin-top:10px;padding-top:16px;border-top:1px solid var(--border);color:var(--muted);font-size:.8rem;line-height:1.5}
+footer p{margin:4px 0}
+@media (max-width:520px){
+  body{font-size:16px}
+  .wrap{padding:26px 16px 22px}
+  h1{font-size:1.85rem}
+  .tiles{grid-template-columns:repeat(2,1fr)}
+  .card{padding:14px 15px}
+  .essentiel{padding:16px 16px 14px}
+}
+.tiles.six{grid-template-columns:repeat(3,1fr)}
+@media (max-width:520px){.tiles.six{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+<main class="wrap">
+<header class="masthead">
+  <p class="kicker">Crypto · IA · Macro · Géopolitique</p>
+  <h1>Brief du Matin</h1>
+  <p class="date">Samedi 31 octobre 2026<span class="sep">·</span>Les dernières 24 heures</p>
+</header>
+<aside class="essentiel" aria-label="L'essentiel">
+  <h2>L'essentiel</h2>
+  <ul>
+    <li>Wall Street signe sa pire séance depuis juin&nbsp;: le S&amp;P&nbsp;500 perd 1,8&nbsp;%, le Nasdaq 2,9&nbsp;% et Intel 28,6&nbsp;%. Les valeurs de l'IA sont en marché baissier ou presque, et Apple repasse devant Nvidia comme première capitalisation mondiale.</li>
+    <li>Le pétrole monte à son plus haut depuis fin avril (Brent à 113,43&nbsp;$ sur le contrat de janvier, WTI à 104,12&nbsp;$) après l'attaque d'un pétrolier dans le détroit d'Ormuz, alors qu'une frappe sur l'Iran est redoutée après les midterms du 3 novembre.</li>
+    <li>Le Qatar a mené plus de 12 heures de pourparlers à Téhéran pour relancer un accord entre les États-Unis et l'Iran, avec des «&nbsp;progrès&nbsp;» selon des sources diplomatiques. Les discussions continuent à Doha ce samedi.</li>
+  </ul>
+</aside>
+
+<section class="theme" id="crypto">
+  <h2><span class="emoji">₿</span> Crypto</h2>
+  <div class="tiles">
+    <div class="tile"><div class="label">BTC</div><div class="value">≈ 77&nbsp;200&nbsp;$</div><span class="chg down">−4,3&nbsp;% (ven.)</span></div>
+    <div class="tile"><div class="label">ETH</div><div class="value">≈ 2&nbsp;240&nbsp;$</div><span class="chg">stable (sam.)</span></div>
+  </div>
+  <p class="tiles-note">Cours de samedi matin. Sources&nbsp;: <a href="https://tindex.app/en/indicators/Cryptocurrency/btc/">Tindex ↗</a>, <a href="https://exa.ai/library/markets/crypto/BTC">Exa Markets ↗</a>, <a href="https://sg.finance.yahoo.com/quote/ETH-USD/history/">Yahoo Finance ↗</a></p>
+  <article class="card">
+    <h3>Binance vise une reprise des retraits dimanche</h3>
+    <p>Richard Teng, co-PDG de Binance, dit avoir trouvé d'autres points d'intrusion que l'ordinateur d'ingénieur, et que l'attaquant a détourné une fonction d'Ethereum (EIP-7702) pour prendre la main sur un portefeuille connecté. L'exchange vise une reprise progressive des retraits le dimanche 1er novembre et un audit complet de ses réserves lundi. Le Secret Service américain participe à la traque des fonds. C'est le vrai test de confiance&nbsp;: tant que les retraits sont fermés, les clients ne peuvent pas sortir.</p>
+    <div class="meta"><span class="badge company">Chiffres de l'entreprise</span><span class="source">Source&nbsp;: <a href="https://www.coindesk.com/tech/2026/10/30/binance-uncovers-wider-breach-in-usd6-3-billion-exploit-targets-sunday-withdrawal-restart">CoinDesk ↗</a>, <a href="https://www.bbc.com/news/live/cqrmynd3042gt">BBC ↗</a>, <a href="https://cointelegraph.com/news/recap-binances-record-63b-hack-unfolded">Cointelegraph ↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Strategy change sa façon d'acheter du bitcoin</h3>
+    <p>Strategy, l'entreprise de Michael Saylor, publie un résultat d'exploitation de 20,9&nbsp;Md$ au troisième trimestre, tiré par la hausse du BTC, et détient 848&nbsp;517 BTC au 25 octobre. Elle financera désormais surtout ses achats par des actions de préférence (comme STRC) plutôt qu'en diluant ses actionnaires.</p>
+    <div class="meta"><span class="badge company">Chiffres de l'entreprise</span><span class="source">Source&nbsp;: <a href="https://www.strategy.com/press/strategy-announces-third-quarter-2026-financial-results_10-29-2026">Strategy ↗</a>, <a href="https://stockanalysis.com/stocks/mstr/transcripts/662581-q3-2026/">Transcription de la conférence ↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>18 ans du livre blanc de Satoshi</h3>
+    <p>Le 31 octobre 2008, Satoshi Nakamoto publiait «&nbsp;Bitcoin&nbsp;: A Peer-to-Peer Electronic Cash System&nbsp;», quelques semaines après la faillite de Lehman Brothers. L'anniversaire tombe pendant le plus gros piratage de l'histoire d'un exchange centralisé, ce qui redonne du poids à l'idée d'origine&nbsp;: payer sans intermédiaire de confiance.</p>
+    <div class="meta"><span class="source">Source&nbsp;: <a href="https://bitcoin.org/bitcoin.pdf">Livre blanc (bitcoin.org) ↗</a></span></div>
+  </article>
+</section>
+
+<section class="theme" id="ia">
+  <h2><span class="emoji">🤖</span> IA</h2>
+  <article class="card">
+    <h3>Le marché ne veut plus payer l'IA à crédit</h3>
+    <p>Intel plonge de 28,6&nbsp;% vendredi, Nvidia de 4,2&nbsp;% et Micron a lâché plus de 5&nbsp;% en séance&nbsp;; l'ETF iShares des semi-conducteurs est à −29&nbsp;% de son sommet, en marché baissier. Les investisseurs réclament des profits qui justifient les dépenses colossales en data centers et se replient sur Coca-Cola, Walmart ou Eli Lilly.</p>
+    <div class="meta"><span class="source">Source&nbsp;: <a href="https://www.cnbc.com/2026/10/30/ai-stocks-selloff-ai-spending-returns.html">CNBC ↗</a>, <a href="https://apnews.com/article/stock-markets-ai-alphabet-oil-16c266731fdf64178f38070af2b42497">AP ↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Apple redevient la première capitalisation mondiale</h3>
+    <p>Apple finit à 5&nbsp;030&nbsp;Md$ de valorisation malgré un recul de 1,2&nbsp;%, devant Nvidia (4&nbsp;930&nbsp;Md$). Le marché récompense l'entreprise qui dépense le moins en infrastructure IA et génère le plus de cash.</p>
+    <div class="meta"><span class="source">Source&nbsp;: <a href="https://finance.yahoo.com/markets/stocks/articles/apple-overtakes-nvidia-become-world-202839510.html">Yahoo Finance ↗</a>, <a href="https://www.investing.com/news/stock-market-news/apple-overtakes-nvidia-to-become-worlds-most-valuable-company-amid-tech-selloff-4988752">Investing.com ↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Anthropic&nbsp;: la croissance ralentit avant l'IPO</h3>
+    <p>Le document d'introduction en Bourse d'Anthropic laisse deviner un chiffre d'affaires d'environ 17&nbsp;Md$ au troisième trimestre, soit une croissance d'un trimestre sur l'autre d'environ 45 à 48&nbsp;%, contre 144&nbsp;% au deuxième. Selon Reuters, des investisseurs revoient à la baisse la valorisation attendue.</p>
+    <div class="meta"><span class="badge unconfirmed">Non confirmé</span><span class="source">Source&nbsp;: <a href="https://www.cnbc.com/2026/10/30/anthropic-ipo-s1-revenue-compute.html">CNBC ↗</a>, <a href="https://www.investing.com/news/stock-market-news/exclusiveinvestors-temper-anthropic-ipo-valuation-expectations-over-revenue-growth-slowdown-4952698">Reuters ↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Robotaxis&nbsp;: Waymo choisit Toyota pour le Japon et le Royaume-Uni</h3>
+    <p>Waymo et Toyota vont produire en usine des bZ4X autonomes, avec des essais au Japon en 2027 avant un service commercial au Japon puis au Royaume-Uni. Waymo sort ainsi de sa dépendance aux véhicules adaptés après coup et gagne un constructeur capable de produire en volume.</p>
+    <div class="meta"><span class="badge company">Annonce des entreprises</span><span class="source">Source&nbsp;: <a href="https://techcrunch.com/2026/10/30/waymos-next-robotaxi-will-be-a-toyota-bz4x-destined-for-japan-and-the-uk/">TechCrunch ↗</a>, <a href="https://woven.toyota/en/news/20261030/">Woven by Toyota ↗</a></span></div>
+  </article>
+</section>
+
+<section class="theme" id="macro">
+  <h2><span class="emoji">📈</span> Macro</h2>
+  <div class="tiles six">
+    <div class="tile"><div class="label">S&amp;P 500</div><div class="value">7&nbsp;580,07</div><span class="chg down">−1,82&nbsp;%</span></div>
+    <div class="tile"><div class="label">Nasdaq</div><div class="value">25&nbsp;437,00</div><span class="chg down">−2,86&nbsp;%</span></div>
+    <div class="tile"><div class="label">10 ans US</div><div class="value">4,94&nbsp;%</div><span class="chg down">−4&nbsp;pb</span></div>
+    <div class="tile"><div class="label">Brent (janv.)</div><div class="value">113,43&nbsp;$</div><span class="chg up">+2,4&nbsp;%</span></div>
+    <div class="tile"><div class="label">WTI</div><div class="value">104,12&nbsp;$</div><span class="chg up">+2,1&nbsp;%</span></div>
+    <div class="tile"><div class="label">Or</div><div class="value">≈ 3&nbsp;875&nbsp;$</div><span class="chg down">−3,6&nbsp;%</span></div>
+  </div>
+  <p class="tiles-note">Clôtures du vendredi 30 octobre. Sources&nbsp;: <a href="https://apnews.com/article/wall-street-stocks-dow-nasdaq-a01d3551e794fed1a0c317c20bc3f0a2">AP ↗</a>, <a href="https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve&amp;field_tdr_date_value_month=202610">Trésor américain ↗</a>, <a href="https://live.euronext.com/en/financial-news/oil-jumps-2-settles-6-month-highs-fears-escalation-iran">Reuters ↗</a>, <a href="https://www.cnbc.com/2026/10/30/gold-slips-as-higher-oil-us-inflation-data-bolster-fed-hike-bets.html">CNBC ↗</a></p>
+  <article class="card">
+    <h3>Wall Street&nbsp;: pire séance depuis juin, troisième semaine de baisse</h3>
+    <p>Le S&amp;P&nbsp;500 recule de 1,8&nbsp;% et le Dow Jones de 572 points (−1,1&nbsp;%). L'indice reste pourtant à seulement 3,1&nbsp;% de son record&nbsp;: c'est une rotation hors de la tech plus qu'une débâcle générale.</p>
+    <div class="meta"><span class="source">Source&nbsp;: <a href="https://apnews.com/article/stock-markets-ai-alphabet-oil-16c266731fdf64178f38070af2b42497">AP ↗</a>, <a href="https://www.cnbc.com/2026/10/30/ai-stocks-selloff-ai-spending-returns.html">CNBC ↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Pétrole au plus haut depuis six mois</h3>
+    <p>Le Brent gagne 13,6&nbsp;% sur le mois d'octobre et le WTI 15,2&nbsp;%. Le marché intègre le risque d'une reprise des frappes américaines sur l'Iran après les midterms&nbsp;: un pétrole durablement au-dessus de 100&nbsp;$ entretient l'inflation et complique la tâche des banques centrales.</p>
+    <div class="meta"><span class="source">Source&nbsp;: <a href="https://live.euronext.com/en/financial-news/oil-jumps-2-settles-6-month-highs-fears-escalation-iran">Reuters ↗</a>, <a href="https://qna.org.qa/en/news/news-details?date=31%2F10%2F2026&amp;id=oil-prices-rise-more-than-2-percent-to-highest-levels-since-last-april">QNA ↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>L'or chute de 3,6&nbsp;% sur les paris de hausse de la Fed</h3>
+    <p>L'once repasse sous 3&nbsp;900&nbsp;$. Pétrole plus cher et inflation américaine qui remonte renforcent l'idée d'une hausse des taux en décembre, ce qui pèse sur l'or comme sur le bitcoin, deux actifs qui ne rapportent pas d'intérêts.</p>
+    <div class="meta"><span class="source">Source&nbsp;: <a href="https://www.cnbc.com/2026/10/30/gold-slips-as-higher-oil-us-inflation-data-bolster-fed-hike-bets.html">CNBC ↗</a>, <a href="https://www.ausecure.com/gold-market-close-oct-30-2026/">Ausecure ↗</a></span></div>
+  </article>
+</section>
+
+<section class="theme" id="geo">
+  <h2><span class="emoji">🌍</span> Géopolitique</h2>
+  <article class="card">
+    <h3>Iran&nbsp;: marathon diplomatique du Qatar à Téhéran</h3>
+    <p>Les médiateurs qataris, en contact régulier avec la Maison-Blanche, ont négocié plus de 12 heures vendredi pour obtenir des gestes réciproques et un retour à des pourparlers directs. Le blocage reste le même&nbsp;: Washington veut des concessions nucléaires d'abord, Téhéran la levée du blocus et l'accès à ses fonds gelés. Donald Trump affirme que la guerre va «&nbsp;bientôt se terminer&nbsp;», sans dire comment.</p>
+    <div class="meta"><span class="source">Source&nbsp;: <a href="https://www.axios.com/2026/10/31/qatari-mediators-iran-war-deal-before-midterms">Axios ↗</a>, <a href="https://www.cbsnews.com/live-updates/iran-war-us-trump-diplomacy-threat-resume-attacks/">CBS News ↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Ormuz&nbsp;: un pétrolier visé par des explosifs</h3>
+    <p>Selon l'UKMTO, l'agence britannique de sécurité maritime, une petite embarcation a fixé deux charges sur le pétrolier Louise&nbsp;1 au large de Khasab (Oman), provoquant un incendie en salle des machines. L'équipage est sain et sauf et le navire a repris sa route. L'auteur n'est pas identifié.</p>
+    <div class="meta"><span class="source">Source&nbsp;: <a href="https://english.alarabiya.net/News/gulf/2026/10/30/tanker-in-strait-of-hormuz-hit-by-explosives-attached-to-small-boat-ukmto-says">Al Arabiya ↗</a>, <a href="https://www.arabnews.com/middle-east/fire-hit-tanker-continues-journey-after-being-attacked-in-strait-of-hormuz-ukmto-says-3008930">Arab News ↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Au moins 5&nbsp;Md$ de dégâts sur les bases américaines</h3>
+    <p>D'après une analyse d'images satellites du Wall Street Journal, les frappes iraniennes ont endommagé au moins 274 bâtiments sur 24 sites militaires américains au Moyen-Orient, pour au moins 5&nbsp;Md$ de dégâts. Le Pentagone n'a pas confirmé ce chiffre.</p>
+    <div class="meta"><span class="badge unconfirmed">Non confirmé</span><span class="source">Source&nbsp;: <a href="https://www.wsj.com/world/middle-east/we-investigated-damage-from-iran-to-a-u-s-naval-base-heres-what-we-found-4a9f13a7">WSJ ↗</a>, <a href="https://fakti.bg/en/world/1095713-iranskite-udari-sa-nanesli-shteti-za-5-mlrd-po-us-bazi">Fakti.bg ↗</a></span></div>
+  </article>
+</section>
+
+<section class="theme" id="verification">
+  <h2><span class="emoji">✅</span> Vérification</h2>
+  <article class="card">
+    <h3>✅ Vérifié</h3>
+    <p>Clôtures de Wall Street et d'Intel (AP, données de marché Exa)&nbsp;; 10 ans US (Trésor américain)&nbsp;; pétrole (Reuters, QNA, Newsquawk, The Star)&nbsp;; or (CNBC, Ausecure)&nbsp;; cours BTC et ETH (Tindex, Exa, Fincast, Yahoo Finance)&nbsp;; Binance (CoinDesk, BBC, Cointelegraph)&nbsp;; Strategy (communiqué, transcription)&nbsp;; vente des valeurs IA (CNBC, AP)&nbsp;; Apple devant Nvidia (Yahoo Finance, Investing.com)&nbsp;; Waymo–Toyota (TechCrunch, Woven by Toyota)&nbsp;; médiation du Qatar (Axios, CBS, Reuters via Arab News, Al Jazeera)&nbsp;; pétrolier à Ormuz (UKMTO via Al Arabiya, Arab News, DW).</p>
+  </article>
+  <article class="card">
+    <h3>⚠️ À confirmer</h3>
+    <p>Le calendrier de reprise des retraits de Binance et le montant de 6,3&nbsp;Md$ viennent de l'entreprise. Le chiffre d'affaires d'Anthropic au troisième trimestre est une estimation déduite du document d'IPO, pas un chiffre publié. Les 5&nbsp;Md$ de dégâts sont une estimation du WSJ non confirmée par le Pentagone. Les chiffres de Strategy et de Waymo–Toyota sont ceux des entreprises.</p>
+  </article>
+</section>
+
+<footer>
+  <p>Généré le samedi 31 octobre 2026 vers 07h20 (heure de Paris). Faits repérés via X puis recoupés sur le web&nbsp;; liens vérifiés.</p>
+  <p>Les badges signalent les chiffres publiés par les entreprises elles-mêmes et les informations non confirmées officiellement.</p>
+</footer>
+</main>
+</body>
+</html>
