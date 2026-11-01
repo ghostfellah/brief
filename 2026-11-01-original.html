@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<title>Brief du Matin · Dimanche 1er novembre 2026</title>
+<!--
+  GABARIT « Brief du Matin » : un seul fichier, CSS inline, aucune dépendance, pas de JS.
+  Thème sombre par défaut, clair automatique via prefers-color-scheme.
+  Utilisation : copier ce fichier vers brief-AAAA-MM-JJ.html, remplacer chaque {{EMPLACEMENT}},
+  dupliquer les <article class="card"> (3 à 4 par section). Ne pas modifier le bloc <style>.
+  Typographie : mettre une espace insécable (&nbsp;) avant : ; % ? ! » et après «.
+-->
+<style>
+:root{
+  --bg:#0e1116; --surface:#161b22; --surface-2:#1c222b; --border:#2a313c;
+  --text:#e8ecf1; --muted:#9aa4b2; --accent:#e0b062; --link:#8fbcff;
+  --up:#3fcf8e; --up-bg:rgba(63,207,142,.12); --down:#ff6b6b; --down-bg:rgba(255,107,107,.12);
+  --badge-co:#c9a7ff; --badge-co-bg:rgba(201,167,255,.12);
+  --badge-nc:#ffb347; --badge-nc-bg:rgba(255,179,71,.12);
+}
+@media (prefers-color-scheme: light){
+  :root{
+    --bg:#f6f4ef; --surface:#ffffff; --surface-2:#faf8f4; --border:#e3ded4;
+    --text:#1b1f24; --muted:#5d6672; --accent:#9a6a12; --link:#1f5fbf;
+    --up:#0f8a55; --up-bg:rgba(15,138,85,.10); --down:#c62f2f; --down-bg:rgba(198,47,47,.09);
+    --badge-co:#6b3fc0; --badge-co-bg:rgba(107,63,192,.09);
+    --badge-nc:#a35a00; --badge-nc-bg:rgba(163,90,0,.10);
+  }
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji";
+  font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:780px;margin:0 auto;padding:40px 22px 28px}
+header.masthead{padding-bottom:22px;margin-bottom:26px;border-bottom:1px solid var(--border)}
+.kicker{font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);font-weight:600;margin:0 0 6px}
+h1{font-size:2.3rem;line-height:1.15;margin:0;font-weight:750;letter-spacing:-.02em}
+.date{margin:8px 0 0;color:var(--muted);font-size:1rem}
+.date .sep{opacity:.5;margin:0 .45em}
+.essentiel{background:linear-gradient(135deg,var(--surface-2),var(--surface));border:1px solid var(--border);
+  border-left:4px solid var(--accent);border-radius:14px;padding:18px 22px 16px;margin:0 0 34px}
+.essentiel h2{margin:0 0 8px;font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+.essentiel ul{margin:0;padding-left:1.15em}
+.essentiel li{margin:6px 0;font-weight:500}
+.essentiel li::marker{color:var(--accent)}
+section.theme{margin:0 0 38px}
+section.theme > h2{font-size:1.4rem;margin:0 0 14px;display:flex;align-items:center;gap:.5em;letter-spacing:-.01em}
+section.theme > h2 .emoji{font-size:1.25em;line-height:1}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin:0 0 16px}
+.tile{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:10px 12px}
+.tile .label{font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:600}
+.tile .value{font-size:1.15rem;font-weight:700;font-variant-numeric:tabular-nums;margin-top:2px;white-space:nowrap}
+.tile .chg{display:inline-block;margin-top:4px;font-size:.8rem;font-weight:650;padding:1px 7px;border-radius:999px;font-variant-numeric:tabular-nums}
+.chg.up{color:var(--up);background:var(--up-bg)}
+.chg.down{color:var(--down);background:var(--down-bg)}
+.tiles-note{font-size:.78rem;color:var(--muted);margin:-8px 0 16px}
+.tiles-note a{color:var(--muted)}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:16px 18px;margin:0 0 12px}
+.card h3{margin:0 0 6px;font-size:1.05rem;line-height:1.35;font-weight:700}
+.card p{margin:0;color:var(--text)}
+.card .meta{margin-top:10px;display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;font-size:.82rem}
+.source{color:var(--muted)}
+.source a{color:var(--link);text-decoration:none;border-bottom:1px solid transparent}
+.source a:hover{border-bottom-color:var(--link)}
+.badge{display:inline-block;font-size:.7rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:2px 8px;border-radius:999px;white-space:nowrap}
+.badge.company{color:var(--badge-co);background:var(--badge-co-bg)}
+.badge.unconfirmed{color:var(--badge-nc);background:var(--badge-nc-bg)}
+footer{margin-top:10px;padding-top:16px;border-top:1px solid var(--border);color:var(--muted);font-size:.8rem;line-height:1.5}
+footer p{margin:4px 0}
+@media (max-width:520px){
+  body{font-size:16px}
+  .wrap{padding:26px 16px 22px}
+  h1{font-size:1.85rem}
+  .tiles{grid-template-columns:repeat(2,1fr)}
+  .card{padding:14px 15px}
+  .essentiel{padding:16px 16px 14px}
+}
+.tiles.six{grid-template-columns:repeat(3,1fr)}
+@media (max-width:520px){.tiles.six{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+<main class="wrap">
+<header class="masthead">
+  <p class="kicker">Crypto · IA · Macro · Géopolitique</p>
+  <h1>Brief du Matin</h1>
+  <p class="date">Dimanche 1er novembre 2026<span class="sep">·</span>Les dernières 24 heures</p>
+</header>
+<aside class="essentiel" aria-label="L'essentiel">
+  <h2>L'essentiel</h2>
+  <ul>
+    <li>Le FBI attribue le piratage record de Binance (6,3&nbsp;Md$) au groupe nord-coréen TraderTraitor. Binance dit avoir comblé 95&nbsp;% du trou et rouvre les retraits par étapes ce dimanche.</li>
+    <li>Iran&nbsp;: Abbas Araghchi évoque une réouverture du détroit d'Ormuz en deux jours si Washington accepte ses conditions, mais exclut toute rencontre avec les Américains à ce stade, à deux jours des midterms.</li>
+    <li>Neuralink&nbsp;: Elon Musk présente ses deux premiers produits, Telepathy et Blindsight&nbsp;; Blindsight serait «&nbsp;prêt&nbsp;» techniquement et n'attend plus que le feu vert des régulateurs.</li>
+  </ul>
+</aside>
+
+<section class="theme" id="crypto">
+  <h2><span class="emoji">₿</span> Crypto</h2>
+  <div class="tiles">
+    <div class="tile"><div class="label">BTC</div><div class="value">≈ 77&nbsp;800&nbsp;$</div><span class="chg up">+0,8&nbsp;% (24&nbsp;h)</span></div>
+    <div class="tile"><div class="label">ETH</div><div class="value">≈ 2&nbsp;268&nbsp;$</div><span class="chg up">+1,2&nbsp;% (24&nbsp;h)</span></div>
+    <div class="tile"><div class="label">SOL</div><div class="value">≈ 95,6&nbsp;$</div><span class="chg">stable (24&nbsp;h)</span></div>
+  </div>
+  <p class="tiles-note">Cours de dimanche vers 07h (heure de Paris). Sources&nbsp;: <a href="https://www.coingecko.com/en/coins/bitcoin">CoinGecko ↗</a>, <a href="https://www.coinbase.com/price/bitcoin">Coinbase ↗</a>, <a href="https://www.binance.com/en/price/bitcoin">Binance ↗</a></p>
+  <article class="card">
+    <h3>Le FBI désigne la Corée du Nord, Binance rouvre les retraits</h3>
+    <p>Le FBI, le Secret Service et le fisc américain attribuent le vol au groupe TraderTraitor, qui convertit le butin en ether, et demandent au secteur de bloquer plus de 600 adresses. Binance dit avoir remplacé 95&nbsp;% des fonds volés et rouvre les retraits par réseau à partir de 06h-09h UTC ce dimanche (BTC, ETH, BNB, SOL, XRP, USDT, USDC en premier). Prochain test&nbsp;: la preuve de réserves promise pour mardi 3 novembre.</p>
+    <div class="meta"><span class="badge company">Chiffres de l'entreprise</span><span class="source">Source&nbsp;: <a href="https://www.theguardian.com/business/2026/nov/01/binance-losses-covered-hack-fbi-north-korea-cryptocurrency">The Guardian ↗</a>, <a href="https://www.coindesk.com/policy/2026/10/31/fbi-confirms-north-korea-s-role-in-usd6-billion-binance-hack-asks-defi-community-to-block-btc-eth-sol-addresses">CoinDesk ↗</a>, <a href="https://www.investing.com/news/stock-market-news/binance-to-resume-withdrawals-after-recovering-bulk-of-6-billion-in-stolen-funds-4989388">Reuters ↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Octobre rouge, surtout pour les altcoins</h3>
+    <p>Le bitcoin finit le mois en baisse de 7,3&nbsp;%, l'ether de 16&nbsp;% et Solana de 19&nbsp;%. Entre le piratage de Binance et la chute des valeurs tech, le marché s'est replié sur l'actif le plus liquide, et les altcoins ont payé le prix fort.</p>
+    <div class="meta"><span class="source">Source&nbsp;: <a href="https://returnsview.com/recap/">Returnsview ↗</a>, <a href="https://swolecharts.com/returns">Swolecharts ↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Next Technology prête à vendre ses 5&nbsp;833 BTC</h3>
+    <p>Le conseil de cette société cotée au Nasdaq autorise la vente ou le nantissement de tout son bitcoin (environ 450&nbsp;M$), en citant le piratage de Binance et le risque quantique. Aucune vente n'a eu lieu. C'est l'un des premiers «&nbsp;trésors en BTC&nbsp;» d'entreprise à envisager publiquement de jeter l'éponge.</p>
+    <div class="meta"><span class="badge company">Chiffres de l'entreprise</span><span class="source">Source&nbsp;: <a href="https://www.coindesk.com/markets/2026/10/31/a-nasdaq-listed-company-may-sell-usd450-million-bitcoin-citing-binance-hack-and-quantum-fears">CoinDesk ↗</a>, <a href="https://www.globenewswire.com/news-release/2026/10/30/3392691/0/en/next-technology-holding-inc-announces-board-authorization-to-sell-or-pledge-of-bitcoin-holdings-to-reduce-bitcoin-exposure-and-enhance-liquidity.html">Communiqué (GlobeNewswire) ↗</a></span></div>
+  </article>
+</section>
+
+<section class="theme" id="ia">
+  <h2><span class="emoji">🤖</span> IA</h2>
+  <article class="card">
+    <h3>Neuralink&nbsp;: Telepathy et Blindsight</h3>
+    <p>Musk a nommé les deux premiers produits de Neuralink&nbsp;: Telepathy, pour communiquer avec un ordinateur «&nbsp;simplement en pensant&nbsp;», dont le débit doit selon lui dépasser la parole et la frappe «&nbsp;d'ici quelques années&nbsp;», et Blindsight, un implant censé rendre la vue, y compris aux aveugles de naissance. Blindsight a la désignation «&nbsp;Breakthrough&nbsp;» de la FDA depuis septembre 2024, ce qui accélère l'examen mais ne vaut pas autorisation.</p>
+    <div class="meta"><span class="badge company">Annonce de l'entreprise</span><span class="source">Source&nbsp;: <a href="https://www.indiatoday.in/technology/news/story/elon-musk-promises-sight-to-the-blind-with-neuralink-blindsight-says-tech-is-ready-for-approval-3028326-2026-10-30">India Today ↗</a>, <a href="https://timesofindia.indiatimes.com/technology/tech-news/elon-musk-reveals-names-of-first-two-products-that-his-neurotechnology-company-neuralink-will-launch/articleshow/135403017.cms">Times of India ↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Robotique&nbsp;: Meta a construit un humanoïde avec le chinois Fourier</h3>
+    <p>Selon The Information, Meta et Fourier ont assemblé en trois mois à Shanghai un prototype d'environ 1,5&nbsp;m baptisé «&nbsp;Max&nbsp;», avec une puce Nvidia Jetson Thor, et travaillent depuis septembre sur Max&nbsp;2. Meta parle de recherche interne, sans projet de vente. Le signe que les géants américains s'appuient sur la chaîne industrielle chinoise pour leurs robots domestiques.</p>
+    <div class="meta"><span class="badge unconfirmed">Non confirmé</span><span class="source">Source&nbsp;: <a href="https://www.investing.com/news/stock-market-news/meta-builds-humanoid-robot-with-chinese-startup-fourier-the-information-says-4989297">Reuters ↗</a>, <a href="https://www.theinformation.com/articles/meta-built-humanoid-prototype-chinese-startup-ramp-robotics-push">The Information ↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Un seul interrupteur pour refuser l'entraînement des IA</h3>
+    <p>OpenAI, Google, Microsoft et Anthropic s'engagent à respecter un même jeton dans le fichier robots.txt des sites (<code>__usage_ai-training</code>), proposé à l'IETF. Anthropic l'applique déjà, Microsoft le fera au 1er février 2027, Google début 2027 et OpenAI «&nbsp;dans les prochains mois&nbsp;». Il ne vaut que pour l'avenir&nbsp;: ce qui a déjà été aspiré reste aspiré.</p>
+    <div class="meta"><span class="source">Source&nbsp;: <a href="https://www.theverge.com/tech/1023763/openai-google-microsoft-ai-scraping-standard-opt-out">The Verge ↗</a>, <a href="https://openai.com/index/helping-websites-express-ai-training-preferences">OpenAI ↗</a></span></div>
+  </article>
+</section>
+
+<section class="theme" id="macro">
+  <h2><span class="emoji">📈</span> Macro</h2>
+  <p class="tiles-note" style="margin:0 0 14px">Pas de séance ce week-end&nbsp;: les clôtures de vendredi sont dans le brief d'hier.</p>
+  <article class="card">
+    <h3>Exxon et Chevron encaissent la guerre</h3>
+    <p>ExxonMobil publie un bénéfice net de 15,4&nbsp;Md$ au troisième trimestre et Chevron de 9,9&nbsp;Md$, portés par les marges de raffinage et un brut cher depuis la perturbation du détroit d'Ormuz. Le revers de la médaille pour les consommateurs, qui paient ces marges à la pompe.</p>
+    <div class="meta"><span class="badge company">Chiffres des entreprises</span><span class="source">Source&nbsp;: <a href="https://investor.exxonmobil.com/company-information/press-releases/detail/1213/exxonmobil-announces-third-quarter-2026-results">ExxonMobil ↗</a>, <a href="https://apnews.com/article/exxonmobil-chevron-diesel-oil-852851049c1ede6811516fe92700dcbe">AP ↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Merz&nbsp;: plus de 100&nbsp;Md€ de surcoût énergétique pour l'Europe</h3>
+    <p>En visite à Séoul, le chancelier allemand estime que huit mois de guerre avec l'Iran ont ajouté plus de 100&nbsp;Md€ à la facture énergétique européenne, et juge que le conflit «&nbsp;ne peut pas être résolu militairement&nbsp;». Un calcul d'AP aboutit à un ordre de grandeur proche (plus de 113&nbsp;Md$).</p>
+    <div class="meta"><span class="source">Source&nbsp;: <a href="https://www.middleeasteye.net/live-blog/live-blog-update/merz-says-germany-working-end-iran-war-has-cost-europe-112bn">Middle East Eye ↗</a>, <a href="https://apnews.com/article/europe-ireland-energy-diesel-iran-war-2bba50d8a9f53a341f85629ba0960988">AP ↗</a></span></div>
+  </article>
+</section>
+
+<section class="theme" id="geo">
+  <h2><span class="emoji">🌍</span> Géopolitique</h2>
+  <article class="card">
+    <h3>Ormuz rouvert en deux jours, sous conditions</h3>
+    <p>Le ministre iranien des Affaires étrangères dit qu'avec les médiateurs qataris, le délai de réouverture du détroit est passé de cinq à deux jours, à condition que Washington lève les sanctions, rétablisse les exemptions pétrolières, dégèle les avoirs iraniens (dont 6&nbsp;Md$ au Qatar), réduise ses forces et reconnaisse des routes maritimes définies avec Oman. Une délégation iranienne est à Doha, mais Téhéran «&nbsp;ne voit pas la nécessité&nbsp;» de rencontrer les Américains.</p>
+    <div class="meta"><span class="source">Source&nbsp;: <a href="https://www.aljazeera.com/news/2026/10/31/iran-fm-says-us-outreach-a-positive-step-as-delegation-in-qatar-for-talks">Al Jazeera ↗</a>, <a href="https://apnews.com/article/mideast-news-october-31-2026-15c0556b92c8c23beb9b8854b4c124f4">AP ↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Rezaei&nbsp;: la doctrine nucléaire tient, pour l'instant</h3>
+    <p>Le secrétaire du Conseil suprême de sécurité nationale affirme qu'aucune décision n'a été prise pour changer la doctrine nucléaire iranienne, tout en laissant entendre qu'une nouvelle guerre relancerait la question. Il n'a pas encore répondu à la lettre de JD Vance. Le guide suprême promet une riposte immédiate à toute attaque.</p>
+    <div class="meta"><span class="source">Source&nbsp;: <a href="https://www.cbsnews.com/live-updates/iran-war-us-trump-diplomacy-threat-resume-attacks/">CBS News ↗</a>, <a href="https://apnews.com/article/mideast-news-october-31-2026-15c0556b92c8c23beb9b8854b4c124f4">AP ↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>G20 d'Atlanta&nbsp;: pas de communiqué commun</h3>
+    <p>Faute de consensus, la réunion des ministres des Affaires étrangères se termine sur une simple déclaration de la présidence américaine (sécurité énergétique, navigation à Ormuz et Bab al-Mandab). Marco Rubio assure que les contacts avec l'Iran continuent, directement ou via des intermédiaires, sans fixer d'échéance.</p>
+    <div class="meta"><span class="source">Source&nbsp;: <a href="https://apnews.com/article/rubio-g20-ukraine-russia-poland-21c65a8bb02a3a0f0c89f0ce6d56d5fd">AP ↗</a>, <a href="https://www.state.gov/releases/office-of-the-spokesman/2026/10/g20-chairs-statement-g20-foreign-ministers-meeting/">Département d'État ↗</a></span></div>
+  </article>
+</section>
+
+<section class="theme" id="verification">
+  <h2><span class="emoji">✅</span> Vérification</h2>
+  <article class="card">
+    <h3>✅ Vérifié</h3>
+    <p>Attribution du FBI et réouverture des retraits (The Guardian, CoinDesk, Reuters, Cryptoticker)&nbsp;; cours BTC, ETH, SOL (CoinGecko, Coinbase, Binance)&nbsp;; performances d'octobre (Returnsview, Swolecharts)&nbsp;; Next Technology (communiqué, CoinDesk)&nbsp;; posts de Musk sur Neuralink (India Today, Times of India)&nbsp;; jeton robots.txt (OpenAI, The Verge, Engadget, IETF)&nbsp;; résultats Exxon et Chevron (communiqués, AP)&nbsp;; propos de Merz (Middle East Eye, AP)&nbsp;; Araghchi et Rezaei (Al Jazeera, AP, CBS, Anadolu)&nbsp;; G20 (AP, Département d'État).</p>
+  </article>
+  <article class="card">
+    <h3>⚠️ À confirmer</h3>
+    <p>Les 95&nbsp;% de fonds remplacés et le calendrier de Binance viennent de l'entreprise. Les capacités de Telepathy et Blindsight sont des promesses de Musk, sans autorisation réglementaire. L'humanoïde de Meta est une révélation de The Information, non confirmée par Fourier. Les profits d'Exxon et Chevron sont ceux des entreprises.</p>
+  </article>
+</section>
+
+<footer>
+  <p>Généré le dimanche 1er novembre 2026 vers 07h30 (heure de Paris). Faits repérés via X puis recoupés sur le web&nbsp;; liens vérifiés.</p>
+  <p>Les badges signalent les chiffres publiés par les entreprises elles-mêmes et les informations non confirmées officiellement.</p>
+</footer>
+</main>
+</body>
+</html>
