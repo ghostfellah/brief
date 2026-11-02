@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<title>Brief du Matin · Lundi 2 novembre 2026</title>
+<!--
+  GABARIT « Brief du Matin » : un seul fichier, CSS inline, aucune dépendance, pas de JS.
+  Thème sombre par défaut, clair automatique via prefers-color-scheme.
+  Utilisation : copier ce fichier vers brief-AAAA-MM-JJ.html, remplacer chaque {{EMPLACEMENT}},
+  dupliquer les <article class="card"> (3 à 4 par section). Ne pas modifier le bloc <style>.
+  Typographie : mettre une espace insécable (&nbsp;) avant : ; % ? ! » et après «.
+-->
+<style>
+:root{
+  --bg:#0e1116; --surface:#161b22; --surface-2:#1c222b; --border:#2a313c;
+  --text:#e8ecf1; --muted:#9aa4b2; --accent:#e0b062; --link:#8fbcff;
+  --up:#3fcf8e; --up-bg:rgba(63,207,142,.12); --down:#ff6b6b; --down-bg:rgba(255,107,107,.12);
+  --badge-co:#c9a7ff; --badge-co-bg:rgba(201,167,255,.12);
+  --badge-nc:#ffb347; --badge-nc-bg:rgba(255,179,71,.12);
+}
+@media (prefers-color-scheme: light){
+  :root{
+    --bg:#f6f4ef; --surface:#ffffff; --surface-2:#faf8f4; --border:#e3ded4;
+    --text:#1b1f24; --muted:#5d6672; --accent:#9a6a12; --link:#1f5fbf;
+    --up:#0f8a55; --up-bg:rgba(15,138,85,.10); --down:#c62f2f; --down-bg:rgba(198,47,47,.09);
+    --badge-co:#6b3fc0; --badge-co-bg:rgba(107,63,192,.09);
+    --badge-nc:#a35a00; --badge-nc-bg:rgba(163,90,0,.10);
+  }
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji";
+  font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:780px;margin:0 auto;padding:40px 22px 28px}
+header.masthead{padding-bottom:22px;margin-bottom:26px;border-bottom:1px solid var(--border)}
+.kicker{font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);font-weight:600;margin:0 0 6px}
+h1{font-size:2.3rem;line-height:1.15;margin:0;font-weight:750;letter-spacing:-.02em}
+.date{margin:8px 0 0;color:var(--muted);font-size:1rem}
+.date .sep{opacity:.5;margin:0 .45em}
+.essentiel{background:linear-gradient(135deg,var(--surface-2),var(--surface));border:1px solid var(--border);
+  border-left:4px solid var(--accent);border-radius:14px;padding:18px 22px 16px;margin:0 0 34px}
+.essentiel h2{margin:0 0 8px;font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+.essentiel ul{margin:0;padding-left:1.15em}
+.essentiel li{margin:6px 0;font-weight:500}
+.essentiel li::marker{color:var(--accent)}
+section.theme{margin:0 0 38px}
+section.theme > h2{font-size:1.4rem;margin:0 0 14px;display:flex;align-items:center;gap:.5em;letter-spacing:-.01em}
+section.theme > h2 .emoji{font-size:1.25em;line-height:1}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin:0 0 16px}
+.tile{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:10px 12px}
+.tile .label{font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:600}
+.tile .value{font-size:1.15rem;font-weight:700;font-variant-numeric:tabular-nums;margin-top:2px;white-space:nowrap}
+.tile .chg{display:inline-block;margin-top:4px;font-size:.8rem;font-weight:650;padding:1px 7px;border-radius:999px;font-variant-numeric:tabular-nums}
+.chg.up{color:var(--up);background:var(--up-bg)}
+.chg.down{color:var(--down);background:var(--down-bg)}
+.tiles-note{font-size:.78rem;color:var(--muted);margin:-8px 0 16px}
+.tiles-note a{color:var(--muted)}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:16px 18px;margin:0 0 12px}
+.card h3{margin:0 0 6px;font-size:1.05rem;line-height:1.35;font-weight:700}
+.card p{margin:0;color:var(--text)}
+.card .meta{margin-top:10px;display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;font-size:.82rem}
+.source{color:var(--muted)}
+.source a{color:var(--link);text-decoration:none;border-bottom:1px solid transparent}
+.source a:hover{border-bottom-color:var(--link)}
+.badge{display:inline-block;font-size:.7rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:2px 8px;border-radius:999px;white-space:nowrap}
+.badge.company{color:var(--badge-co);background:var(--badge-co-bg)}
+.badge.unconfirmed{color:var(--badge-nc);background:var(--badge-nc-bg)}
+footer{margin-top:10px;padding-top:16px;border-top:1px solid var(--border);color:var(--muted);font-size:.8rem;line-height:1.5}
+footer p{margin:4px 0}
+@media (max-width:520px){
+  body{font-size:16px}
+  .wrap{padding:26px 16px 22px}
+  h1{font-size:1.85rem}
+  .tiles{grid-template-columns:repeat(2,1fr)}
+  .card{padding:14px 15px}
+  .essentiel{padding:16px 16px 14px}
+}
+.tiles.six{grid-template-columns:repeat(3,1fr)}
+@media (max-width:520px){.tiles.six{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+<main class="wrap">
+<header class="masthead">
+  <p class="kicker">Crypto · IA · Macro · Géopolitique</p>
+  <h1>Brief du Matin</h1>
+  <p class="date">Lundi 2 novembre 2026<span class="sep">·</span>Les dernières 24 heures</p>
+</header>
+<aside class="essentiel" aria-label="L'essentiel">
+  <h2>L'essentiel</h2>
+  <ul>
+    <li>Ormuz&nbsp;: les Gardiens de la révolution disent que deux pétroliers ont sauté sur des mines (non vérifié) et un autre a été touché par deux projectiles au large de l'Arabie saoudite. Le Brent recule pourtant d'environ 3&nbsp;% vers 110&nbsp;$, car Trump laisse du temps aux pourparlers de Doha avant les midterms de mardi.</li>
+    <li>OpenAI ramène sa levée à 20&nbsp;Md$ maximum (environ 11&nbsp;Md$ engagés) pour une valorisation de 1&nbsp;250&nbsp;Md$, contre 1&nbsp;400&nbsp;Md$ visés au départ&nbsp;: les investisseurs reprennent la main sur le prix de l'IA.</li>
+    <li>Binance&nbsp;: 3,64&nbsp;Md$ de sorties nettes au premier jour de réouverture des retraits, soit 2,1&nbsp;% de ses actifs. La preuve de réserves complète est attendue mardi.</li>
+  </ul>
+</aside>
+
+<section class="theme" id="crypto">
+  <h2><span class="emoji">₿</span> Crypto</h2>
+  <div class="tiles">
+    <div class="tile"><div class="label">BTC</div><div class="value">≈ 78&nbsp;300&nbsp;$</div><span class="chg up">+0,6&nbsp;% (24&nbsp;h)</span></div>
+    <div class="tile"><div class="label">ETH</div><div class="value">≈ 2&nbsp;290&nbsp;$</div><span class="chg up">+0,9&nbsp;% (24&nbsp;h)</span></div>
+    <div class="tile"><div class="label">SOL</div><div class="value">≈ 94,7&nbsp;$</div><span class="chg down">−1,1&nbsp;% (24&nbsp;h)</span></div>
+  </div>
+  <p class="tiles-note">Cours de lundi vers 07h (heure de Paris). Sources&nbsp;: <a href="https://www.coingecko.com/en/coins/bitcoin">CoinGecko ↗</a>, <a href="https://www.coinbase.com/price/bitcoin">Coinbase ↗</a>, <a href="https://www.binance.com/en/price/bitcoin">Binance ↗</a></p>
+  <article class="card">
+    <h3>Binance&nbsp;: 3,64&nbsp;Md$ de sorties nettes au jour&nbsp;1</h3>
+    <p>Entre 06h et 15h30 UTC dimanche, Binance a traité 4,65&nbsp;Md$ de retraits contre 1,01&nbsp;Md$ de dépôts, soit 2,1&nbsp;% des 171&nbsp;Md$ d'actifs qu'elle déclare. Ce n'est pas une panique bancaire, mais le vrai test arrive mardi avec la preuve de réserves complète, vérifiable compte par compte.</p>
+    <div class="meta"><span class="badge company">Chiffres de l'entreprise</span><span class="source">Source&nbsp;: <a href="https://www.cnbc.com/2026/11/02/binance-outflow-hack-bitcoin.html">CNBC ↗</a>, <a href="https://news.bitcoin.com/security/binance-processes-4-65b-in-withdrawals-across-15-networks-after-hack/">Bitcoin.com ↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>BTCPay Server demande de couper les serveurs</h3>
+    <p>Après des signalements de portefeuilles chauds vidés, l'outil de paiement bitcoin open source demande aux commerçants d'éteindre leurs instances. Les versions 2.4.1 et antérieures sont visées&nbsp;; la mise à jour recommandée est la 2.4.7. Un rappel que l'auto-hébergement a aussi ses failles.</p>
+    <div class="meta"><span class="source">Source&nbsp;: <a href="https://www.coindesk.com/tech/2026/11/02/btcpay-a-bitcoin-payment-tool-tells-users-to-switch-off-their-servers-after-reports-of-drained-wallets">CoinDesk ↗</a>, <a href="https://ct.com/news/btcpay-server-hot-wallet-thefts-older-versions">CT ↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>La Bourse de Moscou cotera BTC, ETH et USDT le 1er décembre</h3>
+    <p>Le pilote au comptant tournera sur l'infrastructure du marché actions, de 6h50 à 23h50 heure de Moscou, avec garde chez des dépositaires partenaires. L'accès des particuliers attend encore un texte de la Banque de Russie. En 2022, la banque centrale voulait interdire la crypto.</p>
+    <div class="meta"><span class="source">Source&nbsp;: <a href="https://ria.ru/20261031/mosbirzha-2128322200.html">RIA Novosti ↗</a>, <a href="https://www.kommersant.ru/doc/9078266">Kommersant ↗</a>, <a href="https://www.tokenpost.com/news/business/45741">TokenPost ↗</a></span></div>
+  </article>
+</section>
+
+<section class="theme" id="ia">
+  <h2><span class="emoji">🤖</span> IA</h2>
+  <article class="card">
+    <h3>OpenAI réduit sa levée à 20&nbsp;Md$</h3>
+    <p>Environ 11&nbsp;Md$ seulement sont engagés, pour une valorisation de 1&nbsp;250&nbsp;Md$ (contre 1&nbsp;400&nbsp;Md$ espérés), et OpenAI va solliciter family offices et grandes fortunes. Selon le WSJ, Anthropic a plus que doublé son chiffre d'affaires trimestriel (11,6&nbsp;Md$ au T2) quand OpenAI progresse de 18&nbsp;% (6,7&nbsp;Md$).</p>
+    <div class="meta"><span class="badge unconfirmed">Tour non clos</span><span class="source">Source&nbsp;: <a href="https://www.cnbc.com/2026/10/31/openai-fundraising-20-billion-valuation.html">CNBC ↗</a>, <a href="https://techcrunch.com/2026/10/31/openai-reportedly-lowers-funding-target-for-new-round/">TechCrunch ↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Kioxia chute de 14&nbsp;% à Tokyo</h3>
+    <p>Le spécialiste de la mémoire NAND prévoit 2&nbsp;000&nbsp;Md¥ de bénéfice d'exploitation ce trimestre contre 2&nbsp;350&nbsp;Md¥ attendus. Après le plongeon de 7,2&nbsp;% des semi-conducteurs vendredi, le marché ne paie plus n'importe quelle exposition à l'IA.</p>
+    <div class="meta"><span class="source">Source&nbsp;: <a href="https://www.nikkei.com/article/DGXZQOUB012I30R01C26A1000000/">Nikkei ↗</a>, <a href="https://www.cnbctv18.com/market/kioxia-shares-tumble-after-outlook-suggests-demand-levelling-off-20024463.htm">CNBC TV18 ↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Robotique&nbsp;: GPT-6 Astra testé sur de vrais bras robots</h3>
+    <p>Sur le banc RoboDojo (42 tâches), le modèle généraliste d'OpenAI atteint 22,5&nbsp;% de réussite, devant 40 politiques robotiques publiques. En conditions réelles, il réussit 95&nbsp;% d'une tâche simple mais 10&nbsp;% d'une insertion de pièce. Un généraliste bat les spécialistes, avec encore beaucoup de chemin.</p>
+    <div class="meta"><span class="source">Source&nbsp;: <a href="https://arxiv.org/abs/2609.24170">arXiv ↗</a>, <a href="https://openai.robocurve.org/gpt-6-astra/">Robocurve ↗</a></span></div>
+  </article>
+</section>
+
+<section class="theme" id="macro">
+  <h2><span class="emoji">📈</span> Macro</h2>
+  <div class="tiles">
+    <div class="tile"><div class="label">Brent</div><div class="value">≈ 110&nbsp;$</div><span class="chg down">−3&nbsp;%</span></div>
+    <div class="tile"><div class="label">WTI</div><div class="value">≈ 101&nbsp;$</div><span class="chg down">−3&nbsp;%</span></div>
+    <div class="tile"><div class="label">Nikkei 225</div><div class="value">63&nbsp;218</div><span class="chg down">−0,1&nbsp;%</span></div>
+  </div>
+  <p class="tiles-note">Séance asiatique de lundi. Sources&nbsp;: <a href="https://apnews.com/article/stocks-markets-ai-earnings-oil-iran-048328e49e47ce7afe6c1fb9d9acf13d">AP ↗</a>, <a href="https://www.swissinfo.ch/eng/stock-selloff-eases-in-asian-trade%2c-crude-falls%3a-markets-wrap/92310840">Bloomberg ↗</a>, <a href="https://www.marketwatch.com/story/asian-stocks-mostly-higher-as-risk-off-sentiment-eases-oil-falls-update-3c586c7e">MarketWatch ↗</a></p>
+  <article class="card">
+    <h3>Le pétrole vend la prime de risque</h3>
+    <p>Malgré les incidents à Ormuz, le Brent recule après des informations selon lesquelles Trump veut laisser plus de temps à la diplomatie avant de décider de nouvelles frappes. Le marché parie sur une réouverture du détroit, pas encore sur le retour des barils. Les contrats américains sur indices remontent après le pire vendredi du Nasdaq depuis juin.</p>
+    <div class="meta"><span class="source">Source&nbsp;: <a href="https://www.swissinfo.ch/eng/stock-selloff-eases-in-asian-trade%2c-crude-falls%3a-markets-wrap/92310840">Bloomberg via Swissinfo ↗</a>, <a href="https://www.marketwatch.com/story/asian-stocks-mostly-higher-as-risk-off-sentiment-eases-oil-falls-update-3c586c7e">MarketWatch ↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>OPEP+ ne bouge pas pour décembre</h3>
+    <p>Les sept membres clés gardent leurs quotas (environ 31&nbsp;Mb/j), mais la plupart produisent sous leur cible à cause de la guerre. Rendez-vous le 29 novembre pour les quotas 2027, la vraie décision.</p>
+    <div class="meta"><span class="source">Source&nbsp;: <a href="https://www.opec.org/pr-detail/2033620-1-november-2026.html">OPEP ↗</a>, <a href="https://ca.investing.com/news/commodities-news/opec-keeps-december-oil-output-targets-steady-ahead-of-tougher-call-for-2027-4920344">Reuters ↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Chine&nbsp;: activité sous 50, Pékin au chevet de la Bourse</h3>
+    <p>Le PMI manufacturier officiel tombe à 49,3 et le non manufacturier à 49,7 en octobre. La banque centrale passe à une opération quotidienne au jour le jour à 1,25&nbsp;%, son nouveau taux directeur de fait, et les régulateurs se réunissent sur le soutien aux actions.</p>
+    <div class="meta"><span class="source">Source&nbsp;: <a href="https://english.news.cn/20261031/aaf87e8543154dd3866af6cce7f9aa77/c.html">Xinhua ↗</a>, <a href="https://www.channelnewsasia.com/business/chinas-factory-activity-marks-third-contraction-in-four-months-6508946">CNA ↗</a>, <a href="https://www.businesstimes.com.sg/companies-markets/banking-finance/china-lowers-funding-costs-shift-overnight-policy-rate">Business Times ↗</a></span></div>
+  </article>
+</section>
+
+<section class="theme" id="geo">
+  <h2><span class="emoji">🌍</span> Géopolitique</h2>
+  <article class="card">
+    <h3>Ormuz&nbsp;: mines et projectiles</h3>
+    <p>La marine des Gardiens de la révolution affirme que deux pétroliers ayant coupé leurs transpondeurs ont sauté sur des mines, dont un supertanker en feu&nbsp;; les navires ne sont pas identifiés. L'agence britannique UKMTO signale de son côté un pétrolier touché par deux projectiles à 72 milles de Ras al-Khafji, équipage sauf. Au moins dix incidents depuis le 31 octobre.</p>
+    <div class="meta"><span class="badge unconfirmed">Non confirmé (mines)</span><span class="source">Source&nbsp;: <a href="https://www.thestar.com.my/news/world/2026/11/02/iran039s-irgc-navy-says-two-tankers-039exploded039-after-hitting-mines-in-hormuz">Reuters ↗</a>, <a href="https://www.arabnews.com/middle-east/uk-agency-reports-vessel-strike-in-hormuz-irans-guards-say-tankers-hit-mines-3009316">Arab News ↗</a>, <a href="https://www.ukmto.org/-/media/ukmto/products/20261102-ukmto_warning-192-26.pdf">UKMTO ↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Trump temporise, Netanyahu pousse</h3>
+    <p>Trump dit n'être «&nbsp;pas pressé&nbsp;» et privilégie les pourparlers menés via le Qatar, tandis que Netanyahu plaide pour des frappes juste après les élections de mi-mandat de mardi. Le scrutin devient le point de bascule de la semaine pour le pétrole.</p>
+    <div class="meta"><span class="source">Source&nbsp;: <a href="https://www.aa.com.tr/en/americas/trump-favors-diplomacy-with-iran-as-netanyahu-urges-strikes-immediately-after-tuesdays-us-midterms-report/4108213">Anadolu ↗</a>, <a href="https://www.aljazeera.com/news/2026/11/1/iran-and-us-explore-diplomacy-amid-rising-threats-of-war">Al Jazeera ↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>États-Unis–Canada&nbsp;: un «&nbsp;concept&nbsp;» d'accord</h3>
+    <p>Trump évoque un accord commercial incluant un oléoduc Keystone XL relancé et payé par le Canada. Mark Carney parle de négociations «&nbsp;dans les prochaines semaines&nbsp;», sans aucun terme publié.</p>
+    <div class="meta"><span class="source">Source&nbsp;: <a href="https://apnews.com/article/canada-us-trump-canada-trade-d0bfffc67ecdf22d9a5abffb2d26d848">AP ↗</a>, <a href="https://www.politico.com/news/2026/11/01/carney-trump-us-canada-deal-01144738">Politico ↗</a></span></div>
+  </article>
+</section>
+
+<section class="theme" id="verification">
+  <h2><span class="emoji">✅</span> Vérification</h2>
+  <article class="card">
+    <h3>✅ Vérifié</h3>
+    <p>Cours crypto (CoinGecko, Coinbase, Binance)&nbsp;; sorties de Binance (CNBC, Bitcoin.com)&nbsp;; BTCPay (CoinDesk, CT, TokenPost)&nbsp;; Bourse de Moscou (RIA, Kommersant, TokenPost)&nbsp;; levée d'OpenAI (CNBC, WSJ, TechCrunch)&nbsp;; Kioxia (Nikkei, CNBC TV18, Business Insider)&nbsp;; GPT-6 Astra (arXiv, Robocurve)&nbsp;; pétrole et Nikkei (AP, Bloomberg, MarketWatch)&nbsp;; OPEP+ (communiqué, Reuters, The National)&nbsp;; PMI chinois et PBOC (Xinhua, CNA, Business Times)&nbsp;; incidents d'Ormuz (Reuters, Xinhua, Arab News, UKMTO)&nbsp;; Trump et Netanyahu (Anadolu, Al Jazeera, Bloomberg)&nbsp;; Canada (AP, Politico, Reuters).</p>
+  </article>
+  <article class="card">
+    <h3>⚠️ À confirmer</h3>
+    <p>Les deux mines revendiquées par les Gardiens de la révolution ne sont pas vérifiées de façon indépendante. Les flux et actifs de Binance sont des chiffres de l'entreprise. Les montants d'OpenAI viennent de sources anonymes et le tour n'est pas clos. Les résultats d'Astra sont des évaluations académiques préliminaires.</p>
+  </article>
+</section>
+
+<footer>
+  <p>Généré le lundi 2 novembre 2026 vers 07h30 (heure de Paris). Faits repérés via X puis recoupés sur le web&nbsp;; liens vérifiés.</p>
+  <p>Les badges signalent les chiffres publiés par les entreprises elles-mêmes et les informations non confirmées officiellement.</p>
+</footer>
+</main>
+</body>
+</html>
