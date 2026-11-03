@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<title>Brief du Matin · Mardi 3 novembre 2026</title>
+<!--
+  GABARIT « Brief du Matin » : un seul fichier, CSS inline, aucune dépendance, pas de JS.
+  Thème sombre par défaut, clair automatique via prefers-color-scheme.
+  Utilisation : copier ce fichier vers brief-AAAA-MM-JJ.html, remplacer chaque {{EMPLACEMENT}},
+  dupliquer les <article class="card"> (3 à 4 par section). Ne pas modifier le bloc <style>.
+  Typographie : mettre une espace insécable (&nbsp;) avant : ; % ? ! » et après «.
+-->
+<style>
+:root{
+  --bg:#0e1116; --surface:#161b22; --surface-2:#1c222b; --border:#2a313c;
+  --text:#e8ecf1; --muted:#9aa4b2; --accent:#e0b062; --link:#8fbcff;
+  --up:#3fcf8e; --up-bg:rgba(63,207,142,.12); --down:#ff6b6b; --down-bg:rgba(255,107,107,.12);
+  --badge-co:#c9a7ff; --badge-co-bg:rgba(201,167,255,.12);
+  --badge-nc:#ffb347; --badge-nc-bg:rgba(255,179,71,.12);
+}
+@media (prefers-color-scheme: light){
+  :root{
+    --bg:#f6f4ef; --surface:#ffffff; --surface-2:#faf8f4; --border:#e3ded4;
+    --text:#1b1f24; --muted:#5d6672; --accent:#9a6a12; --link:#1f5fbf;
+    --up:#0f8a55; --up-bg:rgba(15,138,85,.10); --down:#c62f2f; --down-bg:rgba(198,47,47,.09);
+    --badge-co:#6b3fc0; --badge-co-bg:rgba(107,63,192,.09);
+    --badge-nc:#a35a00; --badge-nc-bg:rgba(163,90,0,.10);
+  }
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji";
+  font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:780px;margin:0 auto;padding:40px 22px 28px}
+header.masthead{padding-bottom:22px;margin-bottom:26px;border-bottom:1px solid var(--border)}
+.kicker{font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);font-weight:600;margin:0 0 6px}
+h1{font-size:2.3rem;line-height:1.15;margin:0;font-weight:750;letter-spacing:-.02em}
+.date{margin:8px 0 0;color:var(--muted);font-size:1rem}
+.date .sep{opacity:.5;margin:0 .45em}
+.essentiel{background:linear-gradient(135deg,var(--surface-2),var(--surface));border:1px solid var(--border);
+  border-left:4px solid var(--accent);border-radius:14px;padding:18px 22px 16px;margin:0 0 34px}
+.essentiel h2{margin:0 0 8px;font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+.essentiel ul{margin:0;padding-left:1.15em}
+.essentiel li{margin:6px 0;font-weight:500}
+.essentiel li::marker{color:var(--accent)}
+section.theme{margin:0 0 38px}
+section.theme > h2{font-size:1.4rem;margin:0 0 14px;display:flex;align-items:center;gap:.5em;letter-spacing:-.01em}
+section.theme > h2 .emoji{font-size:1.25em;line-height:1}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin:0 0 16px}
+.tile{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:10px 12px}
+.tile .label{font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:600}
+.tile .value{font-size:1.15rem;font-weight:700;font-variant-numeric:tabular-nums;margin-top:2px;white-space:nowrap}
+.tile .chg{display:inline-block;margin-top:4px;font-size:.8rem;font-weight:650;padding:1px 7px;border-radius:999px;font-variant-numeric:tabular-nums}
+.chg.up{color:var(--up);background:var(--up-bg)}
+.chg.down{color:var(--down);background:var(--down-bg)}
+.tiles-note{font-size:.78rem;color:var(--muted);margin:-8px 0 16px}
+.tiles-note a{color:var(--muted)}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:16px 18px;margin:0 0 12px}
+.card h3{margin:0 0 6px;font-size:1.05rem;line-height:1.35;font-weight:700}
+.card p{margin:0;color:var(--text)}
+.card .meta{margin-top:10px;display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;font-size:.82rem}
+.source{color:var(--muted)}
+.source a{color:var(--link);text-decoration:none;border-bottom:1px solid transparent}
+.source a:hover{border-bottom-color:var(--link)}
+.badge{display:inline-block;font-size:.7rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:2px 8px;border-radius:999px;white-space:nowrap}
+.badge.company{color:var(--badge-co);background:var(--badge-co-bg)}
+.badge.unconfirmed{color:var(--badge-nc);background:var(--badge-nc-bg)}
+footer{margin-top:10px;padding-top:16px;border-top:1px solid var(--border);color:var(--muted);font-size:.8rem;line-height:1.5}
+footer p{margin:4px 0}
+@media (max-width:520px){
+  body{font-size:16px}
+  .wrap{padding:26px 16px 22px}
+  h1{font-size:1.85rem}
+  .tiles{grid-template-columns:repeat(2,1fr)}
+  .card{padding:14px 15px}
+  .essentiel{padding:16px 16px 14px}
+}
+.tiles.six{grid-template-columns:repeat(3,1fr)}
+@media (max-width:520px){.tiles.six{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+<main class="wrap">
+<header class="masthead">
+  <p class="kicker">Crypto · IA · Macro · Géopolitique</p>
+  <h1>Brief du Matin</h1>
+  <p class="date">Mardi 3 novembre 2026<span class="sep">·</span>Les dernières 24 heures</p>
+</header>
+<aside class="essentiel" aria-label="L'essentiel">
+  <h2>L'essentiel</h2>
+  <ul>
+    <li>Pétrole&nbsp;: le Brent perd 7,6&nbsp;% à 104,77&nbsp;$, sa plus forte baisse depuis juillet, après que Téhéran a dit avoir reçu des «&nbsp;pouvoirs&nbsp;» pour négocier. Dans la nuit, les États-Unis ont pourtant frappé l'île iranienne de Qeshm, à quelques heures des midterms.</li>
+    <li>Sam Altman affirme que le modèle derrière la preuve de Navier-Stokes (environ 10&nbsp;000 agents pendant quatre jours) sera le prochain GPT, «&nbsp;bientôt&nbsp;». La preuve n'est toujours pas reconnue par l'institut Clay.</li>
+    <li>Wall Street trie encore l'IA&nbsp;: Nasdaq −1,07&nbsp;%, S&amp;P&nbsp;500 −0,51&nbsp;%, Dow +0,41&nbsp;%. Le bitcoin repasse sous 77&nbsp;000&nbsp;$ et la Bourse brésilienne de la crypto, Mercado Bitcoin, se fait pirater.</li>
+  </ul>
+</aside>
+
+<section class="theme" id="crypto">
+  <h2><span class="emoji">₿</span> Crypto</h2>
+  <div class="tiles">
+    <div class="tile"><div class="label">BTC</div><div class="value">≈ 76&nbsp;400&nbsp;$</div><span class="chg down">−2,3&nbsp;% (24&nbsp;h)</span></div>
+    <div class="tile"><div class="label">ETH</div><div class="value">≈ 2&nbsp;240&nbsp;$</div><span class="chg down">−2,0&nbsp;% (24&nbsp;h)</span></div>
+    <div class="tile"><div class="label">SOL</div><div class="value">≈ 91,4&nbsp;$</div><span class="chg down">−3,4&nbsp;% (24&nbsp;h)</span></div>
+  </div>
+  <p class="tiles-note">Cours de mardi vers 07h10 (heure de Paris). Sources&nbsp;: <a href="https://www.coingecko.com/en/coins/bitcoin">CoinGecko ↗</a>, <a href="https://www.coinbase.com/price/bitcoin">Coinbase ↗</a></p>
+  <article class="card">
+    <h3>Mercado Bitcoin piraté, retraits suspendus</h3>
+    <p>La première plateforme crypto du Brésil a vu des portefeuilles vidés sur au moins 10 blockchains dans la nuit de lundi. Les estimations vont de 38 à 49&nbsp;M$&nbsp;; environ 11&nbsp;M$ ont été gelés avec Tether, Circle et Chainalysis. Mercado Bitcoin assure que ses clients ne perdront rien. Deuxième grosse plateforme touchée en quelques jours après Binance.</p>
+    <div class="meta"><span class="badge unconfirmed">Montant estimé</span><span class="source">Source&nbsp;: <a href="https://www.coindesk.com/business/2026/11/02/brazil-s-mercado-bitcoin-halts-withdrawals-after-usd40-million-drained-across-10-chains">CoinDesk ↗</a>, <a href="https://www.chainalysis.com/blog/chainalysis-response-mercado-bitcoin/">Chainalysis ↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Binance publie sa preuve de réserves</h3>
+    <p>La preuve à divulgation nulle de connaissance (zk) sur l'instantané du 31 octobre couvre dix jetons, dont BTC, ETH, USDT, BNB, SOL et XRP, avec une couverture d'au moins 1 pour 1 vérifiable par chaque client. Binance dit avoir reconstitué environ 95&nbsp;% des actifs volés&nbsp;; une nouvelle phase de réouverture des retraits est prévue aujourd'hui.</p>
+    <div class="meta"><span class="badge company">Chiffres de l'entreprise</span><span class="source">Source&nbsp;: <a href="https://www.theblock.co/news/business/2026-11-02-binance-zero-knowledge-proof-of-reserves-snapshot-hack-recovery-432321">The Block ↗</a>, <a href="https://crypto.news/binance-completes-reserve-proof-for-10-tokens-after-6-3b-hack/">crypto.news ↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Strategy et Tether continuent d'empiler</h3>
+    <p>Strategy (Saylor) a acheté 811&nbsp;BTC à 80&nbsp;846&nbsp;$ en moyenne et détient 849&nbsp;327&nbsp;BTC, au prix de revient de 75&nbsp;451&nbsp;$, soit à peine sous le cours actuel. Elle a aussi racheté 208&nbsp;M$ d'actions préférentielles STRC. Paolo Ardoino dit que Tether détient «&nbsp;à peu près&nbsp;» 150&nbsp;000&nbsp;BTC, un chiffre non audité.</p>
+    <div class="meta"><span class="badge company">Chiffres de l'entreprise</span><span class="source">Source&nbsp;: <a href="https://www.strategy.com/press/strategy-acquires-811-btc-and-repurchases-208-million-of-strc_11-02-2026">Strategy (8-K) ↗</a>, <a href="https://bitcoinmagazine.com/news/strategy-mstr-adds-811-bitcoin-strive-too">Bitcoin Magazine ↗</a>, <a href="https://crypto.news/tether-ceo-150000-bitcoin-holdings-treasury-reserves/">crypto.news ↗</a></span></div>
+  </article>
+</section>
+
+<section class="theme" id="ia">
+  <h2><span class="emoji">🤖</span> IA</h2>
+  <article class="card">
+    <h3>Altman&nbsp;: le prochain GPT est celui de Navier-Stokes</h3>
+    <p>À Abu Dhabi, Sam Altman a dit que la preuve publiée en septembre venait d'environ 10&nbsp;000 agents du prochain GPT, travaillant sans hiérarchie pendant environ quatre jours (88&nbsp;heures selon OpenAI), et que ce modèle sortira bientôt. Ni nom, ni date, ni prix&nbsp;; la preuve reste discutée et l'institut Clay ne l'a pas validée.</p>
+    <div class="meta"><span class="badge unconfirmed">Non confirmé</span><span class="source">Source&nbsp;: <a href="https://openai.com/index/navier-stokes-solution/">OpenAI ↗</a>, <a href="https://eu.36kr.com/en/p/4053239918400384">36Kr ↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>OpenAI s'ancre à Abu Dhabi</h3>
+    <p>Quatre accords signés devant le prince héritier&nbsp;: ADNOC et G42 déploient la plateforme Frontier d'OpenAI dans l'exploitation pétrolière, Mubadala l'utilise pour l'analyse d'investissements, le gouvernement rend ses réglementations lisibles par une IA, et Inception42 lance un déploiement de cinq ans. En pleine levée de fonds, OpenAI soigne ses investisseurs du Golfe.</p>
+    <div class="meta"><span class="source">Source&nbsp;: <a href="https://www.cnbc.com/2026/11/02/openai-abu-dhabi-ai-deals.html">CNBC ↗</a>, <a href="https://www.mediaoffice.abudhabi/en/crown-prince-news/khaled-bin-mohamed-bin-zayed-meets-sam-altman-and-witnesses-signing-of-agreements-with-openai/">Abu Dhabi Media Office ↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Revolut passe 2&nbsp;000 ingénieurs sur des modèles ouverts</h3>
+    <p>La néobanque fait tourner des modèles GLM (Z.ai) sur 56 puces Nvidia B200 chez elle, pour environ 0,30&nbsp;$ le million de jetons, à peu près un dixième de ce qu'elle payait à Anthropic et OpenAI. Les modèles fermés restent pour les cas difficiles. Le coût de l'intelligence baisse plus vite que prévu.</p>
+    <div class="meta"><span class="badge company">Chiffres de l'entreprise</span><span class="source">Source&nbsp;: <a href="https://ai.engineer/nyc/2026/talks/revolut">AI Engineer (conférence) ↗</a>, <a href="https://sparsenotes.com/posts/2026/10/revolut-self-hosted-open-models-david-abitbol/">Sparse Notes ↗</a></span></div>
+  </article>
+</section>
+
+<section class="theme" id="macro">
+  <h2><span class="emoji">📈</span> Macro</h2>
+  <div class="tiles">
+    <div class="tile"><div class="label">Brent</div><div class="value">104,77&nbsp;$</div><span class="chg down">−7,6&nbsp;%</span></div>
+    <div class="tile"><div class="label">WTI</div><div class="value">96,46&nbsp;$</div><span class="chg down">−7,4&nbsp;%</span></div>
+    <div class="tile"><div class="label">S&amp;P 500</div><div class="value">7&nbsp;541</div><span class="chg down">−0,51&nbsp;%</span></div>
+    <div class="tile"><div class="label">Nasdaq</div><div class="value">25&nbsp;164</div><span class="chg down">−1,07&nbsp;%</span></div>
+  </div>
+  <p class="tiles-note">Clôtures de lundi 2 novembre. Sources&nbsp;: <a href="https://finance.yahoo.com/news/oil-slips-more-1-talks-231257365.html">Reuters ↗</a>, <a href="https://www.cnbc.com/2026/11/02/oil-prices-fall-as-iran-us-pursue-diplomacy.html">CNBC ↗</a>, <a href="https://apnews.com/article/wall-street-stocks-dow-nasdaq-475bb37b4d95dd99e26c94e708c99f8f">AP ↗</a></p>
+  <article class="card">
+    <h3>Le pétrole efface sa prime de guerre</h3>
+    <p>Plus forte baisse en pourcentage depuis le 27 juillet, et la plus forte en dollars depuis avril. Interrogé sur des frappes après les midterms, Trump a répondu deux fois «&nbsp;non&nbsp;». Le Brent avait pris plus de 10&nbsp;% en octobre sur cette crainte&nbsp;; il se stabilise vers 104-105&nbsp;$ ce matin en Asie.</p>
+    <div class="meta"><span class="source">Source&nbsp;: <a href="https://www.nbcnews.com/business/energy/oil-prices-slide-trump-hope-iran-talks-rcna607107">NBC News ↗</a>, <a href="https://www.cnbc.com/2026/11/02/oil-prices-fall-as-iran-us-pursue-diplomacy.html">CNBC ↗</a>, <a href="https://www.investing.com/news/economy-news/asian-stocks-retreat-ahead-of-us-midterms-oil-steadies-4993399">Reuters ↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Wall Street doute du retour sur l'IA</h3>
+    <p>Oracle, Marvell, Intel, Micron et Nvidia ont tiré le Nasdaq vers le bas pendant que le reste de la cote profitait du pétrole. En toile de fond&nbsp;: Alphabet, Meta, Microsoft, Amazon et Oracle ont 3&nbsp;300&nbsp;Md$ d'engagements futurs pour l'IA, surtout hors bilan, dont 1&nbsp;060&nbsp;Md$ pour Alphabet. Ce matin, le Kospi coréen recule nettement.</p>
+    <div class="meta"><span class="source">Source&nbsp;: <a href="https://apnews.com/article/stocks-markets-ai-earnings-oil-iran-048328e49e47ce7afe6c1fb9d9acf13d">AP ↗</a>, <a href="https://www.marketwatch.com/story/u-s-stocks-mixed-as-percolating-ai-fears-offset-oil-relief-a08628a3">MarketWatch ↗</a>, <a href="https://www.wsj.com/tech/ai/why-big-techs-ai-spending-is-3-trillion-higher-than-it-seems-e1067bb2">WSJ ↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Goldman relève ses prévisions de pétrole</h3>
+    <p>La banque voit désormais le Brent à 105&nbsp;$ en décembre (contre 90&nbsp;$) et à 88&nbsp;$ en moyenne en 2027 (contre 80&nbsp;$), en intégrant une perte d'offre mondiale d'un million de barils par jour. Le marché, lui, vient de parier dans l'autre sens.</p>
+    <div class="meta"><span class="source">Source&nbsp;: <a href="https://www.cnbc.com/2026/11/02/goldman-raises-oil-price-forecasts.html">CNBC ↗</a>, <a href="https://www.investing.com/news/commodities-news/goldman-hikes-oil-prices-forecast-on-high-supply-disruption-risks-4990063">Investing.com ↗</a></span></div>
+  </article>
+</section>
+
+<section class="theme" id="geo">
+  <h2><span class="emoji">🌍</span> Géopolitique</h2>
+  <article class="card">
+    <h3>Frappes américaines «&nbsp;défensives&nbsp;» sur Qeshm</h3>
+    <p>Les États-Unis ont visé des radars et lanceurs de missiles sol-air sur cette île du détroit d'Ormuz, en réponse à un tir iranien contre un avion américain selon des responsables. Le Centcom n'avait plus annoncé de frappe depuis le 1er septembre. Trump a aussi dit sur Fox News qu'il faudrait «&nbsp;peut-être&nbsp;» frapper le site nucléaire de Pickaxe Mountain.</p>
+    <div class="meta"><span class="source">Source&nbsp;: <a href="https://www.bbc.com/news/articles/cx240mrm3g8vo">BBC ↗</a>, <a href="https://thehill.com/policy/defense/6190947-us-strikes-iranian-radar-missiles/">The Hill ↗</a>, <a href="https://www.usatoday.com/story/news/world/2026/11/02/us-military-strikes-iran-qeshm-island/92578075007/">USA Today ↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Téhéran se donne un mandat pour négocier</h3>
+    <p>Le président Pezeshkian dit que le guide suprême a accordé au gouvernement «&nbsp;certains pouvoirs&nbsp;» pour des pourparlers. Araghchi pose ses conditions&nbsp;: levée des sanctions et du blocus, et retour de la présence militaire américaine à son niveau d'avant-guerre. Des médiateurs qataris étaient à Téhéran lundi soir.</p>
+    <div class="meta"><span class="source">Source&nbsp;: <a href="https://finance.yahoo.com/news/oil-slips-more-1-talks-231257365.html">Reuters ↗</a>, <a href="https://www.cnbc.com/2026/11/02/oil-prices-fall-as-iran-us-pursue-diplomacy.html">CNBC ↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Midterms américains aujourd'hui</h3>
+    <p>Le contrôle du Congrès est en jeu, et les républicains s'attendent à payer le coût de la guerre sur la vie chère. Le résultat pèsera sur la marge de manœuvre de Trump face à l'Iran, et donc sur le pétrole et les marchés de mercredi.</p>
+    <div class="meta"><span class="source">Source&nbsp;: <a href="https://www.bbc.com/news/articles/cx240mrm3g8vo">BBC ↗</a>, <a href="https://www.theguardian.com/world/2026/nov/03/us-strikes-irans-qeshm-island">The Guardian ↗</a></span></div>
+  </article>
+</section>
+
+<section class="theme" id="verification">
+  <h2><span class="emoji">✅</span> Vérification</h2>
+  <article class="card">
+    <h3>✅ Vérifié</h3>
+    <p>Cours crypto (CoinGecko, Coinbase)&nbsp;; Mercado Bitcoin (communiqué MB, CoinDesk, Chainalysis, TechFlow)&nbsp;; preuve de réserves de Binance (The Block, crypto.news, TokenPost)&nbsp;; achat de Strategy (8-K, registre Strategy, Bitcoin Magazine, Bitcoin.com)&nbsp;; propos d'Altman (OpenAI, 36Kr, couverture de l'ADIPEC)&nbsp;; accords d'Abu Dhabi (CNBC, bureau de presse d'Abu Dhabi, Zawya)&nbsp;; Revolut (AI Engineer, Sparse Notes, Nvidia GTC)&nbsp;; pétrole et indices (Reuters, CNBC, NBC, AP)&nbsp;; 3&nbsp;300&nbsp;Md$ d'engagements (WSJ, Wion)&nbsp;; Goldman (CNBC, Investing.com)&nbsp;; Qeshm (BBC, The Hill, USA Today, Jerusalem Post)&nbsp;; position iranienne (Reuters, CNBC, NBC).</p>
+  </article>
+  <article class="card">
+    <h3>⚠️ À confirmer</h3>
+    <p>Le montant volé chez Mercado Bitcoin varie selon les sources (38 à 49&nbsp;M$). Les 150&nbsp;000&nbsp;BTC de Tether sont une estimation orale d'Ardoino, non auditée. La preuve de Navier-Stokes n'est pas reconnue par l'institut Clay et la date de sortie du prochain GPT n'est pas connue. Les chiffres de Revolut, de Binance et de Strategy viennent des entreprises. Le motif exact des frappes sur Qeshm repose sur des responsables anonymes&nbsp;; le Centcom n'a pas commenté.</p>
+  </article>
+</section>
+
+<footer>
+  <p>Généré le mardi 3 novembre 2026 vers 07h30 (heure de Paris). Faits repérés via X puis recoupés sur le web&nbsp;; liens vérifiés.</p>
+  <p>Les badges signalent les chiffres publiés par les entreprises elles-mêmes et les informations non confirmées officiellement.</p>
+</footer>
+</main>
+</body>
+</html>
