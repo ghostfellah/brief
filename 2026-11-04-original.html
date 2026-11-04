@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<title>Brief du Matin · Mardi 3 novembre 2026</title>
+<!--
+  GABARIT « Brief du Matin » : un seul fichier, CSS inline, aucune dépendance, pas de JS.
+  Thème sombre par défaut, clair automatique via prefers-color-scheme.
+  Utilisation : copier ce fichier vers brief-AAAA-MM-JJ.html, remplacer chaque {{EMPLACEMENT}},
+  dupliquer les <article class="card"> (3 à 4 par section). Ne pas modifier le bloc <style>.
+  Typographie : mettre une espace insécable (&nbsp;) avant : ; % ? ! » et après «.
+-->
+<style>
+:root{
+  --bg:#0e1116; --surface:#161b22; --surface-2:#1c222b; --border:#2a313c;
+  --text:#e8ecf1; --muted:#9aa4b2; --accent:#e0b062; --link:#8fbcff;
+  --up:#3fcf8e; --up-bg:rgba(63,207,142,.12); --down:#ff6b6b; --down-bg:rgba(255,107,107,.12);
+  --badge-co:#c9a7ff; --badge-co-bg:rgba(201,167,255,.12);
+  --badge-nc:#ffb347; --badge-nc-bg:rgba(255,179,71,.12);
+}
+@media (prefers-color-scheme: light){
+  :root{
+    --bg:#f6f4ef; --surface:#ffffff; --surface-2:#faf8f4; --border:#e3ded4;
+    --text:#1b1f24; --muted:#5d6672; --accent:#9a6a12; --link:#1f5fbf;
+    --up:#0f8a55; --up-bg:rgba(15,138,85,.10); --down:#c62f2f; --down-bg:rgba(198,47,47,.09);
+    --badge-co:#6b3fc0; --badge-co-bg:rgba(107,63,192,.09);
+    --badge-nc:#a35a00; --badge-nc-bg:rgba(163,90,0,.10);
+  }
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji";
+  font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:780px;margin:0 auto;padding:40px 22px 28px}
+header.masthead{padding-bottom:22px;margin-bottom:26px;border-bottom:1px solid var(--border)}
+.kicker{font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);font-weight:600;margin:0 0 6px}
+h1{font-size:2.3rem;line-height:1.15;margin:0;font-weight:750;letter-spacing:-.02em}
+.date{margin:8px 0 0;color:var(--muted);font-size:1rem}
+.date .sep{opacity:.5;margin:0 .45em}
+.essentiel{background:linear-gradient(135deg,var(--surface-2),var(--surface));border:1px solid var(--border);
+  border-left:4px solid var(--accent);border-radius:14px;padding:18px 22px 16px;margin:0 0 34px}
+.essentiel h2{margin:0 0 8px;font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+.essentiel ul{margin:0;padding-left:1.15em}
+.essentiel li{margin:6px 0;font-weight:500}
+.essentiel li::marker{color:var(--accent)}
+section.theme{margin:0 0 38px}
+section.theme > h2{font-size:1.4rem;margin:0 0 14px;display:flex;align-items:center;gap:.5em;letter-spacing:-.01em}
+section.theme > h2 .emoji{font-size:1.25em;line-height:1}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin:0 0 16px}
+.tile{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:10px 12px}
+.tile .label{font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:600}
+.tile .value{font-size:1.15rem;font-weight:700;font-variant-numeric:tabular-nums;margin-top:2px;white-space:nowrap}
+.tile .chg{display:inline-block;margin-top:4px;font-size:.8rem;font-weight:650;padding:1px 7px;border-radius:999px;font-variant-numeric:tabular-nums}
+.chg.up{color:var(--up);background:var(--up-bg)}
+.chg.down{color:var(--down);background:var(--down-bg)}
+.tiles-note{font-size:.78rem;color:var(--muted);margin:-8px 0 16px}
+.tiles-note a{color:var(--muted)}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:16px 18px;margin:0 0 12px}
+.card h3{margin:0 0 6px;font-size:1.05rem;line-height:1.35;font-weight:700}
+.card p{margin:0;color:var(--text)}
+.card .meta{margin-top:10px;display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;font-size:.82rem}
+.source{color:var(--muted)}
+.source a{color:var(--link);text-decoration:none;border-bottom:1px solid transparent}
+.source a:hover{border-bottom-color:var(--link)}
+.badge{display:inline-block;font-size:.7rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:2px 8px;border-radius:999px;white-space:nowrap}
+.badge.company{color:var(--badge-co);background:var(--badge-co-bg)}
+.badge.unconfirmed{color:var(--badge-nc);background:var(--badge-nc-bg)}
+footer{margin-top:10px;padding-top:16px;border-top:1px solid var(--border);color:var(--muted);font-size:.8rem;line-height:1.5}
+footer p{margin:4px 0}
+@media (max-width:520px){
+  body{font-size:16px}
+  .wrap{padding:26px 16px 22px}
+  h1{font-size:1.85rem}
+  .tiles{grid-template-columns:repeat(2,1fr)}
+  .card{padding:14px 15px}
+  .essentiel{padding:16px 16px 14px}
+}
+.tiles.six{grid-template-columns:repeat(3,1fr)}
+@media (max-width:520px){.tiles.six{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+<main class="wrap">
+<header class="masthead">
+  <p class="kicker">Crypto · IA · Macro · Géopolitique</p>
+  <h1>Brief du Matin</h1>
+  <p class="date">Mercredi 4 novembre 2026<span class="sep">·</span>Les dernières 24 heures</p>
+</header>
+<aside class="essentiel" aria-label="L'essentiel">
+  <h2>L'essentiel</h2>
+  <ul>
+    <li>Vague démocrate aux midterms&nbsp;: les démocrates sont projetés vainqueurs à la Chambre et au Sénat, avec six sièges sénatoriaux pris aux républicains, dont le Texas, l'Ohio et le Kansas. Trump perd la main sur le Congrès pour ses deux dernières années.</li>
+    <li>Les marchés n'aiment pas&nbsp;: contrats à terme Nasdaq −2&nbsp;%, S&amp;P 500 −1,1&nbsp;%, Nikkei −4,2&nbsp;% et Kospi −3,9&nbsp;% ce matin, par crainte d'une régulation plus dure de l'IA. Le taux à 10 ans américain recule vers 4,90&nbsp;%.</li>
+    <li>Iran&nbsp;: Téhéran juge «&nbsp;pas convaincante&nbsp;» la réponse américaine à ses sept conditions et garde le détroit d'Ormuz fermé&nbsp;; un pétrolier a été touché par deux projectiles au large d'Oman.</li>
+  </ul>
+</aside>
+
+<section class="theme" id="crypto">
+  <h2><span class="emoji">₿</span> Crypto</h2>
+  <div class="tiles">
+    <div class="tile"><div class="label">BTC</div><div class="value">≈ 77&nbsp;780&nbsp;$</div><span class="chg up">+1,7&nbsp;% (24 h)</span></div>
+    <div class="tile"><div class="label">ETH</div><div class="value">≈ 2&nbsp;290&nbsp;$</div><span class="chg up">+2,1&nbsp;% (24 h)</span></div>
+    <div class="tile"><div class="label">SOL</div><div class="value">≈ 92,8&nbsp;$</div><span class="chg up">+1,4&nbsp;% (24 h)</span></div>
+  </div>
+  <p class="tiles-note">Cours de mercredi vers 07h05 (heure de Paris). Sources&nbsp;: <a href="https://www.coingecko.com/en/coins/bitcoin">CoinGecko ↗</a>, <a href="https://www.coinbase.com/price/bitcoin">Coinbase ↗</a></p>
+  <article class="card">
+    <h3>Le bitcoin secoué par la nuit électorale</h3>
+    <p>Passé brièvement sous 77&nbsp;000&nbsp;$ pendant le dépouillement, il est remonté vers 77&nbsp;800&nbsp;$ ce matin. Les ETF bitcoin au comptant ont perdu plus de 1&nbsp;Md$ en deux séances (30 octobre et 2 novembre), et un Congrès démocrate pourrait freiner la loi CLARITY sur la structure du marché crypto.</p>
+    <div class="meta"><span class="source">Source&nbsp;: <a href="https://www.coindesk.com/markets/2026/11/03/bitcoin-steadies-after-dip-to-usd76-300-as-etf-outflows-and-midterm-elections-weigh-on-crypto">CoinDesk ↗</a>, <a href="https://www.benzinga.com/etfs/sector-etfs/26/11/62832786/1-billion-flows-out-of-bitcoin-etfs-as-midterm-elections-put-trumps-crypto-agenda-to-the-test">Benzinga ↗</a>, <a href="https://www.marketscreener.com/news/asia-stocks-fall-dollar-weakens-as-democrats-lead-u-s-midterms-update-ce785fdede8ef225">MarketScreener (Dow Jones) ↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Le Bhoutan crée une banque centrale autorisée à détenir du bitcoin</h3>
+    <p>Un décret royal transforme le régulateur de Gelephu Mindfulness City, la zone spéciale du sud du pays, en banque centrale autonome, qui pourra placer ses réserves en cryptos. Rien ne l'oblige à acheter&nbsp;; le Bhoutan avait promis jusqu'à 10&nbsp;000&nbsp;BTC à ce projet en 2025.</p>
+    <div class="meta"><span class="source">Source&nbsp;: <a href="https://gmc.bt/news/his-majesty-the-king-empowers-gelephu-central-bank-new-milestone-for-gmcs-financial-future">Gelephu Mindfulness City ↗</a>, <a href="https://www.bbs.bt/248275/">Kuensel / BBS ↗</a>, <a href="https://bitbo.io/news/gelephu-central-bank-bitcoin-reserves/">Bitbo ↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>BitGo ouvre le «&nbsp;staking&nbsp;» du bitcoin aux institutions</h3>
+    <p>Les clients de BitGo Bank &amp; Trust peuvent bloquer des BTC environ six mois via Stacks, sans les sortir de leur conservation, pour toucher des rémunérations versées chaque semaine en BTC. Une nouvelle source de rendement natif pour les grands détenteurs.</p>
+    <div class="meta"><span class="badge company">Chiffres de l'entreprise</span><span class="source">Source&nbsp;: <a href="https://www.bitgo.com/resources/blog/bitgo-adds-bitcoin-staking-through-stacks/">BitGo ↗</a>, <a href="https://cryptobriefing.com/bitgo-bitcoin-staking-stacks-institutional/">Crypto Briefing ↗</a></span></div>
+  </article>
+</section>
+
+<section class="theme" id="ia">
+  <h2><span class="emoji">🤖</span> IA</h2>
+  <article class="card">
+    <h3>AMD pulvérise les attentes</h3>
+    <p>Chiffre d'affaires record de 13,4&nbsp;Md$ (+45&nbsp;% sur un an), data centers à 8,5&nbsp;Md$ (+97&nbsp;%) et une prévision de 17&nbsp;Md$ pour le quatrième trimestre, contre 16,2&nbsp;Md$ attendus. L'action a pris environ 7&nbsp;% après la clôture. Un démenti chiffré, au moins pour AMD, aux craintes de surinvestissement dans l'IA.</p>
+    <div class="meta"><span class="source">Source&nbsp;: <a href="https://ir.amd.com/news-events/press-releases/detail/1303/amd-reports-third-quarter-2026-financial-results">AMD ↗</a>, <a href="https://www.cnbc.com/2026/11/03/amd-amd-q3-earnings-report-2026-.html">CNBC ↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Les entreprises dépensent 177&nbsp;Md$ par an en IA générative</h3>
+    <p>Selon Menlo Ventures, la dépense des entreprises a été multipliée par 5,4 en un an (contre 33&nbsp;Md$ en 2025), portée par les agents. C'est un rythme annualisé estimé par le fonds à partir d'enquêtes et de données publiques.</p>
+    <div class="meta"><span class="badge unconfirmed">Estimation d'un investisseur</span><span class="source">Source&nbsp;: <a href="https://menlovc.com/perspective/2026-the-state-of-enterprise-ai/">Menlo Ventures ↗</a>, <a href="https://www.globenewswire.com/news-release/2026/11/03/3394279/0/en/menlo-ventures-2026-state-of-enterprise-ai-report-enterprise-ai-spending-hits-177b-up-5-4x-in-one-year-as-agents-take-over.html">GlobeNewswire ↗</a>, <a href="https://finance.yahoo.com/technology/article/enterprise-ai-spending-exploded-in-2026-report-140000265.html">Yahoo Finance ↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Robotique&nbsp;: Carnegie Mellon dévoile Pixel, un robot à moins de 15&nbsp;000&nbsp;$</h3>
+    <p>Ce manipulateur mobile à roues, au haut du corps humanoïde (17 degrés de liberté), apprend à partir de démonstrations humaines filmées avec un kit de capteurs. L'équipe promet de tout publier en open source, mais les plans ne sont pas encore en ligne.</p>
+    <div class="meta"><span class="source">Source&nbsp;: <a href="https://arxiv.org/abs/2611.03648">arXiv ↗</a>, <a href="https://pixel-robot.com/">Pixel (site du projet) ↗</a></span></div>
+  </article>
+</section>
+
+<section class="theme" id="macro">
+  <h2><span class="emoji">📈</span> Macro</h2>
+  <div class="tiles six">
+    <div class="tile"><div class="label">Dow Jones</div><div class="value">51&nbsp;787</div><span class="chg down">−0,38&nbsp;%</span></div>
+    <div class="tile"><div class="label">S&amp;P 500</div><div class="value">7&nbsp;569</div><span class="chg up">+0,36&nbsp;%</span></div>
+    <div class="tile"><div class="label">Nasdaq</div><div class="value">25&nbsp;372</div><span class="chg up">+0,83&nbsp;%</span></div>
+    <div class="tile"><div class="label">Brent</div><div class="value">103,60&nbsp;$</div><span class="chg down">−1,12&nbsp;%</span></div>
+    <div class="tile"><div class="label">WTI</div><div class="value">96,09&nbsp;$</div><span class="chg down">−0,38&nbsp;%</span></div>
+    <div class="tile"><div class="label">10 ans US</div><div class="value">4,95&nbsp;%</div><span class="chg up">+6&nbsp;pb</span></div>
+  </div>
+  <p class="tiles-note">Clôtures de mardi 3 novembre. Sources&nbsp;: <a href="https://www.marketwatch.com/story/u-s-stocks-mixed-amid-midterm-iran-war-nerves-1910f17e">MarketWatch ↗</a>, <a href="https://www.cnbc.com/2026/11/02/stock-market-today-live-updates.html">CNBC ↗</a>, <a href="https://www.cnbc.com/2026/11/03/us-treasury-yields-bonds.html">CNBC (taux) ↗</a></p>
+  <article class="card">
+    <h3>La vague bleue fait plonger l'Asie et les contrats à terme</h3>
+    <p>Ce matin, les contrats sur le Nasdaq perdent environ 2&nbsp;% et ceux sur le S&amp;P 500 1,1&nbsp;%. Le Nikkei recule de 4,2&nbsp;%, au plus bas depuis cinq mois, le Kospi de 3,9&nbsp;% et SoftBank de 8&nbsp;%. Les investisseurs craignent un Congrès plus dur sur l'IA, les puces et les data centers.</p>
+    <div class="meta"><span class="source">Source&nbsp;: <a href="https://www.marketscreener.com/news/asia-stocks-fall-dollar-weakens-as-democrats-lead-u-s-midterms-update-ce785fdede8ef225">MarketScreener (Dow Jones) ↗</a>, <a href="https://www.thenationalnews.com/business/markets/2026/11/04/asian-equities-and-us-stocks-futures-slump-amid-blue-sweep-in-us-polls/">The National ↗</a>, <a href="https://apnews.com/article/stock-markets-ai-earnings-oil-4d12764c0b3ce38ffde3077712811182">AP ↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Dollar en baisse, obligations en hausse</h3>
+    <p>Le dollar touche son plus bas depuis plus d'un mois et le 10 ans américain retombe vers 4,89-4,90&nbsp;%, au plus bas depuis début septembre, après avoir pris 6 points de base mardi. Un Congrès divisé rend moins probable une nouvelle relance budgétaire.</p>
+    <div class="meta"><span class="source">Source&nbsp;: <a href="https://www.thenationalnews.com/business/markets/2026/11/04/asian-equities-and-us-stocks-futures-slump-amid-blue-sweep-in-us-polls/">The National ↗</a>, <a href="https://www.cnbc.com/2026/11/03/us-treasury-yields-bonds.html">CNBC ↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Le pétrole recule pour la deuxième séance</h3>
+    <p>Le Brent a clôturé à 103,60&nbsp;$ et le WTI à 96,09&nbsp;$, sur l'espoir d'un accord avec l'Iran, après −7&nbsp;% lundi. Aujourd'hui, les chiffres ADP et l'indice ISM des services, avant l'emploi d'octobre vendredi.</p>
+    <div class="meta"><span class="source">Source&nbsp;: <a href="https://www.cnbc.com/2026/11/03/oil-prices-climb-after-us-reportedly-strikes-irans-qeshm-island.html">CNBC ↗</a>, <a href="https://www.marketwatch.com/story/u-s-stocks-mixed-amid-midterm-iran-war-nerves-1910f17e">MarketWatch ↗</a></span></div>
+  </article>
+</section>
+
+<section class="theme" id="geo">
+  <h2><span class="emoji">🌍</span> Géopolitique</h2>
+  <article class="card">
+    <h3>Les démocrates prennent le Congrès</h3>
+    <p>Ils sont projetés vainqueurs à la Chambre (au moins 245 sièges selon CNBC, 255 selon l'estimation de NBC) et au Sénat, où ils prennent l'Iowa, le Kansas, la Caroline du Nord et du Sud, l'Ohio et le Texas. La guerre avec l'Iran et le prix de l'essence ont pesé. Trump a réagi&nbsp;: «&nbsp;Je n'étais pas sur le bulletin, et si je l'avais été, nous aurions gagné haut la main&nbsp;!&nbsp;»</p>
+    <div class="meta"><span class="source">Source&nbsp;: <a href="https://www.cbsnews.com/news/senate-control-democrats-republicans-2026-midterm-elections/">CBS News ↗</a>, <a href="https://www.cnbc.com/2026/11/03/midterm-elections-2026-live-updates.html">CNBC ↗</a>, <a href="https://www.nbcnews.com/politics/2026-elections/house-results">NBC News ↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Téhéran rejette la réponse américaine</h3>
+    <p>Mohsen Rezaei, secrétaire du Conseil suprême de sécurité nationale, juge la réponse de Washington «&nbsp;pas convaincante&nbsp;»&nbsp;: Ormuz ne rouvrira que si les sept conditions iraniennes (levée du blocus et des sanctions, avoirs dégelés, réparations, retrait des forces américaines…) sont toutes remplies. Les échanges continuent via le Qatar.</p>
+    <div class="meta"><span class="source">Source&nbsp;: <a href="https://www.aa.com.tr/en/us-israel-iran-war/iran-says-us-response-to-its-demands-not-convincing/4110290">Anadolu ↗</a>, <a href="https://www.iranintl.com/en/202611031499">Iran International ↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Un pétrolier touché au large d'Oman</h3>
+    <p>Selon l'agence maritime britannique UKMTO, deux projectiles ont frappé la salle des machines d'un pétrolier à 14 milles nautiques de Lima (Oman), mardi soir, sans blessé. Les Gardiens de la révolution affirment de leur côté avoir abattu un drone américain MQ-9, ce qui n'est pas confirmé.</p>
+    <div class="meta"><span class="source">Source&nbsp;: <a href="https://www.ukmto.org/-/media/ukmto/products/20261103-ukmto_warning_195_26.pdf?rev=dfe3b496b4e94b1888ee80cb23a0aaeb">UKMTO ↗</a>, <a href="https://www.iranintl.com/en/202611034340">Iran International ↗</a></span></div>
+  </article>
+</section>
+
+<section class="theme" id="verification">
+  <h2><span class="emoji">✅</span> Vérification</h2>
+  <article class="card">
+    <h3>✅ Vérifié</h3>
+    <p>Cours crypto (CoinGecko, Coinbase)&nbsp;; sorties des ETF (CoinDesk, Benzinga, Quartz)&nbsp;; Gelephu (GMC, BBS, Daily Bhutan)&nbsp;; staking BitGo (BitGo, Stacks)&nbsp;; résultats d'AMD (communiqué AMD, CNBC, Investing.com)&nbsp;; rapport Menlo (Menlo, GlobeNewswire, Yahoo Finance)&nbsp;; Pixel (arXiv, site du projet)&nbsp;; clôtures de mardi et taux (MarketWatch, CNBC, AP)&nbsp;; réaction de l'Asie et des contrats à terme (Dow Jones via MarketScreener, The National, Nikkei Asia, AP)&nbsp;; résultats des midterms (CBS, CNBC, NBC, ABC, New York Times)&nbsp;; position iranienne (Anadolu, Iran International)&nbsp;; pétrolier (avis UKMTO, Iran International).</p>
+  </article>
+  <article class="card">
+    <h3>⚠️ À confirmer</h3>
+    <p>Les résultats des midterms sont des projections&nbsp;; le nombre final de sièges n'est pas connu. Les 177&nbsp;Md$ de Menlo sont une estimation du fonds. Les chiffres d'AMD et de BitGo viennent des entreprises. Le drone MQ-9 abattu est une affirmation iranienne non vérifiée. Les cours de ce matin en Asie évoluent encore.</p>
+  </article>
+</section>
+
+<footer>
+  <p>Généré le mercredi 4 novembre 2026 vers 07h30 (heure de Paris). Faits repérés via X puis recoupés sur le web&nbsp;; liens vérifiés.</p>
+  <p>Les badges signalent les chiffres publiés par les entreprises elles-mêmes et les informations non confirmées officiellement.</p>
+</footer>
+</main>
+</body>
+</html>
