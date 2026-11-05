@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<title>Brief du Matin · Mardi 3 novembre 2026</title>
+<!--
+  GABARIT « Brief du Matin » : un seul fichier, CSS inline, aucune dépendance, pas de JS.
+  Thème sombre par défaut, clair automatique via prefers-color-scheme.
+  Utilisation : copier ce fichier vers brief-AAAA-MM-JJ.html, remplacer chaque {{EMPLACEMENT}},
+  dupliquer les <article class="card"> (3 à 4 par section). Ne pas modifier le bloc <style>.
+  Typographie : mettre une espace insécable (&nbsp;) avant : ; % ? ! » et après «.
+-->
+<style>
+:root{
+  --bg:#0e1116; --surface:#161b22; --surface-2:#1c222b; --border:#2a313c;
+  --text:#e8ecf1; --muted:#9aa4b2; --accent:#e0b062; --link:#8fbcff;
+  --up:#3fcf8e; --up-bg:rgba(63,207,142,.12); --down:#ff6b6b; --down-bg:rgba(255,107,107,.12);
+  --badge-co:#c9a7ff; --badge-co-bg:rgba(201,167,255,.12);
+  --badge-nc:#ffb347; --badge-nc-bg:rgba(255,179,71,.12);
+}
+@media (prefers-color-scheme: light){
+  :root{
+    --bg:#f6f4ef; --surface:#ffffff; --surface-2:#faf8f4; --border:#e3ded4;
+    --text:#1b1f24; --muted:#5d6672; --accent:#9a6a12; --link:#1f5fbf;
+    --up:#0f8a55; --up-bg:rgba(15,138,85,.10); --down:#c62f2f; --down-bg:rgba(198,47,47,.09);
+    --badge-co:#6b3fc0; --badge-co-bg:rgba(107,63,192,.09);
+    --badge-nc:#a35a00; --badge-nc-bg:rgba(163,90,0,.10);
+  }
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji";
+  font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:780px;margin:0 auto;padding:40px 22px 28px}
+header.masthead{padding-bottom:22px;margin-bottom:26px;border-bottom:1px solid var(--border)}
+.kicker{font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);font-weight:600;margin:0 0 6px}
+h1{font-size:2.3rem;line-height:1.15;margin:0;font-weight:750;letter-spacing:-.02em}
+.date{margin:8px 0 0;color:var(--muted);font-size:1rem}
+.date .sep{opacity:.5;margin:0 .45em}
+.essentiel{background:linear-gradient(135deg,var(--surface-2),var(--surface));border:1px solid var(--border);
+  border-left:4px solid var(--accent);border-radius:14px;padding:18px 22px 16px;margin:0 0 34px}
+.essentiel h2{margin:0 0 8px;font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+.essentiel ul{margin:0;padding-left:1.15em}
+.essentiel li{margin:6px 0;font-weight:500}
+.essentiel li::marker{color:var(--accent)}
+section.theme{margin:0 0 38px}
+section.theme > h2{font-size:1.4rem;margin:0 0 14px;display:flex;align-items:center;gap:.5em;letter-spacing:-.01em}
+section.theme > h2 .emoji{font-size:1.25em;line-height:1}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin:0 0 16px}
+.tile{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:10px 12px}
+.tile .label{font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:600}
+.tile .value{font-size:1.15rem;font-weight:700;font-variant-numeric:tabular-nums;margin-top:2px;white-space:nowrap}
+.tile .chg{display:inline-block;margin-top:4px;font-size:.8rem;font-weight:650;padding:1px 7px;border-radius:999px;font-variant-numeric:tabular-nums}
+.chg.up{color:var(--up);background:var(--up-bg)}
+.chg.down{color:var(--down);background:var(--down-bg)}
+.tiles-note{font-size:.78rem;color:var(--muted);margin:-8px 0 16px}
+.tiles-note a{color:var(--muted)}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:16px 18px;margin:0 0 12px}
+.card h3{margin:0 0 6px;font-size:1.05rem;line-height:1.35;font-weight:700}
+.card p{margin:0;color:var(--text)}
+.card .meta{margin-top:10px;display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;font-size:.82rem}
+.source{color:var(--muted)}
+.source a{color:var(--link);text-decoration:none;border-bottom:1px solid transparent}
+.source a:hover{border-bottom-color:var(--link)}
+.badge{display:inline-block;font-size:.7rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:2px 8px;border-radius:999px;white-space:nowrap}
+.badge.company{color:var(--badge-co);background:var(--badge-co-bg)}
+.badge.unconfirmed{color:var(--badge-nc);background:var(--badge-nc-bg)}
+footer{margin-top:10px;padding-top:16px;border-top:1px solid var(--border);color:var(--muted);font-size:.8rem;line-height:1.5}
+footer p{margin:4px 0}
+@media (max-width:520px){
+  body{font-size:16px}
+  .wrap{padding:26px 16px 22px}
+  h1{font-size:1.85rem}
+  .tiles{grid-template-columns:repeat(2,1fr)}
+  .card{padding:14px 15px}
+  .essentiel{padding:16px 16px 14px}
+}
+.tiles.six{grid-template-columns:repeat(3,1fr)}
+@media (max-width:520px){.tiles.six{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+<main class="wrap">
+<header class="masthead">
+  <p class="kicker">Crypto · IA · Macro · Géopolitique</p>
+  <h1>Brief du Matin</h1>
+  <p class="date">Jeudi 5 novembre 2026<span class="sep">·</span>Les dernières 24 heures</p>
+</header>
+<aside class="essentiel" aria-label="L'essentiel">
+  <h2>L'essentiel</h2>
+  <ul>
+    <li>Wall Street rebondit après la vague démocrate&nbsp;: le Dow gagne 1&nbsp;569 points (+3,03&nbsp;%), le S&amp;P 500 +1,58&nbsp;% et le Nasdaq +1,44&nbsp;%, tandis que le Brent (−8,7&nbsp;%) et le WTI (−8,3&nbsp;%) cassent sous 100&nbsp;$ et 90&nbsp;$ sur l’espoir d’une fin de guerre en Iran.</li>
+    <li>Bitcoin tient au-dessus de 80&nbsp;000&nbsp;$ après un creux vers 75&nbsp;700&nbsp;$&nbsp;; ether, solana et zcash accompagnent le rebond, alors que la loi CLARITY paraît plus fragile sous un Congrès démocrate.</li>
+    <li>Pékin intensifie sa diplomatie dans le Golfe et confirme des contacts pour un éventuel sommet Xi–Poutine–Trump en marge de l’APEC à Shenzhen (18-19 novembre).</li>
+  </ul>
+</aside>
+
+<section class="theme" id="crypto">
+  <h2><span class="emoji">₿</span> Crypto</h2>
+  <div class="tiles">
+    <div class="tile"><div class="label">BTC</div><div class="value">≈ 80&nbsp;360&nbsp;$</div><span class="chg up">+3,3&nbsp;% (24 h)</span></div>
+    <div class="tile"><div class="label">ETH</div><div class="value">≈ 2&nbsp;420&nbsp;$</div><span class="chg up">+5,6&nbsp;% (24 h)</span></div>
+    <div class="tile"><div class="label">SOL</div><div class="value">≈ 95,8&nbsp;$</div><span class="chg up">+3,2&nbsp;% (24 h)</span></div>
+  </div>
+  <p class="tiles-note">Cours de jeudi vers 07h10 (heure de Paris). Sources&nbsp;: CoinGecko</p>
+  <article class="card">
+    <h3>Bitcoin tient les 80&nbsp;000&nbsp;$ après la nuit électorale</h3>
+    <p>Tombé vers 75&nbsp;700&nbsp;$ au fil des résultats, le bitcoin est remonté au-dessus de 80&nbsp;000&nbsp;$ (vers 80&nbsp;480&nbsp;$ en Asie selon CoinDesk). Ether gagne environ 6 à 8&nbsp;% sur 24 h, solana près de 6&nbsp;%. Les marchés crypto suivent le rebond des actions et la chute du pétrole, même si les ETF bitcoin au comptant restent sous pression vendeuse.</p>
+    <div class="meta"><span class="source">Source&nbsp;: <a href="https://www.coindesk.com/markets/2026/11/05/bitcoin-holds-above-usd80-000-as-zcash-jumps-12-in-post-election-crypto-rebound">CoinDesk ↗</a>, <a href="https://www.theblock.co/news/markets/2026-11-04-bitcoin-price-midterm-elections-binance-hack-recovery-433030">The Block ↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Zcash +12&nbsp;% avant la mise à jour NU7</h3>
+    <p>Le token privacy grimpe d’environ 11,7&nbsp;% à près de 1&nbsp;318&nbsp;$, avec 1,2&nbsp;Md$ de volume, à la veille d’une mise à jour qui doit ramener le temps entre blocs de 75 à 25 secondes. La communauté zcash elle-même met en garde&nbsp;: un Congrès démocrate pourrait durcir le regard sur la finance privée.</p>
+    <div class="meta"><span class="source">Source&nbsp;: <a href="https://www.coindesk.com/markets/2026/11/05/bitcoin-holds-above-usd80-000-as-zcash-jumps-12-in-post-election-crypto-rebound">CoinDesk ↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>CLARITY et lobby crypto sous pression</h3>
+    <p>Des analystes (Compass Point) voient Elizabeth Warren à la tête du Senate Banking Committee, ce qui gèlerait la loi CLARITY sur la structure du marché. Michael Saylor rappelle à l’inverse des victoires bipartisanes sur les réserves bitcoin d’États (Floride, Texas).</p>
+    <div class="meta"><span class="source">Source&nbsp;: <a href="https://www.cnbc.com/2026/11/03/stock-market-today-live-updates.html">CNBC ↗</a>, <a href="https://www.theblock.co/news/markets/2026-11-04-bitcoin-price-midterm-elections-binance-hack-recovery-433030">The Block ↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Après le hack Binance à 6,3&nbsp;Md$, le marché digère</h3>
+    <p>Bitwise (Matt Hougan) juge la réaction limitée signe de maturité&nbsp;: le bitcoin a peu corrigé au-delà du mouvement des actifs risqués, et Coinbase rappelle que 99&nbsp;% des actifs clients sont en cold storage. Les retraits post-hack avaient entraîné plus de 5&nbsp;Md$ de sorties nettes sur Binance.</p>
+    <div class="meta"><span class="source">Source&nbsp;: <a href="https://www.theblock.co/news/markets/2026-11-04-bitcoin-price-midterm-elections-binance-hack-recovery-433030">The Block ↗</a>, <a href="https://www.coindesk.com/business/2026/11/03/binance-net-outflows-reach-usd5-3b-after-record-hack-though-ceo-cites-recovery">CoinDesk ↗</a></span></div>
+  </article>
+</section>
+
+<section class="theme" id="ia">
+  <h2><span class="emoji">🤖</span> IA</h2>
+  <article class="card">
+    <h3>Agility Robotics entre en Bourse</h3>
+    <p>La fusion avec Churchill Capital XI est close&nbsp;; les actions doivent coter sur le Nasdaq dès le 5 novembre sous le ticker AGLT (warrants AGLTW). Agility se présente comme le seul pure-play humanoïde américain coté avec des déploiements commerciaux (Digit chez GXO, Schaeffler, Toyota Canada) et plus de 65&nbsp;000 heures d’opération réelle.</p>
+    <div class="meta"><span class="badge company">Chiffres de l'entreprise</span><span class="source">Source&nbsp;: <a href="https://www.agilityrobotics.com/content/agility-robotics-and-churchill-capital-corp-xi-complete-business-combination">Agility Robotics ↗</a>, <a href="https://www.nasdaqtrader.com/TraderNews.aspx?id=ECA2026-791">Nasdaq Trader ↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Oracle abandonne un bail de puces IA à 7&nbsp;Md$ avec Tencent</h3>
+    <p>Selon le Financial Times, repris par Reuters, Oracle a annulé un contrat de cinq ans qui aurait donné à Tencent l’accès à environ 100&nbsp;000 puces avancées dans des data centers Oracle en Asie du Sud-Est, sous pression de Washington&nbsp;; Guangdong aurait poussé Tencent vers des puces chinoises. Oracle, Tencent et la Maison Blanche n’ont pas commenté.</p>
+    <div class="meta"><span class="badge unconfirmed">Non confirmé</span><span class="source">Source&nbsp;: <a href="https://www.business-standard.com/world-news/oracle-abandons-7-billion-tencent-ai-deal-under-trump-s-pressure-126110400697_1.html">Business Standard / Reuters ↗</a>, <a href="https://www.bloomberg.com/news/articles/2026-11-04/oracle-scraps-7-billion-deal-to-lease-chips-to-tencent-ft-says">Bloomberg ↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Data centers&nbsp;: le marché IA sous contrainte politique</h3>
+    <p>Nvidia (−3&nbsp;%), CoreWeave et les «&nbsp;neoclouds&nbsp;» baissent alors qu’Apple (+6&nbsp;%) touche un record, vu comme un anti-pari IA. Au Texas, la démocrate Gina Hinojosa (gouverneure élue) promet un moratoire immédiat sur les data centers&nbsp;; le Nikkei avait déjà perdu plus de 4&nbsp;% à l’ouverture asiatique sur cette peur.</p>
+    <div class="meta"><span class="source">Source&nbsp;: <a href="https://www.cnbc.com/2026/11/03/stock-market-today-live-updates.html">CNBC ↗</a>, <a href="https://apnews.com/article/stock-markets-ai-earnings-oil-4d12764c0b3ce38ffde3077712811182">AP ↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>OpenAI pousse l’IA dans l’ingénierie physique</h3>
+    <p>Avec GPT-6 Astra, l’équipe a conçu en moins d’une semaine un boîtier, un PCB et un firmware pour un appareil Codex&nbsp;; des prototypes ont été fabriqués en moins d’un mois, avec encore des passages humains pour la manufacturabilité. Collaborations annoncées avec Chip Ganassi Racing et Mazda.</p>
+    <div class="meta"><span class="badge company">Chiffres de l'entreprise</span><span class="source">Source&nbsp;: <a href="https://openai.com/index/accelerating-engineering-for-the-physical-world">OpenAI ↗</a></span></div>
+  </article>
+</section>
+
+<section class="theme" id="macro">
+  <h2><span class="emoji">📈</span> Macro</h2>
+  <div class="tiles six">
+    <div class="tile"><div class="label">Dow Jones</div><div class="value">53&nbsp;356</div><span class="chg up">+3,03&nbsp;%</span></div>
+    <div class="tile"><div class="label">S&amp;P 500</div><div class="value">7&nbsp;689</div><span class="chg up">+1,58&nbsp;%</span></div>
+    <div class="tile"><div class="label">Nasdaq</div><div class="value">25&nbsp;737</div><span class="chg up">+1,44&nbsp;%</span></div>
+    <div class="tile"><div class="label">Brent</div><div class="value">94,62&nbsp;$</div><span class="chg down">−8,7&nbsp;%</span></div>
+    <div class="tile"><div class="label">WTI</div><div class="value">88,12&nbsp;$</div><span class="chg down">−8,3&nbsp;%</span></div>
+    <div class="tile"><div class="label">10 ans US</div><div class="value">4,89&nbsp;%</div><span class="chg down">−7&nbsp;pb</span></div>
+  </div>
+  <p class="tiles-note">Clôtures de mercredi 4 novembre. Sources&nbsp;: CNBC, AP, Derivative Path</p>
+  <article class="card">
+    <h3>Le Dow signe sa meilleure séance depuis avril 2025</h3>
+    <p>+1&nbsp;569 points à 53&nbsp;356,12. Après un plongeon des futures Nasdaq jusqu’à −2,5&nbsp;% dans la nuit, les indices clôturent en forte hausse&nbsp;: la grille politique claire (Congrès démocrate face à Trump) rassure plus que la crainte d’une régulation IA. Neuf secteurs du S&amp;P montent&nbsp;; l’énergie (−4,8&nbsp;%) et la défense cèdent.</p>
+    <div class="meta"><span class="source">Source&nbsp;: <a href="https://www.cnbc.com/2026/11/03/stock-market-today-live-updates.html">CNBC ↗</a>, <a href="https://www.investing.com/news/economy-news/trading-day-oil-tanks-stocks-leap-on-us-midterms-5001616">Reuters via Investing ↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Pétrole&nbsp;: pire semaine en vue depuis 2020</h3>
+    <p>WTI à 88,12&nbsp;$ et Brent à 94,62&nbsp;$ après la déclaration de JD Vance («&nbsp;The reason we lost is the war&nbsp;»). Sur la semaine, Brent ≈ −20&nbsp;% et WTI ≈ −15&nbsp;% selon Reuters. Les analystes voient une pression accrue sur Trump pour négocier, tout en rappelant que l’escalade militaire reste possible.</p>
+    <div class="meta"><span class="source">Source&nbsp;: <a href="https://www.cnbc.com/2026/11/04/oil-price-iran-war-us-election-strait-hormuz.html">CNBC ↗</a>, <a href="https://www.investing.com/news/economy-news/trading-day-oil-tanks-stocks-leap-on-us-midterms-5001616">Reuters via Investing ↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Taux, dollar et or</h3>
+    <p>Le 10 ans US clôture à 4,89&nbsp;% (−7&nbsp;pb), le 2 ans à 4,58&nbsp;% (−5&nbsp;pb). Le dollar touche un plus bas depuis fin septembre&nbsp;; l’or repasse au-dessus de 4&nbsp;000&nbsp;$/oz (+3,5&nbsp;%). Aujourd’hui&nbsp;: décision de la Banque d’Angleterre, attendue en hausse.</p>
+    <div class="meta"><span class="source">Source&nbsp;: <a href="https://derivativepath.com/resources/newsletter/yields-oil-drop-on-midterm-elections/">Derivative Path ↗</a>, <a href="https://www.investing.com/news/economy-news/trading-day-oil-tanks-stocks-leap-on-us-midterms-5001616">Reuters via Investing ↗</a></span></div>
+  </article>
+</section>
+
+<section class="theme" id="geo">
+  <h2><span class="emoji">🌍</span> Géopolitique</h2>
+  <article class="card">
+    <h3>La guerre en Iran au centre du verdict électoral</h3>
+    <p>Vance et Trump lient la défaite républicaine à la guerre et à l’inflation énergétique. Le Congrès démocrate pourra freiner le financement&nbsp;; Trump a dit au FT ne pas prévoir de frappe immédiate et a annoncé la fin progressive de 4&nbsp;Md$ d’aide annuelle à Israël après cette année.</p>
+    <div class="meta"><span class="source">Source&nbsp;: <a href="https://www.cnbc.com/2026/11/04/oil-price-iran-war-us-election-strait-hormuz.html">CNBC ↗</a>, <a href="https://www.cbsnews.com/news/senate-control-democrats-republicans-2026-midterm-elections/">CBS News ↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>La Chine monte en diplomatie dans le Golfe</h3>
+    <p>Xi reçoit le sultan d’Oman (première visite d’un chef d’État omanais depuis 1978)&nbsp;; communiqué commun pour rouvrir Hormuz et revenir à la trêve de juin. L’envoyé chinois pour le Moyen-Orient doit se rendre en Iran, Oman et Arabie saoudite.</p>
+    <div class="meta"><span class="source">Source&nbsp;: <a href="https://www.semafor.com/article/11/04/2026/china-ups-diplomatic-efforts-in-the-gulf">Semafor ↗</a>, <a href="https://www.iranintl.com/en/202611045460">Iran International ↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Contacts confirmés pour un sommet Xi–Poutine–Trump</h3>
+    <p>La porte-parole Mao Ning indique que la Chine «&nbsp;maintient des communications&nbsp;» avec les parties concernées&nbsp;; le Kremlin (Peskov) dit que le travail d’organisation est en cours, en marge de l’APEC à Shenzhen les 18-19 novembre. Aucun format ni agenda n’est fixé&nbsp;; Zelensky met en garde contre un «&nbsp;Yalta 2&nbsp;».</p>
+    <div class="meta"><span class="badge unconfirmed">Non confirmé</span><span class="source">Source&nbsp;: <a href="https://www.trtworld.com/article/b4de1a975ae9">TRT World ↗</a>, <a href="https://www.kyivpost.com/post/89111">Kyiv Post ↗</a></span></div>
+  </article>
+</section>
+
+<section class="theme" id="verification">
+  <h2><span class="emoji">✅</span> Vérification</h2>
+  <article class="card">
+    <h3>✅ Vérifié</h3>
+    <p>Clôtures Dow / S&amp;P / Nasdaq (CNBC, Reuters)&nbsp;; Brent et WTI (CNBC)&nbsp;; 10 ans et 2 ans (Derivative Path, cohérent Reuters −3 à −7&nbsp;pb)&nbsp;; cours crypto du matin (CoinGecko) et rebond décrit par CoinDesk / The Block&nbsp;; Agility AGLT (communiqué Agility + alerte Nasdaq Trader)&nbsp;; OpenAI Astra (page OpenAI)&nbsp;; diplomatie Chine–Oman (Semafor)&nbsp;; contacts trilatéraux (déclaration Mao Ning via TRT / Global Times, Peskov via FT).</p>
+  </article>
+  <article class="card">
+    <h3>⚠️ À confirmer</h3>
+    <p>Annulation Oracle–Tencent&nbsp;: source FT via Reuters/Bloomberg, sans confirmation des entreprises ni de la Maison Blanche. Sommet Xi–Poutine–Trump&nbsp;: contacts confirmés, réunion non actée. Sièges exacts à la Chambre et au Sénat encore en décompte. Chiffres Agility (65&nbsp;000 h, commandes Digit 5) et usage OpenAI viennent des entreprises. Creux BTC à 75&nbsp;700&nbsp;$&nbsp;: CoinDesk&nbsp;; variations 24 h crypto sensibles à l’heure de coupe.</p>
+  </article>
+</section>
+
+<footer>
+  <p>Généré le jeudi 5 novembre 2026 vers 07h30 (heure de Paris). Faits repérés via X puis recoupés sur le web&nbsp;; liens vérifiés.</p>
+  <p>Les badges signalent les chiffres publiés par les entreprises elles-mêmes et les informations non confirmées officiellement.</p>
+</footer>
+</main>
+</body>
+</html>
