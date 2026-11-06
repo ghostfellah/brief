@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<title>Brief du Matin · Vendredi 6 novembre 2026</title>
+
+<style>
+:root{
+  --bg:#0e1116; --surface:#161b22; --surface-2:#1c222b; --border:#2a313c;
+  --text:#e8ecf1; --muted:#9aa4b2; --accent:#e0b062; --link:#8fbcff;
+  --up:#3fcf8e; --up-bg:rgba(63,207,142,.12); --down:#ff6b6b; --down-bg:rgba(255,107,107,.12);
+  --badge-co:#c9a7ff; --badge-co-bg:rgba(201,167,255,.12);
+  --badge-nc:#ffb347; --badge-nc-bg:rgba(255,179,71,.12);
+}
+@media (prefers-color-scheme: light){
+  :root{
+    --bg:#f6f4ef; --surface:#ffffff; --surface-2:#faf8f4; --border:#e3ded4;
+    --text:#1b1f24; --muted:#5d6672; --accent:#9a6a12; --link:#1f5fbf;
+    --up:#0f8a55; --up-bg:rgba(15,138,85,.10); --down:#c62f2f; --down-bg:rgba(198,47,47,.09);
+    --badge-co:#6b3fc0; --badge-co-bg:rgba(107,63,192,.09);
+    --badge-nc:#a35a00; --badge-nc-bg:rgba(163,90,0,.10);
+  }
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji";
+  font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:780px;margin:0 auto;padding:40px 22px 28px}
+header.masthead{padding-bottom:22px;margin-bottom:26px;border-bottom:1px solid var(--border)}
+.kicker{font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);font-weight:600;margin:0 0 6px}
+h1{font-size:2.3rem;line-height:1.15;margin:0;font-weight:750;letter-spacing:-.02em}
+.date{margin:8px 0 0;color:var(--muted);font-size:1rem}
+.date .sep{opacity:.5;margin:0 .45em}
+.essentiel{background:linear-gradient(135deg,var(--surface-2),var(--surface));border:1px solid var(--border);
+  border-left:4px solid var(--accent);border-radius:14px;padding:18px 22px 16px;margin:0 0 34px}
+.essentiel h2{margin:0 0 8px;font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+.essentiel ul{margin:0;padding-left:1.15em}
+.essentiel li{margin:6px 0;font-weight:500}
+.essentiel li::marker{color:var(--accent)}
+section.theme{margin:0 0 38px}
+section.theme > h2{font-size:1.4rem;margin:0 0 14px;display:flex;align-items:center;gap:.5em;letter-spacing:-.01em}
+section.theme > h2 .emoji{font-size:1.25em;line-height:1}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin:0 0 16px}
+.tile{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:10px 12px}
+.tile .label{font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:600}
+.tile .value{font-size:1.15rem;font-weight:700;font-variant-numeric:tabular-nums;margin-top:2px;white-space:nowrap}
+.tile .chg{display:inline-block;margin-top:4px;font-size:.8rem;font-weight:650;padding:1px 7px;border-radius:999px;font-variant-numeric:tabular-nums}
+.chg.up{color:var(--up);background:var(--up-bg)}
+.chg.down{color:var(--down);background:var(--down-bg)}
+.tiles-note{font-size:.78rem;color:var(--muted);margin:-8px 0 16px}
+.tiles-note a{color:var(--muted)}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:16px 18px;margin:0 0 12px}
+.card h3{margin:0 0 6px;font-size:1.05rem;line-height:1.35;font-weight:700}
+.card p{margin:0;color:var(--text)}
+.card .meta{margin-top:10px;display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;font-size:.82rem}
+.source{color:var(--muted)}
+.source a{color:var(--link);text-decoration:none;border-bottom:1px solid transparent}
+.source a:hover{border-bottom-color:var(--link)}
+.badge{display:inline-block;font-size:.7rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:2px 8px;border-radius:999px;white-space:nowrap}
+.badge.company{color:var(--badge-co);background:var(--badge-co-bg)}
+.badge.unconfirmed{color:var(--badge-nc);background:var(--badge-nc-bg)}
+footer{margin-top:10px;padding-top:16px;border-top:1px solid var(--border);color:var(--muted);font-size:.8rem;line-height:1.5}
+footer p{margin:4px 0}
+@media (max-width:520px){
+  body{font-size:16px}
+  .wrap{padding:26px 16px 22px}
+  h1{font-size:1.85rem}
+  .tiles{grid-template-columns:repeat(2,1fr)}
+  .card{padding:14px 15px}
+  .essentiel{padding:16px 16px 14px}
+}
+.tiles.six{grid-template-columns:repeat(3,1fr)}
+@media (max-width:520px){.tiles.six{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+<main class="wrap">
+<header class="masthead">
+  <p class="kicker">Crypto · IA · Macro · Géopolitique</p>
+  <h1>Brief du Matin</h1>
+  <p class="date">Vendredi 6 novembre 2026<span class="sep">·</span>Les dernières 24 heures</p>
+</header>
+
+<aside class="essentiel" aria-label="L'essentiel">
+  <h2>L'essentiel</h2>
+  <ul>
+    <li>Wall Street s’effondre&nbsp;: S&amp;P 500 −4,36&nbsp;%, Nasdaq −5,52&nbsp;% (zone de correction), la pire séance depuis avril 2025, sur la peur d’un coup de frein aux data centers IA.</li>
+    <li>Le bitcoin retombe vers 75&nbsp;500&nbsp;$ (−6&nbsp;% en 24&nbsp;h) avec plus de 1&nbsp;Md$ de liquidations&nbsp;: le rebond post-électoral est effacé.</li>
+    <li>Trump dit qu’il décidera «&nbsp;bientôt&nbsp;» de reprendre ou non la guerre totale en Iran, pendant que Téhéran pose sept conditions et qu’un plan qatari en deux jours circule.</li>
+  </ul>
+</aside>
+
+<section class="theme" id="crypto">
+  <h2><span class="emoji">₿</span> Crypto</h2>
+  <div class="tiles">
+    <div class="tile"><div class="label">BTC</div><div class="value">≈ 75&nbsp;530&nbsp;$</div><span class="chg down">−6,0&nbsp;% (24 h)</span></div>
+    <div class="tile"><div class="label">ETH</div><div class="value">≈ 2&nbsp;220&nbsp;$</div><span class="chg down">−8,2&nbsp;% (24 h)</span></div>
+    <div class="tile"><div class="label">SOL</div><div class="value">≈ 89,2&nbsp;$</div><span class="chg down">−6,8&nbsp;% (24 h)</span></div>
+  </div>
+  <p class="tiles-note">Cours de vendredi vers 07h10 (heure de Paris)&nbsp;; BTC cohérent avec CoinDesk et The Block. Source&nbsp;: <a href="https://www.coingecko.com/">CoinGecko ↗</a></p>
+  <article class="card">
+    <h3>Le bitcoin efface tout le rebond post-électoral</h3>
+    <p>Tombé à environ 75&nbsp;570&nbsp;$ en séance jeudi (plus bas depuis le 16 septembre selon Cointelegraph), le bitcoin perd 5 à 6&nbsp;% dans le sillage du krach des actions tech&nbsp;; l’ether lâche plus de 7&nbsp;%. Plus de 1&nbsp;Md$ de positions à effet de levier ont été liquidées en 24&nbsp;h, surtout des positions acheteuses. Wintermute juge que le rebond de mercredi reposait sur un optimisme éphémère.</p>
+    <div class="meta"><span class="source">Sources&nbsp;: <a href="https://www.theblock.co/news/markets/2026-11-05-bitcoin-erases-post-election-gains-wall-street-selloff-liquidations-435434">The Block ↗</a>, <a href="https://www.coindesk.com/business/2026/11/05/live-updates-bitcoin-steady-around-usd80-000-as-markets-rally-after-democratic-sweep">CoinDesk ↗</a>, <a href="https://cointelegraph.com/markets/bitcoin-price-crashes-7-week-low-stocks-election-gains">Cointelegraph ↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Les actions crypto décrochent plus fort que le bitcoin</h3>
+    <p>Strategy, Coinbase, Circle et Bitmine perdent plus de 10&nbsp;% jeudi&nbsp;; les mineurs, en pleine reconversion vers le cloud IA, reculent jusqu’à 20&nbsp;%.</p>
+    <div class="meta"><span class="source">Sources&nbsp;: <a href="https://finance.yahoo.com/markets/crypto/articles/bitcoin-breaks-below-76k-wiping-192322644.html">Yahoo Finance ↗</a>, <a href="https://www.theblock.co/news/markets/2026-11-05-bitcoin-erases-post-election-gains-wall-street-selloff-liquidations-435434">The Block ↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Trump Media déplace 4&nbsp;259 BTC vers Crypto.com</h3>
+    <p>Selon Arkham, des portefeuilles étiquetés «&nbsp;collatéral des obligations convertibles 2028&nbsp;» ont envoyé environ 4&nbsp;259 BTC (≈ 340 à 430&nbsp;M$ selon le cours retenu) vers une adresse attribuée à Crypto.com. Les porteurs des obligations peuvent exiger un remboursement d’environ 1&nbsp;Md$ le 30&nbsp;novembre. Un transfert ne prouve pas une vente&nbsp;: la société avait décrit des mouvements similaires comme de la gestion de custody.</p>
+    <div class="meta"><span class="badge unconfirmed">Non confirmé</span><span class="source">Sources&nbsp;: <a href="https://www.coindesk.com/markets/2026/11/05/trump-media-moves-usd434-million-in-bitcoin-to-crypto-com-blockchain-data-show">CoinDesk ↗</a>, <a href="https://crypto.news/trump-media-bitcoin-transfer-crypto-com-debt-deadline/">Crypto.news ↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>La loi CLARITY devient plus incertaine</h3>
+    <p>Avec un Congrès démocrate, les analystes cités par The Block s’attendent à ce que le cadre réglementaire actuel reste largement en place jusqu’aux prochaines élections&nbsp;; certains jugent que seule une coopération bipartisane fera avancer un texte, d’autres parlent d’un simple retard.</p>
+    <div class="meta"><span class="source">Source&nbsp;: <a href="https://www.theblock.co/news/markets/2026-11-05-bitcoin-erases-post-election-gains-wall-street-selloff-liquidations-435434">The Block ↗</a></span></div>
+  </article>
+</section>
+
+<section class="theme" id="ia">
+  <h2><span class="emoji">🤖</span> IA</h2>
+  <article class="card">
+    <h3>Krach des valeurs IA&nbsp;: Nvidia −9&nbsp;%, semi-conducteurs −12&nbsp;%</h3>
+    <p>Les investisseurs craignent un ralentissement de la construction de data centers après les midterms. L’indice des semi-conducteurs de Philadelphie perd 12&nbsp;% (pire séance depuis mars 2020), Nvidia plus de 9&nbsp;% et les «&nbsp;Magnificent Seven&nbsp;» cèdent plus de 1&nbsp;000&nbsp;Md$ de capitalisation. Qualcomm chute après des résultats et des prévisions jugés faibles.</p>
+    <div class="meta"><span class="source">Sources&nbsp;: <a href="https://www.cnbc.com/2026/11/05/stock-market-selloff-ai-fears.html">CNBC ↗</a>, <a href="https://www.coindesk.com/business/2026/11/05/live-updates-bitcoin-steady-around-usd80-000-as-markets-rally-after-democratic-sweep">CoinDesk ↗</a>, <a href="https://apnews.com/article/stocks-markets-ai-midterm-oil-trump-7ee9c212805aa5e70cf34d25aab7a36e">AP ↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>METR&nbsp;: la R&amp;D d’Anthropic accélère, portée par l’IA elle-même</h3>
+    <p>Dans une évaluation indépendante publiée jeudi, METR estime que les capacités des modèles d’Anthropic progressent probablement environ deux fois plus vite qu’entre mars 2024 et octobre 2025, l’essentiel de l’accélération venant de la R&amp;D assistée par IA. METR ne voit pas de goulot d’étranglement évident à court terme. Le rapport est partiellement expurgé à la demande d’Anthropic.</p>
+    <div class="meta"><span class="source">Sources&nbsp;: <a href="https://metr.org/blog/2026-11-05-anthropic-ai-rd-acceleration-assessment/">METR ↗</a>, <a href="https://apnews.com/article/anthropic-metr-ai-claude-acceleration-9cf8c590ffc1abdb489179bdccc69c23">AP ↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>OpenAI lance GPT-6 Cyber, réservé à la cybersécurité autorisée</h3>
+    <p>Le modèle sert à découvrir des failles, développer des exploits et valider des correctifs, avec un accès restreint sur approbation. OpenAI affirme qu’il a trouvé 81 failles graves inédites dans Firefox et produit 948 preuves d’exploitation sous Linux.</p>
+    <div class="meta"><span class="badge company">Chiffres de l’entreprise</span><span class="source">Sources&nbsp;: <a href="https://openai.com/index/introducing-gpt-6-cyber">OpenAI ↗</a>, <a href="https://cyberscoop.com/openai-gpt-6-cyber-security-model/">CyberScoop ↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Agility Robotics&nbsp;: des débuts en Bourse mouvementés mais résistants</h3>
+    <p>Le premier acteur américain coté de robots humanoïdes (AGLT) a ouvert à 11,26&nbsp;$, oscillé entre 8,40 et 12,15&nbsp;$, puis clôturé vers 11,5&nbsp;$ (+2&nbsp;%) le jour où le Nasdaq perdait 5,5&nbsp;%. Agility cite plus de 300&nbsp;M$ de commandes pour Digit&nbsp;5 et environ 465&nbsp;M$ de produit brut levé.</p>
+    <div class="meta"><span class="badge company">Chiffres de l’entreprise</span><span class="source">Sources&nbsp;: <a href="https://www.therobotreport.com/how-did-agility-robotics-perform-on-its-first-day-on-the-stock-market/">The Robot Report ↗</a>, <a href="https://www.agilityrobotics.com/content/agility-robotics-and-churchill-capital-corp-xi-complete-business-combination">Agility Robotics ↗</a></span></div>
+  </article>
+</section>
+
+<section class="theme" id="macro">
+  <h2><span class="emoji">📈</span> Macro</h2>
+  <div class="tiles six">
+    <div class="tile"><div class="label">Dow Jones</div><div class="value">51&nbsp;523</div><span class="chg down">−3,44&nbsp;%</span></div>
+    <div class="tile"><div class="label">S&amp;P 500</div><div class="value">7&nbsp;354</div><span class="chg down">−4,36&nbsp;%</span></div>
+    <div class="tile"><div class="label">Nasdaq</div><div class="value">24&nbsp;315</div><span class="chg down">−5,52&nbsp;%</span></div>
+    <div class="tile"><div class="label">Brent</div><div class="value">98,29&nbsp;$</div><span class="chg up">+3,88&nbsp;%</span></div>
+    <div class="tile"><div class="label">WTI</div><div class="value">90,52&nbsp;$</div><span class="chg up">+2,72&nbsp;%</span></div>
+    <div class="tile"><div class="label">10 ans US</div><div class="value">≈ 4,84&nbsp;%</div><span class="chg down">−5&nbsp;pb</span></div>
+  </div>
+  <p class="tiles-note">Clôtures de jeudi 5 novembre&nbsp;; le 10 ans est un niveau de séance (CNBC). Sources&nbsp;: <a href="https://apnews.com/article/wall-street-stocks-dow-nasdaq-afe254c608c3d1fe2ea792812ba9765a">AP ↗</a>, <a href="https://live.euronext.com/en/financial-news/brent-crude-jumps-settles-over-3-after-tanker-attacks">Reuters ↗</a>, <a href="https://www.cnbc.com/2026/11/05/treasury-yields-bonds-interest-rates.html">CNBC ↗</a></p>
+  <article class="card">
+    <h3>Pire séance depuis avril 2025 à Wall Street</h3>
+    <p>Le S&amp;P 500 perd 4,36&nbsp;% (7&nbsp;353,73), le Dow 1&nbsp;833 points et le Nasdaq 5,52&nbsp;%, qui clôture en correction (plus de 10&nbsp;% sous son record d’octobre). Les valeurs technologiques du S&amp;P reculent de 7,3&nbsp;%, les titres en baisse dominent six contre un à la Bourse de New York, et la volatilité (VIX) fait son plus fort bond en points depuis avril 2025. Le rebond de mercredi est entièrement effacé.</p>
+    <div class="meta"><span class="source">Sources&nbsp;: <a href="https://www.cnbc.com/2026/11/05/stock-market-selloff-ai-fears.html">CNBC ↗</a>, <a href="https://apnews.com/article/wall-street-stocks-dow-nasdaq-afe254c608c3d1fe2ea792812ba9765a">AP ↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>La Banque d’Angleterre relève ses taux à 4&nbsp;%</h3>
+    <p>Première hausse en plus de trois ans, par 8 voix contre 1 (Catherine Mann voulait 4,25&nbsp;%). La banque centrale attend une inflation autour de 5&nbsp;% mi-2027 à cause de l’énergie, et Andrew Bailey prévient que sans issue au conflit au Moyen-Orient, ce ne serait probablement pas la dernière hausse.</p>
+    <div class="meta"><span class="source">Sources&nbsp;: <a href="https://www.bankofengland.co.uk/monetary-policy-summary-and-minutes/2026/november-2026">Bank of England ↗</a>, <a href="https://www.bbc.com/news/articles/ck5ynw45jrgqo">BBC ↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Le pétrole rebondit, les taux américains reculent</h3>
+    <p>Après −8&nbsp;% mercredi, le Brent regagne 3,9&nbsp;% à 98,29&nbsp;$ après de nouvelles attaques de pétroliers, les marchés doutant d’un retour rapide à la normale des flux. Fuite vers les valeurs refuges&nbsp;: le 10 ans US recule vers 4,84&nbsp;% et le 2 ans vers 4,47&nbsp;%.</p>
+    <div class="meta"><span class="source">Sources&nbsp;: <a href="https://live.euronext.com/en/financial-news/brent-crude-jumps-settles-over-3-after-tanker-attacks">Reuters (Euronext) ↗</a>, <a href="https://www.cnbc.com/2026/11/05/treasury-yields-bonds-interest-rates.html">CNBC ↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Aujourd’hui à 14h30&nbsp;: le rapport sur l’emploi américain d’octobre</h3>
+    <p>Le consensus Dow Jones attend environ +59&nbsp;000 emplois (29&nbsp;000 en septembre) et un chômage stable à 4,2&nbsp;%. Les inscriptions hebdomadaires au chômage sont tombées à 189&nbsp;000, proches des plus bas depuis 1969. Un chiffre inattendu peut faire bouger actions, taux et bitcoin dans la journée.</p>
+    <div class="meta"><span class="source">Source&nbsp;: <a href="https://www.cnbc.com/2026/11/05/october-jobs-report-preview.html">CNBC ↗</a></span></div>
+  </article>
+</section>
+
+<section class="theme" id="geopolitique">
+  <h2><span class="emoji">🌍</span> Géopolitique</h2>
+  <article class="card">
+    <h3>Trump promet une décision «&nbsp;bientôt&nbsp;» sur l’Iran</h3>
+    <p>Après avoir réuni ses conseillers de sécurité nationale, il évoque trois options&nbsp;: de nouvelles frappes, la poursuite de l’étranglement économique ou un accord avec concessions. «&nbsp;Nous allons prendre une décision&nbsp;», a-t-il dit&nbsp;; le Commandement central américain finalise des préparatifs sans nouvelle directive, selon un responsable cité par Axios.</p>
+    <div class="meta"><span class="source">Source&nbsp;: <a href="https://www.axios.com/2026/11/05/trump-iran-war-national-security-team-decision">Axios ↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Un plan qatari en deux jours en discussion</h3>
+    <p>Selon des sources régionales citées par Axios, le jour 1, Washington lèverait son blocus naval et débloquerait une partie des fonds iraniens, contre une invitation officielle faite à l’AIEA&nbsp;; le jour 2, le détroit d’Ormuz rouvrirait et les discussions nucléaires reprendraient. Ce n’est qu’un projet&nbsp;: rien n’est accepté.</p>
+    <div class="meta"><span class="badge unconfirmed">Non confirmé</span><span class="source">Source&nbsp;: <a href="https://www.axios.com/2026/11/05/trump-iran-war-national-security-team-decision">Axios ↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Rezaei chez Poutine&nbsp;: Téhéran maintient ses sept conditions</h3>
+    <p>Le secrétaire du Conseil suprême de sécurité nationale iranien a remis à Vladimir Poutine un message du Guide suprême Mojtaba Khamenei. Il affirme que ni Ormuz ne rouvrira ni négociation n’aura lieu tant que Washington n’aura pas rempli sept conditions&nbsp;; Poutine se dit prêt à aider à mettre fin à la guerre.</p>
+    <div class="meta"><span class="source">Sources&nbsp;: <a href="https://www.aljazeera.com/news/2026/11/6/irans-security-chief-meets-putin-delivers-message-from-khamenei">Al Jazeera ↗</a>, <a href="https://www.axios.com/2026/11/05/trump-iran-war-national-security-team-decision">Axios ↗</a></span></div>
+  </article>
+</section>
+
+<section class="theme" id="verification">
+  <h2><span class="emoji">✅</span> Vérification</h2>
+  <article class="card">
+    <h3>✅ Vérifié</h3>
+    <p>Clôtures des indices (AP, CNBC, Fox Business)&nbsp;; Brent et WTI (Reuters)&nbsp;; taux (CNBC)&nbsp;; hausse de la Banque d’Angleterre (BoE, BBC, Reuters)&nbsp;; krach et liquidations crypto (The Block, CoinDesk, Cointelegraph, Yahoo Finance)&nbsp;; METR (METR, AP)&nbsp;; Agility (Robot Report, séance)&nbsp;; propos de Trump et projet qatari (Axios), rencontre Rezaei–Poutine (Axios, Al Jazeera).</p>
+  </article>
+  <article class="card">
+    <h3>⚠️ À confirmer</h3>
+    <p>Transfert Trump Media&nbsp;: mouvement on-chain (Arkham via CoinDesk), pas une vente avérée&nbsp;; la valeur en dollars varie selon les articles. Plan qatari&nbsp;: sources régionales non nommées. Chiffres d’OpenAI (Firefox, Linux) et d’Agility (commandes, levée) venant des entreprises. Consensus emploi&nbsp;: 59&nbsp;000 (Dow Jones/CNBC), d’autres sources parlent de 65&nbsp;000. Niveau du 10 ans&nbsp;: séance, pas clôture. Cours crypto du matin sensibles à l’heure de coupe.</p>
+  </article>
+</section>
+
+<footer>
+  <p>Généré le vendredi 6 novembre 2026 vers 07h20 (heure de Paris). Faits repérés via X puis recoupés sur le web&nbsp;; liens vérifiés.</p>
+  <p>Les badges signalent les chiffres publiés par les entreprises elles-mêmes et les informations non confirmées officiellement.</p>
+</footer>
+</main>
+</body>
+</html>
