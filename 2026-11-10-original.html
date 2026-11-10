@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<title>Brief du Matin · Mardi 10 novembre 2026</title>
+<!--
+  GABARIT « Brief du Matin » : un seul fichier, CSS inline, aucune dépendance, pas de JS.
+  Thème sombre par défaut, clair automatique via prefers-color-scheme.
+  Utilisation : copier ce fichier vers brief-AAAA-MM-JJ.html, remplacer chaque {{EMPLACEMENT}},
+  dupliquer les <article class="card"> (3 à 4 par section). Ne pas modifier le bloc <style>.
+  Typographie : mettre une espace insécable (&nbsp;) avant : ; % ? ! » et après «.
+-->
+<style>
+:root{
+  --bg:#0e1116; --surface:#161b22; --surface-2:#1c222b; --border:#2a313c;
+  --text:#e8ecf1; --muted:#9aa4b2; --accent:#e0b062; --link:#8fbcff;
+  --up:#3fcf8e; --up-bg:rgba(63,207,142,.12); --down:#ff6b6b; --down-bg:rgba(255,107,107,.12);
+  --badge-co:#c9a7ff; --badge-co-bg:rgba(201,167,255,.12);
+  --badge-nc:#ffb347; --badge-nc-bg:rgba(255,179,71,.12);
+}
+@media (prefers-color-scheme: light){
+  :root{
+    --bg:#f6f4ef; --surface:#ffffff; --surface-2:#faf8f4; --border:#e3ded4;
+    --text:#1b1f24; --muted:#5d6672; --accent:#9a6a12; --link:#1f5fbf;
+    --up:#0f8a55; --up-bg:rgba(15,138,85,.10); --down:#c62f2f; --down-bg:rgba(198,47,47,.09);
+    --badge-co:#6b3fc0; --badge-co-bg:rgba(107,63,192,.09);
+    --badge-nc:#a35a00; --badge-nc-bg:rgba(163,90,0,.10);
+  }
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji";
+  font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:780px;margin:0 auto;padding:40px 22px 28px}
+header.masthead{padding-bottom:22px;margin-bottom:26px;border-bottom:1px solid var(--border)}
+.kicker{font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);font-weight:600;margin:0 0 6px}
+h1{font-size:2.3rem;line-height:1.15;margin:0;font-weight:750;letter-spacing:-.02em}
+.date{margin:8px 0 0;color:var(--muted);font-size:1rem}
+.date .sep{opacity:.5;margin:0 .45em}
+.essentiel{background:linear-gradient(135deg,var(--surface-2),var(--surface));border:1px solid var(--border);
+  border-left:4px solid var(--accent);border-radius:14px;padding:18px 22px 16px;margin:0 0 34px}
+.essentiel h2{margin:0 0 8px;font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+.essentiel ul{margin:0;padding-left:1.15em}
+.essentiel li{margin:6px 0;font-weight:500}
+.essentiel li::marker{color:var(--accent)}
+section.theme{margin:0 0 38px}
+section.theme > h2{font-size:1.4rem;margin:0 0 14px;display:flex;align-items:center;gap:.5em;letter-spacing:-.01em}
+section.theme > h2 .emoji{font-size:1.25em;line-height:1}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin:0 0 16px}
+.tile{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:10px 12px}
+.tile .label{font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:600}
+.tile .value{font-size:1.15rem;font-weight:700;font-variant-numeric:tabular-nums;margin-top:2px;white-space:nowrap}
+.tile .chg{display:inline-block;margin-top:4px;font-size:.8rem;font-weight:650;padding:1px 7px;border-radius:999px;font-variant-numeric:tabular-nums}
+.chg.up{color:var(--up);background:var(--up-bg)}
+.chg.down{color:var(--down);background:var(--down-bg)}
+.tiles-note{font-size:.78rem;color:var(--muted);margin:-8px 0 16px}
+.tiles-note a{color:var(--muted)}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:16px 18px;margin:0 0 12px}
+.card h3{margin:0 0 6px;font-size:1.05rem;line-height:1.35;font-weight:700}
+.card p{margin:0;color:var(--text)}
+.card .meta{margin-top:10px;display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;font-size:.82rem}
+.source{color:var(--muted)}
+.source a{color:var(--link);text-decoration:none;border-bottom:1px solid transparent}
+.source a:hover{border-bottom-color:var(--link)}
+.badge{display:inline-block;font-size:.7rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:2px 8px;border-radius:999px;white-space:nowrap}
+.badge.company{color:var(--badge-co);background:var(--badge-co-bg)}
+.badge.unconfirmed{color:var(--badge-nc);background:var(--badge-nc-bg)}
+footer{margin-top:10px;padding-top:16px;border-top:1px solid var(--border);color:var(--muted);font-size:.8rem;line-height:1.5}
+footer p{margin:4px 0}
+@media (max-width:520px){
+  body{font-size:16px}
+  .wrap{padding:26px 16px 22px}
+  h1{font-size:1.85rem}
+  .tiles{grid-template-columns:repeat(2,1fr)}
+  .card{padding:14px 15px}
+  .essentiel{padding:16px 16px 14px}
+}
+.tiles.six{grid-template-columns:repeat(3,1fr)}
+@media (max-width:520px){.tiles.six{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+<main class="wrap">
+<header class="masthead">
+  <p class="kicker">Crypto · IA · Macro · Géopolitique</p>
+  <h1>Brief du Matin</h1>
+  <p class="date">Mardi 10 novembre 2026<span class="sep">·</span>Les dernières 24 heures</p>
+</header>
+
+<aside class="essentiel" aria-label="L'essentiel">
+  <h2>L'essentiel</h2>
+  <ul>
+    <li>Wall Street signe sa meilleure séance depuis avril (S&amp;P&nbsp;500 +2,35&nbsp;%) avec la chute du pétrole, mais Nvidia perd 4,3&nbsp;% avec l’enquête sur Jensen Huang.</li>
+    <li>Iran&nbsp;: selon Al Arabiya, une proposition qatarie et pakistanaise relance les négociations (enrichissement à 3,67&nbsp;%, levée du blocus, 6 à 9&nbsp;Md$ dégelés). Non confirmé par Washington ni Téhéran.</li>
+    <li>Le mineur MARA a vendu 13&nbsp;597&nbsp;BTC (≈&nbsp;1,1&nbsp;Md$), 40&nbsp;% de son stock, et compte continuer pour financer l’IA&nbsp;; le bitcoin reste collé à 74&nbsp;700&nbsp;$.</li>
+  </ul>
+</aside>
+
+<section class="theme" id="crypto">
+  <h2><span class="emoji">₿</span> Crypto</h2>
+  <div class="tiles">
+    <div class="tile"><div class="label">BTC</div><div class="value">≈ 74&nbsp;696&nbsp;$</div><span class="chg up">+0,2&nbsp;% (24 h)</span></div>
+    <div class="tile"><div class="label">ETH</div><div class="value">≈ 2&nbsp;121&nbsp;$</div><span class="chg down">−0,5&nbsp;% (24 h)</span></div>
+    <div class="tile"><div class="label">SOL</div><div class="value">≈ 86,1&nbsp;$</div><span class="chg down">−0,6&nbsp;% (24 h)</span></div>
+  </div>
+  <p class="tiles-note">Cours de mardi vers 07h05 (heure de Paris). Source&nbsp;: <a href="https://www.coingecko.com/">CoinGecko&nbsp;↗</a></p>
+  <article class="card">
+    <h3>MARA vend 40&nbsp;% de ses bitcoins</h3>
+    <p>Le mineur a cédé 13&nbsp;597&nbsp;BTC après fin septembre, à ≈&nbsp;81&nbsp;039&nbsp;$ de moyenne, soit ≈&nbsp;1,1&nbsp;Md$, dont 750&nbsp;M$ pour rembourser ses prêts adossés au BTC. Il prévient qu’il continuera de vendre pour financer l’infrastructure IA, ses obligations convertibles et un rachat d’actions jusqu’à 500&nbsp;M$&nbsp;: un vendeur régulier de plus sur le marché.</p>
+    <div class="meta"><span class="badge company">Chiffres de l’entreprise</span><span class="source">Sources&nbsp;: <a href="https://ir.mara.com/sec-filings/all-sec-filings/content/0001507605-26-000026/q326shareholderletter.htm">MARA&nbsp;↗</a>, <a href="https://www.coindesk.com/markets/2026/11/10/bitcoin-miner-mara-sold-13-597-btc-for-usd1-1-billion-in-six-weeks-plans-to-sell-more">CoinDesk&nbsp;↗</a>, <a href="https://www.theblock.co/news/business/2026-11-09-mara-q3-earnings-net-profit-bitcoin-sale-ai-pivot-436950">The Block&nbsp;↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Le bitcoin ne suit pas le rebond des actions</h3>
+    <p>Le Nasdaq a pris 2,7&nbsp;% lundi, mais le BTC est resté vers 74&nbsp;500–75&nbsp;000&nbsp;$, sous la barre des 75&nbsp;000&nbsp;$ surveillée par les traders. La corrélation avec la tech, très forte ces dernières semaines, a lâché le temps d’une séance.</p>
+    <div class="meta"><span class="source">Sources&nbsp;: <a href="https://www.cnbc.com/2026/11/08/stock-market-today-live-updates.html">CNBC&nbsp;↗</a>, <a href="https://x.com/i/trending/2119923188637573568">X&nbsp;↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Strategy achète encore, mais petit</h3>
+    <p>Strategy a acheté 1&nbsp;036&nbsp;BTC du 2 au 8 novembre pour 81,9&nbsp;M$ (≈&nbsp;79&nbsp;012&nbsp;$ pièce) et détient 850&nbsp;364&nbsp;BTC. Son prix de revient moyen (≈&nbsp;75&nbsp;456&nbsp;$) est désormais au-dessus du cours.</p>
+    <div class="meta"><span class="badge company">Chiffres de l’entreprise</span><span class="source">Sources&nbsp;: <a href="https://www.strategy.com/press/strategy-acquires-1036-btc-and-repurchases-188-million-of-strc_11-09-2026">Strategy&nbsp;↗</a>, <a href="https://bitcoinmagazine.com/news/strategy-mstr-adds-1036-bitcoin-holdings">Bitcoin Magazine&nbsp;↗</a>, <a href="https://www.strategy.com/ledger">Ledger Strategy&nbsp;↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Les gros porteurs troquent leurs clés contre l’ETF</h3>
+    <p>BlackRock dit voir un record de conversions de bitcoins auto-détenus en parts de son ETF IBIT, au moins 3,6&nbsp;Md$ au total, surtout par peur des piratages et des enlèvements. Un signe que la sécurité physique devient un moteur de l’adoption des ETF.</p>
+    <div class="meta"><span class="badge company">Chiffres de l’entreprise</span><span class="source">Sources&nbsp;: <a href="https://bitcoinmagazine.com/news/blackrock-bitcoin-whales-self-custody-ibit">Bitcoin Magazine&nbsp;↗</a>, <a href="https://cryptojournal.media/en/news-en/blackrock-ibit-bitcoin-conversions-3-6-billion/">Crypto Journal&nbsp;↗</a></span></div>
+  </article>
+</section>
+
+<section class="theme" id="ia">
+  <h2><span class="emoji">🤖</span> IA</h2>
+  <article class="card">
+    <h3>Nvidia lâche 4,3&nbsp;% seule contre le marché</h3>
+    <p>Première séance après l’annonce de l’enquête du conseil sur Jensen Huang&nbsp;: l’action a clôturé à 178,67&nbsp;$ (−4,3&nbsp;%), soit ≈&nbsp;193&nbsp;Md$ de capitalisation effacés, pendant que le reste des semi-conducteurs montait. Le marché commence à chiffrer un risque propre à Nvidia, pas à tout le thème IA.</p>
+    <div class="meta"><span class="source">Sources&nbsp;: <a href="https://www.cnbc.com/2026/11/09/nvidia-jensen-huang-chinese-spy-investigation.html">CNBC&nbsp;↗</a>, <a href="https://finance.yahoo.com/markets/stocks/articles/nvidia-stock-slumps-amid-board-141523990.html">Yahoo Finance&nbsp;↗</a>, <a href="https://asia.nikkei.com/business/markets/nvidia-shares-drop-as-jensen-huang-affair-raises-china-spy-concerns">Nikkei Asia&nbsp;↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>AMD bondit de 13&nbsp;%</h3>
+    <p>Meilleure hausse des grands noms des puces lundi&nbsp;: Oppenheimer relève AMD à «&nbsp;surperformer&nbsp;» (objectif 600&nbsp;$) et Google Cloud retient ses processeurs EPYC de 5ᵉ génération pour son infrastructure TPU 8tx. L’argent sorti de Nvidia ne quitte pas l’IA, il change de fournisseur.</p>
+    <div class="meta"><span class="source">Sources&nbsp;: <a href="https://www.fool.com/coverage/stock-market-today/2026/11/09/stock-market-today-nov-9-amd-jumps-on-oppenheimer-upgrade-and-google-cloud-chip-selection/">Motley Fool&nbsp;↗</a>, <a href="https://www.investing.com/news/stock-market-news/oppenheimer-lifts-amd-to-outperform-sees-data-center-sales-more-than-doubling-5011978">Investing.com&nbsp;↗</a>, <a href="https://ir.amd.com/news-events/press-releases/detail/1304/amd-epyc-expands-its-leadership-at-the-foundation-of-ai">AMD&nbsp;↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Robotaxi Tesla à San Antonio</h3>
+    <p>Tesla a ouvert lundi son service de robotaxi sans chauffeur à San Antonio, nouvelle ville après ses déploiements au Texas et en Floride, sur une zone d’environ 274&nbsp;miles² centrée sur le centre-ville (aéroport exclu pour l’instant).</p>
+    <div class="meta"><span class="source">Sources&nbsp;: <a href="https://techcrunch.com/2026/11/09/tesla-expands-robotaxi-service-to-san-antonio/">TechCrunch&nbsp;↗</a>, <a href="https://www.axios.com/local/san-antonio/2026/11/09/tesla-robotaxis-san-antonio-self-driving-cars">Axios&nbsp;↗</a></span></div>
+  </article>
+</section>
+
+<section class="theme" id="macro">
+  <h2><span class="emoji">📈</span> Macro</h2>
+  <div class="tiles">
+    <div class="tile"><div class="label">S&amp;P 500</div><div class="value">7&nbsp;549,94</div><span class="chg up">+2,35&nbsp;%</span></div>
+    <div class="tile"><div class="label">Nasdaq</div><div class="value">25&nbsp;253,14</div><span class="chg up">+2,74&nbsp;%</span></div>
+    <div class="tile"><div class="label">US 2 ans</div><div class="value">4,56&nbsp;%</div><span class="chg up">+1,4 pb</span></div>
+    <div class="tile"><div class="label">Brent</div><div class="value">91,56&nbsp;$</div><span class="chg down">−1&nbsp;%</span></div>
+  </div>
+  <p class="tiles-note">Indices&nbsp;: clôture de lundi. Taux et Brent&nbsp;: séance asiatique de mardi. Sources&nbsp;: <a href="https://www.cnbc.com/2026/11/08/stock-market-today-live-updates.html">CNBC&nbsp;↗</a>, <a href="https://live.euronext.com/en/financial-news/asian-stocks-climb-sliding-oil-prices-buoy-sentiment">Reuters via Euronext&nbsp;↗</a></p>
+  <article class="card">
+    <h3>Meilleure séance depuis avril</h3>
+    <p>Le Dow a pris 1&nbsp;104&nbsp;points (+2,15&nbsp;%), porté par la chute du pétrole (WTI −4,4&nbsp;% à 86,85&nbsp;$, Brent au plus bas depuis début septembre) et un retour sur la tech après la déroute de la semaine passée. L’Asie suit ce matin, Kospi en tête.</p>
+    <div class="meta"><span class="source">Sources&nbsp;: <a href="https://www.cnbc.com/2026/11/08/stock-market-today-live-updates.html">CNBC&nbsp;↗</a>, <a href="https://live.euronext.com/en/financial-news/asian-stocks-climb-sliding-oil-prices-buoy-sentiment">Reuters via Euronext&nbsp;↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Inflation US aujourd’hui, sans chiffre annuel</h3>
+    <p>Le BLS publie l’indice des prix d’octobre sans glissement sur 12 mois&nbsp;: les données d’octobre 2025 n’ont jamais été collectées pendant le shutdown. Le consensus attend +0,3&nbsp;% sur un mois (+0,2&nbsp;% hors énergie et alimentation), et les marchés prêtent 84&nbsp;% de chances à une hausse de taux de la Fed en décembre (CME FedWatch).</p>
+    <div class="meta"><span class="source">Sources&nbsp;: <a href="https://www.bls.gov/cpi/additional-resources/2025-federal-government-shutdown-impact-cpi.htm">BLS&nbsp;↗</a>, <a href="https://www.investing.com/news/economy-news/bls-will-omit-12month-cpi-core-cpi-figures-from-october-report-5013053">Investing.com&nbsp;↗</a>, <a href="https://live.euronext.com/en/financial-news/asian-stocks-climb-sliding-oil-prices-buoy-sentiment">Reuters via Euronext&nbsp;↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Les ménages américains craignent pour l’emploi</h3>
+    <p>Selon l’enquête de la Fed de New York, les anticipations d’inflation à un an restent à 3,9&nbsp;%, mais la probabilité d’un chômage plus élevé dans un an grimpe à 45,3&nbsp;%, du jamais-vu depuis avril 2020.</p>
+    <div class="meta"><span class="source">Sources&nbsp;: <a href="https://www.newyorkfed.org/newsevents/news/research/2026/20261109.html">Fed de New York&nbsp;↗</a>, <a href="https://hoodline.com/2026/11/americans-expect-steady-prices-but-brace-for-worst-jobs-outlook-since-2020/">Hoodline&nbsp;↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Chine&nbsp;: les prix d’usine s’envolent</h3>
+    <p>En octobre, les prix à la production chinois montent de 5,7&nbsp;% sur un an, au plus haut depuis 2022, sous l’effet de l’énergie et des matières premières, alors que les prix à la consommation ralentissent à +0,7&nbsp;%. Les industriels absorbent la hausse faute de demande intérieure.</p>
+    <div class="meta"><span class="source">Sources&nbsp;: <a href="https://www.stats.gov.cn/sj/sjjd/202611/t20261109_1965796.html">BNS Chine&nbsp;↗</a>, <a href="https://www.investing.com/news/economy-news/chinas-october-producer-inflation-quickens-further-consumer-prices-edge-down-5010403">Reuters via Investing.com&nbsp;↗</a></span></div>
+  </article>
+</section>
+
+<section class="theme" id="geopolitique">
+  <h2><span class="emoji">🌍</span> Géopolitique</h2>
+  <article class="card">
+    <h3>Iran&nbsp;: un plan qatari-pakistanais sur la table</h3>
+    <p>D’après des sources d’Al Arabiya, Washington accepterait un enrichissement à 3,67&nbsp;% sur le sol iranien, contre une baisse du stock à 60&nbsp;%, le retour des inspecteurs de l’AIEA, la réouverture d’Ormuz, la levée du blocus naval et 6 à 9&nbsp;Md$ d’avoirs dégelés. Aucune confirmation officielle&nbsp;; c’est ce qui fait baisser le pétrole.</p>
+    <div class="meta"><span class="badge unconfirmed">Non confirmé</span><span class="source">Sources&nbsp;: <a href="https://www.alarabiya.net/iran/2026/11/09/%D9%85%D8%B5%D8%A7%D8%AF%D8%B1-%D8%A7%D9%84%D8%B9%D8%B1%D8%A8%D9%8A%D8%A9-%D9%85%D9%82%D8%AA%D8%B1%D8%AD-%D9%82%D8%B7%D8%B1%D9%8A-%D8%A8%D8%A7%D9%83%D8%B3%D8%AA%D8%A7%D9%86%D9%8A-%D9%8A%D8%B9%D9%8A%D8%AF-%D8%A7%D8%AD%D9%8A%D8%A7%D8%A1-%D8%A7%D9%84%D9%85%D9%81%D8%A7%D9%88%D8%B6%D8%A7%D8%AA-%D8%A8%D9%8A%D9%86-%D9%88%D8%A7%D8%B4%D9%86%D8%B7%D9%86-%D9%88%D8%B7%D9%87%D8%B1%D8%A7%D9%86-">Al Arabiya&nbsp;↗</a>, <a href="https://www.samaa.tv/2087359970-new-pakistan-qatar-proposal-revives-us-iran-serious-negotiations-report">Samaa TV&nbsp;↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Ukraine&nbsp;: reprise des pourparlers à Abu Dhabi</h3>
+    <p>Russes, Ukrainiens et Américains (Witkoff et Kushner) se retrouvent aujourd’hui et demain, pour la première fois depuis février. Washington veut une «&nbsp;fin définitive&nbsp;» de la guerre et propose une nouvelle «&nbsp;architecture de sécurité&nbsp;» avec l’Europe&nbsp;; le Donbass reste le point de blocage.</p>
+    <div class="meta"><span class="source">Sources&nbsp;: <a href="https://apnews.com/article/russia-ukraine-war-putin-zelenskyy-uae-3d878a3e56d5df5bd198a6d20c824d18">AP&nbsp;↗</a>, <a href="https://www.theguardian.com/world/2026/nov/10/us-officials-russia-ukraine-war-abu-dhabi-talks">The Guardian&nbsp;↗</a>, <a href="https://www.bbc.com/news/articles/cqpvgvrpjvv8o">BBC&nbsp;↗</a></span></div>
+  </article>
+</section>
+
+<section class="theme" id="verification">
+  <h2><span class="emoji">✅</span> Vérification</h2>
+  <article class="card">
+    <h3>✅ Vérifié</h3>
+    <p>Clôtures de Wall Street et pétrole (CNBC, AP, Proactive Investors)&nbsp;; Nvidia −4,3&nbsp;% (CNBC, Yahoo Finance, Nikkei)&nbsp;; AMD (Motley Fool, Investing.com, communiqué AMD)&nbsp;; ventes de MARA (lettre aux actionnaires, CoinDesk, The Block, BeInCrypto)&nbsp;; achat de Strategy (communiqué, dépôt SEC, Bitcoin Magazine)&nbsp;; CPI sans glissement annuel (BLS, Investing.com)&nbsp;; enquête Fed de New York (Fed, Hoodline)&nbsp;; prix chinois (BNS, Reuters, Xinhua)&nbsp;; Abu Dhabi (AP, Guardian, BBC, Reuters)&nbsp;; robotaxi (TechCrunch, Axios)&nbsp;; cours CoinGecko du matin.</p>
+  </article>
+  <article class="card">
+    <h3>⚠️ À confirmer</h3>
+    <p>Plan iranien&nbsp;: termes rapportés par des sources d’Al Arabiya et repris ailleurs, sans confirmation américaine ni iranienne. Capitalisation perdue par Nvidia&nbsp;: 193&nbsp;Md$ selon Yahoo Finance, le Guardian avance 330&nbsp;Md$ en séance. Conversions IBIT&nbsp;: chiffre de BlackRock (via Barron’s), probablement sous-estimé selon la société. Chiffres de MARA et Strategy&nbsp;: déclarations des entreprises. Taux et Brent&nbsp;: séance asiatique, susceptibles de bouger.</p>
+  </article>
+</section>
+
+<footer>
+  <p>Généré le mardi 10 novembre 2026 vers 07h20 (heure de Paris). Faits repérés via X puis recoupés sur le web&nbsp;; liens vérifiés.</p>
+  <p>Les badges signalent les chiffres publiés par les entreprises elles-mêmes et les informations non confirmées officiellement.</p>
+</footer>
+</main>
+</body>
+</html>
