@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<title>Brief du Matin · Mercredi 11 novembre 2026</title>
+<!--
+  GABARIT « Brief du Matin » : un seul fichier, CSS inline, aucune dépendance, pas de JS.
+  Thème sombre par défaut, clair automatique via prefers-color-scheme.
+  Utilisation : copier ce fichier vers brief-AAAA-MM-JJ.html, remplacer chaque {{EMPLACEMENT}},
+  dupliquer les <article class="card"> (3 à 4 par section). Ne pas modifier le bloc <style>.
+  Typographie : mettre une espace insécable (&nbsp;) avant : ; % ? ! » et après «.
+-->
+<style>
+:root{
+  --bg:#0e1116; --surface:#161b22; --surface-2:#1c222b; --border:#2a313c;
+  --text:#e8ecf1; --muted:#9aa4b2; --accent:#e0b062; --link:#8fbcff;
+  --up:#3fcf8e; --up-bg:rgba(63,207,142,.12); --down:#ff6b6b; --down-bg:rgba(255,107,107,.12);
+  --badge-co:#c9a7ff; --badge-co-bg:rgba(201,167,255,.12);
+  --badge-nc:#ffb347; --badge-nc-bg:rgba(255,179,71,.12);
+}
+@media (prefers-color-scheme: light){
+  :root{
+    --bg:#f6f4ef; --surface:#ffffff; --surface-2:#faf8f4; --border:#e3ded4;
+    --text:#1b1f24; --muted:#5d6672; --accent:#9a6a12; --link:#1f5fbf;
+    --up:#0f8a55; --up-bg:rgba(15,138,85,.10); --down:#c62f2f; --down-bg:rgba(198,47,47,.09);
+    --badge-co:#6b3fc0; --badge-co-bg:rgba(107,63,192,.09);
+    --badge-nc:#a35a00; --badge-nc-bg:rgba(163,90,0,.10);
+  }
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji";
+  font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:780px;margin:0 auto;padding:40px 22px 28px}
+header.masthead{padding-bottom:22px;margin-bottom:26px;border-bottom:1px solid var(--border)}
+.kicker{font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);font-weight:600;margin:0 0 6px}
+h1{font-size:2.3rem;line-height:1.15;margin:0;font-weight:750;letter-spacing:-.02em}
+.date{margin:8px 0 0;color:var(--muted);font-size:1rem}
+.date .sep{opacity:.5;margin:0 .45em}
+.essentiel{background:linear-gradient(135deg,var(--surface-2),var(--surface));border:1px solid var(--border);
+  border-left:4px solid var(--accent);border-radius:14px;padding:18px 22px 16px;margin:0 0 34px}
+.essentiel h2{margin:0 0 8px;font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+.essentiel ul{margin:0;padding-left:1.15em}
+.essentiel li{margin:6px 0;font-weight:500}
+.essentiel li::marker{color:var(--accent)}
+section.theme{margin:0 0 38px}
+section.theme > h2{font-size:1.4rem;margin:0 0 14px;display:flex;align-items:center;gap:.5em;letter-spacing:-.01em}
+section.theme > h2 .emoji{font-size:1.25em;line-height:1}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin:0 0 16px}
+.tile{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:10px 12px}
+.tile .label{font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:600}
+.tile .value{font-size:1.15rem;font-weight:700;font-variant-numeric:tabular-nums;margin-top:2px;white-space:nowrap}
+.tile .chg{display:inline-block;margin-top:4px;font-size:.8rem;font-weight:650;padding:1px 7px;border-radius:999px;font-variant-numeric:tabular-nums}
+.chg.up{color:var(--up);background:var(--up-bg)}
+.chg.down{color:var(--down);background:var(--down-bg)}
+.tiles-note{font-size:.78rem;color:var(--muted);margin:-8px 0 16px}
+.tiles-note a{color:var(--muted)}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:16px 18px;margin:0 0 12px}
+.card h3{margin:0 0 6px;font-size:1.05rem;line-height:1.35;font-weight:700}
+.card p{margin:0;color:var(--text)}
+.card .meta{margin-top:10px;display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;font-size:.82rem}
+.source{color:var(--muted)}
+.source a{color:var(--link);text-decoration:none;border-bottom:1px solid transparent}
+.source a:hover{border-bottom-color:var(--link)}
+.badge{display:inline-block;font-size:.7rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:2px 8px;border-radius:999px;white-space:nowrap}
+.badge.company{color:var(--badge-co);background:var(--badge-co-bg)}
+.badge.unconfirmed{color:var(--badge-nc);background:var(--badge-nc-bg)}
+footer{margin-top:10px;padding-top:16px;border-top:1px solid var(--border);color:var(--muted);font-size:.8rem;line-height:1.5}
+footer p{margin:4px 0}
+@media (max-width:520px){
+  body{font-size:16px}
+  .wrap{padding:26px 16px 22px}
+  h1{font-size:1.85rem}
+  .tiles{grid-template-columns:repeat(2,1fr)}
+  .card{padding:14px 15px}
+  .essentiel{padding:16px 16px 14px}
+}
+.tiles.six{grid-template-columns:repeat(3,1fr)}
+@media (max-width:520px){.tiles.six{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+<main class="wrap">
+<header class="masthead">
+  <p class="kicker">Crypto · IA · Macro · Géopolitique</p>
+  <h1>Brief du Matin</h1>
+  <p class="date">Mercredi 11 novembre 2026<span class="sep">·</span>Les dernières 24 heures</p>
+</header>
+
+<aside class="essentiel" aria-label="L'essentiel">
+  <h2>L'essentiel</h2>
+  <ul>
+    <li>Inflation US plus chaude que prévu en octobre (+0,4&nbsp;% sur un mois, +0,3&nbsp;% hors énergie et alimentation)&nbsp;: la Fed de Dallas réclame au moins deux hausses de taux, Wall Street recule et le bitcoin passe sous 73&nbsp;000&nbsp;$.</li>
+    <li>Anthropic lance son introduction en Bourse&nbsp;: 70 à 78&nbsp;$ par action, jusqu’à ≈&nbsp;1&nbsp;400&nbsp;Md$ de valorisation, cotation visée vers le 19 novembre sur le Nasdaq.</li>
+    <li>Nvidia chute encore de 5,5&nbsp;% avec l’affaire Jensen Huang et passe brièvement sous les 4&nbsp;000&nbsp;Md$ de capitalisation.</li>
+  </ul>
+</aside>
+
+<section class="theme" id="crypto">
+  <h2><span class="emoji">₿</span> Crypto</h2>
+  <div class="tiles">
+    <div class="tile"><div class="label">BTC</div><div class="value">≈ 73&nbsp;828&nbsp;$</div><span class="chg down">−1,0&nbsp;% (24 h)</span></div>
+    <div class="tile"><div class="label">ETH</div><div class="value">≈ 2&nbsp;066&nbsp;$</div><span class="chg down">−2,4&nbsp;% (24 h)</span></div>
+    <div class="tile"><div class="label">SOL</div><div class="value">≈ 83,2&nbsp;$</div><span class="chg down">−3,2&nbsp;% (24 h)</span></div>
+    <div class="tile"><div class="label">XRP</div><div class="value">≈ 1,06&nbsp;$</div><span class="chg down">−3,2&nbsp;% (24 h)</span></div>
+  </div>
+  <p class="tiles-note">Cours de mercredi vers 07h10 (heure de Paris). Source&nbsp;: <a href="https://www.coingecko.com/">CoinGecko&nbsp;↗</a></p>
+  <article class="card">
+    <h3>Le CPI fait plonger le bitcoin sous 73&nbsp;000&nbsp;$</h3>
+    <p>Après l’inflation US, le BTC est tombé sous 73&nbsp;000&nbsp;$, l’ETH a perdu ≈&nbsp;5&nbsp;% et SOL et XRP ont suivi, avec ≈&nbsp;716&nbsp;M$ de positions liquidées en 24&nbsp;h, surtout des paris haussiers (CoinGlass). Le seuil de 73&nbsp;000&nbsp;$ correspond à la moyenne mobile 200 jours&nbsp;: Wintermute prévient qu’une clôture en dessous ouvre la voie vers 68&nbsp;000&nbsp;$.</p>
+    <div class="meta"><span class="source">Sources&nbsp;: <a href="https://www.fxstreet.com/cryptocurrencies/news/bitcoin-crypto-market-fall-as-hot-us-inflation-triggers-700-million-in-liquidations-202611102102">FXStreet&nbsp;↗</a>, <a href="https://www.theblock.co/news/markets/2026-11-10-bitcoin-price-cpi-inflation-73000-support-437301">The Block&nbsp;↗</a>, <a href="https://news.bitcoin.com/market-updates/bitcoin-price-crashes-72787-hotter-than-expected-cpi/">Bitcoin.com&nbsp;↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Square active le paiement en bitcoin chez ses commerçants US</h3>
+    <p>Le déploiement lancé en mars devait s’achever le 10 novembre&nbsp;: les commerçants américains éligibles du réseau Square (plus de 4 millions de marchands au total, New York exclu) acceptent le BTC via Lightning, encaissé en dollars par défaut, sans frais jusqu’à fin 2026 puis 1&nbsp;%. Le plus gros test de bitcoin «&nbsp;monnaie du quotidien&nbsp;» à ce jour, même si l’usage réel reste à mesurer.</p>
+    <div class="meta"><span class="badge company">Chiffres de l’entreprise</span><span class="source">Sources&nbsp;: <a href="https://squareup.com/help/us/en/article/8622-accept-and-manage-bitcoin-payments">Square&nbsp;↗</a>, <a href="https://ct.com/news/square-begins-auto-enabling-bitcoin-payments-for-eligible-us-sellers-exec-says">Cointelegraph&nbsp;↗</a>, <a href="https://www.tokenpost.com/news/business/52188">TokenPost&nbsp;↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Un tiers des bitcoins exposés au risque quantique</h3>
+    <p>Selon Glassnode, 35,4&nbsp;% de l’offre (7,12 millions de BTC) a une clé publique déjà visible sur la chaîne, surtout à cause de la réutilisation d’adresses (25,8&nbsp;%). Aucun risque immédiat, mais l’argument relance le débat sur une mise à niveau post-quantique du protocole.</p>
+    <div class="meta"><span class="source">Sources&nbsp;: <a href="https://cryptobriefing.com/glassnode-bitcoin-public-key-exposure-quantum/">Crypto Briefing&nbsp;↗</a>, <a href="https://crypto.news/bitcoin-public-key-exposure-quantum-risk/">crypto.news&nbsp;↗</a></span></div>
+  </article>
+</section>
+
+<section class="theme" id="ia">
+  <h2><span class="emoji">🤖</span> IA</h2>
+  <article class="card">
+    <h3>Anthropic fixe le prix de son IPO</h3>
+    <p>825 millions d’actions entre 70 et 78&nbsp;$, soit jusqu’à 64&nbsp;Md$ levés et ≈&nbsp;1&nbsp;400&nbsp;Md$ de valorisation au haut de la fourchette, contre 965&nbsp;Md$ en mai. En parallèle, 26&nbsp;Md$ d’actions sans droit de vote vendues à Google, Nvidia, AMD, Microsoft, Broadcom, Micron et TSMC. Prix attendu le 18, cotation le 19 sous le symbole ANT, avec ≈&nbsp;20&nbsp;% réservés aux particuliers selon CNBC.</p>
+    <div class="meta"><span class="badge company">Chiffres de l’entreprise</span><span class="source">Sources&nbsp;: <a href="https://www.anthropic.com/news/roadshow-launch">Anthropic&nbsp;↗</a>, <a href="https://www.cnbc.com/2026/11/10/anthropic-sets-price-range-of-70-to-78-in-upcoming-ipo.html">CNBC&nbsp;↗</a>, <a href="https://techcrunch.com/2026/11/10/anthropic-sets-ipo-price-range-of-70-to-78-per-share-to-reach-an-implied-valuation-of-1-404-trillion/">TechCrunch&nbsp;↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Nvidia&nbsp;: deuxième jour de chute</h3>
+    <p>L’action perd 5,47&nbsp;% à 168,89&nbsp;$ et passe brièvement sous 4&nbsp;000&nbsp;Md$ de capitalisation, après un recours collectif d’actionnaires et la confirmation par Trump d’une enquête du FBI. Pendant ce temps, Broadcom (+4&nbsp;%) et AMD (+1,3&nbsp;%) continuent de monter&nbsp;: le marché isole le risque Nvidia.</p>
+    <div class="meta"><span class="source">Sources&nbsp;: <a href="https://www.cnbc.com/2026/11/10/nvidia-nvda-jensen-huang-affair-chinese-spy.html">CNBC&nbsp;↗</a>, <a href="https://www.investing.com/news/stock-market-news/us-stocks-lower-at-close-of-trade-dow-jones-industrial-average-down-030-5016940">Investing.com&nbsp;↗</a>, <a href="https://apnews.com/article/nvidia-jensen-huang-investigation-china-spy-4116755e690472eef677772ec55b856d">AP&nbsp;↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>La Fed pointe le risque d’une correction liée à l’IA</h3>
+    <p>Michelle Bowman, vice-présidente de la Fed chargée de la supervision, juge possible une forte correction des actions si les investissements dans l’IA déçoivent, avec un effet sur la consommation. Rare qu’un dirigeant de la Fed vise aussi directement le thème IA.</p>
+    <div class="meta"><span class="source">Sources&nbsp;: <a href="https://www.federalreserve.gov/newsevents/speech/bowman20261110a.htm">Fed&nbsp;↗</a>, <a href="https://news.bloomberglaw.com/banking-law/feds-bowman-warns-of-stock-correction-if-ai-bets-dont-pan-out">Bloomberg Law&nbsp;↗</a></span></div>
+  </article>
+</section>
+
+<section class="theme" id="macro">
+  <h2><span class="emoji">📈</span> Macro</h2>
+  <div class="tiles">
+    <div class="tile"><div class="label">S&amp;P 500</div><div class="value">7&nbsp;520,93</div><span class="chg down">−0,38&nbsp;%</span></div>
+    <div class="tile"><div class="label">Nasdaq</div><div class="value">25&nbsp;065,87</div><span class="chg down">−0,74&nbsp;%</span></div>
+    <div class="tile"><div class="label">US 10 ans</div><div class="value">≈ 4,99&nbsp;%</div><span class="chg up">+9 pb</span></div>
+    <div class="tile"><div class="label">Brent</div><div class="value">92,53&nbsp;$</div><span class="chg up">+1,1&nbsp;%</span></div>
+  </div>
+  <p class="tiles-note">Indices et taux&nbsp;: clôture de mardi. Brent&nbsp;: séance asiatique de mercredi. Sources&nbsp;: <a href="https://www.sharecast.com/news/market-report-us-close/wall-street-nyse-dow-jones-nasdaq-stocks-equities--24118290.html">Sharecast&nbsp;↗</a>, <a href="https://www.thestar.com.my/business/business-news/2026/11/11/oil-rebounds-as-hormuz-shipping-attacks-blunt-hopes-for-iran-truce">Reuters via The Star&nbsp;↗</a></p>
+  <article class="card">
+    <h3>Inflation d’octobre au-dessus des attentes</h3>
+    <p>Les prix montent de 0,4&nbsp;% sur un mois (0,3&nbsp;% attendu) et de 0,3&nbsp;% hors énergie et alimentation (0,2&nbsp;% attendu), tirés par le logement, l’alimentation (+0,5&nbsp;%) et l’énergie (+0,7&nbsp;%). Rythme qui, s’il durait, donnerait plus de 4&nbsp;% sur un an. Wall Street a reculé et le 10 ans US frôle 5&nbsp;%.</p>
+    <div class="meta"><span class="source">Sources&nbsp;: <a href="https://www.sharecast.com/news/market-report-us-close/wall-street-nyse-dow-jones-nasdaq-stocks-equities--24118290.html">Sharecast&nbsp;↗</a>, <a href="https://apnews.com/article/wall-street-stocks-dow-nasdaq-a97eb31c415811065561f2c2ac552cd7">AP&nbsp;↗</a>, <a href="https://www.investing.com/news/economy-news/feds-logan-calls-for-two-more-rate-hikes-possibly-rapidly-5016235">Reuters via Investing.com&nbsp;↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Logan veut au moins deux hausses de taux</h3>
+    <p>La présidente de la Fed de Dallas estime le taux directeur (3,75–4&nbsp;%) au moins 50&nbsp;pb trop bas et juge l’inflation excessive «&nbsp;inacceptable&nbsp;»&nbsp;; le rythme pourrait même s’accélérer cet hiver. Prochaine réunion de la Fed les 8 et 9 décembre.</p>
+    <div class="meta"><span class="source">Sources&nbsp;: <a href="https://www.dallasfed.org/news/speeches/logan/2026/lkl261110">Fed de Dallas&nbsp;↗</a>, <a href="https://www.investing.com/news/economy-news/feds-logan-calls-for-two-more-rate-hikes-possibly-rapidly-5016235">Reuters via Investing.com&nbsp;↗</a>, <a href="https://www.marketwatch.com/livecoverage/cpi-report-today-october-inflation-fed-rates-live-updates/card/fed-officials-reinforce-the-case-for-at-least-two-more-rate-hikes-wyGl7cHJ73GdT1fbhJum">MarketWatch&nbsp;↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Le pétrole rebondit sur les attaques dans Ormuz</h3>
+    <p>Après un plus bas de deux mois mardi, le Brent remonte vers 92,5&nbsp;$&nbsp;: 37 navires ont été attaqués en octobre dans le Golfe, un record depuis le début de la guerre, et un pétrolier a encore été touché au large d’Oman mardi.</p>
+    <div class="meta"><span class="source">Sources&nbsp;: <a href="https://www.thestar.com.my/business/business-news/2026/11/11/oil-rebounds-as-hormuz-shipping-attacks-blunt-hopes-for-iran-truce">Reuters via The Star&nbsp;↗</a>, <a href="https://economictimes.indiatimes.com/markets/commodities/news/oil-price-today-november-11-brent-crude-rises-to-92-as-attacks-on-ships-offset-iran-war-resolution-hopes-whats-ahead/articleshow/135722946.cms">Economic Times&nbsp;↗</a></span></div>
+  </article>
+</section>
+
+<section class="theme" id="geopolitique">
+  <h2><span class="emoji">🌍</span> Géopolitique</h2>
+  <article class="card">
+    <h3>Ukraine&nbsp;: des pourparlers «&nbsp;constructifs&nbsp;» à Abu Dhabi</h3>
+    <p>Quatre heures de discussions russo-ukrainiennes sous médiation américaine, les premières depuis février&nbsp;: garanties de sécurité et grand échange de prisonniers au menu. Rubio parle de séance «&nbsp;très productive&nbsp;» et veut les Européens à la table&nbsp;; deuxième journée aujourd’hui, sans percée annoncée.</p>
+    <div class="meta"><span class="source">Sources&nbsp;: <a href="https://apnews.com/article/russia-ukraine-war-putin-zelenskyy-uae-3d878a3e56d5df5bd198a6d20c824d18">AP&nbsp;↗</a>, <a href="https://www.france24.com/en/europe/20261110-zelensky-calls-ukraine-russia-talks-constructive-rubio-wants-europe-at-the-table">France 24&nbsp;↗</a>, <a href="https://www.reuters.com/3fec1b0a85a0/world/europe/russia-ukraine-meet-us-backed-talks-after-trump-says-broad-deal-possible-2026-11-10/">Reuters&nbsp;↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Paris accuse l’Iran d’avoir saboté 700 supermarchés</h3>
+    <p>La France attribue aux Gardiens de la révolution (unité Shahid Kaveh) la cyberattaque des 11 et 12 octobre qui a fait chauffer à distance les frigos de plus de 700 magasins, provoquant des incendies. L’ambassadeur iranien est convoqué et Paris pousse des sanctions européennes&nbsp;; Téhéran dément.</p>
+    <div class="meta"><span class="source">Sources&nbsp;: <a href="https://www.diplomatie.gouv.fr/en/presse-et-ressources/decouvrir-et-informer/actualites/declaration-d-attribution-a-l-iran-de-cyberattaques-visant-la-france">France Diplomatie&nbsp;↗</a>, <a href="https://www.cnbc.com/2026/11/10/iran-fridge-cyberattacks-france.html">CNBC&nbsp;↗</a>, <a href="https://www.aljazeera.com/news/2026/11/10/france-summons-irans-ambassador-over-supermarket-fridge-sabotage">Al Jazeera&nbsp;↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Ormuz&nbsp;: les Gardiens revendiquent deux pétroliers en feu</h3>
+    <p>La marine des Gardiens de la révolution affirme que deux pétroliers ont pris feu après avoir heurté des mines sur une route «&nbsp;non autorisée&nbsp;» du détroit. Même en cas d’accord, le retour du trafic dépendra du déminage et des assureurs, note LSEG.</p>
+    <div class="meta"><span class="badge unconfirmed">Non confirmé</span><span class="source">Sources&nbsp;: <a href="https://www.thestar.com.my/business/business-news/2026/11/11/oil-rebounds-as-hormuz-shipping-attacks-blunt-hopes-for-iran-truce">Reuters via The Star&nbsp;↗</a></span></div>
+  </article>
+</section>
+
+<section class="theme" id="verification">
+  <h2><span class="emoji">✅</span> Vérification</h2>
+  <article class="card">
+    <h3>✅ Vérifié</h3>
+    <p>CPI d’octobre et clôtures de Wall Street (Sharecast, AP, Investing.com, Reuters)&nbsp;; discours de Logan (texte de la Fed de Dallas, Reuters, Bloomberg, MarketWatch)&nbsp;; discours de Bowman (Fed, Bloomberg Law)&nbsp;; IPO d’Anthropic (communiqué, prospectus, CNBC, TechCrunch)&nbsp;; Nvidia −5,47&nbsp;% (CNBC, Investing.com)&nbsp;; chute du BTC sous 73&nbsp;000&nbsp;$ (FXStreet, The Block, Bitcoin.com)&nbsp;; Square (aide Square, Cointelegraph, TokenPost)&nbsp;; Glassnode (Crypto Briefing, crypto.news)&nbsp;; Abu Dhabi (AP, Reuters, France 24, Guardian)&nbsp;; attribution française (Quai d’Orsay, CNBC, Al Jazeera, NBC)&nbsp;; Brent (Reuters, Economic Times)&nbsp;; cours CoinGecko du matin.</p>
+  </article>
+  <article class="card">
+    <h3>⚠️ À confirmer</h3>
+    <p>Liquidations (≈&nbsp;716&nbsp;M$)&nbsp;: chiffre CoinGlass, d’autres sources donnaient 632&nbsp;M$ plus tôt dans la soirée. Date de cotation d’Anthropic et part réservée aux particuliers&nbsp;: sources anonymes de CNBC. Pétroliers minés&nbsp;: revendication des Gardiens, sans confirmation indépendante. Square&nbsp;: «&nbsp;4 millions&nbsp;» désigne tout le réseau, pas les commerçants éligibles. 10 ans US&nbsp;: clôture selon Sharecast (4,986&nbsp;%).</p>
+  </article>
+</section>
+
+<footer>
+  <p>Généré le mercredi 11 novembre 2026 vers 07h30 (heure de Paris). Faits repérés via X puis recoupés sur le web&nbsp;; liens vérifiés.</p>
+  <p>Les badges signalent les chiffres publiés par les entreprises elles-mêmes et les informations non confirmées officiellement.</p>
+</footer>
+</main>
+</body>
+</html>
