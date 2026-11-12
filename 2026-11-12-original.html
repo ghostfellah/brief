@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<title>Brief du Matin · Jeudi 12 novembre 2026</title>
+<!--
+  GABARIT « Brief du Matin » : un seul fichier, CSS inline, aucune dépendance, pas de JS.
+  Thème sombre par défaut, clair automatique via prefers-color-scheme.
+  Utilisation : copier ce fichier vers brief-AAAA-MM-JJ.html, remplacer chaque {{EMPLACEMENT}},
+  dupliquer les <article class="card"> (3 à 4 par section). Ne pas modifier le bloc <style>.
+  Typographie : mettre une espace insécable (&nbsp;) avant : ; % ? ! » et après «.
+-->
+<style>
+:root{
+  --bg:#0e1116; --surface:#161b22; --surface-2:#1c222b; --border:#2a313c;
+  --text:#e8ecf1; --muted:#9aa4b2; --accent:#e0b062; --link:#8fbcff;
+  --up:#3fcf8e; --up-bg:rgba(63,207,142,.12); --down:#ff6b6b; --down-bg:rgba(255,107,107,.12);
+  --badge-co:#c9a7ff; --badge-co-bg:rgba(201,167,255,.12);
+  --badge-nc:#ffb347; --badge-nc-bg:rgba(255,179,71,.12);
+}
+@media (prefers-color-scheme: light){
+  :root{
+    --bg:#f6f4ef; --surface:#ffffff; --surface-2:#faf8f4; --border:#e3ded4;
+    --text:#1b1f24; --muted:#5d6672; --accent:#9a6a12; --link:#1f5fbf;
+    --up:#0f8a55; --up-bg:rgba(15,138,85,.10); --down:#c62f2f; --down-bg:rgba(198,47,47,.09);
+    --badge-co:#6b3fc0; --badge-co-bg:rgba(107,63,192,.09);
+    --badge-nc:#a35a00; --badge-nc-bg:rgba(163,90,0,.10);
+  }
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji";
+  font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:780px;margin:0 auto;padding:40px 22px 28px}
+header.masthead{padding-bottom:22px;margin-bottom:26px;border-bottom:1px solid var(--border)}
+.kicker{font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);font-weight:600;margin:0 0 6px}
+h1{font-size:2.3rem;line-height:1.15;margin:0;font-weight:750;letter-spacing:-.02em}
+.date{margin:8px 0 0;color:var(--muted);font-size:1rem}
+.date .sep{opacity:.5;margin:0 .45em}
+.essentiel{background:linear-gradient(135deg,var(--surface-2),var(--surface));border:1px solid var(--border);
+  border-left:4px solid var(--accent);border-radius:14px;padding:18px 22px 16px;margin:0 0 34px}
+.essentiel h2{margin:0 0 8px;font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+.essentiel ul{margin:0;padding-left:1.15em}
+.essentiel li{margin:6px 0;font-weight:500}
+.essentiel li::marker{color:var(--accent)}
+section.theme{margin:0 0 38px}
+section.theme > h2{font-size:1.4rem;margin:0 0 14px;display:flex;align-items:center;gap:.5em;letter-spacing:-.01em}
+section.theme > h2 .emoji{font-size:1.25em;line-height:1}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin:0 0 16px}
+.tile{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:10px 12px}
+.tile .label{font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:600}
+.tile .value{font-size:1.15rem;font-weight:700;font-variant-numeric:tabular-nums;margin-top:2px;white-space:nowrap}
+.tile .chg{display:inline-block;margin-top:4px;font-size:.8rem;font-weight:650;padding:1px 7px;border-radius:999px;font-variant-numeric:tabular-nums}
+.chg.up{color:var(--up);background:var(--up-bg)}
+.chg.down{color:var(--down);background:var(--down-bg)}
+.tiles-note{font-size:.78rem;color:var(--muted);margin:-8px 0 16px}
+.tiles-note a{color:var(--muted)}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:16px 18px;margin:0 0 12px}
+.card h3{margin:0 0 6px;font-size:1.05rem;line-height:1.35;font-weight:700}
+.card p{margin:0;color:var(--text)}
+.card .meta{margin-top:10px;display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;font-size:.82rem}
+.source{color:var(--muted)}
+.source a{color:var(--link);text-decoration:none;border-bottom:1px solid transparent}
+.source a:hover{border-bottom-color:var(--link)}
+.badge{display:inline-block;font-size:.7rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:2px 8px;border-radius:999px;white-space:nowrap}
+.badge.company{color:var(--badge-co);background:var(--badge-co-bg)}
+.badge.unconfirmed{color:var(--badge-nc);background:var(--badge-nc-bg)}
+footer{margin-top:10px;padding-top:16px;border-top:1px solid var(--border);color:var(--muted);font-size:.8rem;line-height:1.5}
+footer p{margin:4px 0}
+@media (max-width:520px){
+  body{font-size:16px}
+  .wrap{padding:26px 16px 22px}
+  h1{font-size:1.85rem}
+  .tiles{grid-template-columns:repeat(2,1fr)}
+  .card{padding:14px 15px}
+  .essentiel{padding:16px 16px 14px}
+}
+.tiles.six{grid-template-columns:repeat(3,1fr)}
+@media (max-width:520px){.tiles.six{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+<main class="wrap">
+<header class="masthead">
+  <p class="kicker">Crypto · IA · Macro · Géopolitique</p>
+  <h1>Brief du Matin</h1>
+  <p class="date">Jeudi 12 novembre 2026<span class="sep">·</span>Les dernières 24 heures</p>
+</header>
+
+<aside class="essentiel" aria-label="L'essentiel">
+  <h2>L'essentiel</h2>
+  <ul>
+    <li>MSCI sortira Strategy (et Metaplanet) de ses indices à la clôture du 30 novembre&nbsp;: la plus grosse «&nbsp;trésorerie bitcoin&nbsp;» perd des achats passifs, l’action recule de 2,6&nbsp;% après la clôture.</li>
+    <li>L’IA reprend la main à Wall Street&nbsp;: CoreWeave s’envole de 24,7&nbsp;% après ses résultats, le S&amp;P 500 gagne 1,3&nbsp;% et le Nasdaq 1,6&nbsp;%&nbsp;; l’IPO d’Anthropic serait déjà plusieurs fois sursouscrite.</li>
+    <li>Ukraine&nbsp;: pas de percée à Abu Dhabi mais un accord de principe sur un grand échange de prisonniers&nbsp;; Witkoff et Kushner voient Poutine à Moscou aujourd’hui, puis Zelensky à Dublin.</li>
+  </ul>
+</aside>
+
+<section class="theme" id="crypto">
+  <h2><span class="emoji">₿</span> Crypto</h2>
+  <div class="tiles">
+    <div class="tile"><div class="label">BTC</div><div class="value">≈ 73&nbsp;530&nbsp;$</div><span class="chg down">−0,4&nbsp;% (24 h)</span></div>
+    <div class="tile"><div class="label">ETH</div><div class="value">≈ 2&nbsp;046&nbsp;$</div><span class="chg down">−1,0&nbsp;% (24 h)</span></div>
+    <div class="tile"><div class="label">SOL</div><div class="value">≈ 82,9&nbsp;$</div><span class="chg down">−0,3&nbsp;% (24 h)</span></div>
+    <div class="tile"><div class="label">XRP</div><div class="value">≈ 1,04&nbsp;$</div><span class="chg down">−1,9&nbsp;% (24 h)</span></div>
+  </div>
+  <p class="tiles-note">Cours de jeudi vers 07h05 (heure de Paris). Source&nbsp;: <a href="https://www.coingecko.com/">CoinGecko&nbsp;↗</a></p>
+  <article class="card">
+    <h3>MSCI éjecte Strategy de ses indices</h3>
+    <p>Avec ses nouvelles règles sur les sociétés «&nbsp;non opérationnelles&nbsp;», MSCI retire Strategy des indices USA, World et ACWI, ainsi que Metaplanet et Yellow Cake, à la clôture du 30 novembre. JPMorgan estimait jusqu’à 8,8&nbsp;Md$ de sorties si les autres fournisseurs d’indices suivaient. Le modèle «&nbsp;trésorerie crypto cotée&nbsp;» perd un pilier de sa demande.</p>
+    <div class="meta"><span class="source">Sources&nbsp;: <a href="https://www.msci.com/eqb/pressreleases/archive/MSCI_Nov26_QIRPR.pdf">MSCI&nbsp;↗</a>, <a href="https://www.investing.com/news/stock-market-news/msci-to-drop-strategy-from-global-indexes-putting-billions-in-passive-fund-inflows-at-risk-5020015">Reuters via Investing.com&nbsp;↗</a>, <a href="https://www.theblock.co/news/markets/2026-11-11-strategy-metaplanet-lose-msci-index-membership-november-reshuffle-438437">The Block&nbsp;↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Deutsche Bank ouvre la garde de bitcoins</h3>
+    <p>Première banque allemande, Deutsche Bank lance pour ses clients institutionnels et entreprises en Europe la conservation de BTC, d’ETH et de stablecoins (USDC, EURC, EURAU), sous agrément BaFin et cadre MiCA. Pas de particuliers pour l’instant, ni clients ni tarifs dévoilés.</p>
+    <div class="meta"><span class="source">Sources&nbsp;: <a href="https://corporates.db.com/more/latest-news/deutsche-bank-launches-digital-asset-custody-solution-for-institutional-and-corporate-clients">Deutsche Bank&nbsp;↗</a>, <a href="https://www.thestar.com.my/tech/tech-news/2026/11/11/deutsche-bank-launches-digital-asset-custody-service-">Reuters via The Star&nbsp;↗</a>, <a href="https://www.theblock.co/news/business/2026-11-11-deutsche-bank-goes-live-with-digital-asset-custody-service-signs-asset-management-deal-437851">The Block&nbsp;↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Le bitcoin ne suit pas le rebond des actions</h3>
+    <p>Pendant que le Nasdaq reprend 1,6&nbsp;%, le BTC reste collé autour de 73&nbsp;500&nbsp;$, sous le seuil cassé après l’inflation de mardi, et l’ETH perd encore 1&nbsp;%. Le marché crypto reste dominé par la perspective d’une hausse des taux en décembre.</p>
+    <div class="meta"><span class="source">Sources&nbsp;: <a href="https://www.coingecko.com/">CoinGecko&nbsp;↗</a>, <a href="https://www.moneycontrol.com/news/business/markets/us-stocks-rally-as-coreweave-surges-25-nvidia-rebounds-s-p-500-nasdaq-gain-over-1-14077446.html">Reuters via Moneycontrol&nbsp;↗</a></span></div>
+  </article>
+</section>
+
+<section class="theme" id="ia">
+  <h2><span class="emoji">🤖</span> IA</h2>
+  <article class="card">
+    <h3>IPO d’Anthropic&nbsp;: la demande déborde</h3>
+    <p>Selon Bloomberg, les ordres dépassent déjà plusieurs fois les actions disponibles, portés par de gros investisseurs «&nbsp;d’ancrage&nbsp;». Jusqu’à 90,4&nbsp;Md$ levés avec le placement privé, plus que l’IPO de SpaceX. Prix fixé le 18, cotation le 19 sous ANT&nbsp;; Amodei et Jamie Dimon (JPMorgan) font un direct vendredi.</p>
+    <div class="meta"><span class="badge unconfirmed">Non confirmé</span><span class="source">Sources&nbsp;: <a href="https://news.bloomberglaw.com/artificial-intelligence/anthropics-ipo-is-said-to-be-multiple-times-oversubscribed-1">Bloomberg Law&nbsp;↗</a>, <a href="https://www.investing.com/news/stock-market-news/anthropic-ipo-demand-exceeds-available-shares-multiple-times-bloomberg-reports-5018859">Investing.com&nbsp;↗</a>, <a href="https://www.morningstar.com/news/marketwatch/20261111138/anthropics-ipo-roadshow-kicks-off-and-the-big-money-is-already-lining-up">MarketWatch via Morningstar&nbsp;↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>CoreWeave rassure sur la demande de calcul</h3>
+    <p>Le «&nbsp;néocloud&nbsp;» bondit de 24,7&nbsp;%, sa meilleure séance depuis avril 2025&nbsp;: chiffre d’affaires de 3,7&nbsp;Md$ au 3e trimestre (+168&nbsp;%), objectif annuel relevé à 13–13,3&nbsp;Md$ et ≈&nbsp;9&nbsp;Md$ de prépaiements clients pour limiter la dette. Nebius (+15,4&nbsp;%) suit&nbsp;; c’est ce qui a rallumé tout le secteur IA.</p>
+    <div class="meta"><span class="badge company">Chiffres de l’entreprise</span><span class="source">Sources&nbsp;: <a href="https://www.cnbc.com/2026/11/11/coreweave-crwv-outlook-earnings-ai.html">CNBC&nbsp;↗</a>, <a href="https://www.moneycontrol.com/news/business/markets/us-stocks-rally-as-coreweave-surges-25-nvidia-rebounds-s-p-500-nasdaq-gain-over-1-14077446.html">Reuters via Moneycontrol&nbsp;↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Altman&nbsp;: une demande IA «&nbsp;comptée deux fois&nbsp;»</h3>
+    <p>Devant des dirigeants de Samsung le 31 octobre, Sam Altman aurait expliqué que la demande en mémoire et data centers est gonflée par le double comptage le long de la chaîne, l’essentiel venant d’OpenAI et d’Anthropic, d’où un risque de volatilité à court terme. Il reste très optimiste sur le long terme.</p>
+    <div class="meta"><span class="badge unconfirmed">Non confirmé</span><span class="source">Sources&nbsp;: <a href="https://en.fnnews.com/news/202611111610393909">Financial News (Corée)&nbsp;↗</a>, <a href="https://cryptobriefing.com/sam-altman-warns-ai-demand-double-counted/">Crypto Briefing&nbsp;↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Robotique&nbsp;: Runway publie Praxis-1 en open source</h3>
+    <p>Le spécialiste de la vidéo IA sort un modèle d’action pour robots de 27 milliards de paramètres, entraîné à prédire vidéo et gestes, sous licence Apache 2.0 (usage commercial permis). Un pas de plus vers des «&nbsp;cerveaux&nbsp;» de robots ouverts, réutilisables sur bras et humanoïdes.</p>
+    <div class="meta"><span class="badge company">Chiffres de l’entreprise</span><span class="source">Sources&nbsp;: <a href="https://runway.com/news/company-news/praxis-1-is-now-available">Runway&nbsp;↗</a>, <a href="https://huggingface.co/collections/runwayml/praxis-1">Hugging Face&nbsp;↗</a></span></div>
+  </article>
+</section>
+
+<section class="theme" id="macro">
+  <h2><span class="emoji">📈</span> Macro</h2>
+  <div class="tiles">
+    <div class="tile"><div class="label">Dow Jones</div><div class="value">52&nbsp;486,49</div><span class="chg up">+0,49&nbsp;%</span></div>
+    <div class="tile"><div class="label">S&amp;P 500</div><div class="value">7&nbsp;619,38</div><span class="chg up">+1,31&nbsp;%</span></div>
+    <div class="tile"><div class="label">Nasdaq</div><div class="value">25&nbsp;466,19</div><span class="chg up">+1,60&nbsp;%</span></div>
+    <div class="tile"><div class="label">Brent</div><div class="value">91,62&nbsp;$</div><span class="chg down">−1,2&nbsp;%</span></div>
+  </div>
+  <p class="tiles-note">Indices&nbsp;: clôture de mercredi. Brent&nbsp;: jeudi 02h41 (heure de Paris). Marché obligataire US fermé mercredi (Veterans Day). Sources&nbsp;: <a href="https://www.moneycontrol.com/news/business/markets/us-stocks-rally-as-coreweave-surges-25-nvidia-rebounds-s-p-500-nasdaq-gain-over-1-14077446.html">Reuters via Moneycontrol&nbsp;↗</a>, <a href="https://www.cnbc.com/2026/11/12/oil-prices-fall-over-1-on-hopes-for-iran-ukraine-peace-talks-.html">CNBC&nbsp;↗</a></p>
+  <article class="card">
+    <h3>Wall Street efface presque la chute de la semaine dernière</h3>
+    <p>Le S&amp;P 500 reprend 1,3&nbsp;% et revient à 2,6&nbsp;% de son record d’octobre, Nvidia se stabilise après deux séances de baisse. Le Nasdaq reste plus de 7&nbsp;% sous son sommet&nbsp;: le rebond tient à une seule publication (CoreWeave), pas à une baisse des taux.</p>
+    <div class="meta"><span class="source">Sources&nbsp;: <a href="https://apnews.com/article/stock-markets-ai-earnings-oil-297d040c83844a9563327340b370c24e">AP&nbsp;↗</a>, <a href="https://www.marketwatch.com/story/u-s-stocks-rise-as-coreweave-update-eases-some-ai-worries-68a12f68">MarketWatch&nbsp;↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Le dollar au plus haut depuis plus d’un an</h3>
+    <p>L’indice dollar a touché mercredi son plus haut niveau depuis plus d’un an, porté par les paris sur une hausse des taux de la Fed en décembre après l’inflation d’octobre. Un dollar fort pèse sur le bitcoin, l’or et les marchés émergents.</p>
+    <div class="meta"><span class="source">Source&nbsp;: <a href="https://www.marketwatch.com/story/u-s-stocks-rise-as-coreweave-update-eases-some-ai-worries-68a12f68">MarketWatch&nbsp;↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Pétrole&nbsp;: le yo-yo de la paix</h3>
+    <p>Le Brent a clôturé mercredi à 92,76&nbsp;$ (+1,4&nbsp;%) après le refus de Téhéran de laisser sortir son uranium enrichi, puis recule de 1,2&nbsp;% cette nuit sur l’espoir de négociations Iran et Ukraine. Il a perdu ≈&nbsp;21&nbsp;% depuis le début du mois&nbsp;; stocks US officiels (EIA) attendus aujourd’hui, décalés d’un jour.</p>
+    <div class="meta"><span class="source">Sources&nbsp;: <a href="https://www.thestar.com.my/business/2026/11/12/oil-rises-1-as-iran-vows-to-retain-enriched-uranium">Reuters via The Star&nbsp;↗</a>, <a href="https://www.cnbc.com/2026/11/12/oil-prices-fall-over-1-on-hopes-for-iran-ukraine-peace-talks-.html">CNBC&nbsp;↗</a></span></div>
+  </article>
+</section>
+
+<section class="theme" id="geopolitique">
+  <h2><span class="emoji">🌍</span> Géopolitique</h2>
+  <article class="card">
+    <h3>Ukraine&nbsp;: un échange de prisonniers, pas de paix</h3>
+    <p>Deux jours de pourparlers à Abu Dhabi, les premiers depuis février, aboutissent à un accord de principe sur un échange de prisonniers à grande échelle (plus de 1&nbsp;000 de chaque côté selon TASS). Le Donbass bloque toujours. Witkoff et Kushner voient Poutine à Moscou aujourd’hui, puis Zelensky à Dublin.</p>
+    <div class="meta"><span class="source">Sources&nbsp;: <a href="https://www.nbcnews.com/world/middle-east/us-russia-ukraine-start-second-day-abu-dhabi-peace-talks-rcna608714">AP via NBC&nbsp;↗</a>, <a href="https://www.bbc.com/news/articles/ck792we7zrz4o">BBC&nbsp;↗</a>, <a href="https://kyivindependent.com/ukraine-war-latest-large-scale-prisoner-exchange-agreed-as-2nd-day-of-abu-dhabi-talks-concludes-umerov-says/">Kyiv Independent&nbsp;↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Iran&nbsp;: Ormuz fermé tant que Washington ne cède pas</h3>
+    <p>Le chef de la sécurité Mohsen Rezaei dément toute négociation, conditionne la réouverture du détroit à sept exigences (levée des sanctions et du blocus, fin des combats au Liban…) et refuse que l’uranium enrichi quitte le pays. Rubio juge de nouvelles frappes inutiles grâce à la pression économique.</p>
+    <div class="meta"><span class="source">Sources&nbsp;: <a href="https://www.aljazeera.com/news/2026/11/11/iran-denies-talks-with-us-says-hormuz-will-stay-shut-until-demands-are-met">Al Jazeera&nbsp;↗</a>, <a href="https://www.thestar.com.my/business/2026/11/12/oil-rises-1-as-iran-vows-to-retain-enriched-uranium">Reuters via The Star&nbsp;↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Trump et Xi à Shenzhen la semaine prochaine</h3>
+    <p>Les deux dirigeants doivent se voir en marge de l’APEC à Shenzhen (attendue les 18 et 19 novembre), avec la sécurité de l’IA et le commerce au menu&nbsp;; les gros accords seraient renvoyés au G20. Une rencontre à trois avec Poutine sur l’Iran est évoquée, sans confirmation.</p>
+    <div class="meta"><span class="badge unconfirmed">Non confirmé</span><span class="source">Sources&nbsp;: <a href="https://www.zaobao.com.sg/en/news/world/trump-expects-meet-xi-and-putin-shenzhen-next-week">Lianhe Zaobao&nbsp;↗</a>, <a href="https://www.scmp.com/news/china/diplomacy/article/3373969/xi-and-trump-set-apec-talks-major-deliverables-expected-wait-g20">SCMP&nbsp;↗</a></span></div>
+  </article>
+</section>
+
+<section class="theme" id="verification">
+  <h2><span class="emoji">✅</span> Vérification</h2>
+  <article class="card">
+    <h3>✅ Vérifié</h3>
+    <p>Décision MSCI (communiqué MSCI, Reuters, The Block)&nbsp;; Deutsche Bank (communiqué, Reuters, The Block, Bitcoin Magazine)&nbsp;; clôtures de Wall Street et CoreWeave +24,7&nbsp;% (Reuters, CNBC, AP, MarketWatch)&nbsp;; Brent (Reuters, CNBC)&nbsp;; Abu Dhabi (AP, BBC, ABC, Kyiv Independent)&nbsp;; propos de Rezaei et Rubio (Al Jazeera, Reuters, CNBC)&nbsp;; Praxis-1 (Runway, Hugging Face, GitHub)&nbsp;; calendrier IPO Anthropic (prospectus via StockAnalysis, Investing.com)&nbsp;; cours CoinGecko du matin.</p>
+  </article>
+  <article class="card">
+    <h3>⚠️ À confirmer</h3>
+    <p>Sursouscription de l’IPO Anthropic&nbsp;: sources anonymes de Bloomberg. Propos d’Altman chez Samsung&nbsp;: exclusivité d’un journal coréen, non confirmée par OpenAI. Dollar au plus haut depuis un an&nbsp;: MarketWatch seul. Échange de prisonniers&nbsp;: chiffre «&nbsp;plus de 1&nbsp;000&nbsp;» de TASS, nombre et date non annoncés. Date et format Trump–Xi(–Poutine)&nbsp;: presse asiatique, pas d’annonce officielle. Chiffres CoreWeave et Runway&nbsp;: annonces des entreprises.</p>
+  </article>
+</section>
+
+<footer>
+  <p>Généré le jeudi 12 novembre 2026 vers 07h30 (heure de Paris). Faits repérés via X puis recoupés sur le web&nbsp;; liens vérifiés.</p>
+  <p>Les badges signalent les chiffres publiés par les entreprises elles-mêmes et les informations non confirmées officiellement.</p>
+</footer>
+</main>
+</body>
+</html>
