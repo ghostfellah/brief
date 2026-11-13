@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<title>Brief du Matin · Vendredi 13 novembre 2026</title>
+<!--
+  GABARIT « Brief du Matin » : un seul fichier, CSS inline, aucune dépendance, pas de JS.
+  Thème sombre par défaut, clair automatique via prefers-color-scheme.
+  Utilisation : copier ce fichier vers brief-AAAA-MM-JJ.html, remplacer chaque {{EMPLACEMENT}},
+  dupliquer les <article class="card"> (3 à 4 par section). Ne pas modifier le bloc <style>.
+  Typographie : mettre une espace insécable (&nbsp;) avant : ; % ? ! » et après «.
+-->
+<style>
+:root{
+  --bg:#0e1116; --surface:#161b22; --surface-2:#1c222b; --border:#2a313c;
+  --text:#e8ecf1; --muted:#9aa4b2; --accent:#e0b062; --link:#8fbcff;
+  --up:#3fcf8e; --up-bg:rgba(63,207,142,.12); --down:#ff6b6b; --down-bg:rgba(255,107,107,.12);
+  --badge-co:#c9a7ff; --badge-co-bg:rgba(201,167,255,.12);
+  --badge-nc:#ffb347; --badge-nc-bg:rgba(255,179,71,.12);
+}
+@media (prefers-color-scheme: light){
+  :root{
+    --bg:#f6f4ef; --surface:#ffffff; --surface-2:#faf8f4; --border:#e3ded4;
+    --text:#1b1f24; --muted:#5d6672; --accent:#9a6a12; --link:#1f5fbf;
+    --up:#0f8a55; --up-bg:rgba(15,138,85,.10); --down:#c62f2f; --down-bg:rgba(198,47,47,.09);
+    --badge-co:#6b3fc0; --badge-co-bg:rgba(107,63,192,.09);
+    --badge-nc:#a35a00; --badge-nc-bg:rgba(163,90,0,.10);
+  }
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji";
+  font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:780px;margin:0 auto;padding:40px 22px 28px}
+header.masthead{padding-bottom:22px;margin-bottom:26px;border-bottom:1px solid var(--border)}
+.kicker{font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);font-weight:600;margin:0 0 6px}
+h1{font-size:2.3rem;line-height:1.15;margin:0;font-weight:750;letter-spacing:-.02em}
+.date{margin:8px 0 0;color:var(--muted);font-size:1rem}
+.date .sep{opacity:.5;margin:0 .45em}
+.essentiel{background:linear-gradient(135deg,var(--surface-2),var(--surface));border:1px solid var(--border);
+  border-left:4px solid var(--accent);border-radius:14px;padding:18px 22px 16px;margin:0 0 34px}
+.essentiel h2{margin:0 0 8px;font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+.essentiel ul{margin:0;padding-left:1.15em}
+.essentiel li{margin:6px 0;font-weight:500}
+.essentiel li::marker{color:var(--accent)}
+section.theme{margin:0 0 38px}
+section.theme > h2{font-size:1.4rem;margin:0 0 14px;display:flex;align-items:center;gap:.5em;letter-spacing:-.01em}
+section.theme > h2 .emoji{font-size:1.25em;line-height:1}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin:0 0 16px}
+.tile{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:10px 12px}
+.tile .label{font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:600}
+.tile .value{font-size:1.15rem;font-weight:700;font-variant-numeric:tabular-nums;margin-top:2px;white-space:nowrap}
+.tile .chg{display:inline-block;margin-top:4px;font-size:.8rem;font-weight:650;padding:1px 7px;border-radius:999px;font-variant-numeric:tabular-nums}
+.chg.up{color:var(--up);background:var(--up-bg)}
+.chg.down{color:var(--down);background:var(--down-bg)}
+.tiles-note{font-size:.78rem;color:var(--muted);margin:-8px 0 16px}
+.tiles-note a{color:var(--muted)}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:16px 18px;margin:0 0 12px}
+.card h3{margin:0 0 6px;font-size:1.05rem;line-height:1.35;font-weight:700}
+.card p{margin:0;color:var(--text)}
+.card .meta{margin-top:10px;display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;font-size:.82rem}
+.source{color:var(--muted)}
+.source a{color:var(--link);text-decoration:none;border-bottom:1px solid transparent}
+.source a:hover{border-bottom-color:var(--link)}
+.badge{display:inline-block;font-size:.7rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:2px 8px;border-radius:999px;white-space:nowrap}
+.badge.company{color:var(--badge-co);background:var(--badge-co-bg)}
+.badge.unconfirmed{color:var(--badge-nc);background:var(--badge-nc-bg)}
+footer{margin-top:10px;padding-top:16px;border-top:1px solid var(--border);color:var(--muted);font-size:.8rem;line-height:1.5}
+footer p{margin:4px 0}
+@media (max-width:520px){
+  body{font-size:16px}
+  .wrap{padding:26px 16px 22px}
+  h1{font-size:1.85rem}
+  .tiles{grid-template-columns:repeat(2,1fr)}
+  .card{padding:14px 15px}
+  .essentiel{padding:16px 16px 14px}
+}
+.tiles.six{grid-template-columns:repeat(3,1fr)}
+@media (max-width:520px){.tiles.six{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+<main class="wrap">
+<header class="masthead">
+  <p class="kicker">Crypto · IA · Macro · Géopolitique</p>
+  <h1>Brief du Matin</h1>
+  <p class="date">Vendredi 13 novembre 2026<span class="sep">·</span>Les dernières 24 heures</p>
+</header>
+
+<aside class="essentiel" aria-label="L'essentiel">
+  <h2>L'essentiel</h2>
+  <ul>
+    <li>Le bitcoin passe sous 70&nbsp;000&nbsp;$ pour la première fois depuis la mi-août (≈&nbsp;68&nbsp;200&nbsp;$ ce matin, −7&nbsp;% sur 24&nbsp;h)&nbsp;; plus de 1,3&nbsp;Md$ de positions liquidées, l’ether sous 2&nbsp;000&nbsp;$.</li>
+    <li>Jensen Huang démissionne de Nvidia avec effet immédiat&nbsp;: l’action chute de 14&nbsp;% en séance avant de limiter la casse à −4,3&nbsp;%, Colette Kress assure l’intérim.</li>
+    <li>Iran&nbsp;: Trump affirme ne «&nbsp;pas avoir besoin d’un accord&nbsp;», les Gardiens de la révolution revendiquent une frappe sur un radar américain à Bahreïn&nbsp;; le Brent rebondit de 3,3&nbsp;% à 95,82&nbsp;$.</li>
+  </ul>
+</aside>
+
+<section class="theme" id="crypto">
+  <h2><span class="emoji">₿</span> Crypto</h2>
+  <div class="tiles">
+    <div class="tile"><div class="label">BTC</div><div class="value">≈ 68&nbsp;190&nbsp;$</div><span class="chg down">−7,2&nbsp;% (24 h)</span></div>
+    <div class="tile"><div class="label">ETH</div><div class="value">≈ 1&nbsp;912&nbsp;$</div><span class="chg down">−6,5&nbsp;% (24 h)</span></div>
+    <div class="tile"><div class="label">SOL</div><div class="value">≈ 78,6&nbsp;$</div><span class="chg down">−5,1&nbsp;% (24 h)</span></div>
+    <div class="tile"><div class="label">XRP</div><div class="value">≈ 1,01&nbsp;$</div><span class="chg down">−2,5&nbsp;% (24 h)</span></div>
+  </div>
+  <p class="tiles-note">Cours de vendredi vers 07h01 (heure de Paris). Source&nbsp;: <a href="https://www.coingecko.com/">CoinGecko&nbsp;↗</a></p>
+  <article class="card">
+    <h3>Le bitcoin casse les 70&nbsp;000&nbsp;$</h3>
+    <p>Le BTC est tombé vers 69&nbsp;000&nbsp;$ dans la nuit, au plus bas depuis le 19 août, et recule de 17&nbsp;% sur le trimestre. Plus de 1,3&nbsp;Md$ de paris à effet de levier ont été liquidés en 24&nbsp;h (Coinglass), dont près de 500&nbsp;M$ au moment du passage sous 70&nbsp;000&nbsp;$. En cause&nbsp;: hausse des taux attendue en décembre, dollar au plus haut depuis 19 mois et sortie de Strategy des indices MSCI.</p>
+    <div class="meta"><span class="source">Sources&nbsp;: <a href="https://www.coindesk.com/markets/2026/11/13/bitcoin-dips-below-usd70-000-as-selloff-gathers-pace">CoinDesk&nbsp;↗</a>, <a href="https://www.investing.com/news/cryptocurrency-news/bitcoin-drops-below-70k-as-crypto-appetite-sours-5024070">Reuters via Investing.com&nbsp;↗</a>, <a href="https://cryptobriefing.com/bitcoin-below-70000-liquidations-622m/">Crypto Briefing&nbsp;↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>L’ether sous 2&nbsp;000&nbsp;$, les altcoins suivent</h3>
+    <p>L’ETH perd 6,5&nbsp;% à ≈&nbsp;1&nbsp;912&nbsp;$ et SOL 5&nbsp;% sous 79&nbsp;$&nbsp;; environ 120&nbsp;M$ de positions sur l’ether ont été liquidées. Aucune grande crypto ne sert de refuge&nbsp;: c’est un mouvement de désendettement de tout le marché, pas une histoire propre au bitcoin.</p>
+    <div class="meta"><span class="source">Sources&nbsp;: <a href="https://www.coindesk.com/markets/2026/11/13/bitcoin-dips-below-usd70-000-as-selloff-gathers-pace">CoinDesk&nbsp;↗</a>, <a href="https://news.bitcoin.com/market-updates/bitcoin-price-breaks-below-72k-656m-liquidation-bloodbath/">Bitcoin.com News&nbsp;↗</a>, <a href="https://cryptobriefing.com/bitcoin-below-70000-liquidations-622m/">Crypto Briefing&nbsp;↗</a></span></div>
+  </article>
+</section>
+
+<section class="theme" id="ia">
+  <h2><span class="emoji">🤖</span> IA</h2>
+  <article class="card">
+    <h3>Jensen Huang quitte Nvidia</h3>
+    <p>Le cofondateur démissionne de ses postes de PDG, de président et d’administrateur, après une semaine de révélations sur des liaisons, dont une avec une femme présentée comme une espionne chinoise. La directrice financière Colette Kress assure l’intérim, Harvey Jones devient président du conseil. L’action, −14&nbsp;% à l’ouverture, finit à −4,3&nbsp;% (166,19&nbsp;$)&nbsp;; résultats attendus le 17 novembre.</p>
+    <div class="meta"><span class="source">Sources&nbsp;: <a href="https://www.investopedia.com/stock-market-today-dow-jones-s-and-p-500-nasdaq-11122026-12250329">Investopedia&nbsp;↗</a>, <a href="https://www.fool.com/coverage/stock-market-today/2026/11/12/stock-market-today-nov-12-nvidia-shares-slide-on-reports-of-ceo-jensen-huang-s-resignation/">Motley Fool&nbsp;↗</a>, <a href="https://apnews.com/article/wall-street-stocks-dow-nasdaq-3f3668a937a11535103e3a5c8d82c9fc">AP&nbsp;↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Nebius rallume les doutes sur les néoclouds</h3>
+    <p>Malgré un trimestre au-dessus des attentes, Nebius ramène son chiffre d’affaires 2026 au bas de sa fourchette de 3 à 3,4&nbsp;Md$ (retards de data centers) et relève ses investissements à ≈&nbsp;27&nbsp;Md$ cette année, 40 à 45&nbsp;Md$ en 2027. L’action plonge de près de 17&nbsp;%, CoreWeave −6,9&nbsp;%&nbsp;: le marché s’inquiète du financement du chantier IA.</p>
+    <div class="meta"><span class="badge company">Chiffres de l’entreprise</span><span class="source">Sources&nbsp;: <a href="https://www.streetinsider.com/Reuters/Nebius+beats+quarterly+revenue+estimates+on+strong+AI+demand/27330371.html">Reuters via StreetInsider&nbsp;↗</a>, <a href="https://www.cnbc.com/2026/11/12/nebius-q3-earnings-report-2026.html">CNBC&nbsp;↗</a>, <a href="https://media.com/olivergray/articles/us-markets-fall-huang-exit-sparks-nvidia-sell-off">Media.com&nbsp;↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Anthropic en direct avec Jamie Dimon aujourd’hui</h3>
+    <p>Dario Amodei et le patron de JPMorgan tiennent ce vendredi à New York une présentation de l’IPO retransmise en direct. Prix attendu le 18, cotation le 19 sous ANT&nbsp;: le test de l’appétit pour l’IA tombe en pleine secousse Nvidia.</p>
+    <div class="meta"><span class="source">Sources&nbsp;: <a href="https://news.bloomberglaw.com/capital-markets/anthropic-plans-ipo-live-stream-with-amodei-jpmorgan-ceo-dimon">Bloomberg Law&nbsp;↗</a>, <a href="https://qz.com/anthropic-ipo-live-stream-amodei-dimon-111026">Quartz&nbsp;↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Robotique&nbsp;: les robotaxis Tesla roulent 24&nbsp;h/24</h3>
+    <p>Tesla annonce que son service Robotaxi fonctionne désormais jour et nuit dans ses huit villes américaines (Austin, Dallas, Houston, Miami…). Un pas vers une exploitation commerciale continue, sur la seule parole de l’entreprise&nbsp;: aucun chiffre de flotte ni d’incidents publié.</p>
+    <div class="meta"><span class="badge company">Chiffres de l’entreprise</span><span class="source">Sources&nbsp;: <a href="https://www.notateslaapp.com/news/4991/tesla-robotaxi-now-runs-247-in-every-city">Not a Tesla App&nbsp;↗</a>, <a href="https://teslanorth.com/2026/11/11/tesla-robotaxi-24-7-every-city/">TeslaNorth&nbsp;↗</a></span></div>
+  </article>
+</section>
+
+<section class="theme" id="macro">
+  <h2><span class="emoji">📈</span> Macro</h2>
+  <div class="tiles">
+    <div class="tile"><div class="label">Dow Jones</div><div class="value">52&nbsp;297,1</div><span class="chg down">−0,36&nbsp;%</span></div>
+    <div class="tile"><div class="label">S&amp;P 500</div><div class="value">7&nbsp;592,4</div><span class="chg down">−0,35&nbsp;%</span></div>
+    <div class="tile"><div class="label">Nasdaq</div><div class="value">25&nbsp;366,1</div><span class="chg down">−0,39&nbsp;%</span></div>
+    <div class="tile"><div class="label">US 10 ans</div><div class="value">5,10&nbsp;%</div><span class="chg up">+12&nbsp;pb (2 j)</span></div>
+    <div class="tile"><div class="label">Brent</div><div class="value">95,82&nbsp;$</div><span class="chg up">+3,3&nbsp;%</span></div>
+  </div>
+  <p class="tiles-note">Indices et Brent&nbsp;: clôtures de jeudi. Taux 10 ans&nbsp;: clôture de jeudi vs mardi (Trésor US). Sources&nbsp;: <a href="https://www.investing.com/news/stock-market-news/us-stocks-lower-at-close-of-trade-dow-jones-industrial-average-down-036-5023324">Investing.com&nbsp;↗</a>, <a href="https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve">Trésor US&nbsp;↗</a>, <a href="https://english.news.cn/20261113/382ec38ae9164b60ba58298b585b868c/c.html">Xinhua&nbsp;↗</a></p>
+  <article class="card">
+    <h3>Wall Street encaisse le choc Nvidia</h3>
+    <p>Après −1&nbsp;% à l’ouverture, le S&amp;P 500 limite la baisse à 0,35&nbsp;%. L’argent tourne vers les concurrents&nbsp;: AMD et Broadcom gagnent près de 6&nbsp;%. Le marché ne lâche pas l’IA, il change de cheval.</p>
+    <div class="meta"><span class="source">Sources&nbsp;: <a href="https://www.investopedia.com/stock-market-today-dow-jones-s-and-p-500-nasdaq-11122026-12250329">Investopedia&nbsp;↗</a>, <a href="https://apnews.com/article/wall-street-stocks-dow-nasdaq-3f3668a937a11535103e3a5c8d82c9fc">AP&nbsp;↗</a>, <a href="https://www.investing.com/news/stock-market-news/us-stocks-lower-at-close-of-trade-dow-jones-industrial-average-down-036-5023324">Investing.com&nbsp;↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Le taux à 10 ans américain au-dessus de 5&nbsp;%</h3>
+    <p>Le 10 ans termine jeudi à 5,10&nbsp;% (4,98&nbsp;% mardi) et le dollar reste au plus haut depuis avril 2025. Les marchés jugent une hausse des taux de la Fed acquise le 9 décembre, avec une petite probabilité de +0,50&nbsp;point. C’est le principal vent contraire pour la crypto et les valeurs de croissance.</p>
+    <div class="meta"><span class="source">Sources&nbsp;: <a href="https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve">Trésor US&nbsp;↗</a>, <a href="https://www.morningstar.com/news/dow-jones/2026111212961/10-year-treasury-yield-rises-to-5102-data-talk">Morningstar&nbsp;↗</a>, <a href="https://www.coindesk.com/markets/2026/11/13/bitcoin-dips-below-usd70-000-as-selloff-gathers-pace">CoinDesk&nbsp;↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Le pétrole reprend sa prime de risque</h3>
+    <p>Le Brent gagne 3,3&nbsp;% à 95,82&nbsp;$ après les propos de Trump sur l’Iran et les frappes houthies en Arabie saoudite. Il reste en baisse d’environ 20&nbsp;% sur novembre, mais l’espoir d’une détente rapide s’effrite&nbsp;: mauvais signal pour l’inflation.</p>
+    <div class="meta"><span class="source">Sources&nbsp;: <a href="https://english.news.cn/20261113/382ec38ae9164b60ba58298b585b868c/c.html">Xinhua&nbsp;↗</a>, <a href="https://www.ndtvprofit.com/markets/oil-prices-today-november-13-brent-crude-oil-wti-reverses-course-climbs-above-95-what-happens-next-us-strait-of-hormuz-iran-war-middle-east-12320081">NDTV Profit&nbsp;↗</a></span></div>
+  </article>
+</section>
+
+<section class="theme" id="geopolitique">
+  <h2><span class="emoji">🌍</span> Géopolitique</h2>
+  <article class="card">
+    <h3>Iran&nbsp;: Trump ferme la porte, Téhéran frappe</h3>
+    <p>«&nbsp;Nous n’avons pas besoin d’un accord avec l’Iran&nbsp;», écrit Trump, qui retire le dossier à JD Vance. Dans la nuit, les Gardiens de la révolution disent avoir détruit un radar d’alerte américain à Bahreïn, en riposte à une frappe sur Sirik&nbsp;; ni Washington ni Manama n’ont confirmé. Première attaque revendiquée contre une base US du Golfe depuis septembre.</p>
+    <div class="meta"><span class="badge unconfirmed">Non confirmé</span><span class="source">Sources&nbsp;: <a href="https://www.cnbc.com/2026/11/12/trump-iran-deal-hormuz-strait.html">CNBC&nbsp;↗</a>, <a href="https://www.aljazeera.com/news/2026/11/13/iran-says-it-struck-us-radar-site-in-bahrain">Al Jazeera&nbsp;↗</a>, <a href="https://www.arabnews.com/middle-east/irans-guards-say-they-targeted-us-radar-system-in-bahrain-3011593">Arab News (AFP)&nbsp;↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Les Houthis visent le pétrole saoudien</h3>
+    <p>Les rebelles yéménites revendiquent une frappe de drone sur une station de pompage de l’oléoduc Est-Ouest et un missile sur une installation à Yanbu, la sortie de secours du brut saoudien hors d’Ormuz. Riyad n’a pas confirmé de dégâts.</p>
+    <div class="meta"><span class="badge unconfirmed">Non confirmé</span><span class="source">Sources&nbsp;: <a href="https://www.aljazeera.com/news/2026/11/12/yemens-houthis-renew-strikes-on-saudi-arabia-as-unsc-extends-sanctions">Al Jazeera&nbsp;↗</a>, <a href="https://www.thehindu.com/news/international/yemens-houthis-say-they-targeted-saudi-east-west-pipeline-port-city-of-yanbu/article71695404.ece">The Hindu&nbsp;↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Ukraine&nbsp;: les Européens invités à la table</h3>
+    <p>Après 4&nbsp;h30 avec Poutine, Witkoff et Kushner annoncent que l’Europe participera à la prochaine négociation&nbsp;; Zelensky, vu à Dublin, promet «&nbsp;le plus grand échange de prisonniers&nbsp;» de la guerre. Mais Poutine a répété ses exigences maximalistes&nbsp;: pas de percée sur les territoires.</p>
+    <div class="meta"><span class="source">Sources&nbsp;: <a href="https://www.politico.eu/article/vladimir-putin-open-to-europe-joining-ukraine-peace-talks-steve-witkoff/">Politico&nbsp;↗</a>, <a href="https://kyivindependent.com/zelensky-meets-with-trumps-envoys-in-dublin-after-their-summit-with-putin/">Kyiv Independent&nbsp;↗</a>, <a href="https://www.theguardian.com/world/live/2026/nov/12/us-envoys-in-moscow-meeting-putin-abu-dhabi-trilateral-ukraine-ceasefire-talks-latest-news-updates">The Guardian&nbsp;↗</a></span></div>
+  </article>
+</section>
+
+<section class="theme" id="verification">
+  <h2><span class="emoji">✅</span> Vérification</h2>
+  <article class="card">
+    <h3>✅ Vérifié</h3>
+    <p>Cours crypto (CoinGecko, recoupés avec CoinDesk et Exa)&nbsp;; passage sous 70&nbsp;000&nbsp;$ et liquidations (CoinDesk, Reuters, Crypto Briefing, Bitcoin.com)&nbsp;; démission de Huang et clôture Nvidia (Investopedia, Motley Fool, AP, Investing.com)&nbsp;; Nebius (Reuters, CNBC)&nbsp;; clôtures des indices (Investing.com, Media.com, Motley Fool)&nbsp;; taux 10 ans (Trésor US, Morningstar)&nbsp;; Brent (Xinhua, NDTV Profit, Proactive)&nbsp;; propos de Trump sur l’Iran (CNBC, NBC, Washington Post)&nbsp;; Witkoff–Kushner–Poutine–Zelensky (Politico, Kremlin, Kyiv Independent, Guardian)&nbsp;; direct Amodei–Dimon (Bloomberg Law, Quartz).</p>
+  </article>
+  <article class="card">
+    <h3>⚠️ À confirmer</h3>
+    <p>Frappe sur le radar de Bahreïn&nbsp;: revendication iranienne, non confirmée par les États-Unis ni Bahreïn. Frappes houthies&nbsp;: revendiquées, dégâts non confirmés par Riyad. Liaison avec une «&nbsp;espionne chinoise&nbsp;»&nbsp;: allégations de presse, enquête interne en cours. Chiffres Nebius et Robotaxi 24/7&nbsp;: annonces des entreprises. Taille de l’échange de prisonniers&nbsp;: nombre non annoncé.</p>
+  </article>
+</section>
+
+<footer>
+  <p>Généré le vendredi 13 novembre 2026 vers 07h20 (heure de Paris). Faits repérés via X puis recoupés sur le web&nbsp;; liens vérifiés (certains sites bloquent les robots mais s’ouvrent normalement dans un navigateur).</p>
+  <p>Les badges signalent les chiffres publiés par les entreprises elles-mêmes et les informations non confirmées officiellement.</p>
+</footer>
+</main>
+</body>
+</html>
