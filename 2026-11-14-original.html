@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<title>Brief du Matin · Samedi 14 novembre 2026</title>
+<!--
+  GABARIT « Brief du Matin » : un seul fichier, CSS inline, aucune dépendance, pas de JS.
+  Thème sombre par défaut, clair automatique via prefers-color-scheme.
+  Utilisation : copier ce fichier vers brief-AAAA-MM-JJ.html, remplacer chaque {{EMPLACEMENT}},
+  dupliquer les <article class="card"> (3 à 4 par section). Ne pas modifier le bloc <style>.
+  Typographie : mettre une espace insécable (&nbsp;) avant : ; % ? ! » et après «.
+-->
+<style>
+:root{
+  --bg:#0e1116; --surface:#161b22; --surface-2:#1c222b; --border:#2a313c;
+  --text:#e8ecf1; --muted:#9aa4b2; --accent:#e0b062; --link:#8fbcff;
+  --up:#3fcf8e; --up-bg:rgba(63,207,142,.12); --down:#ff6b6b; --down-bg:rgba(255,107,107,.12);
+  --badge-co:#c9a7ff; --badge-co-bg:rgba(201,167,255,.12);
+  --badge-nc:#ffb347; --badge-nc-bg:rgba(255,179,71,.12);
+}
+@media (prefers-color-scheme: light){
+  :root{
+    --bg:#f6f4ef; --surface:#ffffff; --surface-2:#faf8f4; --border:#e3ded4;
+    --text:#1b1f24; --muted:#5d6672; --accent:#9a6a12; --link:#1f5fbf;
+    --up:#0f8a55; --up-bg:rgba(15,138,85,.10); --down:#c62f2f; --down-bg:rgba(198,47,47,.09);
+    --badge-co:#6b3fc0; --badge-co-bg:rgba(107,63,192,.09);
+    --badge-nc:#a35a00; --badge-nc-bg:rgba(163,90,0,.10);
+  }
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji";
+  font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:780px;margin:0 auto;padding:40px 22px 28px}
+header.masthead{padding-bottom:22px;margin-bottom:26px;border-bottom:1px solid var(--border)}
+.kicker{font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);font-weight:600;margin:0 0 6px}
+h1{font-size:2.3rem;line-height:1.15;margin:0;font-weight:750;letter-spacing:-.02em}
+.date{margin:8px 0 0;color:var(--muted);font-size:1rem}
+.date .sep{opacity:.5;margin:0 .45em}
+.essentiel{background:linear-gradient(135deg,var(--surface-2),var(--surface));border:1px solid var(--border);
+  border-left:4px solid var(--accent);border-radius:14px;padding:18px 22px 16px;margin:0 0 34px}
+.essentiel h2{margin:0 0 8px;font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+.essentiel ul{margin:0;padding-left:1.15em}
+.essentiel li{margin:6px 0;font-weight:500}
+.essentiel li::marker{color:var(--accent)}
+section.theme{margin:0 0 38px}
+section.theme > h2{font-size:1.4rem;margin:0 0 14px;display:flex;align-items:center;gap:.5em;letter-spacing:-.01em}
+section.theme > h2 .emoji{font-size:1.25em;line-height:1}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin:0 0 16px}
+.tile{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:10px 12px}
+.tile .label{font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:600}
+.tile .value{font-size:1.15rem;font-weight:700;font-variant-numeric:tabular-nums;margin-top:2px;white-space:nowrap}
+.tile .chg{display:inline-block;margin-top:4px;font-size:.8rem;font-weight:650;padding:1px 7px;border-radius:999px;font-variant-numeric:tabular-nums}
+.chg.up{color:var(--up);background:var(--up-bg)}
+.chg.down{color:var(--down);background:var(--down-bg)}
+.tiles-note{font-size:.78rem;color:var(--muted);margin:-8px 0 16px}
+.tiles-note a{color:var(--muted)}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:16px 18px;margin:0 0 12px}
+.card h3{margin:0 0 6px;font-size:1.05rem;line-height:1.35;font-weight:700}
+.card p{margin:0;color:var(--text)}
+.card .meta{margin-top:10px;display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;font-size:.82rem}
+.source{color:var(--muted)}
+.source a{color:var(--link);text-decoration:none;border-bottom:1px solid transparent}
+.source a:hover{border-bottom-color:var(--link)}
+.badge{display:inline-block;font-size:.7rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:2px 8px;border-radius:999px;white-space:nowrap}
+.badge.company{color:var(--badge-co);background:var(--badge-co-bg)}
+.badge.unconfirmed{color:var(--badge-nc);background:var(--badge-nc-bg)}
+footer{margin-top:10px;padding-top:16px;border-top:1px solid var(--border);color:var(--muted);font-size:.8rem;line-height:1.5}
+footer p{margin:4px 0}
+@media (max-width:520px){
+  body{font-size:16px}
+  .wrap{padding:26px 16px 22px}
+  h1{font-size:1.85rem}
+  .tiles{grid-template-columns:repeat(2,1fr)}
+  .card{padding:14px 15px}
+  .essentiel{padding:16px 16px 14px}
+}
+.tiles.six{grid-template-columns:repeat(3,1fr)}
+@media (max-width:520px){.tiles.six{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+<main class="wrap">
+<header class="masthead">
+  <p class="kicker">Crypto · IA · Macro · Géopolitique</p>
+  <h1>Brief du Matin</h1>
+  <p class="date">Samedi 14 novembre 2026<span class="sep">·</span>Les dernières 24 heures</p>
+</header>
+
+<aside class="essentiel" aria-label="L'essentiel">
+  <h2>L'essentiel</h2>
+  <ul>
+    <li>Le bitcoin glisse sous 67&nbsp;000&nbsp;$ (≈&nbsp;67&nbsp;200&nbsp;$ ce matin), au plus bas depuis la mi-août&nbsp;; l’ether reste sous 1&nbsp;900&nbsp;$ et le marché crypto entre dans le week-end sans filet.</li>
+    <li>Inflation en gros&nbsp;: les prix à la production américains montent de 6,5&nbsp;% sur un an, un record depuis fin 2022&nbsp;; le 10 ans US clôture à 5,15&nbsp;% et une hausse des taux de la Fed en décembre est quasi acquise.</li>
+    <li>Iran&nbsp;: Trump dit pouvoir «&nbsp;finir la guerre immédiatement&nbsp;» mais temporiser à la demande de l’Arabie saoudite et des pays du Golfe&nbsp;; en Ukraine, l’Europe se prépare à entrer dans les négociations, le Kremlin hésite.</li>
+  </ul>
+</aside>
+
+<section class="theme" id="crypto">
+  <h2><span class="emoji">₿</span> Crypto</h2>
+  <div class="tiles">
+    <div class="tile"><div class="label">BTC</div><div class="value">≈ 67&nbsp;210&nbsp;$</div><span class="chg down">−1,4&nbsp;% (24 h)</span></div>
+    <div class="tile"><div class="label">ETH</div><div class="value">≈ 1&nbsp;904&nbsp;$</div><span class="chg down">−0,4&nbsp;% (24 h)</span></div>
+    <div class="tile"><div class="label">SOL</div><div class="value">≈ 75,9&nbsp;$</div><span class="chg down">−3,4&nbsp;% (24 h)</span></div>
+    <div class="tile"><div class="label">XRP</div><div class="value">≈ 1,00&nbsp;$</div><span class="chg down">−1,4&nbsp;% (24 h)</span></div>
+  </div>
+  <p class="tiles-note">Cours de samedi vers 07h08 (heure de Paris). Source&nbsp;: <a href="https://www.coingecko.com/">CoinGecko&nbsp;↗</a></p>
+  <article class="card">
+    <h3>Le bitcoin enfonce les 67&nbsp;000&nbsp;$</h3>
+    <p>Le BTC est tombé jusqu’à ≈&nbsp;66&nbsp;800&nbsp;$ dans la nuit (Coinbase, Binance), son plus bas depuis le 19 août. Il perd près de 12&nbsp;% sur la semaine et environ 18&nbsp;% sur un mois. En cause&nbsp;: inflation tenace, taux longs au-dessus de 5&nbsp;% et liquidations en chaîne, environ 1,3&nbsp;Md$ de positions acheteuses forcées en 24&nbsp;h selon CoinGlass.</p>
+    <div class="meta"><span class="source">Sources&nbsp;: <a href="https://thedefiant.io/news/markets/bitcoin-drops-below-67-000-as-crypto-selloff-deepens">The Defiant&nbsp;↗</a>, <a href="https://cryptoticker.io/en/bitcoin-price-below-67000-lowest-since-august/">CryptoTicker&nbsp;↗</a>, <a href="https://finance.biggo.com/news/980c84ff-1169-420a-89d0-a926f4daa001">BigGo Finance&nbsp;↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Moins d’argent frais dans le marché</h3>
+    <p>Selon Glassnode, l’offre de stablecoins a fondu de 14,2&nbsp;Md$ en 30 jours et les ETF bitcoin américains ont perdu 1,6&nbsp;Md$ nets sur 20 séances. L’ether cède plus de 21&nbsp;% en quatre semaines. Sans nouveaux acheteurs, chaque rebond reste fragile.</p>
+    <div class="meta"><span class="source">Sources&nbsp;: <a href="https://thedefiant.io/news/markets/bitcoin-drops-below-67-000-as-crypto-selloff-deepens">The Defiant&nbsp;↗</a>, <a href="https://cryptoticker.io/en/bitcoin-price-below-67000-lowest-since-august/">CryptoTicker&nbsp;↗</a></span></div>
+  </article>
+</section>
+
+<section class="theme" id="ia">
+  <h2><span class="emoji">🤖</span> IA</h2>
+  <article class="card">
+    <h3>Anthropic à 1&nbsp;400&nbsp;Md$, l’IPO dans cinq jours</h3>
+    <p>Fourchette confirmée à 70–78&nbsp;$ par action pour 825 millions de titres, soit jusqu’à 64,4&nbsp;Md$ levés et une valorisation jusqu’à 1&nbsp;405&nbsp;Md$ (entièrement diluée). Prix fixé le 18, cotation le 19 sous ANT. En direct avec Jamie Dimon vendredi, Dario Amodei a prédit que l’IA allait «&nbsp;résoudre&nbsp;» la biologie d’ici quelques années.</p>
+    <div class="meta"><span class="badge company">Chiffres de l’entreprise</span><span class="source">Sources&nbsp;: <a href="https://www.anthropic.com/news/roadshow-launch">Anthropic&nbsp;↗</a>, <a href="https://www.cnbc.com/2026/11/10/anthropic-sets-price-range-of-70-to-78-in-upcoming-ipo.html">CNBC&nbsp;↗</a>, <a href="https://finance.yahoo.com/technology/article/anthropic-sets-ipo-date-for-thursday-nov-19-173011206.html">Yahoo Finance&nbsp;↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Les puces IA chutent, Apple sert de refuge</h3>
+    <p>Nvidia recule encore de 2&nbsp;% vendredi (162,85&nbsp;$), sa première semaine sans Jensen Huang, et entraîne AMD, Broadcom et Dell. À l’inverse, Apple clôture à un record (356,27&nbsp;$). Le marché sort du matériel IA à quelques jours des résultats de Nvidia (17 novembre) et de l’IPO d’Anthropic.</p>
+    <div class="meta"><span class="source">Sources&nbsp;: <a href="https://www.cnbc.com/2026/11/12/stock-market-today-live-updates.html">CNBC&nbsp;↗</a>, <a href="https://www.itiger.com/news/1120349014">Tiger Brokers&nbsp;↗</a>, <a href="https://investedalpha.com/news/apple-record-close-safe-haven-as-amd-cisco-dell-slide-ai-hardware-selloff">Invested Alpha&nbsp;↗</a></span></div>
+  </article>
+</section>
+
+<section class="theme" id="macro">
+  <h2><span class="emoji">📈</span> Macro</h2>
+  <div class="tiles">
+    <div class="tile"><div class="label">Dow Jones</div><div class="value">52&nbsp;347,6</div><span class="chg up">+0,1&nbsp;%</span></div>
+    <div class="tile"><div class="label">S&amp;P 500</div><div class="value">7&nbsp;561,7</div><span class="chg down">−0,4&nbsp;%</span></div>
+    <div class="tile"><div class="label">Nasdaq</div><div class="value">25&nbsp;136,3</div><span class="chg down">−0,91&nbsp;%</span></div>
+    <div class="tile"><div class="label">US 10 ans</div><div class="value">5,15&nbsp;%</div><span class="chg up">+5&nbsp;pb</span></div>
+    <div class="tile"><div class="label">Brent</div><div class="value">95,84&nbsp;$</div><span class="chg up">+0,02&nbsp;$</span></div>
+  </div>
+  <p class="tiles-note">Clôtures de vendredi 13 novembre. Sources&nbsp;: <a href="https://www.cnbc.com/2026/11/12/stock-market-today-live-updates.html">CNBC&nbsp;↗</a>, <a href="https://www.kiplinger.com/investing/stocks/nasdaq-drops-friday-on-nvidia-fallout-but-ends-the-week-up-stock-market-today">Kiplinger&nbsp;↗</a>, <a href="https://www.morningstar.com/news/dow-jones/202611139683/10-year-treasury-yield-rises-to-5152-this-week-data-talk">Morningstar&nbsp;↗</a>, <a href="https://www.cnbc.com/2026/11/13/oil-prices-set-for-second-weekly-decline-as-trump-to-stay-with-iran-blockade.html">CNBC (pétrole)&nbsp;↗</a></p>
+  <article class="card">
+    <h3>Prix à la production&nbsp;: +6,5&nbsp;% sur un an</h3>
+    <p>L’indice PPI d’octobre monte de 0,3&nbsp;% sur le mois (0,4&nbsp;% attendu), mais de 6,5&nbsp;% sur un an, du jamais vu depuis novembre 2022&nbsp;; l’indice sous-jacent atteint 5&nbsp;%. Les marchés jugent quasi certaine (≈&nbsp;90&nbsp;% selon CME FedWatch) une hausse de taux de 0,25&nbsp;point le 9 décembre.</p>
+    <div class="meta"><span class="source">Sources&nbsp;: <a href="https://www.cnbc.com/2026/11/13/ppi-inflation-report-october-2026.html">CNBC&nbsp;↗</a>, <a href="https://www.kiplinger.com/investing/stocks/nasdaq-drops-friday-on-nvidia-fallout-but-ends-the-week-up-stock-market-today">Kiplinger&nbsp;↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Le 10 ans à 5,15&nbsp;%, Wall Street sauve sa semaine</h3>
+    <p>Le taux à 10 ans américain finit vendredi à 5,15&nbsp;% (5,10&nbsp;% jeudi). Le Nasdaq perd 0,9&nbsp;% vendredi mais les trois indices signent leur meilleure semaine depuis août (S&amp;P 500 +2,5&nbsp;%). Des taux aussi hauts pèsent directement sur la crypto et la tech.</p>
+    <div class="meta"><span class="source">Sources&nbsp;: <a href="https://www.cnbc.com/2026/11/13/treasury-yields-fed-rates.html">CNBC&nbsp;↗</a>, <a href="https://www.morningstar.com/news/dow-jones/202611139683/10-year-treasury-yield-rises-to-5152-this-week-data-talk">Morningstar&nbsp;↗</a>, <a href="https://apnews.com/article/wall-street-stocks-dow-nasdaq-12c1e8155fb85c3c7b09e058ed6d3c74">AP&nbsp;↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>L’AIE voit revenir un surplus de pétrole</h3>
+    <p>Avec la reprise des exportations du Golfe, l’Agence internationale de l’énergie prévoit un excédent de 1,7&nbsp;million de barils par jour au 4e trimestre. Le Brent (95,84&nbsp;$) signe une deuxième semaine de baisse (−2,5&nbsp;%). Bonne nouvelle pour l’inflation, si le détroit d’Ormuz reste calme.</p>
+    <div class="meta"><span class="source">Sources&nbsp;: <a href="https://www.iea.org/reports/oil-market-report-november-2026">AIE&nbsp;↗</a>, <a href="https://www.investing.com/news/commodities-news/world-oil-market-is-returning-to-surplus-as-gulf-exports-recoveriea-says-5024885">Reuters via Investing.com&nbsp;↗</a>, <a href="https://www.cnbc.com/2026/11/13/oil-prices-set-for-second-weekly-decline-as-trump-to-stay-with-iran-blockade.html">CNBC&nbsp;↗</a></span></div>
+  </article>
+</section>
+
+<section class="theme" id="geopolitique">
+  <h2><span class="emoji">🌍</span> Géopolitique</h2>
+  <article class="card">
+    <h3>Iran&nbsp;: Trump temporise «&nbsp;à la demande&nbsp;» du Golfe</h3>
+    <p>Interrogé par Stephen A. Smith, Trump affirme pouvoir détruire en «&nbsp;trois jours&nbsp;» l’énergie, les ponts et l’industrie iraniennes, mais retenir ses frappes car l’Arabie saoudite, le Qatar, le Koweït, les Émirats et Bahreïn préfèrent attendre. «&nbsp;Je ne suis pas sûr d’être d’accord&nbsp;», ajoute-t-il. Le message aux marchés&nbsp;: pas d’escalade immédiate, mais pas de fin de guerre non plus.</p>
+    <div class="meta"><span class="source">Sources&nbsp;: <a href="https://www.jpost.com/international/article-914787">Jerusalem Post&nbsp;↗</a>, <a href="https://www.dawn.com/news/2044218">Dawn (Al Jazeera)&nbsp;↗</a>, <a href="https://www.israelnationalnews.com/news/436127">Israel National News&nbsp;↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Ukraine&nbsp;: l’Europe désigne son équipe, Moscou hésite</h3>
+    <p>Au sommet de Dublin, António Costa annonce que l’UE négociera avec le Royaume-Uni, la France, l’Allemagne, l’Italie et la Pologne. Les émissaires américains disaient avoir obtenu l’accord de Poutine, mais le Kremlin veut d’abord juger des «&nbsp;intentions réelles&nbsp;» des Européens. Dans le même temps, l’Ukraine a lancé près de 1&nbsp;200 drones sur la Russie en une nuit.</p>
+    <div class="meta"><span class="source">Sources&nbsp;: <a href="https://www.rferl.org/a/ukraine-russia-us-peace-talks/33897813.html">RFE/RL&nbsp;↗</a>, <a href="https://www.dw.com/en/ukraine-updates-eu-to-send-united-front-to-potential-peace-talks/live-79937459">DW&nbsp;↗</a>, <a href="https://www.pbs.org/newshour/amp/world/ukraine-fires-nearly-1200-drones-at-russia-as-u-s-led-talks-consider-wider-european-security">AP via PBS&nbsp;↗</a></span></div>
+  </article>
+</section>
+
+<section class="theme" id="verification">
+  <h2><span class="emoji">✅</span> Vérification</h2>
+  <article class="card">
+    <h3>✅ Vérifié</h3>
+    <p>Cours crypto (CoinGecko, recoupés avec Exa et OKX)&nbsp;; passage sous 67&nbsp;000&nbsp;$ et plus bas depuis le 19 août (The Defiant, CryptoTicker, BigGo, PANews)&nbsp;; conditions de l’IPO Anthropic (dépôt de l’entreprise, CNBC, Guardian, Yahoo Finance)&nbsp;; PPI d’octobre (CNBC, Kiplinger)&nbsp;; clôtures des indices (CNBC, AP, Kiplinger)&nbsp;; taux 10 ans (Morningstar, FactIQ/Trésor US, CNBC)&nbsp;; Brent et rapport de l’AIE (AIE, Reuters, CNBC, Morningstar, Newsquawk)&nbsp;; propos de Trump (Jerusalem Post, Dawn/Al Jazeera, Israel National News, SiriusXM)&nbsp;; Ukraine (RFE/RL, AP, DW, Guardian).</p>
+  </article>
+  <article class="card">
+    <h3>⚠️ À confirmer</h3>
+    <p>Valorisation d’Anthropic et calendrier de cotation&nbsp;: chiffres de l’entreprise et de sources anonymes, prix final le 18. Liquidations (≈&nbsp;1,3&nbsp;Md$) et flux de stablecoins/ETF&nbsp;: données de CoinGlass et Glassnode reprises par la presse crypto. Clôtures de Nvidia et d’Apple&nbsp;: une seule source grand public chacune en plus des sites spécialisés. Le 10 ans varie de 5,15 à 5,17&nbsp;% selon l’heure de relevé.</p>
+  </article>
+</section>
+
+<footer>
+  <p>Généré le samedi 14 novembre 2026 vers 07h20 (heure de Paris). Faits repérés via X puis recoupés sur le web&nbsp;; liens vérifiés (certains sites bloquent les robots mais s’ouvrent normalement dans un navigateur).</p>
+  <p>Les badges signalent les chiffres publiés par les entreprises elles-mêmes et les informations non confirmées officiellement.</p>
+</footer>
+</main>
+</body>
+</html>
