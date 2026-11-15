@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<title>Brief du Matin · Dimanche 15 novembre 2026</title>
+<!--
+  GABARIT « Brief du Matin » : un seul fichier, CSS inline, aucune dépendance, pas de JS.
+  Thème sombre par défaut, clair automatique via prefers-color-scheme.
+  Utilisation : copier ce fichier vers brief-AAAA-MM-JJ.html, remplacer chaque {{EMPLACEMENT}},
+  dupliquer les <article class="card"> (3 à 4 par section). Ne pas modifier le bloc <style>.
+  Typographie : mettre une espace insécable (&nbsp;) avant : ; % ? ! » et après «.
+-->
+<style>
+:root{
+  --bg:#0e1116; --surface:#161b22; --surface-2:#1c222b; --border:#2a313c;
+  --text:#e8ecf1; --muted:#9aa4b2; --accent:#e0b062; --link:#8fbcff;
+  --up:#3fcf8e; --up-bg:rgba(63,207,142,.12); --down:#ff6b6b; --down-bg:rgba(255,107,107,.12);
+  --badge-co:#c9a7ff; --badge-co-bg:rgba(201,167,255,.12);
+  --badge-nc:#ffb347; --badge-nc-bg:rgba(255,179,71,.12);
+}
+@media (prefers-color-scheme: light){
+  :root{
+    --bg:#f6f4ef; --surface:#ffffff; --surface-2:#faf8f4; --border:#e3ded4;
+    --text:#1b1f24; --muted:#5d6672; --accent:#9a6a12; --link:#1f5fbf;
+    --up:#0f8a55; --up-bg:rgba(15,138,85,.10); --down:#c62f2f; --down-bg:rgba(198,47,47,.09);
+    --badge-co:#6b3fc0; --badge-co-bg:rgba(107,63,192,.09);
+    --badge-nc:#a35a00; --badge-nc-bg:rgba(163,90,0,.10);
+  }
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji";
+  font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:780px;margin:0 auto;padding:40px 22px 28px}
+header.masthead{padding-bottom:22px;margin-bottom:26px;border-bottom:1px solid var(--border)}
+.kicker{font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);font-weight:600;margin:0 0 6px}
+h1{font-size:2.3rem;line-height:1.15;margin:0;font-weight:750;letter-spacing:-.02em}
+.date{margin:8px 0 0;color:var(--muted);font-size:1rem}
+.date .sep{opacity:.5;margin:0 .45em}
+.essentiel{background:linear-gradient(135deg,var(--surface-2),var(--surface));border:1px solid var(--border);
+  border-left:4px solid var(--accent);border-radius:14px;padding:18px 22px 16px;margin:0 0 34px}
+.essentiel h2{margin:0 0 8px;font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+.essentiel ul{margin:0;padding-left:1.15em}
+.essentiel li{margin:6px 0;font-weight:500}
+.essentiel li::marker{color:var(--accent)}
+section.theme{margin:0 0 38px}
+section.theme > h2{font-size:1.4rem;margin:0 0 14px;display:flex;align-items:center;gap:.5em;letter-spacing:-.01em}
+section.theme > h2 .emoji{font-size:1.25em;line-height:1}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin:0 0 16px}
+.tile{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:10px 12px}
+.tile .label{font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:600}
+.tile .value{font-size:1.15rem;font-weight:700;font-variant-numeric:tabular-nums;margin-top:2px;white-space:nowrap}
+.tile .chg{display:inline-block;margin-top:4px;font-size:.8rem;font-weight:650;padding:1px 7px;border-radius:999px;font-variant-numeric:tabular-nums}
+.chg.up{color:var(--up);background:var(--up-bg)}
+.chg.down{color:var(--down);background:var(--down-bg)}
+.tiles-note{font-size:.78rem;color:var(--muted);margin:-8px 0 16px}
+.tiles-note a{color:var(--muted)}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:16px 18px;margin:0 0 12px}
+.card h3{margin:0 0 6px;font-size:1.05rem;line-height:1.35;font-weight:700}
+.card p{margin:0;color:var(--text)}
+.card .meta{margin-top:10px;display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;font-size:.82rem}
+.source{color:var(--muted)}
+.source a{color:var(--link);text-decoration:none;border-bottom:1px solid transparent}
+.source a:hover{border-bottom-color:var(--link)}
+.badge{display:inline-block;font-size:.7rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:2px 8px;border-radius:999px;white-space:nowrap}
+.badge.company{color:var(--badge-co);background:var(--badge-co-bg)}
+.badge.unconfirmed{color:var(--badge-nc);background:var(--badge-nc-bg)}
+footer{margin-top:10px;padding-top:16px;border-top:1px solid var(--border);color:var(--muted);font-size:.8rem;line-height:1.5}
+footer p{margin:4px 0}
+@media (max-width:520px){
+  body{font-size:16px}
+  .wrap{padding:26px 16px 22px}
+  h1{font-size:1.85rem}
+  .tiles{grid-template-columns:repeat(2,1fr)}
+  .card{padding:14px 15px}
+  .essentiel{padding:16px 16px 14px}
+}
+.tiles.six{grid-template-columns:repeat(3,1fr)}
+@media (max-width:520px){.tiles.six{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+<main class="wrap">
+<header class="masthead">
+  <p class="kicker">Crypto · IA · Macro · Géopolitique</p>
+  <h1>Brief du Matin</h1>
+  <p class="date">Dimanche 15 novembre 2026<span class="sep">·</span>Les dernières 24 heures</p>
+</header>
+
+<aside class="essentiel" aria-label="L'essentiel">
+  <h2>L'essentiel</h2>
+  <ul>
+    <li>Le bitcoin casse les 65&nbsp;000&nbsp;$ ce week-end, touche 62&nbsp;112&nbsp;$ (plus bas depuis le 14 juillet) et ≈&nbsp;2&nbsp;Md$ de positions sont liquidées en 24&nbsp;h&nbsp;; l’ether est descendu à 1&nbsp;711&nbsp;$.</li>
+    <li>Trump, Xi et Putin se retrouveront jeudi 19 novembre à Shenzhen, en marge de l’APEC&nbsp;: première rencontre à trois de l’histoire, au menu les armes nucléaires et l’Iran, pas l’Ukraine.</li>
+    <li>La Fed classe l’IA comme premier risque pour la stabilité financière&nbsp;: 87&nbsp;% des professionnels interrogés la citent (50&nbsp;% au printemps)&nbsp;; les émissions de dette pour les data centers ont quintuplé par rapport à 2023.</li>
+  </ul>
+</aside>
+
+<section class="theme" id="crypto">
+  <h2><span class="emoji">₿</span> Crypto</h2>
+  <div class="tiles">
+    <div class="tile"><div class="label">BTC</div><div class="value">≈ 64&nbsp;825&nbsp;$</div><span class="chg down">−3,0&nbsp;% (24 h)</span></div>
+    <div class="tile"><div class="label">ETH</div><div class="value">≈ 1&nbsp;807&nbsp;$</div><span class="chg down">−4,6&nbsp;% (24 h)</span></div>
+    <div class="tile"><div class="label">SOL</div><div class="value">≈ 71,1&nbsp;$</div><span class="chg down">−6,0&nbsp;% (24 h)</span></div>
+    <div class="tile"><div class="label">XRP</div><div class="value">≈ 0,96&nbsp;$</div><span class="chg down">−3,0&nbsp;% (24 h)</span></div>
+  </div>
+  <p class="tiles-note">Cours de dimanche vers 06h45 (heure de Paris). Source&nbsp;: <a href="https://www.coingecko.com/">CoinGecko&nbsp;↗</a>, recoupé avec Exa et CoinMarketCap (via Livemint).</p>
+  <article class="card">
+    <h3>Le bitcoin sous 65&nbsp;000&nbsp;$, cascade de liquidations</h3>
+    <p>Après −5,7&nbsp;% samedi, le BTC est tombé dans la nuit jusqu’à 62&nbsp;112&nbsp;$, son plus bas depuis le 14 juillet, avant de revenir vers 64&nbsp;800&nbsp;$. Il a cassé sa moyenne mobile 200 jours (≈&nbsp;73&nbsp;000&nbsp;$), ce qui a déclenché ≈&nbsp;2&nbsp;Md$ de liquidations en 24&nbsp;h, surtout des positions acheteuses (CoinGlass). Le BTC a perdu environ 25&nbsp;% depuis le 21 octobre.</p>
+    <div class="meta"><span class="source">Sources&nbsp;: <a href="https://www.straitstimes.com/business/bitcoin-tumbles-to-three-month-low-as-liquidations-accelerate">Straits Times (Bloomberg)&nbsp;↗</a>, <a href="https://www.livemint.com/market/cryptocurrency/crypto-bitcoin-price-today-falls-64962-15-nov-lowest-since-july-investors-pull-out-favour-ai-stocks-factor-fed-rate-hike-11794711853135.html">Livemint&nbsp;↗</a>, <a href="https://www.wam.ae/en/article/17iysls-bitcoin-falls-below-65000-for-first-time-since">WAM&nbsp;↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>ETF bitcoin&nbsp;: une 2e semaine à plus d’1&nbsp;Md$ de sorties</h3>
+    <p>Les ETF bitcoin américains ont perdu 1,07&nbsp;Md$ nets du 9 au 13 novembre, avec des sorties chaque jour, après 1,28&nbsp;Md$ la semaine précédente (SoSoValue). Sans ces acheteurs institutionnels, chaque baisse s’accélère, surtout le week-end quand les carnets d’ordres sont minces.</p>
+    <div class="meta"><span class="source">Sources&nbsp;: <a href="https://www.theblock.co/news/markets/2026-11-14-bitcoin-etfs-lose-1-billion-for-the-second-week-in-a-row-as-crypto-funds-except-one-continue-bleeding-440337">The Block&nbsp;↗</a>, <a href="https://crypto.news/weekly-crypto-etf-outflows-bitcoin-ethereum-november-13/">crypto.news&nbsp;↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Ether&nbsp;: la Fondation vend, Voorhees achète</h3>
+    <p>L’ether a touché 1&nbsp;711&nbsp;$, son plus bas depuis le 8 juillet. Sur la blockchain, un portefeuille attribué à la Fondation Ethereum a vendu ≈&nbsp;7&nbsp;500 ETH en quatre jours, tandis que des adresses liées à Erik Voorhees (fondateur de ShapeShift) ont acheté 48&nbsp;647 ETH (≈&nbsp;97&nbsp;M$). Un signal de division entre gros porteurs.</p>
+    <div class="meta"><span class="badge unconfirmed">Non confirmé</span><span class="source">Sources&nbsp;: <a href="https://www.lookonchain.com/feeds/82251">Lookonchain&nbsp;↗</a>, <a href="https://www.chaincatcher.com/en/article/2304792">ChainCatcher&nbsp;↗</a>, <a href="https://in-crypto.app/news/ethereum-foundation-sells-eth">In-Crypto&nbsp;↗</a></span></div>
+  </article>
+</section>
+
+<section class="theme" id="ia">
+  <h2><span class="emoji">🤖</span> IA</h2>
+  <article class="card">
+    <h3>OpenAI dissout son équipe robotique autonome</h3>
+    <p>Selon Fortune, les chercheurs en robotique passent dans l’équipe de recherche principale (Mark Chen) et l’équipe matériel chez Greg Brockman. OpenAI parle d’une accélération, pas d’un abandon&nbsp;: ses modèles généralistes (GPT-6 Astra) pilotent déjà des robots. Le pari&nbsp;: la robotique devient une application de l’IA générale, pas un problème à part. Démo d’humanoïde toujours visée pour 2027.</p>
+    <div class="meta"><span class="source">Sources&nbsp;: <a href="https://fortune.com/2026/11/13/openai-disbands-robotics-team-as-its-general-models-start-running-robots/">Fortune&nbsp;↗</a>, <a href="https://the-decoder.com/openai-reassigns-robotics-researchers-to-other-teams-as-general-purpose-models-might-make-specialized-robotics-ai-unnecessary/">The Decoder&nbsp;↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>IPO Anthropic&nbsp;: demande six fois supérieure à l’offre</h3>
+    <p>Les ordres atteindraient environ six fois les titres proposés (contre «&nbsp;plusieurs fois&nbsp;» en début de semaine), selon Bloomberg et Reuters. Prix fixé le 18, cotation le 19 sous ANT. Sur X, beaucoup lient la chute du bitcoin à des ventes pour financer des allocations, une thèse non démontrée.</p>
+    <div class="meta"><span class="badge unconfirmed">Non confirmé</span><span class="source">Sources&nbsp;: <a href="https://www.investing.com/news/stock-market-news/anthropics-ipo-is-about-six-times-oversubscribed-bloomberg-news-reports-5023345">Reuters via Investing.com&nbsp;↗</a>, <a href="https://timesofindia.indiatimes.com/business/international-business/anthropic-ipo-draws-six-times-demand-but-valuation-remains-under-scrutiny/articleshow/135830462.cms">Times of India&nbsp;↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Dwarkesh Patel avance la superintelligence à 2030</h3>
+    <p>Dans un essai publié le 13 novembre, le podcasteur estime que l’IA égalera les meilleurs chercheurs en IA vers 2028 (médiane), puis que l’auto-amélioration produira une superintelligence vers 2030. Le texte relance le débat sur le rythme du progrès&nbsp;; des économistes répondent que les gains viennent surtout de budgets plus gros.</p>
+    <div class="meta"><span class="source">Sources&nbsp;: <a href="https://www.dwarkesh.com/p/rsi">Dwarkesh Patel&nbsp;↗</a>, <a href="https://www.rdworldonline.com/as-ai-bubble-talk-grows-dwarkesh-patel-predicts-recursive-self-improvement-will-set-off-an-ai-research-explosion/">R&amp;D World&nbsp;↗</a></span></div>
+  </article>
+</section>
+
+<section class="theme" id="macro">
+  <h2><span class="emoji">📈</span> Macro</h2>
+  <div class="tiles six">
+    <div class="tile"><div class="label">Dow Jones</div><div class="value">52&nbsp;347,6</div><span class="chg up">+0,1&nbsp;%</span></div>
+    <div class="tile"><div class="label">S&amp;P 500</div><div class="value">7&nbsp;561,7</div><span class="chg down">−0,4&nbsp;%</span></div>
+    <div class="tile"><div class="label">Nasdaq</div><div class="value">25&nbsp;136,3</div><span class="chg down">−0,91&nbsp;%</span></div>
+    <div class="tile"><div class="label">US 10 ans</div><div class="value">5,15&nbsp;%</div><span class="chg up">+5&nbsp;pb</span></div>
+    <div class="tile"><div class="label">Brent</div><div class="value">95,84&nbsp;$</div><span class="chg up">+0,02&nbsp;$</span></div>
+    <div class="tile"><div class="label">Or (once)</div><div class="value">3&nbsp;884,69&nbsp;$</div><span class="chg up">+0,1&nbsp;%</span></div>
+  </div>
+  <p class="tiles-note">Clôtures de vendredi 13 novembre (marchés fermés le week-end). Sources&nbsp;: <a href="https://www.cnbc.com/2026/11/12/stock-market-today-live-updates.html">CNBC&nbsp;↗</a>, <a href="https://www.morningstar.com/news/dow-jones/202611139683/10-year-treasury-yield-rises-to-5152-this-week-data-talk">Morningstar&nbsp;↗</a>, <a href="https://www.cnbc.com/2026/11/13/oil-prices-set-for-second-weekly-decline-as-trump-to-stay-with-iran-blockade.html">CNBC (pétrole)&nbsp;↗</a>, <a href="https://www.goldprice.com/gold-price-today/2026-11-13">GoldPrice&nbsp;↗</a></p>
+  <article class="card">
+    <h3>La Fed place l’IA en tête des risques financiers</h3>
+    <p>Dans son rapport semestriel sur la stabilité financière, 87&nbsp;% des contacts interrogés citent l’IA (valorisations, cyberattaques, financements complexes), loin devant une correction des actifs risqués (52&nbsp;%) et les taux longs (48&nbsp;%). La dette émise pour les data centers dépasse 680&nbsp;Md$ (≈&nbsp;31&nbsp;% des émissions «&nbsp;investment grade&nbsp;» non financières) et le levier des hedge funds est au plus haut depuis 2013.</p>
+    <div class="meta"><span class="source">Sources&nbsp;: <a href="https://www.federalreserve.gov/publications/files/financial-stability-report-20261113.pdf">Fed (rapport)&nbsp;↗</a>, <a href="https://www.cnbc.com/2026/11/13/ai-risks-financial-system-federal-reserve.html">CNBC&nbsp;↗</a>, <a href="https://money.usnews.com/investing/news/articles/2026-11-13/ai-rockets-to-top-of-worries-about-financial-system-in-latest-fed-survey">Reuters via US News&nbsp;↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Banque d’Angleterre&nbsp;: d’autres hausses en vue</h3>
+    <p>Son chef économiste Huw Pill dit au Financial Times qu’il compte voter une nouvelle hausse de 0,25&nbsp;point en décembre et que d’autres seront probablement nécessaires en 2027, à cause de l’énergie. Avec la Fed attendue en hausse le 9 décembre, le resserrement monétaire devient mondial.</p>
+    <div class="meta"><span class="source">Sources&nbsp;: <a href="https://www.independent.co.uk/news/uk/home-news/bank-of-england-interest-rate-rises-inflation-mortgages-b3084994.html">The Independent&nbsp;↗</a>, <a href="https://www.investing.com/news/economy-news/boe-likely-to-raise-rates-further-in-2027-pill-tells-ft-5027169">Reuters via Investing.com&nbsp;↗</a></span></div>
+  </article>
+</section>
+
+<section class="theme" id="geopolitique">
+  <h2><span class="emoji">🌍</span> Géopolitique</h2>
+  <article class="card">
+    <h3>Trump, Xi, Putin&nbsp;: sommet à trois le 19 à Shenzhen</h3>
+    <p>La Maison Blanche puis le Kremlin confirment une rencontre inédite des trois dirigeants en marge de l’APEC. Trump veut parler de réduction des arsenaux nucléaires et de l’Iran, pas de l’Ukraine. Pékin n’a pas encore confirmé. Zelensky redoute un «&nbsp;nouveau Yalta&nbsp;», un partage des zones d’influence. Elon Musk accompagne Trump en Chine.</p>
+    <div class="meta"><span class="source">Sources&nbsp;: <a href="https://www.channelnewsasia.com/east-asia/trump-xi-putin-trilateral-summit-apec-6551001">CNA (AFP)&nbsp;↗</a>, <a href="https://www.aa.com.tr/en/eurasia/kremlin-says-putin-xi-trump-to-hold-trilateral-meeting-in-shenzhen-on-nov-19/4125290">Anadolu&nbsp;↗</a>, <a href="https://apnews.com/article/trump-xi-putin-summit-china-5fe92253ef38100bae913834a9b74d72">AP&nbsp;↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Iran&nbsp;: Trump enclin à suspendre les frappes</h3>
+    <p>Selon Reuters, Trump a dit à ses conseillers qu’il pourrait renoncer à de nouvelles frappes sans provocation de Téhéran ou des Houthis, comme le lui demandent le prince héritier saoudien et Erdogan. Un 3e porte-avions arrive pourtant dans la région. Samedi, les Gardiens de la révolution disent avoir abattu un drone américain MQ-1 au-dessus de l’île de Qeshm, dans le détroit d’Ormuz&nbsp;; Washington n’a pas confirmé.</p>
+    <div class="meta"><span class="badge unconfirmed">Non confirmé</span><span class="source">Sources&nbsp;: <a href="https://www.arabnews.com/world/trump-tells-advisers-he-may-hold-off-on-iran-attacks-barring-new-provocations-sources-say-3011847">Reuters via Arab News&nbsp;↗</a>, <a href="https://www.turkiyetoday.com/region/trump-weighs-delaying-renewed-iran-strikes-unless-fresh-provocations-occur-report-3232387">Türkiye Today&nbsp;↗</a>, <a href="https://www.middleeasteye.net/live-blog/live-blog-update/iran-said-it-intercepted-us-mq-1-predator-drone-over-qeshm-island">Middle East Eye&nbsp;↗</a></span></div>
+  </article>
+</section>
+
+<section class="theme" id="verification">
+  <h2><span class="emoji">✅</span> Vérification</h2>
+  <article class="card">
+    <h3>✅ Vérifié</h3>
+    <p>Cours crypto (CoinGecko, Exa, CoinMarketCap via Livemint)&nbsp;; passage sous 65&nbsp;000&nbsp;$, plus bas de 62&nbsp;112&nbsp;$ et liquidations (Straits Times/Bloomberg, Livemint, WAM)&nbsp;; sorties d’ETF (The Block, crypto.news, SoSoValue)&nbsp;; réorganisation robotique d’OpenAI (Fortune, The Decoder, Seeking Alpha)&nbsp;; essai de Dwarkesh Patel (source primaire + R&amp;D World)&nbsp;; rapport de la Fed (document officiel, CNBC, Reuters)&nbsp;; propos de Huw Pill (The Independent, Reuters/FT)&nbsp;; sommet de Shenzhen (Maison Blanche et Kremlin via AFP, AP, Anadolu, Straits Times)&nbsp;; position de Trump sur l’Iran (Reuters, Washington Post via Türkiye Today).</p>
+  </article>
+  <article class="card">
+    <h3>⚠️ À confirmer</h3>
+    <p>Ventes de la Fondation Ethereum et achats de Voorhees&nbsp;: attributions de portefeuilles par des analystes on-chain, non commentées par les intéressés. Demande «&nbsp;six fois&nbsp;» pour l’IPO Anthropic&nbsp;: sources anonymes (Bloomberg). Drone abattu&nbsp;: revendication iranienne seule. Pékin n’a pas encore confirmé le sommet à trois. Indices, taux et pétrole&nbsp;: clôtures de vendredi, reprises du brief d’hier.</p>
+  </article>
+</section>
+
+<footer>
+  <p>Généré le dimanche 15 novembre 2026 vers 07h00 (heure de Paris). Faits repérés via X puis recoupés sur le web&nbsp;; liens vérifiés (certains sites bloquent les robots mais s’ouvrent normalement dans un navigateur).</p>
+  <p>Les badges signalent les chiffres publiés par les entreprises elles-mêmes et les informations non confirmées officiellement.</p>
+</footer>
+</main>
+</body>
+</html>
