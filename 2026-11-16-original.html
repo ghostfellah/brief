@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<title>Brief du Matin · Lundi 16 novembre 2026</title>
+<!--
+  GABARIT « Brief du Matin » : un seul fichier, CSS inline, aucune dépendance, pas de JS.
+  Thème sombre par défaut, clair automatique via prefers-color-scheme.
+  Utilisation : copier ce fichier vers brief-AAAA-MM-JJ.html, remplacer chaque {{EMPLACEMENT}},
+  dupliquer les <article class="card"> (3 à 4 par section). Ne pas modifier le bloc <style>.
+  Typographie : mettre une espace insécable (&nbsp;) avant : ; % ? ! » et après «.
+-->
+<style>
+:root{
+  --bg:#0e1116; --surface:#161b22; --surface-2:#1c222b; --border:#2a313c;
+  --text:#e8ecf1; --muted:#9aa4b2; --accent:#e0b062; --link:#8fbcff;
+  --up:#3fcf8e; --up-bg:rgba(63,207,142,.12); --down:#ff6b6b; --down-bg:rgba(255,107,107,.12);
+  --badge-co:#c9a7ff; --badge-co-bg:rgba(201,167,255,.12);
+  --badge-nc:#ffb347; --badge-nc-bg:rgba(255,179,71,.12);
+}
+@media (prefers-color-scheme: light){
+  :root{
+    --bg:#f6f4ef; --surface:#ffffff; --surface-2:#faf8f4; --border:#e3ded4;
+    --text:#1b1f24; --muted:#5d6672; --accent:#9a6a12; --link:#1f5fbf;
+    --up:#0f8a55; --up-bg:rgba(15,138,85,.10); --down:#c62f2f; --down-bg:rgba(198,47,47,.09);
+    --badge-co:#6b3fc0; --badge-co-bg:rgba(107,63,192,.09);
+    --badge-nc:#a35a00; --badge-nc-bg:rgba(163,90,0,.10);
+  }
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji";
+  font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:780px;margin:0 auto;padding:40px 22px 28px}
+header.masthead{padding-bottom:22px;margin-bottom:26px;border-bottom:1px solid var(--border)}
+.kicker{font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);font-weight:600;margin:0 0 6px}
+h1{font-size:2.3rem;line-height:1.15;margin:0;font-weight:750;letter-spacing:-.02em}
+.date{margin:8px 0 0;color:var(--muted);font-size:1rem}
+.date .sep{opacity:.5;margin:0 .45em}
+.essentiel{background:linear-gradient(135deg,var(--surface-2),var(--surface));border:1px solid var(--border);
+  border-left:4px solid var(--accent);border-radius:14px;padding:18px 22px 16px;margin:0 0 34px}
+.essentiel h2{margin:0 0 8px;font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+.essentiel ul{margin:0;padding-left:1.15em}
+.essentiel li{margin:6px 0;font-weight:500}
+.essentiel li::marker{color:var(--accent)}
+section.theme{margin:0 0 38px}
+section.theme > h2{font-size:1.4rem;margin:0 0 14px;display:flex;align-items:center;gap:.5em;letter-spacing:-.01em}
+section.theme > h2 .emoji{font-size:1.25em;line-height:1}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin:0 0 16px}
+.tile{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:10px 12px}
+.tile .label{font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:600}
+.tile .value{font-size:1.15rem;font-weight:700;font-variant-numeric:tabular-nums;margin-top:2px;white-space:nowrap}
+.tile .chg{display:inline-block;margin-top:4px;font-size:.8rem;font-weight:650;padding:1px 7px;border-radius:999px;font-variant-numeric:tabular-nums}
+.chg.up{color:var(--up);background:var(--up-bg)}
+.chg.down{color:var(--down);background:var(--down-bg)}
+.tiles-note{font-size:.78rem;color:var(--muted);margin:-8px 0 16px}
+.tiles-note a{color:var(--muted)}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:16px 18px;margin:0 0 12px}
+.card h3{margin:0 0 6px;font-size:1.05rem;line-height:1.35;font-weight:700}
+.card p{margin:0;color:var(--text)}
+.card .meta{margin-top:10px;display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;font-size:.82rem}
+.source{color:var(--muted)}
+.source a{color:var(--link);text-decoration:none;border-bottom:1px solid transparent}
+.source a:hover{border-bottom-color:var(--link)}
+.badge{display:inline-block;font-size:.7rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:2px 8px;border-radius:999px;white-space:nowrap}
+.badge.company{color:var(--badge-co);background:var(--badge-co-bg)}
+.badge.unconfirmed{color:var(--badge-nc);background:var(--badge-nc-bg)}
+footer{margin-top:10px;padding-top:16px;border-top:1px solid var(--border);color:var(--muted);font-size:.8rem;line-height:1.5}
+footer p{margin:4px 0}
+@media (max-width:520px){
+  body{font-size:16px}
+  .wrap{padding:26px 16px 22px}
+  h1{font-size:1.85rem}
+  .tiles{grid-template-columns:repeat(2,1fr)}
+  .card{padding:14px 15px}
+  .essentiel{padding:16px 16px 14px}
+}
+.tiles.six{grid-template-columns:repeat(3,1fr)}
+@media (max-width:520px){.tiles.six{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+<main class="wrap">
+<header class="masthead">
+  <p class="kicker">Crypto · IA · Macro · Géopolitique</p>
+  <h1>Brief du Matin</h1>
+  <p class="date">Lundi 16 novembre 2026<span class="sep">·</span>Les dernières 24 heures</p>
+</header>
+
+<aside class="essentiel" aria-label="L'essentiel">
+  <h2>L'essentiel</h2>
+  <ul>
+    <li>Les valeurs tech chutent en Asie (Taïwan −5&nbsp;% en séance, Corée −3,5&nbsp;%) et les contrats à terme du Nasdaq reculent de 0,8&nbsp;% avant une semaine décisive&nbsp;: résultats de Nvidia mardi, cotation d'Anthropic jeudi.</li>
+    <li>Pékin confirme le sommet Xi–Trump–Putin du jeudi 19 novembre à Shenzhen, en marge de l'APEC&nbsp;: les trois pays sont désormais tous officiellement engagés.</li>
+    <li>Le bitcoin se stabilise vers 64&nbsp;600&nbsp;$ après un plus bas à 62&nbsp;006&nbsp;$ dimanche&nbsp;; les ETF bitcoin américains ont perdu 1,91&nbsp;Md$ en sept séances, et CZ (Binance) et Star Xu (OKX) se renvoient la responsabilité des krachs.</li>
+  </ul>
+</aside>
+
+<section class="theme" id="crypto">
+  <h2><span class="emoji">₿</span> Crypto</h2>
+  <div class="tiles">
+    <div class="tile"><div class="label">BTC</div><div class="value">≈ 64&nbsp;640&nbsp;$</div><span class="chg down">−0,3&nbsp;% (24 h)</span></div>
+    <div class="tile"><div class="label">ETH</div><div class="value">≈ 1&nbsp;814&nbsp;$</div><span class="chg up">+0,4&nbsp;% (24 h)</span></div>
+    <div class="tile"><div class="label">SOL</div><div class="value">≈ 71,4&nbsp;$</div><span class="chg up">+0,5&nbsp;% (24 h)</span></div>
+    <div class="tile"><div class="label">XRP</div><div class="value">≈ 0,95&nbsp;$</div><span class="chg down">−0,9&nbsp;% (24 h)</span></div>
+  </div>
+  <p class="tiles-note">Cours de lundi vers 06h45 (heure de Paris). Source : <a href="https://www.coingecko.com/">CoinGecko&nbsp;↗</a>, recoupé avec Coinbase et Bloomberg.</p>
+  <article class="card">
+    <h3>Le bitcoin souffle après un plus bas à 62&nbsp;006&nbsp;$</h3>
+    <p>Le BTC a touché 62&nbsp;006&nbsp;$ dimanche sur Binance, son plus bas depuis la mi-juillet, avant de revenir vers 64&nbsp;600&nbsp;$ ce matin. Sur 24 h, 387 M$ de positions ont été liquidées, dont 266 M$ de paris à la baisse (CoinGlass), signe d'un rebond technique. Les ETF bitcoin américains ont perdu 1,91&nbsp;Md$ en sept séances d'affilée (SoSoValue), l'un des pires épisodes depuis leur lancement selon Binance Research.</p>
+    <div class="meta"><span class="source">Sources&nbsp;: <a href="https://finance.yahoo.com/markets/crypto/articles/whats-behind-bitcoins-drop-cz-185946117.html">Yahoo Finance&nbsp;↗</a>, <a href="https://crypto.news/binance-ceo-bitcoin-selloff-etf-outflows/">crypto.news&nbsp;↗</a>, <a href="https://www.swissinfo.ch/eng/us-stock-futures-rise-as-ai-woes-ease%2c-oil-slips%3a-markets-wrap/92385916">Bloomberg via Swissinfo&nbsp;↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>CZ contre Star Xu&nbsp;: la guerre des explications</h3>
+    <p>CZ avance six causes possibles à la chute (sorties d'ETF, IPO d'Anthropic, piratages dont celui de Binance, inflation, hausse de taux de la Fed…), assure que Binance n'a rien vendu et qu'il achète chaque jour. Le patron d'OKX, Star Xu, l'accuse sans le nommer d'avoir provoqué les krachs d'octobre 2025 et 2026. Aucune donnée publique ne montre de ventes de bitcoin pour financer l'IPO d'Anthropic.</p>
+    <div class="meta"><span class="source">Sources&nbsp;: <a href="https://finance.yahoo.com/markets/crypto/articles/did-binance-bitcoin-crash-worse-041304204.html">Yahoo Finance (feud)&nbsp;↗</a>, <a href="https://finance.yahoo.com/markets/crypto/articles/whats-behind-bitcoins-drop-cz-185946117.html">Yahoo Finance (6 raisons)&nbsp;↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Allemagne&nbsp;: la douane pourra geler des cryptos</h3>
+    <p>Le Bundestag a voté un texte qui permet à la douane de saisir à titre provisoire des cryptoactifs de plus de 100&nbsp;000&nbsp;€ en cas d'indices d'origine illicite, avant toute procédure pénale&nbsp;: 30 jours, prolongeables de 150 jours par un tribunal financier. La confiscation définitive exige un jugement. Le Bundesrat doit encore valider, pour une entrée en vigueur le 1er janvier 2027.</p>
+    <div class="meta"><span class="source">Sources&nbsp;: <a href="https://cryptobriefing.com/germany-bundestag-customs-seize-illicit-assets-crypto/">Crypto Briefing&nbsp;↗</a>, <a href="https://altcoinreporter.com/germany-customs-crypto-seizure-100000-euros/">Altcoin Reporter&nbsp;↗</a></span></div>
+  </article>
+</section>
+
+<section class="theme" id="ia">
+  <h2><span class="emoji">🤖</span> IA</h2>
+  <article class="card">
+    <h3>Nvidia&nbsp;: résultats mardi, Huang évoquerait un retour</h3>
+    <p>Premiers résultats depuis la démission de Jensen Huang le 12 novembre, avec Colette Kress comme directrice générale par intérim. Nvidia a annoncé 108&nbsp;Md$ de chiffre d'affaires (±2&nbsp;%), le consensus LSEG attend 108,9&nbsp;Md$. Selon le Financial Times, Huang a discuté d'un possible retour avec des proches qui font campagne pour lui. Le titre a perdu plus de 500&nbsp;Md$ de capitalisation la semaine dernière.</p>
+    <div class="meta"><span class="badge unconfirmed">Non confirmé</span><span class="source">Sources&nbsp;: <a href="https://www.investing.com/news/stock-market-news/jensen-huang-discusses-comeback-as-nvidia-ceo-with-allies-ft-reports-5028065">Reuters via Investing.com&nbsp;↗</a>, <a href="https://www.independent.co.uk/news/world/americas/jensen-huang-nvidia-return-spy-b3085318.html">The Independent&nbsp;↗</a>, <a href="https://nvidianews.nvidia.com/news/nvidia-announces-ceo-transition">Nvidia (communiqué)&nbsp;↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>IPO Anthropic&nbsp;: près de 7 fois plus d'ordres que de titres</h3>
+    <p>Selon Bloomberg, la demande approche sept fois l'offre (environ six fois vendredi). Fourchette de 70 à 78&nbsp;$ pour 825 millions d'actions, soit jusqu'à 64,4&nbsp;Md$, plus un placement privé de 26&nbsp;Md$ auprès de fournisseurs comme Alphabet et Nvidia. Prix fixé mercredi 18, cotation jeudi 19 sous ANT&nbsp;: ce serait la plus grosse introduction en Bourse de l'histoire.</p>
+    <div class="meta"><span class="badge unconfirmed">Non confirmé</span><span class="source">Sources&nbsp;: <a href="https://gulfnews.com/business/anthropic-ipo-orders-hit-nearly-7-times-shares-on-offer-1.500748696">Gulf News (Bloomberg)&nbsp;↗</a>, <a href="https://www.cnbc.com/2026/11/10/anthropic-sets-price-range-of-70-to-78-in-upcoming-ipo.html">CNBC (fourchette)&nbsp;↗</a></span></div>
+  </article>
+</section>
+
+<section class="theme" id="macro">
+  <h2><span class="emoji">📈</span> Macro</h2>
+  <div class="tiles">
+    <div class="tile"><div class="label">US 10 ans</div><div class="value">5,14&nbsp;%</div><span class="chg up">stable</span></div>
+    <div class="tile"><div class="label">Brent</div><div class="value">≈ 95,30&nbsp;$</div><span class="chg down">en baisse</span></div>
+    <div class="tile"><div class="label">WTI</div><div class="value">88,36&nbsp;$</div><span class="chg down">−0,2&nbsp;%</span></div>
+    <div class="tile"><div class="label">Or (once)</div><div class="value">3&nbsp;868,65&nbsp;$</div><span class="chg down">−0,4&nbsp;%</span></div>
+  </div>
+  <p class="tiles-note">Lundi matin, séance asiatique. Source : <a href="https://www.swissinfo.ch/eng/us-stock-futures-rise-as-ai-woes-ease%2c-oil-slips%3a-markets-wrap/92385916">Bloomberg via Swissinfo&nbsp;↗</a>, Brent recoupé avec <a href="https://investinglive.com/stocks/us-futures-open-firmer-as-nasdaq-leads-oil-slips-despite-iran-tanker-claims-5-things/">investingLive&nbsp;↗</a>. Indices US non affichés : marchés fermés depuis vendredi.</p>
+  <article class="card">
+    <h3>Les puces font plonger l'Asie</h3>
+    <p>La vente des valeurs de semi-conducteurs américaines vendredi gagne l'Asie&nbsp;: sous-indice tech régional −5&nbsp;%, Taïwan −5&nbsp;% en séance, Kospi −3,5&nbsp;%, MSCI Asie −1,9&nbsp;%. Les contrats sur le Nasdaq 100 cèdent 0,8&nbsp;% et ceux sur le S&amp;P 500 0,5&nbsp;%. Au programme&nbsp;: ventes au détail mardi, minutes de la Fed mercredi. Morgan Stanley passe pourtant en surpondération «&nbsp;maximale&nbsp;» sur les actions mondiales.</p>
+    <div class="meta"><span class="source">Sources&nbsp;: <a href="https://www.swissinfo.ch/eng/us-stock-futures-rise-as-ai-woes-ease%2c-oil-slips%3a-markets-wrap/92385916">Bloomberg via Swissinfo&nbsp;↗</a>, <a href="https://www.investing.com/news/stock-market-news/us-stock-futures-little-changed-as-investors-await-nvidia-earnings-5028292">Investing.com&nbsp;↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Japon&nbsp;: le PIB recule, la Chine ralentit</h3>
+    <p>Le PIB japonais a reculé de 0,1&nbsp;% en rythme annualisé au 3e trimestre (consensus Reuters&nbsp;: +0,3&nbsp;%), première baisse en quatre trimestres, plombé par la consommation (−0,3&nbsp;%)&nbsp;; l'investissement lié à l'IA progresse de 1,6&nbsp;%. En Chine, les ventes au détail n'ont pris que 0,4&nbsp;% sur un an en octobre et l'investissement recule de 8,1&nbsp;% sur dix mois.</p>
+    <div class="meta"><span class="source">Sources&nbsp;: <a href="https://english.kyodonews.net/articles/-/91510">Kyodo&nbsp;↗</a>, <a href="https://www.investing.com/news/economy-news/japans-economy-unexpectedly-shrinks-in-julyseptember-as-consumption-falters-5028233">Reuters via Investing.com&nbsp;↗</a>, <a href="https://www.cnbc.com/2026/11/16/china-retail-sales-october-industrial-output-investment.html">CNBC (Chine)&nbsp;↗</a>, <a href="https://english.www.gov.cn/archive/statistics/202611/16/content_WS6afa6dccc6d00ca5f9a0e4b3.html">Gouvernement chinois&nbsp;↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Bessent demande à la Fed d'ignorer le choc pétrolier</h3>
+    <p>Sur Fox News, le secrétaire au Trésor appelle la Fed à «&nbsp;regarder au-delà&nbsp;» de l'inflation due à l'énergie liée à la guerre en Iran. Les marchés n'y croient pas&nbsp;: les contrats à terme donnent 92&nbsp;% de chances à une hausse de 0,25 point le 9 décembre (CME FedWatch). Le taux à 10 ans américain reste à 5,14&nbsp;% après +28&nbsp;pb la semaine dernière.</p>
+    <div class="meta"><span class="source">Sources&nbsp;: <a href="https://www.investing.com/news/economy-news/us-treasury-chief-says-fed-should-not-hike-rates-over-energy-shock-tied-to-iran-war-5025640">Reuters via Investing.com&nbsp;↗</a>, <a href="https://beincrypto.com/bessent-urges-fed-quarter-point-hike/">BeInCrypto&nbsp;↗</a></span></div>
+  </article>
+</section>
+
+<section class="theme" id="geopolitique">
+  <h2><span class="emoji">🌍</span> Géopolitique</h2>
+  <article class="card">
+    <h3>Pékin confirme le sommet à trois de Shenzhen</h3>
+    <p>Le ministère chinois des Affaires étrangères annonce que Xi Jinping recevra Vladimir Putin et Donald Trump le 19 novembre à Shenzhen, en marge de l'APEC&nbsp;: première rencontre à trois de l'histoire entre les dirigeants des trois puissances. Washington veut parler armes nucléaires et Iran, pas Ukraine.</p>
+    <div class="meta"><span class="source">Sources&nbsp;: <a href="https://www.fmprc.gov.cn/mfa_eng/xw/wsrc/202611/t20261116_12059663.html">Ministère chinois des Affaires étrangères&nbsp;↗</a>, <a href="https://english.news.cn/20261116/60d08a628f9c4d36a5dbc1ea0b89f526/c.html">Xinhua&nbsp;↗</a>, <a href="https://www.aa.com.tr/en/asia-pacific/china-confirms-xi-to-meet-with-us-and-russian-presidents-at-summit-on-sidelines-of-apec/4126087">Anadolu&nbsp;↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Ukraine&nbsp;: le Donbas contre l'OTAN, c'est non</h3>
+    <p>Zelensky confirme que les émissaires américains Witkoff et Kushner ont évoqué un retrait ukrainien du Donbas en échange d'une adhésion à l'OTAN. Il refuse de céder du territoire, mais un accord global (garanties de sécurité, armée forte, reconstruction) pourrait être soumis à référendum. Moscou réclame de son côté un recul de l'OTAN.</p>
+    <div class="meta"><span class="source">Sources&nbsp;: <a href="https://www.bbc.com/news/articles/cwvg2l312ylqo">BBC&nbsp;↗</a>, <a href="https://www.aljazeera.com/news/2026/11/15/give-donbas-take-nato-seat-could-new-us-pitch-work-for-ukraine-russia">Al Jazeera&nbsp;↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Frappes ukrainiennes au cœur de la pétrochimie russe</h3>
+    <p>Des drones ukrainiens ont touché dimanche le complexe Nizhnekamskneftekhim (groupe Sibur) et la raffinerie TAIF-NK au Tatarstan, à environ 1&nbsp;200&nbsp;km de l'Ukraine. Les autorités russes font état d'un incendie et de trois blessés&nbsp;; Moscou dit avoir abattu 533 drones dans la nuit. Les dégâts ne sont pas encore évalués.</p>
+    <div class="meta"><span class="source">Sources&nbsp;: <a href="https://www.france24.com/en/europe/20261115-ukrainian-drones-strike-russia-s-petrochemical-capital-in-overnight-assault">France 24 (AFP)&nbsp;↗</a>, <a href="https://kyivindependent.com/fire-reported-at-industrial-facility-in-russias-tatarstan-amid-drone-attack/">Kyiv Independent&nbsp;↗</a></span></div>
+  </article>
+</section>
+
+<section class="theme" id="verification">
+  <h2><span class="emoji">✅</span> Vérification</h2>
+  <article class="card">
+    <h3>✅ Vérifié</h3>
+    <p>Cours crypto (CoinGecko, Coinbase, Bloomberg)&nbsp;; plus bas de 62&nbsp;006&nbsp;$, liquidations et sorties d'ETF (Yahoo Finance/SoSoValue/CoinGlass, crypto.news)&nbsp;; propos de CZ et Star Xu (Yahoo Finance, posts X cités)&nbsp;; loi allemande (Crypto Briefing, Altcoin Reporter, site du Bundestag)&nbsp;; démission de Huang et calendrier Nvidia (communiqué Nvidia, Motley Fool, Chip Dispatch)&nbsp;; fourchette Anthropic (CNBC, dépôt SEC)&nbsp;; marchés asiatiques, taux et pétrole (Bloomberg, investingLive)&nbsp;; PIB japonais (Cabinet Office, NHK, Kyodo, Reuters)&nbsp;; données chinoises (Bureau national des statistiques, CNBC)&nbsp;; propos de Bessent et FedWatch (Reuters, BeInCrypto, Coinlive)&nbsp;; sommet de Shenzhen (ministère chinois, Xinhua, Anadolu)&nbsp;; Donbas/OTAN (BBC, Al Jazeera, Washington Times)&nbsp;; frappes au Tatarstan (AFP, Kyiv Independent, Ukrinform).</p>
+  </article>
+  <article class="card">
+    <h3>⚠️ À confirmer</h3>
+    <p>Retour possible de Huang&nbsp;: rapporté par le seul Financial Times (repris par Reuters), non confirmé par Nvidia. Demande «&nbsp;près de 7 fois&nbsp;» pour Anthropic&nbsp;: sources anonymes de Bloomberg. Consensus Nvidia&nbsp;: estimation d'analystes (LSEG). Dégâts au Tatarstan&nbsp;: non évalués officiellement. Or et WTI&nbsp;: une seule source (Bloomberg), cohérente avec les niveaux de vendredi.</p>
+  </article>
+</section>
+
+<footer>
+  <p>Généré le lundi 16 novembre 2026 vers 07h00 (heure de Paris). Faits repérés via X puis recoupés sur le web&nbsp;; liens vérifiés (certains sites bloquent les robots mais s’ouvrent normalement dans un navigateur).</p>
+  <p>Les badges signalent les chiffres publiés par les entreprises elles-mêmes et les informations non confirmées officiellement.</p>
+</footer>
+</main>
+</body>
+</html>
