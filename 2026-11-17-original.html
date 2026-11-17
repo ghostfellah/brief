@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<title>Brief du Matin · Mardi 17 novembre 2026</title>
+<!--
+  GABARIT « Brief du Matin » : un seul fichier, CSS inline, aucune dépendance, pas de JS.
+  Thème sombre par défaut, clair automatique via prefers-color-scheme.
+  Utilisation : copier ce fichier vers brief-AAAA-MM-JJ.html, remplacer chaque {{EMPLACEMENT}},
+  dupliquer les <article class="card"> (3 à 4 par section). Ne pas modifier le bloc <style>.
+  Typographie : mettre une espace insécable (&nbsp;) avant : ; % ? ! » et après «.
+-->
+<style>
+:root{
+  --bg:#0e1116; --surface:#161b22; --surface-2:#1c222b; --border:#2a313c;
+  --text:#e8ecf1; --muted:#9aa4b2; --accent:#e0b062; --link:#8fbcff;
+  --up:#3fcf8e; --up-bg:rgba(63,207,142,.12); --down:#ff6b6b; --down-bg:rgba(255,107,107,.12);
+  --badge-co:#c9a7ff; --badge-co-bg:rgba(201,167,255,.12);
+  --badge-nc:#ffb347; --badge-nc-bg:rgba(255,179,71,.12);
+}
+@media (prefers-color-scheme: light){
+  :root{
+    --bg:#f6f4ef; --surface:#ffffff; --surface-2:#faf8f4; --border:#e3ded4;
+    --text:#1b1f24; --muted:#5d6672; --accent:#9a6a12; --link:#1f5fbf;
+    --up:#0f8a55; --up-bg:rgba(15,138,85,.10); --down:#c62f2f; --down-bg:rgba(198,47,47,.09);
+    --badge-co:#6b3fc0; --badge-co-bg:rgba(107,63,192,.09);
+    --badge-nc:#a35a00; --badge-nc-bg:rgba(163,90,0,.10);
+  }
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji";
+  font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:780px;margin:0 auto;padding:40px 22px 28px}
+header.masthead{padding-bottom:22px;margin-bottom:26px;border-bottom:1px solid var(--border)}
+.kicker{font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);font-weight:600;margin:0 0 6px}
+h1{font-size:2.3rem;line-height:1.15;margin:0;font-weight:750;letter-spacing:-.02em}
+.date{margin:8px 0 0;color:var(--muted);font-size:1rem}
+.date .sep{opacity:.5;margin:0 .45em}
+.essentiel{background:linear-gradient(135deg,var(--surface-2),var(--surface));border:1px solid var(--border);
+  border-left:4px solid var(--accent);border-radius:14px;padding:18px 22px 16px;margin:0 0 34px}
+.essentiel h2{margin:0 0 8px;font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+.essentiel ul{margin:0;padding-left:1.15em}
+.essentiel li{margin:6px 0;font-weight:500}
+.essentiel li::marker{color:var(--accent)}
+section.theme{margin:0 0 38px}
+section.theme > h2{font-size:1.4rem;margin:0 0 14px;display:flex;align-items:center;gap:.5em;letter-spacing:-.01em}
+section.theme > h2 .emoji{font-size:1.25em;line-height:1}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin:0 0 16px}
+.tile{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:10px 12px}
+.tile .label{font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:600}
+.tile .value{font-size:1.15rem;font-weight:700;font-variant-numeric:tabular-nums;margin-top:2px;white-space:nowrap}
+.tile .chg{display:inline-block;margin-top:4px;font-size:.8rem;font-weight:650;padding:1px 7px;border-radius:999px;font-variant-numeric:tabular-nums}
+.chg.up{color:var(--up);background:var(--up-bg)}
+.chg.down{color:var(--down);background:var(--down-bg)}
+.tiles-note{font-size:.78rem;color:var(--muted);margin:-8px 0 16px}
+.tiles-note a{color:var(--muted)}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:16px 18px;margin:0 0 12px}
+.card h3{margin:0 0 6px;font-size:1.05rem;line-height:1.35;font-weight:700}
+.card p{margin:0;color:var(--text)}
+.card .meta{margin-top:10px;display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;font-size:.82rem}
+.source{color:var(--muted)}
+.source a{color:var(--link);text-decoration:none;border-bottom:1px solid transparent}
+.source a:hover{border-bottom-color:var(--link)}
+.badge{display:inline-block;font-size:.7rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:2px 8px;border-radius:999px;white-space:nowrap}
+.badge.company{color:var(--badge-co);background:var(--badge-co-bg)}
+.badge.unconfirmed{color:var(--badge-nc);background:var(--badge-nc-bg)}
+footer{margin-top:10px;padding-top:16px;border-top:1px solid var(--border);color:var(--muted);font-size:.8rem;line-height:1.5}
+footer p{margin:4px 0}
+@media (max-width:520px){
+  body{font-size:16px}
+  .wrap{padding:26px 16px 22px}
+  h1{font-size:1.85rem}
+  .tiles{grid-template-columns:repeat(2,1fr)}
+  .card{padding:14px 15px}
+  .essentiel{padding:16px 16px 14px}
+}
+.tiles.six{grid-template-columns:repeat(3,1fr)}
+@media (max-width:520px){.tiles.six{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+<main class="wrap">
+<header class="masthead">
+  <p class="kicker">Crypto · IA · Macro · Géopolitique</p>
+  <h1>Brief du Matin</h1>
+  <p class="date">Mardi 17 novembre 2026<span class="sep">·</span>Les dernières 24 heures</p>
+</header>
+
+<aside class="essentiel" aria-label="L'essentiel">
+  <h2>L'essentiel</h2>
+  <ul>
+    <li>Wall Street décroche avant les résultats de Nvidia ce soir&nbsp;: S&amp;P 500 −1,92&nbsp;%, Nasdaq −2,49&nbsp;% (en correction), indice des semi-conducteurs −5,3&nbsp;%&nbsp;; l'Asie suit ce mardi.</li>
+    <li>Le président de la Fed, Kevin Warsh, décrit trois scénarios pour l'IA, dont un où elle «&nbsp;déçoit&nbsp;»&nbsp;: chute des valorisations, ralentissement et hausse du chômage.</li>
+    <li>Washington désigne 33 offres d'export d'IA «&nbsp;clés en main&nbsp;» (Nvidia, Microsoft, AWS, OpenAI, AMD…) et durcit l'accès à distance de la Chine aux puces avancées, deux jours avant le sommet de Shenzhen.</li>
+  </ul>
+</aside>
+
+<section class="theme" id="crypto">
+  <h2><span class="emoji">₿</span> Crypto</h2>
+  <div class="tiles">
+    <div class="tile"><div class="label">BTC</div><div class="value">≈ 64&nbsp;860&nbsp;$</div><span class="chg up">+0,4&nbsp;% (24 h)</span></div>
+    <div class="tile"><div class="label">ETH</div><div class="value">≈ 1&nbsp;835&nbsp;$</div><span class="chg up">+1,2&nbsp;% (24 h)</span></div>
+    <div class="tile"><div class="label">SOL</div><div class="value">≈ 72,8&nbsp;$</div><span class="chg up">+1,9&nbsp;% (24 h)</span></div>
+    <div class="tile"><div class="label">XRP</div><div class="value">≈ 0,96&nbsp;$</div><span class="chg up">+1,0&nbsp;% (24 h)</span></div>
+  </div>
+  <p class="tiles-note">Cours de mardi vers 06h45 (heure de Paris). Source : <a href="https://www.coingecko.com/">CoinGecko&nbsp;↗</a>, BTC et ETH recoupés avec Coinbase.</p>
+  <article class="card">
+    <h3>Le bitcoin tient 64&nbsp;000&nbsp;$, la peur reste extrême</h3>
+    <p>Le BTC se maintient vers 64&nbsp;800&nbsp;$ après son plus bas de dimanche à 62&nbsp;000&nbsp;$, soit environ la moitié de son record de 126&nbsp;000&nbsp;$ d'octobre 2025. L'indice Fear &amp; Greed est à 12, en «&nbsp;peur extrême&nbsp;». ETH, SOL et XRP reprennent 1 à 2&nbsp;% sur 24 h.</p>
+    <div class="meta"><span class="source">Sources&nbsp;: <a href="https://www.coingecko.com/">CoinGecko&nbsp;↗</a>, <a href="https://alternative.me/crypto/fear-and-greed-index/">Alternative.me (Fear &amp; Greed)&nbsp;↗</a>, <a href="https://cryptobriefing.com/twenty-one-capital-buys-bitcoin-dip-november-2026/">Crypto Briefing&nbsp;↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Strategy et Twenty One achètent la baisse</h3>
+    <p>Strategy a acheté 485 BTC (33,4 M$) du 9 au 15 novembre à 68&nbsp;887&nbsp;$ en moyenne, au-dessus du cours actuel, pour un total de 850&nbsp;849 BTC à 75&nbsp;452&nbsp;$ de prix moyen&nbsp;: sa réserve est en perte latente. Twenty One Capital (adossé à Tether) a payé 154 BTC en cash à 64&nbsp;801&nbsp;$ et détient environ 43&nbsp;668 BTC.</p>
+    <div class="meta"><span class="badge company">Chiffres de l’entreprise</span><span class="source">Sources&nbsp;: <a href="https://www.sec.gov/Archives/edgar/data/1050446/0001193125-26-462151.txt">Strategy (8-K, SEC)&nbsp;↗</a>, <a href="https://www.businesswire.com/news/home/20261116392207/en/Twenty-One-Capital-Buys-%2410-Million-of-Bitcoin-Increasing-Holdings-to-43668-BTC">Twenty One (Business Wire)&nbsp;↗</a>, <a href="https://news.bitcoin.com/crypto-news/strategy-adds-485-bitcoin-as-its-btc-treasury-sinks-9-61-billion-underwater/">Bitcoin.com News&nbsp;↗</a></span></div>
+  </article>
+</section>
+
+<section class="theme" id="ia">
+  <h2><span class="emoji">🤖</span> IA</h2>
+  <article class="card">
+    <h3>Nvidia publie ce soir, sans Huang</h3>
+    <p>Résultats après la clôture américaine, les premiers depuis la démission de Jensen Huang. Nvidia a annoncé environ 108&nbsp;Md$ de chiffre d'affaires&nbsp;; les analystes attendent 109,1&nbsp;Md$ (Reuters). Le titre a perdu 4,1&nbsp;% lundi. Sam Altman, à la conférence Semafor&nbsp;: Huang reste «&nbsp;un héros&nbsp;», mais «&nbsp;les héros ont des défauts&nbsp;».</p>
+    <div class="meta"><span class="source">Sources&nbsp;: <a href="https://www.financialexpress.com/market/global-markets/wall-street-reels-from-ai-selloff-as-nvidia-earnings-anthropic-ipo-loom/4386350/">Reuters via Financial Express&nbsp;↗</a>, <a href="https://www.semafor.com/article/11/16/2026/altman-says-he-has-personal-empathy-for-jensen-huang">Semafor&nbsp;↗</a>, <a href="https://nypost.com/2026/11/16/business/openai-ceo-sam-altman-empathizes-with-nvidias-jensen-huang-heroes-have-flaws/">New York Post&nbsp;↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Anthropic&nbsp;: prix fixé demain, au-dessus de la fourchette&nbsp;?</h3>
+    <p>Le carnet d'ordres approche sept fois les 825 millions d'actions offertes, selon des sources de Bloomberg, et les banques envisageraient un prix au-dessus de la fourchette de 70 à 78&nbsp;$. Prix mercredi, cotation jeudi&nbsp;: le test de l'appétit pour l'IA après la chute des puces.</p>
+    <div class="meta"><span class="badge unconfirmed">Non confirmé</span><span class="source">Sources&nbsp;: <a href="https://thenextweb.com/news/anthropic-ipo-orders-seven-times-spacex-pricing-week">The Next Web&nbsp;↗</a>, <a href="https://www.cnbc.com/2026/11/16/anthropic-ipo-date-price-range.html">CNBC (guide de l'IPO)&nbsp;↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Washington labellise 33 offres d'IA à l'export</h3>
+    <p>Le département du Commerce a désigné 33 consortiums qui vendront à l'étranger des offres complètes (puces, cloud, modèles, cybersécurité). AMD en mène 11&nbsp;; Nvidia, Microsoft, AWS et OpenAI une chacun. À la clé&nbsp;: examen prioritaire des licences d'export et accès au financement fédéral, sans garantie.</p>
+    <div class="meta"><span class="source">Sources&nbsp;: <a href="https://www.trade.gov/press-release/department-commerce-designates-si-export-packages-announces-next-phase-american-si">Trade.gov (communiqué)&nbsp;↗</a>, <a href="https://www.investing.com/news/stock-market-news/us-plans-to-name-nvidia-among-ai-national-champions-wsj-reports-5028365">Investing.com (WSJ)&nbsp;↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Robotique&nbsp;: Nvidia dévoile GR00T 2</h3>
+    <p>À la conférence CoRL, Nvidia présente un modèle ouvert qui apprend des gestes à partir de vidéos humaines et les transfère d'un robot à l'autre&nbsp;: 71&nbsp;% de réussite avec une démonstration, 95&nbsp;% avec cinq. Les poids et le code sont annoncés pour décembre.</p>
+    <div class="meta"><span class="badge company">Chiffres de l’entreprise</span><span class="source">Sources&nbsp;: <a href="https://research.nvidia.com/labs/gear/gr00t-2/">Nvidia Research&nbsp;↗</a>, <a href="https://www.techrepublic.com/article/news-nvidia-gr00t-2-robot-training-human-demonstrations/">TechRepublic&nbsp;↗</a></span></div>
+  </article>
+</section>
+
+<section class="theme" id="macro">
+  <h2><span class="emoji">📈</span> Macro</h2>
+  <div class="tiles">
+    <div class="tile"><div class="label">S&amp;P 500</div><div class="value">7&nbsp;416,59</div><span class="chg down">−1,92&nbsp;%</span></div>
+    <div class="tile"><div class="label">US 10 ans</div><div class="value">5,12&nbsp;%</div><span class="chg down">−3&nbsp;pb</span></div>
+    <div class="tile"><div class="label">Brent</div><div class="value">≈ 92,4&nbsp;$</div><span class="chg down">−3,5&nbsp;%</span></div>
+    <div class="tile"><div class="label">Or (once)</div><div class="value">≈ 3&nbsp;864&nbsp;$</div><span class="chg down">−0,5&nbsp;%</span></div>
+  </div>
+  <p class="tiles-note">Clôtures de lundi. Sources : <a href="https://www.financialexpress.com/market/global-markets/wall-street-reels-from-ai-selloff-as-nvidia-earnings-anthropic-ipo-loom/4386350/">Reuters via Financial Express&nbsp;↗</a>, <a href="https://www.thestar.com.my/business/business-news/2026/11/17/us-yields-ease-as-oil-prices-drop-3">Reuters via The Star&nbsp;↗</a>, recoupés avec <a href="https://marketespresso.perpetual.com.au/espresso/2026/11/17/">Perpetual&nbsp;↗</a>.</p>
+  <article class="card">
+    <h3>Les puces font chuter Wall Street</h3>
+    <p>Le Dow perd 1,41&nbsp;%, le S&amp;P 500 1,92&nbsp;% et le Nasdaq 2,49&nbsp;%, désormais plus de 10&nbsp;% sous son record du 6 octobre. Intel et Micron reculent de plus de 7&nbsp;%. Ce mardi, Nikkei −1,2&nbsp;%, Kospi −1&nbsp;%, Hang Seng −1,2&nbsp;%. Au programme&nbsp;: ventes au détail aujourd'hui, minutes de la Fed mercredi.</p>
+    <div class="meta"><span class="source">Sources&nbsp;: <a href="https://www.financialexpress.com/market/global-markets/wall-street-reels-from-ai-selloff-as-nvidia-earnings-anthropic-ipo-loom/4386350/">Reuters via Financial Express&nbsp;↗</a>, <a href="https://apnews.com/article/stock-markets-ai-earnings-oil-4d5a35288288389d894e63e6bebe8240">AP&nbsp;↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Warsh&nbsp;: l'IA pourrait «&nbsp;décevoir&nbsp;»</h3>
+    <p>Devant la task force de la Fed à San Francisco, Kevin Warsh présente trois scénarios de ses équipes, «&nbsp;pas des prévisions&nbsp;»&nbsp;: des gains partagés, des gains avec du chômage, ou une IA qui déçoit après de lourds investissements, avec chute des valorisations et hausse du chômage. Rien sur les taux.</p>
+    <div class="meta"><span class="source">Sources&nbsp;: <a href="https://www.federalreserve.gov/newsevents/speech/warsh20261116a.htm">Réserve fédérale (discours)&nbsp;↗</a>, <a href="https://www.cnbc.com/2026/11/16/fed-ai-task-force-kevin-warsh.html">CNBC&nbsp;↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Le pétrole recule, les taux soufflent</h3>
+    <p>Le Brent perd environ 3,5&nbsp;% vers 92&nbsp;$ avec la reprise des flux dans le détroit d'Ormuz et l'excédent annoncé par l'AIE. Le 10 ans américain revient à 5,12&nbsp;%. Le marché garde 95&nbsp;% de chances d'une hausse de 0,25 point le 9 décembre (CME FedWatch). L'or touche un plus bas de 14 mois en clôture.</p>
+    <div class="meta"><span class="source">Sources&nbsp;: <a href="https://www.thestar.com.my/business/business-news/2026/11/17/us-yields-ease-as-oil-prices-drop-3">Reuters via The Star&nbsp;↗</a>, <a href="https://marketespresso.perpetual.com.au/espresso/2026/11/17/">Perpetual&nbsp;↗</a>, <a href="https://www.tradingview.com/news/moneycontrol:0e57a0dd0094b:0-commodity-corner-oil-slips-on-supply-glut-concerns-gold-steadies-after-hitting-14-month-closing-low/">TradingView (or)&nbsp;↗</a></span></div>
+  </article>
+</section>
+
+<section class="theme" id="geopolitique">
+  <h2><span class="emoji">🌍</span> Géopolitique</h2>
+  <article class="card">
+    <h3>Ukraine&nbsp;: l'Europe entre dans les négociations</h3>
+    <p>Visioconférence «&nbsp;pas facile&nbsp;» lundi entre Kyiv, Witkoff, Kushner et cinq pays européens (France, Allemagne, Royaume-Uni, Italie, Pologne)&nbsp;; prochaine étape à Berlin avec la «&nbsp;coalition des volontaires&nbsp;». Moscou n'a pas accepté d'élargir les pourparlers et le Kremlin exclut un cessez-le-feu temporaire.</p>
+    <div class="meta"><span class="source">Sources&nbsp;: <a href="https://www.aljazeera.com/news/2026/11/17/ukraine-holds-peace-talks-with-us-europe-as-conflict-escalates">Al Jazeera (Reuters)&nbsp;↗</a>, <a href="https://www.pravda.com.ua/eng/news/2026/11/16/8063168/">Ukrainska Pravda&nbsp;↗</a>, <a href="https://www.kyivpost.com/post/90291">Kyiv Post&nbsp;↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Les ponts de Kyiv frappés</h3>
+    <p>Une attaque russe de missiles balistiques cette nuit a touché les ponts Nord et Sud sur le Dnipro, selon le maire Vitali Klitschko&nbsp;; la circulation est coupée et l'eau et le chauffage perturbés dans certains quartiers. La veille, l'Ukraine avait de nouveau frappé le pont de Crimée.</p>
+    <div class="meta"><span class="source">Sources&nbsp;: <a href="https://kyivindependent.com/key-bridges-in-kyiv-struck-in-massive-russian-ballistic-missile-attack-across-ukraine/">Kyiv Independent&nbsp;↗</a>, <a href="https://www.bbc.com/news/articles/cw772jk4rvmxo">BBC&nbsp;↗</a>, <a href="https://www.theguardian.com/world/2026/nov/17/ukraine-war-briefing-crimea-bridge-attacked-again-after-russia-strikes-major-kyiv-bridges">The Guardian&nbsp;↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Puces&nbsp;: Washington ferme l'accès à distance à la Chine</h3>
+    <p>Une règle du BIS impose une licence pour les puces d'IA envoyées vers des data centers, partout dans le monde, qui louent de grosses capacités de calcul à des entreprises chinoises&nbsp;; les contrats existants ont 90 jours. Elle tombe juste avant le sommet Xi–Trump–Putin de jeudi à Shenzhen.</p>
+    <div class="meta"><span class="source">Sources&nbsp;: <a href="https://media.bis.gov/press-release/bis-issues-rule-addressing-remote-access-american-super-intelligence-technology">BIS (communiqué)&nbsp;↗</a>, <a href="https://techcrunch.com/2026/11/16/us-tightens-ai-chip-export-controls-to-deter-chinese-companies-from-accessing-compute-remotely/">TechCrunch&nbsp;↗</a>, <a href="https://apnews.com/article/nvidia-export-controls-chips-china-remote-access-60f868d3bb430b85a8657b27d421096e">AP&nbsp;↗</a></span></div>
+  </article>
+</section>
+
+<section class="theme" id="verification">
+  <h2><span class="emoji">✅</span> Vérification</h2>
+  <article class="card">
+    <h3>✅ Vérifié</h3>
+    <p>Cours crypto (CoinGecko, Coinbase)&nbsp;; Fear &amp; Greed (Alternative.me, tendance X)&nbsp;; achats Strategy (8-K SEC, ledger Strategy, Bitcoin.com) et Twenty One (Business Wire, Investing.com, Seeking Alpha)&nbsp;; clôtures de Wall Street, semi-conducteurs, Nvidia −4,1&nbsp;% et consensus (Reuters via Financial Express, Perpetual, Rio Times)&nbsp;; Bourses asiatiques (AP)&nbsp;; propos d'Altman (Semafor, New York Post, The Next Web)&nbsp;; offres d'export d'IA (communiqué Trade.gov, Investing.com/WSJ)&nbsp;; GR00T 2 (Nvidia Research, TechRepublic, Humanoids Daily)&nbsp;; discours de Warsh (texte de la Fed, CNBC, Axios)&nbsp;; taux, pétrole, FedWatch et or (Reuters, Perpetual, TradingView)&nbsp;; pourparlers Ukraine (Al Jazeera/Reuters, Ukrainska Pravda, Kyiv Post)&nbsp;; ponts de Kyiv (Kyiv Independent, BBC, Guardian)&nbsp;; règle du BIS (communiqué BIS, TechCrunch, AP).</p>
+  </article>
+  <article class="card">
+    <h3>⚠️ À confirmer</h3>
+    <p>Demande «&nbsp;près de 7 fois&nbsp;» et prix au-dessus de la fourchette pour Anthropic&nbsp;: sources anonymes de Bloomberg. Résultats de GR00T 2&nbsp;: chiffres de Nvidia, poids non publiés. Achats de bitcoin&nbsp;: annonces des entreprises (8-K pour Strategy). Flux des ETF bitcoin du 16/11 omis&nbsp;: les relevés divergent (−42,7 M$ à −180,9 M$). Ampleur des dégâts à Kyiv&nbsp;: non évaluée officiellement.</p>
+  </article>
+</section>
+
+<footer>
+  <p>Généré le mardi 17 novembre 2026 vers 07h00 (heure de Paris). Faits repérés via X puis recoupés sur le web&nbsp;; liens vérifiés (certains sites bloquent les robots mais s’ouvrent normalement dans un navigateur).</p>
+  <p>Les badges signalent les chiffres publiés par les entreprises elles-mêmes et les informations non confirmées officiellement.</p>
+</footer>
+</main>
+</body>
+</html>
