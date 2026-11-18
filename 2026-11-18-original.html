@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<title>Brief du Matin · Mercredi 18 novembre 2026</title>
+<!--
+  GABARIT « Brief du Matin » : un seul fichier, CSS inline, aucune dépendance, pas de JS.
+  Thème sombre par défaut, clair automatique via prefers-color-scheme.
+  Utilisation : copier ce fichier vers brief-AAAA-MM-JJ.html, remplacer chaque {{EMPLACEMENT}},
+  dupliquer les <article class="card"> (3 à 4 par section). Ne pas modifier le bloc <style>.
+  Typographie : mettre une espace insécable (&nbsp;) avant : ; % ? ! » et après «.
+-->
+<style>
+:root{
+  --bg:#0e1116; --surface:#161b22; --surface-2:#1c222b; --border:#2a313c;
+  --text:#e8ecf1; --muted:#9aa4b2; --accent:#e0b062; --link:#8fbcff;
+  --up:#3fcf8e; --up-bg:rgba(63,207,142,.12); --down:#ff6b6b; --down-bg:rgba(255,107,107,.12);
+  --badge-co:#c9a7ff; --badge-co-bg:rgba(201,167,255,.12);
+  --badge-nc:#ffb347; --badge-nc-bg:rgba(255,179,71,.12);
+}
+@media (prefers-color-scheme: light){
+  :root{
+    --bg:#f6f4ef; --surface:#ffffff; --surface-2:#faf8f4; --border:#e3ded4;
+    --text:#1b1f24; --muted:#5d6672; --accent:#9a6a12; --link:#1f5fbf;
+    --up:#0f8a55; --up-bg:rgba(15,138,85,.10); --down:#c62f2f; --down-bg:rgba(198,47,47,.09);
+    --badge-co:#6b3fc0; --badge-co-bg:rgba(107,63,192,.09);
+    --badge-nc:#a35a00; --badge-nc-bg:rgba(163,90,0,.10);
+  }
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji";
+  font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:780px;margin:0 auto;padding:40px 22px 28px}
+header.masthead{padding-bottom:22px;margin-bottom:26px;border-bottom:1px solid var(--border)}
+.kicker{font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);font-weight:600;margin:0 0 6px}
+h1{font-size:2.3rem;line-height:1.15;margin:0;font-weight:750;letter-spacing:-.02em}
+.date{margin:8px 0 0;color:var(--muted);font-size:1rem}
+.date .sep{opacity:.5;margin:0 .45em}
+.essentiel{background:linear-gradient(135deg,var(--surface-2),var(--surface));border:1px solid var(--border);
+  border-left:4px solid var(--accent);border-radius:14px;padding:18px 22px 16px;margin:0 0 34px}
+.essentiel h2{margin:0 0 8px;font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+.essentiel ul{margin:0;padding-left:1.15em}
+.essentiel li{margin:6px 0;font-weight:500}
+.essentiel li::marker{color:var(--accent)}
+section.theme{margin:0 0 38px}
+section.theme > h2{font-size:1.4rem;margin:0 0 14px;display:flex;align-items:center;gap:.5em;letter-spacing:-.01em}
+section.theme > h2 .emoji{font-size:1.25em;line-height:1}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin:0 0 16px}
+.tile{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:10px 12px}
+.tile .label{font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:600}
+.tile .value{font-size:1.15rem;font-weight:700;font-variant-numeric:tabular-nums;margin-top:2px;white-space:nowrap}
+.tile .chg{display:inline-block;margin-top:4px;font-size:.8rem;font-weight:650;padding:1px 7px;border-radius:999px;font-variant-numeric:tabular-nums}
+.chg.up{color:var(--up);background:var(--up-bg)}
+.chg.down{color:var(--down);background:var(--down-bg)}
+.tiles-note{font-size:.78rem;color:var(--muted);margin:-8px 0 16px}
+.tiles-note a{color:var(--muted)}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:16px 18px;margin:0 0 12px}
+.card h3{margin:0 0 6px;font-size:1.05rem;line-height:1.35;font-weight:700}
+.card p{margin:0;color:var(--text)}
+.card .meta{margin-top:10px;display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;font-size:.82rem}
+.source{color:var(--muted)}
+.source a{color:var(--link);text-decoration:none;border-bottom:1px solid transparent}
+.source a:hover{border-bottom-color:var(--link)}
+.badge{display:inline-block;font-size:.7rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:2px 8px;border-radius:999px;white-space:nowrap}
+.badge.company{color:var(--badge-co);background:var(--badge-co-bg)}
+.badge.unconfirmed{color:var(--badge-nc);background:var(--badge-nc-bg)}
+footer{margin-top:10px;padding-top:16px;border-top:1px solid var(--border);color:var(--muted);font-size:.8rem;line-height:1.5}
+footer p{margin:4px 0}
+@media (max-width:520px){
+  body{font-size:16px}
+  .wrap{padding:26px 16px 22px}
+  h1{font-size:1.85rem}
+  .tiles{grid-template-columns:repeat(2,1fr)}
+  .card{padding:14px 15px}
+  .essentiel{padding:16px 16px 14px}
+}
+.tiles.six{grid-template-columns:repeat(3,1fr)}
+@media (max-width:520px){.tiles.six{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+<main class="wrap">
+<header class="masthead">
+  <p class="kicker">Crypto · IA · Macro · Géopolitique</p>
+  <h1>Brief du Matin</h1>
+  <p class="date">Mercredi 18 novembre 2026<span class="sep">·</span>Les dernières 24 heures</p>
+</header>
+<aside class="essentiel" aria-label="L'essentiel">
+  <h2>L'essentiel</h2>
+  <ul>
+    <li>Nvidia bat les attentes (115,8 Md$ de chiffre d'affaires, +103&nbsp;% sur un an) et vise environ 130 Md$ ce trimestre sans aucun revenu data center en Chine&nbsp;; le conseil refuse le retour de Jensen Huang.</li>
+    <li>Anthropic fixe ce soir le prix de son introduction en Bourse, attendu au-dessus de la fourchette de 70 à 78&nbsp;$&nbsp;; cotation jeudi au Nasdaq sous le symbole ANT.</li>
+    <li>Wall Street recule encore (Dow −1,64&nbsp;%, S&P 500 −1,03&nbsp;%) et la Fed se durcit&nbsp;: Musalem (St. Louis) juge nécessaires «&nbsp;plusieurs&nbsp;» hausses de taux d'ici le printemps 2027.</li>
+  </ul>
+</aside>
+<section class="theme" id="crypto">
+  <h2><span class="emoji">₿</span> Crypto</h2>
+  <div class="tiles">
+    <div class="tile"><div class="label">BTC</div><div class="value">≈ 64 680&nbsp;$</div><span class="chg down">−0,3&nbsp;% (24 h)</span></div>
+    <div class="tile"><div class="label">ETH</div><div class="value">≈ 1 812&nbsp;$</div><span class="chg down">−1,2&nbsp;% (24 h)</span></div>
+    <div class="tile"><div class="label">SOL</div><div class="value">≈ 75,2&nbsp;$</div><span class="chg up">+3,3&nbsp;% (24 h)</span></div>
+    <div class="tile"><div class="label">XRP</div><div class="value">≈ 0,99&nbsp;$</div><span class="chg up">+2,5&nbsp;% (24 h)</span></div>
+  </div>
+  <p class="tiles-note">Cours de mercredi vers 06h45 (heure de Paris). Source&nbsp;: <a href="https://www.coingecko.com/">CoinGecko&nbsp;↗</a>, BTC et ETH recoupés avec Coinbase.</p>
+  <article class="card">
+    <h3>La Russie ouvre BTC, ETH et USDT aux particuliers</h3>
+    <p>Depuis le 17 novembre, les investisseurs non qualifiés peuvent acheter ces trois actifs via des intermédiaires agréés, après un test, dans la limite de 300 000 roubles par an et par intermédiaire. Les paiements en crypto restent interdits dans le pays.</p>
+    <div class="meta"><span class="source">Sources&nbsp;: <a href="https://www.cbr.ru/eng/press/event/?id=32966">Banque de Russie&nbsp;↗</a>, <a href="https://cointelegraph.com/news/russia-finalizes-crypto-trading-rules-november-rollout">Cointelegraph&nbsp;↗</a>, <a href="https://bitcoinmagazine.com/news/russia-retail-bitcoin-buying-starts">Bitcoin Magazine&nbsp;↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Wells Fargo double sa ligne d'ETF bitcoin</h3>
+    <p>Selon son 13F, la banque détenait au 30 septembre 49,58 millions de parts de l'IBIT de BlackRock (2,35 Md$), plus du double du trimestre précédent&nbsp;; Bank of America est à 685 M$. Ce sont surtout des positions de clients, pas forcément pour compte propre.</p>
+    <div class="meta"><span class="source">Sources&nbsp;: <a href="https://www.coindesk.com/markets/2026/11/17/wells-fargo-s-reported-blackrock-bitcoin-etf-holdings-double-to-usd2-35-billion">CoinDesk&nbsp;↗</a>, <a href="https://crypto.news/wells-fargo-blackrock-bitcoin-etf-holdings-q3/">crypto.news&nbsp;↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Le bitcoin stagne, SOL et XRP rebondissent</h3>
+    <p>Le BTC reste vers 64 700&nbsp;$, environ 49&nbsp;% sous son record d'environ 126 000&nbsp;$&nbsp;; ETH recule de 1,2&nbsp;% sur 24 h, tandis que SOL (+3,3&nbsp;%) et XRP (+2,5&nbsp;%) reprennent un peu de terrain.</p>
+    <div class="meta"><span class="source">Sources&nbsp;: <a href="https://www.coingecko.com/">CoinGecko&nbsp;↗</a>, <a href="https://www.coinbase.com/price/bitcoin">Coinbase&nbsp;↗</a></span></div>
+  </article>
+</section>
+<section class="theme" id="ia">
+  <h2><span class="emoji">🤖</span> IA</h2>
+  <article class="card">
+    <h3>Nvidia&nbsp;: 115,8 Md$ et la Chine à zéro</h3>
+    <p>Chiffre d'affaires du trimestre +103&nbsp;% sur un an, dont 107,6 Md$ pour les data centers. Prévision d'environ 130 Md$ (±3&nbsp;%) contre 125,1 Md$ attendus (LSEG), sans revenu data center chinois&nbsp;: Nvidia a vendu 2,4 Md$ de puces Hopper en Chine au trimestre et a cessé ces livraisons. Le titre a gagné 3 à 5&nbsp;% après la clôture.</p>
+    <div class="meta"><span class="badge company">Chiffres de l’entreprise</span><span class="source">Sources&nbsp;: <a href="https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Announces-Financial-Results-for-Third-Quarter-Fiscal-2027/default.aspx">Nvidia (communiqué)&nbsp;↗</a>, <a href="https://www.cnbc.com/2026/11/17/nvidia-nvda-earnings-report-q3-2027.html">CNBC&nbsp;↗</a>, <a href="https://www.theguardian.com/technology/2026/nov/17/nvidia-third-quarter-revenue-jensen-huang">The Guardian&nbsp;↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Huang veut revenir, le conseil dit non</h3>
+    <p>Jensen Huang a écrit sur X qu'il serait «&nbsp;honoré&nbsp;» de reprendre la tête de Nvidia. Le président du conseil, Harvey Jones, a répondu pendant la conférence de résultats que le groupe «&nbsp;n'a pas l'intention&nbsp;» de le réintégrer&nbsp;; Colette Kress reste PDG par intérim.</p>
+    <div class="meta"><span class="source">Sources&nbsp;: <a href="https://apnews.com/article/nvidia-jensen-huang-china-national-security-chips-3026bcbe04ab57b844884382e583422a">AP&nbsp;↗</a>, <a href="https://techcrunch.com/2026/11/17/jensen-huang-says-he-would-be-honored-if-allowed-to-return-as-nvidia-ceo/">TechCrunch&nbsp;↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Anthropic fixe son prix ce soir</h3>
+    <p>825 millions d'actions offertes entre 70 et 78&nbsp;$&nbsp;; le prix serait fixé au-dessus de la fourchette selon des sources de CNBC. Cotation jeudi. Le prospectus affiche 33,24 Md$ de revenus sur neuf mois et une perte nette de 104 Md$, surtout liée à des écritures comptables sur des obligations convertibles.</p>
+    <div class="meta"><span class="badge unconfirmed">Non confirmé</span><span class="source">Sources&nbsp;: <a href="https://www.cnbc.com/2026/11/17/anthropic-ipo-price.html">CNBC (prix)&nbsp;↗</a>, <a href="https://www.cnbc.com/2026/11/16/anthropic-ipo-date-price-range.html">CNBC (guide)&nbsp;↗</a>, <a href="https://finance.yahoo.com/technology/ai/articles/anthropic-set-price-ipo-key-030309911.html">AFP via Yahoo Finance&nbsp;↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Robotique&nbsp;: Genesis AI lève 500 M$</h3>
+    <p>La start-up franco-américaine de robots dextres boucle une série A de 500 M$ à 3,5 Md$ de valorisation, menée par Khosla Ventures, Premji Invest et Eclipse, avec Nvidia, AMD Ventures et Bpifrance. Objectif&nbsp;: déployer son robot Eno dans les usines et les entrepôts.</p>
+    <div class="meta"><span class="badge company">Chiffres de l’entreprise</span><span class="source">Sources&nbsp;: <a href="https://www.prnewswire.com/news-releases/genesis-ai-raises-500m-series-a-at-3-5b-valuation-to-master-human-level-dexterity-in-general-purpose-robots-and-deploy-at-scale-302941249.html">Genesis AI (communiqué)&nbsp;↗</a>, <a href="https://techcrunch.com/2026/11/17/genesis-ai-raises-500-million-to-deploy-electric-glove-wearing-robots/">TechCrunch&nbsp;↗</a></span></div>
+  </article>
+</section>
+<section class="theme" id="macro">
+  <h2><span class="emoji">📈</span> Macro</h2>
+  <div class="tiles">
+    <div class="tile"><div class="label">Dow Jones</div><div class="value">50 759,42</div><span class="chg down">−1,64&nbsp;%</span></div>
+    <div class="tile"><div class="label">S&amp;P 500</div><div class="value">7 340,53</div><span class="chg down">−1,03&nbsp;%</span></div>
+    <div class="tile"><div class="label">Nasdaq</div><div class="value">24 328,38</div><span class="chg down">−0,74&nbsp;%</span></div>
+    <div class="tile"><div class="label">10 ans US</div><div class="value">≈ 5,10&nbsp;%</div><span class="chg down">−1 à −2 pb</span></div>
+  </div>
+  <p class="tiles-note">Clôtures de mardi. Sources&nbsp;: <a href="https://apnews.com/article/wall-street-stocks-dow-nasdaq-ff6caef4d9289cf7f1e6ee48a706eddc">AP&nbsp;↗</a>, recoupé avec Sharecast&nbsp;; 10 ans&nbsp;: <a href="https://www.cnbc.com/2026/11/17/treasury-yields-bonds-inflation.html">CNBC&nbsp;↗</a> (5,109&nbsp;%) et Morningstar (5,102&nbsp;%).</p>
+  <article class="card">
+    <h3>Wall Street recule encore</h3>
+    <p>Le Dow perd 848 points (−1,64&nbsp;%), le S&P 500 1,03&nbsp;% et le Nasdaq 0,74&nbsp;%, au plus bas depuis avril selon Sharecast. Les IA et une panne d'un réseau classifié de la NSA («&nbsp;maintenance de routine&nbsp;» selon l'agence) ont pesé avant les résultats de Nvidia.</p>
+    <div class="meta"><span class="source">Sources&nbsp;: <a href="https://apnews.com/article/wall-street-stocks-dow-nasdaq-ff6caef4d9289cf7f1e6ee48a706eddc">AP&nbsp;↗</a>, <a href="https://www.sharecast.com/news/market-report-us-close/us-close-stocks-tumble-following-nsa-outage-mixed-macro-data--24209814.html">Sharecast&nbsp;↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Musalem&nbsp;: «&nbsp;plusieurs&nbsp;» hausses avant le printemps</h3>
+    <p>Le président de la Fed de St. Louis estime que l'économie aura «&nbsp;probablement&nbsp;» besoin de plusieurs hausses de taux d'ici le printemps 2027, jusqu'à quatre selon CNBC, pour ramener le taux réel vers 2 à 2,5&nbsp;%. Le marché voit 95&nbsp;% de chances d'une hausse de 0,25 point en décembre (CME FedWatch). Minutes de la Fed ce mercredi.</p>
+    <div class="meta"><span class="source">Sources&nbsp;: <a href="https://www.stlouisfed.org/-/media/project/frbstl/stlouisfed/musalem/2026/musalem-central-bank-of-argentina-remarks-17-nov-2026.pdf">Fed de St. Louis (discours)&nbsp;↗</a>, <a href="https://www.cnbc.com/2026/11/17/alberto-musalem-fed-interest-rates.html">CNBC&nbsp;↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Ventes au détail solides, taux stables</h3>
+    <p>En octobre, les ventes au détail américaines progressent de 0,2&nbsp;%, comme prévu, mais de 0,6&nbsp;% hors essence et automobile, contre 0,4&nbsp;% attendu&nbsp;: un argument de plus pour la Fed. Le 10 ans termine vers 5,10&nbsp;%.</p>
+    <div class="meta"><span class="source">Sources&nbsp;: <a href="https://www.cnbc.com/2026/11/17/treasury-yields-bonds-inflation.html">CNBC&nbsp;↗</a>, <a href="https://www.morningstar.com/news/dow-jones/202611177480/10-year-treasury-yield-falls-to-5102-data-talk">Morningstar (Dow Jones)&nbsp;↗</a></span></div>
+  </article>
+</section>
+<section class="theme" id="geopolitique">
+  <h2><span class="emoji">🌍</span> Géopolitique</h2>
+  <article class="card">
+    <h3>États-Unis et Iran échangent des tirs</h3>
+    <p>Les Gardiens de la révolution disent avoir visé un radar américain à Bahreïn (attaque interceptée, sans dégâts selon Bahreïn)&nbsp;; des avions américains ont frappé un site de lancement de missiles sur l'île de Qeshm, dans le détroit d'Ormuz. Les discussions via le Qatar et Oman continuent. Le Brent finit en hausse de 0,8&nbsp;% à 93,14&nbsp;$.</p>
+    <div class="meta"><span class="source">Sources&nbsp;: <a href="https://www.al-monitor.com/originals/2026/11/us-iran-exchange-fire-despite-talks-mediators">Reuters via Al-Monitor&nbsp;↗</a>, <a href="https://apnews.com/article/iran-trump-israel-bahrain-attacks-582e0b5d51be06f0ed630fac24f39b72">AP&nbsp;↗</a>, <a href="https://www.newsquawk.com/headlines/crude-wrap-wti-z6-settles-usd-029-higher-at-8601bbl-brent-f2-settles-usd-070-higher-at-9314bbl">Newsquawk (pétrole)&nbsp;↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Shenzhen&nbsp;: Xi et Poutine avant le sommet avec Trump</h3>
+    <p>Xi Jinping et Vladimir Poutine se rencontrent ce mercredi, à la veille d'un sommet à trois inédit avec Donald Trump jeudi, en marge de l'APEC. Kyiv et les Européens craignent un règlement de la guerre sans eux&nbsp;; Trump a indiqué que l'Ukraine serait à l'ordre du jour.</p>
+    <div class="meta"><span class="source">Sources&nbsp;: <a href="https://www.euronews.com/2026/11/18/chinas-xi-jinping-and-putin-hold-talks-in-shenzhen-on-eve-of-three-way-summit-with-trump">Euronews (AFP, AP)&nbsp;↗</a>, <a href="https://www.fmprc.gov.cn/mfa_eng/xw/wsrc/202611/t20261116_12059663.html">Ministère chinois des Affaires étrangères&nbsp;↗</a>, <a href="https://www.cnbc.com/2026/11/18/apec-trump-xi-putin-shenzhen.html">CNBC&nbsp;↗</a></span></div>
+  </article>
+</section>
+<section class="theme" id="verification">
+  <h2><span class="emoji">✅</span> Vérification</h2>
+  <article class="card">
+    <h3>✅ Vérifié</h3>
+    <p>Cours crypto (CoinGecko, Coinbase)&nbsp;; règles de la Banque de Russie (communiqué officiel, Cointelegraph, Bitcoin Magazine)&nbsp;; 13F de Wells Fargo et Bank of America (CoinDesk, crypto.news, Bitbo)&nbsp;; résultats, prévision et ventes Hopper en Chine de Nvidia (communiqué, transcription de la conférence, CNBC, Guardian, Sharecast)&nbsp;; refus du retour de Huang (AP, TechCrunch, Guardian)&nbsp;; fourchette, calendrier et comptes d'Anthropic (prospectus via CNBC, AFP)&nbsp;; levée de Genesis AI (communiqué, TechCrunch, Crunchbase)&nbsp;; clôtures de Wall Street (AP, Sharecast)&nbsp;; propos de Musalem (discours de la Fed de St. Louis, CNBC, Investing.com)&nbsp;; ventes au détail et 10 ans (CNBC, Morningstar)&nbsp;; échanges de tirs États-Unis–Iran (Reuters, AP, Al Jazeera)&nbsp;; sommet de Shenzhen (Euronews, ministère chinois, CNBC).</p>
+  </article>
+  <article class="card">
+    <h3>⚠️ À confirmer</h3>
+    <p>Prix d'Anthropic au-dessus de la fourchette&nbsp;: sources anonymes de CNBC, prix officiel attendu ce soir. Hausse de Nvidia après la clôture&nbsp;: 3&nbsp;% (CNBC) à 5&nbsp;% (Guardian) selon l'heure. Brent à 93,14&nbsp;$&nbsp;: une seule source (Newsquawk), hausse confirmée par Euronext, donc pas de tuile. Résultats Nvidia et levée Genesis&nbsp;: chiffres des entreprises. Positions IBIT des banques&nbsp;: instantané 13F au 30 septembre, surtout pour des clients.</p>
+  </article>
+</section>
+<footer>
+  <p>Généré le mercredi 18 novembre 2026 vers 07h00 (heure de Paris). Faits repérés via X puis recoupés sur le web&nbsp;; liens vérifiés (certains sites bloquent les robots mais s’ouvrent normalement dans un navigateur).</p>
+  <p>Les badges signalent les chiffres publiés par les entreprises elles-mêmes et les informations non confirmées officiellement.</p>
+</footer>
+</main>
+</body>
+</html>
