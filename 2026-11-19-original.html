@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<title>Brief du Matin · Jeudi 19 novembre 2026</title>
+<!--
+  GABARIT « Brief du Matin » : un seul fichier, CSS inline, aucune dépendance, pas de JS.
+  Thème sombre par défaut, clair automatique via prefers-color-scheme.
+  Utilisation : copier ce fichier vers brief-AAAA-MM-JJ.html, remplacer chaque {{EMPLACEMENT}},
+  dupliquer les <article class="card"> (3 à 4 par section). Ne pas modifier le bloc <style>.
+  Typographie : mettre une espace insécable (&nbsp;) avant : ; % ? ! » et après «.
+-->
+<style>
+:root{
+  --bg:#0e1116; --surface:#161b22; --surface-2:#1c222b; --border:#2a313c;
+  --text:#e8ecf1; --muted:#9aa4b2; --accent:#e0b062; --link:#8fbcff;
+  --up:#3fcf8e; --up-bg:rgba(63,207,142,.12); --down:#ff6b6b; --down-bg:rgba(255,107,107,.12);
+  --badge-co:#c9a7ff; --badge-co-bg:rgba(201,167,255,.12);
+  --badge-nc:#ffb347; --badge-nc-bg:rgba(255,179,71,.12);
+}
+@media (prefers-color-scheme: light){
+  :root{
+    --bg:#f6f4ef; --surface:#ffffff; --surface-2:#faf8f4; --border:#e3ded4;
+    --text:#1b1f24; --muted:#5d6672; --accent:#9a6a12; --link:#1f5fbf;
+    --up:#0f8a55; --up-bg:rgba(15,138,85,.10); --down:#c62f2f; --down-bg:rgba(198,47,47,.09);
+    --badge-co:#6b3fc0; --badge-co-bg:rgba(107,63,192,.09);
+    --badge-nc:#a35a00; --badge-nc-bg:rgba(163,90,0,.10);
+  }
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji";
+  font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:780px;margin:0 auto;padding:40px 22px 28px}
+header.masthead{padding-bottom:22px;margin-bottom:26px;border-bottom:1px solid var(--border)}
+.kicker{font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);font-weight:600;margin:0 0 6px}
+h1{font-size:2.3rem;line-height:1.15;margin:0;font-weight:750;letter-spacing:-.02em}
+.date{margin:8px 0 0;color:var(--muted);font-size:1rem}
+.date .sep{opacity:.5;margin:0 .45em}
+.essentiel{background:linear-gradient(135deg,var(--surface-2),var(--surface));border:1px solid var(--border);
+  border-left:4px solid var(--accent);border-radius:14px;padding:18px 22px 16px;margin:0 0 34px}
+.essentiel h2{margin:0 0 8px;font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+.essentiel ul{margin:0;padding-left:1.15em}
+.essentiel li{margin:6px 0;font-weight:500}
+.essentiel li::marker{color:var(--accent)}
+section.theme{margin:0 0 38px}
+section.theme > h2{font-size:1.4rem;margin:0 0 14px;display:flex;align-items:center;gap:.5em;letter-spacing:-.01em}
+section.theme > h2 .emoji{font-size:1.25em;line-height:1}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin:0 0 16px}
+.tile{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:10px 12px}
+.tile .label{font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:600}
+.tile .value{font-size:1.15rem;font-weight:700;font-variant-numeric:tabular-nums;margin-top:2px;white-space:nowrap}
+.tile .chg{display:inline-block;margin-top:4px;font-size:.8rem;font-weight:650;padding:1px 7px;border-radius:999px;font-variant-numeric:tabular-nums}
+.chg.up{color:var(--up);background:var(--up-bg)}
+.chg.down{color:var(--down);background:var(--down-bg)}
+.tiles-note{font-size:.78rem;color:var(--muted);margin:-8px 0 16px}
+.tiles-note a{color:var(--muted)}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:16px 18px;margin:0 0 12px}
+.card h3{margin:0 0 6px;font-size:1.05rem;line-height:1.35;font-weight:700}
+.card p{margin:0;color:var(--text)}
+.card .meta{margin-top:10px;display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;font-size:.82rem}
+.source{color:var(--muted)}
+.source a{color:var(--link);text-decoration:none;border-bottom:1px solid transparent}
+.source a:hover{border-bottom-color:var(--link)}
+.badge{display:inline-block;font-size:.7rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:2px 8px;border-radius:999px;white-space:nowrap}
+.badge.company{color:var(--badge-co);background:var(--badge-co-bg)}
+.badge.unconfirmed{color:var(--badge-nc);background:var(--badge-nc-bg)}
+footer{margin-top:10px;padding-top:16px;border-top:1px solid var(--border);color:var(--muted);font-size:.8rem;line-height:1.5}
+footer p{margin:4px 0}
+@media (max-width:520px){
+  body{font-size:16px}
+  .wrap{padding:26px 16px 22px}
+  h1{font-size:1.85rem}
+  .tiles{grid-template-columns:repeat(2,1fr)}
+  .card{padding:14px 15px}
+  .essentiel{padding:16px 16px 14px}
+}
+.tiles.six{grid-template-columns:repeat(3,1fr)}
+@media (max-width:520px){.tiles.six{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+<main class="wrap">
+<header class="masthead">
+  <p class="kicker">Crypto · IA · Macro · Géopolitique</p>
+  <h1>Brief du Matin</h1>
+  <p class="date">Jeudi 19 novembre 2026<span class="sep">·</span>Les dernières 24 heures</p>
+</header>
+<aside class="essentiel" aria-label="L'essentiel">
+  <h2>L'essentiel</h2>
+  <ul>
+    <li>Anthropic fixe son introduction en Bourse à 83&nbsp;$, au-dessus de la fourchette de 70 à 78&nbsp;$&nbsp;: 81,3 Md$ levés, un record devant SpaceX&nbsp;; cotation ce jeudi au Nasdaq (ANT).</li>
+    <li>Les minutes de la Fed confirment le virage&nbsp;: presque tous les membres jugent d'autres hausses de taux «&nbsp;probablement appropriées&nbsp;», et l'IA est vue comme un risque d'inflation et de stabilité financière.</li>
+    <li>Le bitcoin est tombé vers 62 500&nbsp;$ mercredi, au plus bas depuis le 13 juillet, avec 306,5 M$ de sorties nettes des ETF bitcoin sur la journée.</li>
+  </ul>
+</aside>
+<section class="theme" id="crypto">
+  <h2><span class="emoji">₿</span> Crypto</h2>
+  <div class="tiles">
+    <div class="tile"><div class="label">BTC</div><div class="value">≈ 63 285&nbsp;$</div><span class="chg down">−2,1&nbsp;% (24 h)</span></div>
+    <div class="tile"><div class="label">ETH</div><div class="value">≈ 1 798&nbsp;$</div><span class="chg down">−0,7&nbsp;% (24 h)</span></div>
+    <div class="tile"><div class="label">SOL</div><div class="value">≈ 74,5&nbsp;$</div><span class="chg down">−0,8&nbsp;% (24 h)</span></div>
+    <div class="tile"><div class="label">XRP</div><div class="value">≈ 0,97&nbsp;$</div><span class="chg down">−1,3&nbsp;% (24 h)</span></div>
+  </div>
+  <p class="tiles-note">Cours de jeudi vers 06h47 (heure de Paris). Source&nbsp;: <a href="https://www.coingecko.com/">CoinGecko&nbsp;↗</a>, BTC et ETH recoupés avec Coinbase.</p>
+  <article class="card">
+    <h3>Le BTC au plus bas depuis juillet</h3>
+    <p>Le bitcoin a glissé jusqu'à environ 62 500&nbsp;$ mercredi, son plus bas depuis le 13 juillet, après les propos durs de la Fed&nbsp;; il est à peu près 50&nbsp;% sous son record de 126 080&nbsp;$. Environ 377 M$ de positions à levier ont été liquidées en 24 h, dont 269 M$ à l'achat (CoinGlass).</p>
+    <div class="meta"><span class="source">Sources&nbsp;: <a href="https://au.investing.com/news/cryptocurrency-news/bitcoin-muted-below-65k-as-rate-tech-jitters-persist-fed-minutes-awaited-4779239">Investing.com (Reuters)&nbsp;↗</a>, <a href="https://cointelegraph.com/markets/bitcoin-stocks-wobble-waller-talks-shock-50-point-rate-hike">Cointelegraph&nbsp;↗</a>, <a href="https://www.cryptotimes.io/2026/11/18/bitcoin-drops-below-63k-as-269m-in-long-positions-get-liquidated/">The Crypto Times&nbsp;↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Les ETF bitcoin perdent encore 306 M$</h3>
+    <p>Sorties nettes de 306,5 M$ le 18 novembre, menées par l'IBIT de BlackRock (−148,7 M$) et le FBTC de Fidelity (−69,3 M$), après 240 M$ la veille. Les investisseurs institutionnels retirent des fonds pour la troisième semaine d'affilée.</p>
+    <div class="meta"><span class="source">Sources&nbsp;: <a href="https://farside.co.uk/btc/">Farside Investors&nbsp;↗</a>, <a href="https://blockchain.news/flashnews/bitcoin-etf-306-5m-net-outflow-nov-18">Blockchain.News&nbsp;↗</a>, <a href="https://www.tokenpost.com/news/investing/61124">TokenPost&nbsp;↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Citi abaisse ses objectifs BTC et ETH</h3>
+    <p>La banque ramène son objectif à 12 mois de 113 000 à 99 532&nbsp;$ pour le bitcoin (−12&nbsp;%) et de 3 028 à 2 838&nbsp;$ pour l'ether, en citant la baisse de la demande des ETF et le passage du BTC sous sa moyenne mobile à 200 jours.</p>
+    <div class="meta"><span class="source">Sources&nbsp;: <a href="https://news.bitcoin.com/market-updates/bitcoin-price-slides-62k-citi-slashes-price-target-12-percent/">Bitcoin.com News&nbsp;↗</a>, <a href="https://cryptobriefing.com/citi-cuts-bitcoin-ethereum-price-targets/">Crypto Briefing&nbsp;↗</a></span></div>
+  </article>
+</section>
+<section class="theme" id="ia">
+  <h2><span class="emoji">🤖</span> IA</h2>
+  <article class="card">
+    <h3>Anthropic&nbsp;: 83&nbsp;$ l'action, 81,3 Md$ levés</h3>
+    <p>Le créateur de Claude a vendu 980 millions d'actions (dont 956 millions de nouvelles) à 83&nbsp;$, au-dessus de la fourchette de 70 à 78&nbsp;$, et a augmenté la taille de l'offre. C'est la plus grosse introduction en Bourse de l'histoire, devant les 75 Md$ initiaux de SpaceX en juin&nbsp;; AP évalue l'entreprise à environ 1 500 Md$ (options comprises). Premiers échanges ce jeudi au Nasdaq.</p>
+    <div class="meta"><span class="badge company">Chiffres de l’entreprise</span><span class="source">Sources&nbsp;: <a href="https://www.anthropic.com/news/anthropic-prices-initial-public-offering">Anthropic (communiqué)&nbsp;↗</a>, <a href="https://www.cnbc.com/2026/11/18/anthropic-ipo-ai-offering-price.html">CNBC&nbsp;↗</a>, <a href="https://apnews.com/article/anthropic-ipo-pricing-70b660ddf900d90bbf484ecdf1fb441c">AP&nbsp;↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Nvidia rend ses gains malgré ses résultats</h3>
+    <p>Après sa hausse post-résultats, le titre a fini mercredi en baisse de 2,9&nbsp;%, les incertitudes autour du départ de Jensen Huang l'emportant sur une prévision de chiffre d'affaires supérieure aux attentes.</p>
+    <div class="meta"><span class="source">Sources&nbsp;: <a href="https://www.ibtimes.com/us-stocks-dow-falls-nvidia-earnings-fed-rate-hikes-3809938">IBTimes&nbsp;↗</a>, <a href="https://www.businesstimes.com.sg/companies-markets/capital-markets-currencies/us-stocks-wall-street-ends-mixed-after-nvidia-earnings-fed-minutes">The Business Times (Reuters)&nbsp;↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Robotaxis&nbsp;: Waymo quitte les autoroutes</h3>
+    <p>Waymo suspend ses trajets sans chauffeur sur autoroute dans tous ses marchés, après que l'administration californienne des véhicules (DMV) le lui a interdit à la suite d'incursions dans des zones de travaux, notamment sur la 101 près de Burlingame. L'interdiction tient jusqu'à des mesures correctives jugées efficaces.</p>
+    <div class="meta"><span class="source">Sources&nbsp;: <a href="https://apnews.com/article/waymo-driverless-vehicle-california-freeway-ban-37bcd5371a4699a1850b7666b271946b">AP&nbsp;↗</a>, <a href="https://techcrunch.com/2026/11/17/waymo-suspends-freeway-rides-nationwide-after-california-dmv-order/">TechCrunch&nbsp;↗</a></span></div>
+  </article>
+</section>
+<section class="theme" id="macro">
+  <h2><span class="emoji">📈</span> Macro</h2>
+  <div class="tiles">
+    <div class="tile"><div class="label">Dow Jones</div><div class="value">50 198,17</div><span class="chg down">−1,11&nbsp;%</span></div>
+    <div class="tile"><div class="label">S&amp;P 500</div><div class="value">7 323,63</div><span class="chg down">−0,23&nbsp;%</span></div>
+    <div class="tile"><div class="label">Nasdaq</div><div class="value">24 429,88</div><span class="chg up">+0,42&nbsp;%</span></div>
+    <div class="tile"><div class="label">US 10 ans</div><div class="value">5,07&nbsp;%</div><span class="chg down">−3 pb</span></div>
+    <div class="tile"><div class="label">Brent</div><div class="value">91,95&nbsp;$</div><span class="chg down">−1,28&nbsp;%</span></div>
+  </div>
+  <p class="tiles-note">Clôtures de mercredi. Sources&nbsp;: <a href="https://apnews.com/article/wall-street-stocks-dow-nasdaq-990749d3d269f7ef05b9f6c089713a58">AP&nbsp;↗</a>, recoupé avec The Business Times (Reuters)&nbsp;; 10 ans&nbsp;: <a href="https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve">Trésor américain&nbsp;↗</a> et Morningstar (5,065 %)&nbsp;; Brent&nbsp;: Reuters via Euronext et Oklahoma Energy Today.</p>
+  <article class="card">
+    <h3>Minutes de la Fed&nbsp;: d'autres hausses à venir</h3>
+    <p>Lors de la réunion d'octobre (taux maintenus à 3,75-4&nbsp;%, vote 10-2), presque tous les participants jugeaient de nouvelles hausses «&nbsp;probablement appropriées&nbsp;», et quelques-uns évoquaient une hausse plus forte qu'un quart de point en décembre si l'inflation déçoit. L'IA y est décrite comme une source «&nbsp;matérielle&nbsp;» de risque d'inflation, et sa dette comme logée dans des montages «&nbsp;complexes et opaques&nbsp;». Le gouverneur Waller plaide pour un demi-point.</p>
+    <div class="meta"><span class="source">Sources&nbsp;: <a href="https://www.cnbc.com/2026/11/18/fed-minutes-october-2026.html">CNBC&nbsp;↗</a>, <a href="https://www.businesstimes.com.sg/companies-markets/capital-markets-currencies/us-stocks-wall-street-ends-mixed-after-nvidia-earnings-fed-minutes">The Business Times (Reuters)&nbsp;↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Wall Street coupée en deux</h3>
+    <p>Le Dow perd 561 points (−1,11&nbsp;%) et le S&amp;P 500 aligne cinq séances de baisse, sa plus longue série depuis juin, tandis que le Nasdaq gagne 0,42&nbsp;% grâce à Amazon (+3,8&nbsp;%). Le marché voit une hausse d'un quart de point en décembre comme quasi certaine (CME FedWatch).</p>
+    <div class="meta"><span class="source">Sources&nbsp;: <a href="https://www.ibtimes.com/us-stocks-dow-falls-nvidia-earnings-fed-rate-hikes-3809938">IBTimes&nbsp;↗</a>, <a href="https://www.businesstimes.com.sg/companies-markets/capital-markets-currencies/us-stocks-wall-street-ends-mixed-after-nvidia-earnings-fed-minutes">The Business Times (Reuters)&nbsp;↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Le pétrole recule malgré Ormuz</h3>
+    <p>Le Brent perd 1,28&nbsp;% à 91,95&nbsp;$ et le WTI 3,2&nbsp;% à 83,26&nbsp;$, au plus bas depuis le 26 août, après une hausse de 3,4 millions de barils des stocks américains (EIA). Les deux références sont en route vers une baisse d'environ 20&nbsp;% sur le mois, les flux par Ormuz étant revenus près de leur niveau d'avant-guerre.</p>
+    <div class="meta"><span class="source">Sources&nbsp;: <a href="https://live.euronext.com/en/financial-news/oil-prices-settle-lower-traders-weigh-surplus-supply-outlook">Reuters via Euronext&nbsp;↗</a>, <a href="https://www.cnbc.com/2026/11/19/oil-brent-wti-price-hormuz.html">CNBC&nbsp;↗</a></span></div>
+  </article>
+</section>
+<section class="theme" id="geo">
+  <h2><span class="emoji">🌍</span> Géopolitique</h2>
+  <article class="card">
+    <h3>L'Iran vise le Koweït après une frappe américaine</h3>
+    <p>Après la frappe d'avions américains sur un site de missiles de l'île de Qeshm, l'armée iranienne dit avoir visé avec des drones des installations américaines de la base koweïtienne d'Ali Al Salem&nbsp;; le Koweït affirme les avoir interceptées, sans dégâts. C'est la première attaque iranienne contre le Koweït depuis septembre. À Ormuz, un navire d'ADNOC a été touché&nbsp;: un marin disparu, 11 blessés.</p>
+    <div class="meta"><span class="source">Sources&nbsp;: <a href="https://www.bbc.com/news/articles/cw4gn9jeqjq7o">BBC&nbsp;↗</a>, <a href="https://www.al-monitor.com/originals/2026/11/iran-fires-kuwait-after-us-strike-iranian-island">Al-Monitor&nbsp;↗</a>, <a href="https://live.euronext.com/en/financial-news/oil-prices-settle-lower-traders-weigh-surplus-supply-outlook">Reuters via Euronext&nbsp;↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Trump, Xi et Poutine se retrouvent aujourd'hui</h3>
+    <p>Après une photo commune au dîner de l'APEC mercredi soir à Shenzhen, les trois dirigeants tiennent ce jeudi un sommet à trois inédit. Armes nucléaires, Iran et Ukraine sont en tête de l'ordre du jour&nbsp;; aucune percée n'est attendue sur l'Ukraine, et Kyiv exige d'être associé à toute discussion la concernant.</p>
+    <div class="meta"><span class="source">Sources&nbsp;: <a href="https://apnews.com/article/trump-xi-putin-nuclear-ukraine-iran-a04dc76ed8e786b087e2c1ea9598783a">AP&nbsp;↗</a>, <a href="https://www.washingtonpost.com/politics/2026/11/18/trump-xi-putin-meet-with-conflicting-agendas-sharp-divides/">Washington Post&nbsp;↗</a>, <a href="https://www.malaymail.com/news/world/2026/11/19/xi-trump-putin-pose-for-apec-photo-ahead-of-first-historic-world-peace-trilateral-in-shenzhen/243885">Malay Mail&nbsp;↗</a></span></div>
+  </article>
+</section>
+<section class="theme" id="verification">
+  <h2><span class="emoji">✅</span> Vérification</h2>
+  <article class="card">
+    <h3>✅ Vérifié</h3>
+    <p>Cours crypto (CoinGecko, Coinbase)&nbsp;; plus bas du BTC et liquidations (Investing.com/Reuters, Cointelegraph, The Crypto Times)&nbsp;; sorties des ETF du 18/11 (Blockchain.News, TokenPost, d'après Farside)&nbsp;; objectifs de Citi (Bitcoin.com, Crypto Briefing, Coinpaper)&nbsp;; prix, taille et calendrier de l'IPO d'Anthropic (communiqué officiel, CNBC, AP, Bloomberg Law)&nbsp;; baisse de Nvidia (IBTimes, The Business Times)&nbsp;; suspension de Waymo (AP, TechCrunch, CBS)&nbsp;; minutes de la Fed et propos de Waller (CNBC, The Business Times/Reuters, IBTimes)&nbsp;; clôtures de Wall Street (AP, IBTimes, The Business Times)&nbsp;; 10 ans (Trésor américain, Morningstar)&nbsp;; pétrole et stocks EIA (Reuters via Euronext, Oklahoma Energy Today, CNBC)&nbsp;; attaque iranienne contre le Koweït (BBC, Al-Monitor, Reuters)&nbsp;; sommet de Shenzhen (AP, Washington Post, Malay Mail).</p>
+  </article>
+  <article class="card">
+    <h3>⚠️ À confirmer</h3>
+    <p>Valorisation d'Anthropic à environ 1 500 Md$&nbsp;: calcul d'AP et de CBC incluant options et actions promises&nbsp;; taille de l'IPO et nombre d'actions&nbsp;: chiffres de l'entreprise. Sorties des ETF&nbsp;: chiffres d'agrégateurs, susceptibles de révision. Baisse de 2,9&nbsp;% de Nvidia&nbsp;: une seule source chiffrée (IBTimes), baisse confirmée par Reuters. Navire d'ADNOC&nbsp;: bilan de l'armateur, contesté par l'Inde sur la sécurité de l'équipage. Résultat du sommet de Shenzhen&nbsp;: pas encore connu à l'heure du brief. Non retenu&nbsp;: l'information selon laquelle Trump envisagerait une campagne de frappes de 4 à 7 jours sur l'Iran, vue seulement dans des résumés X.</p>
+  </article>
+</section>
+<footer>
+  <p>Généré le jeudi 19 novembre 2026 vers 07h00 (heure de Paris). Faits repérés via X puis recoupés sur le web&nbsp;; liens vérifiés (certains sites bloquent les robots mais s’ouvrent normalement dans un navigateur).</p>
+  <p>Les badges signalent les chiffres publiés par les entreprises elles-mêmes et les informations non confirmées officiellement.</p>
+</footer>
+</main>
+</body>
+</html>
