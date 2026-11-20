@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<title>Brief du Matin · Vendredi 20 novembre 2026</title>
+<!--
+  GABARIT « Brief du Matin » : un seul fichier, CSS inline, aucune dépendance, pas de JS.
+  Thème sombre par défaut, clair automatique via prefers-color-scheme.
+  Utilisation : copier ce fichier vers brief-AAAA-MM-JJ.html, remplacer chaque {{EMPLACEMENT}},
+  dupliquer les <article class="card"> (3 à 4 par section). Ne pas modifier le bloc <style>.
+  Typographie : mettre une espace insécable (&nbsp;) avant : ; % ? ! » et après «.
+-->
+<style>
+:root{
+  --bg:#0e1116; --surface:#161b22; --surface-2:#1c222b; --border:#2a313c;
+  --text:#e8ecf1; --muted:#9aa4b2; --accent:#e0b062; --link:#8fbcff;
+  --up:#3fcf8e; --up-bg:rgba(63,207,142,.12); --down:#ff6b6b; --down-bg:rgba(255,107,107,.12);
+  --badge-co:#c9a7ff; --badge-co-bg:rgba(201,167,255,.12);
+  --badge-nc:#ffb347; --badge-nc-bg:rgba(255,179,71,.12);
+}
+@media (prefers-color-scheme: light){
+  :root{
+    --bg:#f6f4ef; --surface:#ffffff; --surface-2:#faf8f4; --border:#e3ded4;
+    --text:#1b1f24; --muted:#5d6672; --accent:#9a6a12; --link:#1f5fbf;
+    --up:#0f8a55; --up-bg:rgba(15,138,85,.10); --down:#c62f2f; --down-bg:rgba(198,47,47,.09);
+    --badge-co:#6b3fc0; --badge-co-bg:rgba(107,63,192,.09);
+    --badge-nc:#a35a00; --badge-nc-bg:rgba(163,90,0,.10);
+  }
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji";
+  font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:780px;margin:0 auto;padding:40px 22px 28px}
+header.masthead{padding-bottom:22px;margin-bottom:26px;border-bottom:1px solid var(--border)}
+.kicker{font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);font-weight:600;margin:0 0 6px}
+h1{font-size:2.3rem;line-height:1.15;margin:0;font-weight:750;letter-spacing:-.02em}
+.date{margin:8px 0 0;color:var(--muted);font-size:1rem}
+.date .sep{opacity:.5;margin:0 .45em}
+.essentiel{background:linear-gradient(135deg,var(--surface-2),var(--surface));border:1px solid var(--border);
+  border-left:4px solid var(--accent);border-radius:14px;padding:18px 22px 16px;margin:0 0 34px}
+.essentiel h2{margin:0 0 8px;font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+.essentiel ul{margin:0;padding-left:1.15em}
+.essentiel li{margin:6px 0;font-weight:500}
+.essentiel li::marker{color:var(--accent)}
+section.theme{margin:0 0 38px}
+section.theme > h2{font-size:1.4rem;margin:0 0 14px;display:flex;align-items:center;gap:.5em;letter-spacing:-.01em}
+section.theme > h2 .emoji{font-size:1.25em;line-height:1}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin:0 0 16px}
+.tile{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:10px 12px}
+.tile .label{font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:600}
+.tile .value{font-size:1.15rem;font-weight:700;font-variant-numeric:tabular-nums;margin-top:2px;white-space:nowrap}
+.tile .chg{display:inline-block;margin-top:4px;font-size:.8rem;font-weight:650;padding:1px 7px;border-radius:999px;font-variant-numeric:tabular-nums}
+.chg.up{color:var(--up);background:var(--up-bg)}
+.chg.down{color:var(--down);background:var(--down-bg)}
+.tiles-note{font-size:.78rem;color:var(--muted);margin:-8px 0 16px}
+.tiles-note a{color:var(--muted)}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:16px 18px;margin:0 0 12px}
+.card h3{margin:0 0 6px;font-size:1.05rem;line-height:1.35;font-weight:700}
+.card p{margin:0;color:var(--text)}
+.card .meta{margin-top:10px;display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;font-size:.82rem}
+.source{color:var(--muted)}
+.source a{color:var(--link);text-decoration:none;border-bottom:1px solid transparent}
+.source a:hover{border-bottom-color:var(--link)}
+.badge{display:inline-block;font-size:.7rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:2px 8px;border-radius:999px;white-space:nowrap}
+.badge.company{color:var(--badge-co);background:var(--badge-co-bg)}
+.badge.unconfirmed{color:var(--badge-nc);background:var(--badge-nc-bg)}
+footer{margin-top:10px;padding-top:16px;border-top:1px solid var(--border);color:var(--muted);font-size:.8rem;line-height:1.5}
+footer p{margin:4px 0}
+@media (max-width:520px){
+  body{font-size:16px}
+  .wrap{padding:26px 16px 22px}
+  h1{font-size:1.85rem}
+  .tiles{grid-template-columns:repeat(2,1fr)}
+  .card{padding:14px 15px}
+  .essentiel{padding:16px 16px 14px}
+}
+.tiles.six{grid-template-columns:repeat(3,1fr)}
+@media (max-width:520px){.tiles.six{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+<main class="wrap">
+<header class="masthead">
+  <p class="kicker">Crypto · IA · Macro · Géopolitique</p>
+  <h1>Brief du Matin</h1>
+  <p class="date">Vendredi 20 novembre 2026<span class="sep">·</span>Les dernières 24 heures</p>
+</header>
+<aside class="essentiel" aria-label="L'essentiel">
+  <h2>L'essentiel</h2>
+  <ul>
+    <li>Wall Street chute encore jeudi malgré l'entrée en Bourse réussie d'Anthropic (+17&nbsp;% à 97,17&nbsp;$)&nbsp;: S&amp;P 500 −2,02&nbsp;%, Nasdaq −2,25&nbsp;%, Dow −1 101 points sous 50 000 pour la première fois depuis juin.</li>
+    <li>Le bitcoin glisse vers 61 300&nbsp;$, au plus bas depuis début juillet, avec plus de 600 M$ de positions liquidées et 582,3 M$ de sorties des ETF bitcoin le 19 novembre.</li>
+    <li>Trump, Xi et Poutine signent à Shenzhen une «&nbsp;déclaration pour la paix&nbsp;» surtout symbolique&nbsp;: réforme de l'ONU, plus de produits pétroliers raffinés, immunité des dirigeants face à la CPI, dialogue nucléaire.</li>
+  </ul>
+</aside>
+<section class="theme" id="crypto">
+  <h2><span class="emoji">₿</span> Crypto</h2>
+  <div class="tiles">
+    <div class="tile"><div class="label">BTC</div><div class="value">≈ 61 763&nbsp;$</div><span class="chg down">−2,4&nbsp;% (24 h)</span></div>
+    <div class="tile"><div class="label">ETH</div><div class="value">≈ 1 733&nbsp;$</div><span class="chg down">−3,6&nbsp;% (24 h)</span></div>
+    <div class="tile"><div class="label">SOL</div><div class="value">≈ 72,5&nbsp;$</div><span class="chg down">−2,7&nbsp;% (24 h)</span></div>
+    <div class="tile"><div class="label">XRP</div><div class="value">≈ 0,967&nbsp;$</div><span class="chg down">−0,5&nbsp;% (24 h)</span></div>
+  </div>
+  <p class="tiles-note">Cours de vendredi vers 06h49 (heure de Paris). Source&nbsp;: <a href="https://www.coingecko.com/">CoinGecko&nbsp;↗</a>, recoupés avec Coinbase.</p>
+  <article class="card">
+    <h3>Le BTC au plus bas depuis juillet</h3>
+    <p>Le bitcoin est descendu vers 61 300&nbsp;$ jeudi soir, juste après les débuts d'Anthropic en Bourse et la chute des valeurs tech, son plus bas depuis début juillet. Plus de 600 M$ de paris à levier ont été liquidés en 24 h. Il recule d'environ 13&nbsp;% sur une semaine (CoinMarketCap).</p>
+    <div class="meta"><span class="source">Sources&nbsp;: <a href="https://www.coindesk.com/markets/2026/11/20/bitcoin-hits-four-month-low-after-anthropic-s-ipo-as-tech-stocks-wilt">CoinDesk&nbsp;↗</a>, <a href="https://biz.chosun.com/en/en-finance/2026/11/20/OGIH3AG2E5HP7HCTXPSGDDSQE4/">Chosun Biz&nbsp;↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>ETF bitcoin&nbsp;: −582 M$ en une séance</h3>
+    <p>Troisième jour de sorties de suite le 19 novembre&nbsp;: −582,3 M$, dont −541,1 M$ pour l'IBIT de BlackRock, presque le double des −306,5 M$ de la veille. Sur novembre, les sorties approchent 2,9 Md$.</p>
+    <div class="meta"><span class="source">Sources&nbsp;: <a href="https://farside.co.uk/btc/">Farside Investors&nbsp;↗</a>, <a href="https://www.gate.com/fr/news/detail/us-spot-bitcoin-etfs-see-net-outflows-of-5823m-on-november-19-third-25744820">Gate News&nbsp;↗</a>, <a href="https://crypto.news/bitcoin-etf-november-outflows-bitfinex-cost-basis/">crypto.news&nbsp;↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>L'ether repasse sous 1 750&nbsp;$</h3>
+    <p>L'ETH perd environ 3,6&nbsp;% en 24 h, vers 1 735&nbsp;$, et environ 12&nbsp;% sur sept jours. SOL (≈ 72,5&nbsp;$) et BNB (≈ 570&nbsp;$) reculent d'environ 2,5&nbsp;%&nbsp;; Zcash perd 7&nbsp;% (CoinMarketCap via APA).</p>
+    <div class="meta"><span class="source">Sources&nbsp;: <a href="https://www.proactiveinvestors.com/companies/news/1102159/on-the-chain-bitcoin-falls-below-us-62-000-as-rate-fears-weigh-on-crypto-1102159.html">Proactive Investors&nbsp;↗</a>, <a href="https://en.apa.az/cryptocurrency/bitcoin-price-falls-below-62000-537358">APA&nbsp;↗</a></span></div>
+  </article>
+</section>
+<section class="theme" id="ia">
+  <h2><span class="emoji">🤖</span> IA</h2>
+  <article class="card">
+    <h3>Anthropic&nbsp;: +17&nbsp;% pour son premier jour</h3>
+    <p>Introduite à 83&nbsp;$, l'action ANT a ouvert à 111,50&nbsp;$ (+34&nbsp;%), touché 115,10&nbsp;$, puis fini à 97,17&nbsp;$. Elle vaut environ 1 800 Md$ toutes actions comprises (CNBC), 7e entreprise américaine&nbsp;; 846 millions de titres échangés, plus que SpaceX à ses débuts. Elle cédait environ 6&nbsp;% après la clôture.</p>
+    <div class="meta"><span class="source">Sources&nbsp;: <a href="https://www.cnbc.com/2026/11/19/anthropic-ipo-ant-live-updates.html">CNBC&nbsp;↗</a>, <a href="https://apnews.com/article/anthropic-ipo-nasdaq-ai-b6a74b8949021207dc162fcc876c4649">AP&nbsp;↗</a>, <a href="https://www.investing.com/news/stock-market-news/anthropic-opens-34-above-ipo-price-reaches-2-trillion-valuation-in-nasdaq-debut-5039595">Investing.com&nbsp;↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>AMD −7,7&nbsp;% après une attaque d'Hunterbrook</h3>
+    <p>Le vendeur à découvert Hunterbrook affirme qu'un firmware récent d'AMD se retrouve dans des serveurs du chinois IEIT, sur liste noire américaine depuis mars 2025. AMD dément et dit respecter les règles d'exportation&nbsp;; aucune infraction n'est établie.</p>
+    <div class="meta"><span class="badge unconfirmed">Non confirmé</span><span class="source">Sources&nbsp;: <a href="https://www.cnbc.com/2026/11/19/amd-falls-on-short-seller-report-of-alleged-china-exposure.html">CNBC&nbsp;↗</a>, <a href="https://www.investing.com/news/stock-market-news/amd-shares-slide-as-report-says-china-links-could-invite-us-scrutiny-5039625">Investing.com (Reuters)&nbsp;↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Apple prépare son propre agent IA</h3>
+    <p>Des offres d'emploi d'Apple décrivent un agent capable de naviguer, d'utiliser des applis et d'écrire du code. Selon Bloomberg, le nouveau patron John Ternus presse Craig Federighi d'accélérer&nbsp;; un Siri «&nbsp;agent&nbsp;» pourrait arriver dès 2027.</p>
+    <div class="meta"><span class="badge unconfirmed">Non confirmé</span><span class="source">Sources&nbsp;: <a href="https://www.theverge.com/tech/1038227/apple-ai-agent-engineer-job-listing">The Verge&nbsp;↗</a>, <a href="https://www.macrumors.com/2026/11/19/apple-ai-agent-development/">MacRumors&nbsp;↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Robotique&nbsp;: visas refusés aux ingénieurs chinois du CES</h3>
+    <p>Les États-Unis refusent des visas à des techniciens de fabricants chinois de robots, dont Xpeng et Engine AI, avant le CES de janvier. L'un d'eux s'est retiré après le refus de ses 15 ingénieurs&nbsp;; les équipes marketing passent en général.</p>
+    <div class="meta"><span class="source">Sources&nbsp;: <a href="https://asia.nikkei.com/business/technology/us-visa-denials-hit-xpeng-other-chinese-robot-makers-ahead-of-ces">Nikkei Asia&nbsp;↗</a>, <a href="https://humanoidbeat.com/news/chinese-humanoid-engineers-denied-us-visas-ces-2027-xpeng-engineai.html">Humanoid Beat&nbsp;↗</a></span></div>
+  </article>
+</section>
+<section class="theme" id="macro">
+  <h2><span class="emoji">📈</span> Macro</h2>
+  <div class="tiles six">
+    <div class="tile"><div class="label">Dow Jones</div><div class="value">49 097,06</div><span class="chg down">−2,19&nbsp;%</span></div>
+    <div class="tile"><div class="label">S&P 500</div><div class="value">7 175,83</div><span class="chg down">−2,02&nbsp;%</span></div>
+    <div class="tile"><div class="label">Nasdaq</div><div class="value">23 879,20</div><span class="chg down">−2,25&nbsp;%</span></div>
+    <div class="tile"><div class="label">US 10 ans</div><div class="value">5,04&nbsp;%</div><span class="chg down">−3 pb</span></div>
+    <div class="tile"><div class="label">Brent</div><div class="value">91,98&nbsp;$</div><span class="chg up">+0,03&nbsp;%</span></div>
+  </div>
+  <p class="tiles-note">Clôtures de jeudi. Sources&nbsp;: <a href="https://live.euronext.com/en/financial-news/stocks-fall-anthropic-debut-fails-ease-ai-concerns-dollar-rises">Reuters via Euronext&nbsp;↗</a>, CNBC&nbsp;; 10 ans&nbsp;: Trésor américain&nbsp;; Brent&nbsp;: Reuters, Rigzone.</p>
+  <article class="card">
+    <h3>Sixième baisse d'affilée pour le S&amp;P 500</h3>
+    <p>Les indices ont plongé à l'instant où Anthropic a commencé à coter&nbsp;: prises de bénéfices sur l'IA, Nvidia −3,3&nbsp;%. Le Dow, qui a perdu 1 101 points, clôture sous 50 000 pour la première fois depuis juin. Le Nasdaq tombe au plus bas depuis sept mois.</p>
+    <div class="meta"><span class="source">Sources&nbsp;: <a href="https://www.cnbc.com/2026/11/18/stock-market-today-live-updates.html">CNBC&nbsp;↗</a>, <a href="https://live.euronext.com/en/financial-news/stocks-fall-anthropic-debut-fails-ease-ai-concerns-dollar-rises">Reuters via Euronext&nbsp;↗</a>, <a href="https://apnews.com/article/stocks-markets-ai-us-anthropic-206c84045137824feabe052a29ff6140">AP&nbsp;↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Tokyo perd plus de 4&nbsp;% ce matin</h3>
+    <p>Le Nikkei 225 chute d'environ 4,5&nbsp;% vers 56 775 points, au plus bas depuis sept mois, entraîné par Advantest, Tokyo Electron et SoftBank. Toute l'Asie suit Wall Street.</p>
+    <div class="meta"><span class="source">Sources&nbsp;: <a href="https://apnews.com/article/stock-markets-anthropic-ai-chips-boom-c4c3f4878b12989347f8a930ed813dad">AP&nbsp;↗</a>, <a href="https://mainichi.jp/english/articles/20261120/p2g/00m/0bu/017000c">The Mainichi&nbsp;↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>L'industrie de Philadelphie freine net</h3>
+    <p>L'indice manufacturier de la Fed de Philadelphie tombe de 20,9 à 6,3 en novembre, au plus bas depuis mai&nbsp;; les commandes passent à −0,4. Les prix payés montent à 58,2&nbsp;: l'activité ralentit mais pas les coûts.</p>
+    <div class="meta"><span class="source">Sources&nbsp;: <a href="https://www.philadelphiafed.org/surveys-and-data/regional-economic-analysis/mbos-2026-11">Fed de Philadelphie&nbsp;↗</a>, <a href="https://www.investing.com/news/economic-indicators/philadelphia-fed-manufacturing-index-plummets-misses-forecast-93CH-5039043">Investing.com&nbsp;↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Pétrole stable malgré Ormuz</h3>
+    <p>Le Brent finit à 91,98&nbsp;$ (+0,03&nbsp;%) et le WTI à 83,21&nbsp;$, au plus bas depuis le 26 août&nbsp;: les incidents de navigation à Ormuz compensent la hausse des stocks américains. Pour l'AIE, la guerre a déjà retiré 2,8 milliards de barils au marché.</p>
+    <div class="meta"><span class="source">Sources&nbsp;: <a href="https://live.euronext.com/en/financial-news/oil-settles-flat-hormuz-disruptions-offset-global-surplus-fears">Reuters via Euronext&nbsp;↗</a>, <a href="https://www.rigzone.com/news/wire/oil_prices_swing_on_middle_east_uncertainty-19-nov-2026-185129-article/">Rigzone (Bloomberg)&nbsp;↗</a></span></div>
+  </article>
+</section>
+<section class="theme" id="geopolitique">
+  <h2><span class="emoji">🌍</span> Géopolitique</h2>
+  <article class="card">
+    <h3>Shenzhen&nbsp;: une déclaration à trois, sans percée</h3>
+    <p>Après environ 90 minutes de réunion, Trump, Xi et Poutine s'engagent à réformer l'ONU, à augmenter l'offre de produits pétroliers raffinés, à protéger l'immunité des dirigeants face à la CPI et à dialoguer sur les risques nucléaires. Reuters note l'absence de négociation sur le contrôle des armements et de percée sur l'Ukraine.</p>
+    <div class="meta"><span class="source">Sources&nbsp;: <a href="https://www.whitehouse.gov/briefings-statements/2026/11/u-s-russia-china-heads-of-state-declaration-toward-peace/">Maison-Blanche (texte)&nbsp;↗</a>, <a href="https://www.bbc.com/news/articles/c623j4ln97x7o">BBC&nbsp;↗</a>, <a href="https://www.reuters.com/5f374b32b07b/world/china/trumps-historic-meeting-with-xi-putin-headlines-asia-trip-2026-11-18/">Reuters&nbsp;↗</a></span></div>
+  </article>
+  <article class="card">
+    <h3>Iran&nbsp;: Trump «&nbsp;ne se presse pas&nbsp;»</h3>
+    <p>Trump a dit à Axios qu'il ne déciderait pas de nouvelles frappes sur l'Iran avant le début de l'année, alors qu'Israël pousse à agir. La marine iranienne affirme que deux pétroliers ont sauté sur des mines à Ormuz, ce que Reuters n'a pas pu vérifier&nbsp;; les Houthis ont tiré des missiles sur Riyad.</p>
+    <div class="meta"><span class="badge unconfirmed">Non confirmé</span><span class="source">Sources&nbsp;: <a href="https://www.axios.com/2026/11/19/trump-iran-attacks-israel-new-year">Axios&nbsp;↗</a>, <a href="https://www.timesofisrael.com/liveblog_entry/trump-says-hes-not-rushing-into-iran-strike-will-wait-until-january/">Times of Israel&nbsp;↗</a>, <a href="https://live.euronext.com/en/financial-news/oil-settles-flat-hormuz-disruptions-offset-global-surplus-fears">Reuters via Euronext&nbsp;↗</a></span></div>
+  </article>
+</section>
+<section class="theme" id="verification">
+  <h2><span class="emoji">✅</span> Vérification</h2>
+  <article class="card">
+    <h3>✅ Vérifié</h3>
+    <p>Cours crypto (CoinGecko, Coinbase)&nbsp;; plus bas du BTC et liquidations (CoinDesk, Chosun Biz, Proactive)&nbsp;; sorties des ETF du 19/11 (Farside, Gate News)&nbsp;; ETH et altcoins (CoinGecko, Proactive, APA)&nbsp;; prix d'ouverture, plus haut et clôture d'Anthropic (CNBC, AP, Investing.com, Yahoo Finance)&nbsp;; baisse d'AMD et réponse d'AMD (CNBC, Reuters)&nbsp;; agent d'Apple (The Verge, MacRumors, Engadget)&nbsp;; visas refusés avant le CES (Nikkei Asia, Humanoid Beat, Times of India)&nbsp;; clôtures de Wall Street (Reuters, CNBC, AP)&nbsp;; 10 ans (Trésor américain, Investing.com)&nbsp;; Nikkei (AP, Mainichi, Economic Times)&nbsp;; Fed de Philadelphie (Fed de Philadelphie, Investing.com)&nbsp;; pétrole et AIE (Reuters, Rigzone, Newsquawk)&nbsp;; déclaration de Shenzhen (Maison-Blanche, Xinhua, Kremlin, BBC, Reuters)&nbsp;; propos de Trump sur l'Iran (Axios, Times of Israel).</p>
+  </article>
+  <article class="card">
+    <h3>⚠️ À confirmer</h3>
+    <p>Valorisation d'Anthropic (environ 1 800 Md$)&nbsp;: calcul de CNBC toutes actions comprises, Investing.com dit 1 760 Md$. Sorties des ETF&nbsp;: chiffres d'agrégateurs, susceptibles de révision&nbsp;; total de novembre (2,9 Md$) non recoupé à la source. Accusations d'Hunterbrook contre AMD&nbsp;: non établies, démenties par AMD. Calendrier de l'agent d'Apple&nbsp;: selon Bloomberg, pas annoncé par Apple. Pétroliers touchés par des mines&nbsp;: affirmation de l'Iran, non vérifiée par Reuters. Durée du sommet&nbsp;: 90 minutes selon la BBC, 80 selon d'autres. Non retenu&nbsp;: la campagne de frappes de 4 à 7 jours sur l'Iran (The Telegraph, une seule source), la fourchette de 1 100 à 1 200 Md$ citée par certains sites pour Anthropic.</p>
+  </article>
+</section>
+<footer>
+  <p>Généré le vendredi 20 novembre 2026 vers 07h00 (heure de Paris). Faits repérés via X puis recoupés sur le web&nbsp;; liens vérifiés (certains sites bloquent les robots mais s’ouvrent normalement dans un navigateur).</p>
+  <p>Les badges signalent les chiffres publiés par les entreprises elles-mêmes et les informations non confirmées officiellement.</p>
+</footer>
+</main>
+</body>
+</html>
